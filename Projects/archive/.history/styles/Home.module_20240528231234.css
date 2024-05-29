@@ -1,0 +1,13 @@
+.main {
+  width: 100%;
+}
+
+
+
+.imageContainer1{
+  position: relative;
+  width: 100%; /* Ensures the container scales with the parent width */
+  padding-top: 50.42%; /* (600 / 1190) * 100% to maintain aspect ratio */
+  overflow: hidden; /* Ensure content doesn't overflow */
+  max-width: 1190px; /* Ensures the container does not exceed the original size */
+}

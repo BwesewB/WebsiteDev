@@ -1,0 +1,19 @@
+.main {
+  width: 100%;
+}
+
+.landingSection {
+  position: relative;
+  border: 1px solid red;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageContainer1 {
+  margin-top: 10vh;
+  position: relative;
+  right: 0;
+  width: 60vw;
+  height: 30vw;
+  margin-bottom: 10vh;
+}

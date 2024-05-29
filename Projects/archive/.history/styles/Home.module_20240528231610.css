@@ -1,0 +1,19 @@
+.main {
+  width: 100%;
+  padding:0;
+  margin:0;
+}
+
+.landingSection{
+  width:100%;
+  display:grid;
+  grid-template-columns: auto auto;
+  background-color: grey;
+}
+
+.imageContainer1{
+  position: relative;
+  width:60vw;
+  height: 30vw;
+  grid-column: 2/3;
+}

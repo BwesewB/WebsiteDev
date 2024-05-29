@@ -1,0 +1,14 @@
+.main {
+  width: 100%;
+}
+
+.landingSection{
+  border: 1px solid red;
+}
+
+.imageContainer1{
+  margin-top: 5vw;
+  right: 0;
+  width: 60vw;
+  height: 30vw;
+}

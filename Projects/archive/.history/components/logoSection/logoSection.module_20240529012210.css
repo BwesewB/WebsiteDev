@@ -1,0 +1,48 @@
+.logoSection{
+    margin-top: 10vw;
+    margin-left: 15vw;
+    position: absolute;
+    width:14vw;
+    height: 5vw;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    border: 1px solid red;
+}
+
+/* .logoSection::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: calc(55% + 5%);
+    height: 50%;
+    width: 1px;
+    background-color: var(--black);
+} */
+
+.websiteName{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column: 1/2;
+    padding-right: 2vw;
+    color: var(--black);
+    font-family: 'maru';
+    border: 1px solid blue;
+}
+
+.onePixelDiv {
+    height: 10px;
+    width: 1px;
+    background-color: black;
+}
+
+.websiteJapan{
+    display: flex;
+    align-items: center;
+    grid-column: 2/3;
+    padding-left: 2vw;
+    color: var(--black);
+    font-family: 'maru-light';
+    letter-spacing: 0.3rem;
+    border: 1px solid blue;
+}

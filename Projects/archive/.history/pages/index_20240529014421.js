@@ -1,0 +1,38 @@
+import styles from "@/styles/Home.module.css";
+import HeadData from "@/components/HeadData";
+import gsap from 'gsap';
+import { useEffect } from "react";
+import Image from "next/image";
+import LogoSection from "@/components/logoSection";
+import LandingPreloader from "@/components/preloaders/landingPreloader";
+
+export default function Home() {
+  useEffect(() => {
+    gsap.to("." + styles.websiteJapanHeader, {
+      duration: 1.5,
+      delay: 5.6,
+      x: "-60vw",
+      ease:"power3"
+  });
+  }, []);
+
+  return (
+    <>
+      <HeadData title="Digital Archive" description="Created by Sebastian Fok. Media by Colin Chan"/>
+      <main className={`${styles.main}`}>
+        <LandingPreloader/>
+        <div className={styles.landingSection}>
+          <LogoSection/>
+          <div className={styles.imageContainer1}>
+            <Image 
+              src="/images/redsign.jpg"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+
+      </main>
+    </>
+  );
+}

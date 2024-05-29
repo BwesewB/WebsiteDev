@@ -1,0 +1,37 @@
+.logoSection{
+    margin-top: 10vw;
+    margin-left: 15vw;
+    position: absolute;
+    width:10vw;
+    height: 5vw;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    font-family: 'maru';
+}
+
+.logoSection::after {
+    content: '';
+    position: absolute;
+    top: 50;
+    left: calc(55% + 5%);
+    height: 50%;
+    width: 2px;
+    background-color: var(--black);
+}
+
+.websiteName{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column: 1/2;
+    padding-right: 0.5vw;
+    color: var(--black);
+}
+
+.websiteJapan{
+    display: flex;
+    align-items: center;
+    grid-column: 2/3;
+    padding-left: 0.5vw;
+    color: var(--black);
+}

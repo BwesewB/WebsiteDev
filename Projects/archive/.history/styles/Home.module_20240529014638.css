@@ -1,0 +1,13 @@
+.main {
+  width: 100%;
+}
+
+.imageContainer1{
+  margin-top: 5vw;
+  position: absolute;
+  right: 0;
+  width: 60vw;
+  height: 30vw;
+  padding-bottom: -30vw;
+  overflow: hidden;
+}

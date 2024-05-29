@@ -1,0 +1,53 @@
+.headerArea{
+    width:100%;
+    height: 10rem;
+    display:flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.headerContainer{
+    position:relative;
+    border: 1px solid blue;
+    width:50vw;
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonContainer{
+    position:relative;
+    width:18%;
+}
+
+.onePixelDivHorizontal{
+    width: 100%;
+    height: 1px;
+    background-color: var(--black);
+}
+
+.headerNames{
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;;
+    font-family: 'maru-light';
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+    border: 1px solid blue;
+}
+
+.buttonContainer:nth-child(1){
+    margin-top: 3rem;
+}
+
+.buttonContainer:nth-child(2){
+    margin-top: 1rem;
+}
+
+.buttonContainer:nth-child(3){
+    margin-top: -1rem;
+}
+
+.buttonContainer:nth-child(4){
+    margin-top: -3rem;
+}

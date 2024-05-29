@@ -1,0 +1,21 @@
+.main {
+  width: 100%;
+}
+
+.landingSection{
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
+  border: 1px solid red;
+}
+
+.landingSectionLeft{
+
+}
+
+.imageContainer1{
+  position: relative;
+  width:60vw;
+  height: 30vw;
+
+}

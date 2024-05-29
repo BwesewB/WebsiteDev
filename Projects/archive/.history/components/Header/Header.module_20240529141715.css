@@ -1,0 +1,33 @@
+.headerArea{
+    width:100%;
+    height: 10rem;
+    display:flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.headerContainer{
+    border: 1px solid blue;
+    width:50vw;
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonContainer{
+    width:18%;
+}
+
+.onePixelDivHorizontal{
+    width: 100%;
+    height: 1px;
+    background-color: var(--black);
+}
+
+.headerNames{
+    margin-top: 1vw;
+    font-family: 'maru-light';
+    letter-spacing: 0.1rem;
+    font-weight: 50;
+}

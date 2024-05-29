@@ -1,0 +1,15 @@
+.main {
+  width: 100%;
+}
+
+.landingSection{
+  display:grid;
+  grid-template-columns: auto auto;
+  width:100%;
+}
+
+.imageContainer1{
+  position: relative;
+  width:60vw;
+  height: 30vw;
+}
