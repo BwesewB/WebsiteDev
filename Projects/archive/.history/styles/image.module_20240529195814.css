@@ -1,0 +1,16 @@
+.imageContainerImage {
+    margin-top: 10vh;
+    position: relative;
+    right: 0;
+    width: 60vw;
+    height: 30vw;
+    margin-bottom: 10vh;
+}
+
+.letters{
+    flex:1;
+    display: flex;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    color: var(--black);
+}

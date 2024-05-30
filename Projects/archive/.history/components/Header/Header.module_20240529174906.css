@@ -45,11 +45,13 @@
     font-weight: 100;
     margin-left: -5rem;
     /* border: 1px solid blue; */
-    transition: 0.3s ease;
+    transition: transform 1s ease;
 }
 
 .headerNames:hover{
-    opacity: 0.6;
+    opacity: 0.8;
+    transition: transform 1s ease;
+    transform: translateX(1rem);
 }
 
 .buttonContainer:nth-child(1){

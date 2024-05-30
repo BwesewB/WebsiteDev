@@ -4,15 +4,16 @@ import styles from "../Header/Header.module.css"
 import Link from "next/link";
 
 export default function Header({
-    lineHoriz = 6.5,
-    headerNamesDelay = 6.7,
-    headerButtonDelay = 6.9,
+    lineVert=6.5,
+    headerNamesDelay=6.7,
+    headerButtonDelay=6.9,
 }){
 
     useEffect(() => {
         gsap.to("." + styles.onePixelDivHorizontal, {
             duration: 1.5,
-            delay: lineHoriz,
+            delay: lineVert,
+            //6.5
             width: "100%",
             stagger: {
                 amount: 0.5,
@@ -23,6 +24,7 @@ export default function Header({
         gsap.to("." + styles.headerNames, {
             duration: 1.5,
             delay: headerNamesDelay,
+            //6.7
             x: "5rem",
             stagger: {
                 amount: 0.5,
@@ -33,6 +35,7 @@ export default function Header({
         gsap.to("." + styles.buttonContainer, {
             duration: 1.5,
             delay: headerButtonDelay,
+            //6.9
             y: "-2rem",
             stagger: {
                 amount: 0.5,

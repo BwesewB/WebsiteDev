@@ -21,7 +21,7 @@
 .buttonContainer{
     position:sticky;
     top: 5rem;
-    padding-top: 6rem;
+    margin-top: 6rem;
     width:18%;
     overflow: hidden;
 }
@@ -32,11 +32,6 @@
     background-color: var(--black);
 }
 
-.navigationLink{
-    text-decoration: none;
-    color: var(--black);
-}
-
 .headerNames{
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;;
@@ -45,11 +40,6 @@
     font-weight: 100;
     margin-left: -5rem;
     /* border: 1px solid blue; */
-    transition: 0.3s ease;
-}
-
-.headerNames:hover{
-    opacity: 0.6;
 }
 
 .buttonContainer:nth-child(1){

@@ -44,12 +44,14 @@
     letter-spacing: 0.1rem;
     font-weight: 100;
     margin-left: -5rem;
-    /* border: 1px solid blue; */
-    transition: 0.3s ease;
+    border: 1px solid blue;
+    transition: 1s ease;
 }
 
 .headerNames:hover{
-    opacity: 0.6;
+    opacity: 0.8;
+    color: aqua;
+    transform: translateX(1rem);
 }
 
 .buttonContainer:nth-child(1){

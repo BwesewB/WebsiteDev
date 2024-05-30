@@ -24,17 +24,13 @@
     padding-top: 6rem;
     width:18%;
     overflow: hidden;
+        border: 1px solid blue;
 }
 
 .onePixelDivHorizontal{
     width: 0;
     height: 1px;
     background-color: var(--black);
-}
-
-.navigationLink{
-    text-decoration: none;
-    color: var(--black);
 }
 
 .headerNames{
@@ -45,11 +41,6 @@
     font-weight: 100;
     margin-left: -5rem;
     /* border: 1px solid blue; */
-    transition: 0.3s ease;
-}
-
-.headerNames:hover{
-    opacity: 0.6;
 }
 
 .buttonContainer:nth-child(1){

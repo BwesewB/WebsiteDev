@@ -28,19 +28,6 @@ export default function logoSection({
                 x: "8rem",
                 ease: "expo.inOut"
             });
-        }  else {
-            // Instantly apply the final state without animation
-            gsap.set("." + styles.onePixelDiv, {
-                height: "3vw",
-            });
-
-            gsap.set("." + styles.websiteNameHeader, {
-                x: "-8rem",
-            });
-
-            gsap.set("." + styles.websiteJapanHeader, {
-                x: "8rem",
-            });
         }
     }, [animate, lineVert, headerDelay]);
     return(
