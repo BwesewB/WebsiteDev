@@ -122,7 +122,7 @@ export default function ImageSection() {
         </div> */}
 
 
-       
+        <div className={styles.scuffed}></div>
         <div className={styles.marginular}>
             <Header
                 lineHoriz = {5.5}

@@ -59,7 +59,7 @@ export default function ImageSection() {
             const scrollPosition = window.scrollY;
 
             // Example logic: change color after scrolling 100px
-            if (scrollPosition > window.innerHeight) {
+            if (scrollPosition > window.innerHeight - 10) {
                 setPrimaryColor("var(--black)");
             } else {
                 setPrimaryColor("var(--white)");

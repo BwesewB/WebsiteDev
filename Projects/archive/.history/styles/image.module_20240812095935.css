@@ -7,9 +7,13 @@
     z-index: 1;
 }
 
+.actualImage{
+
+}
+
 .heighter{
     width: 100vw;
-    height: 80vh;
+    height: 40vw;
 }
 
 .header{
@@ -59,11 +63,21 @@
 
 }
 
+.croppingular{
+    width:100%;
+    height: 10vw;
+    bottom:0;
+    /* border:1px solid blue; */
+    z-index: 2;
+    position:relative;
+}
+
 .marginular{
     width:100%;
     position:sticky;
     top:0;
     z-index: 2;
+
 }
 
 

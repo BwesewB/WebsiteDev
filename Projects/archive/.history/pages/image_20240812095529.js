@@ -110,7 +110,7 @@ export default function ImageSection() {
 
 
         
-        {/* <div className={styles.croppingular}>
+        <div className={styles.croppingular}>
             <div className={styles.whitingular}>
                 <Header 
                     lineHoriz = {5.5}
@@ -119,10 +119,10 @@ export default function ImageSection() {
                     primaryColor="var(--white)"
                 />
             </div>
-        </div> */}
+        </div>
 
 
-       
+        <div className={styles.scuffed}></div>
         <div className={styles.marginular}>
             <Header
                 lineHoriz = {5.5}

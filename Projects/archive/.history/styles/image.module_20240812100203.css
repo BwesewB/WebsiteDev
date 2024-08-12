@@ -7,11 +7,6 @@
     z-index: 1;
 }
 
-.heighter{
-    width: 100vw;
-    height: 80vh;
-}
-
 .header{
     position:fixed;
     top:50%;

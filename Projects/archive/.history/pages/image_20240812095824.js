@@ -122,14 +122,16 @@ export default function ImageSection() {
         </div> */}
 
 
-       
-        <div className={styles.marginular}>
-            <Header
-                lineHoriz = {5.5}
-                headerNamesDelay = {5.7}
-                headerButtonDelay = {5.9}
-                primaryColor={primaryColor}
-            />
+        <div className={styles.scuffed}></div>
+        <div className={styles.croppingular}>
+            <div className={styles.marginular}>
+                <Header
+                    lineHoriz = {5.5}
+                    headerNamesDelay = {5.7}
+                    headerButtonDelay = {5.9}
+                    primaryColor={primaryColor}
+                />
+            </div>
         </div>
         {/* margin-top: -10rem; */}
         <div className={styles.imageContent}>
