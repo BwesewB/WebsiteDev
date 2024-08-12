@@ -1,0 +1,39 @@
+.bodey{
+    width:100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-columns: 70% 30%;
+    position:absolute;
+    top:0;
+}
+
+.leftSection{
+    grid-column: 1/2;
+    width:100%;
+    height: 100%;
+    background-color: red;
+    display:flex;
+    justify-content: baseline;
+    align-items: end;
+}
+
+.twennyfour{
+    background-color: green;
+    width:100%;
+    height:5%;
+    margin:5rem;
+    margin-bottom: 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'maru-light';
+    color: var(--white);
+}
+
+
+.rightSection{
+    grid-column: 2/3;
+    width:100%;
+    height: 100%;
+    background-color: blue;
+}
