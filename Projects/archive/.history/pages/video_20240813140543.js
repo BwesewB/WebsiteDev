@@ -4,17 +4,8 @@ import Header from "@/components/Header";
 import VideoComp from "@/components/VideoPage/videoComp";
 import { useEffect } from "react";
 import gsap from "gsap";
-import { data } from "@/components/VideoPage/Data";
-import { useState } from "react";
 
 export default function video({}){
-
-    const [selectedData, setSelectedData] = useState(data[0]);
-
-    const handleButtonClick = (id) => {
-        const item = data.find((d) => d.id === id);
-        setSelectedData(item);
-    };
 
     useEffect(() => {
         gsap.fromTo(
@@ -48,23 +39,15 @@ export default function video({}){
 
                     <div className={styles.bodey}>
                         <div className={styles.leftSection}>
-
-                            <div className={styles.changingArea}>
-                                <h5 className={styles.videoTitle}>{selectedData.title}</h5>
-                                <p className={styles.japTitle}>{selectedData.japTitle}</p>
-                            </div>        
-
-
                             <div className={styles.twennyfour}>
                                 <h6>twenty-four</h6>
                                 <h6>truths</h6>
                                 <h6>per</h6>
                                 <h6>second</h6>
                             </div>
-
                         </div>
                         <div className={styles.rightSection}>
-                            <VideoComp handleButtonClick={handleButtonClick}/>
+                            <VideoComp/>
                         </div>
                     </div>
                 </div>

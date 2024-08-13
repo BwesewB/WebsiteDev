@@ -1,26 +1,44 @@
 import styles from "@/styles/video.module.css";
 import HeadData from "@/components/HeadData";
 import Header from "@/components/Header";
-import VideoComp from "@/components/VideoPage/videoComp";
+import VideoComp from "@/components/videoComp";
 import { useEffect } from "react";
 import gsap from "gsap";
-import { data } from "@/components/VideoPage/Data";
-import { useState } from "react";
 
 export default function video({}){
 
-    const [selectedData, setSelectedData] = useState(data[0]);
-
-    const handleButtonClick = (id) => {
-        const item = data.find((d) => d.id === id);
-        setSelectedData(item);
-    };
-
     useEffect(() => {
+        // const timeline1 = gsap.timeline();
+
+        // timeline1.fromTo(
+        //     `.${styles.twennyfour} > div`,
+        //     {
+        //         y: "100%",
+        //         opacity: 0
+        //     },
+        //     {
+        //         y: "0%",
+        //         opacity: 1,
+        //         duration: 2,
+        //         ease: "power4.inOut",
+        //         stagger: 0.05,
+        //     }
+        // )
+        // .to(
+        //     `.${styles.twennyfour} > div`,
+        //     {
+        //         y: "-100%",
+        //         opacity: 0,
+        //         duration: 2,
+        //         ease: "power4.inOut",
+        //         stagger: 0.05,
+        //         delay: 1
+        //     }
+        // );
+
         gsap.fromTo(
-            "." + styles.twennyfour + " h6", //NOTE: THE SPACE NEEDS TO BE THERE. By adding " h6" to the selector, it selects all <h6> elements that are direct children of any element with the class twennyfour. 
-            {   
-                x: (index) => `${index * -4}rem`, // Start each h6 from its own position
+            "." + styles.twennyfour + " h6", //By adding " h6" to the selector, it selects all <h6> elements that are direct children of any element with the class twennyfour.
+            {   x: (index) => `${index * 8}rem`, // Start each h6 from its own position
                 opacity: 0
             }, 
             {
@@ -31,7 +49,8 @@ export default function video({}){
                 stagger: 0.5, // Stagger each h6 animation by 0.5 seconds
                 opacity: 1
             }
-        );
+          );
+
     }, [])
 
     return(
@@ -48,23 +67,15 @@ export default function video({}){
 
                     <div className={styles.bodey}>
                         <div className={styles.leftSection}>
-
-                            <div className={styles.changingArea}>
-                                <h5 className={styles.videoTitle}>{selectedData.title}</h5>
-                                <p className={styles.japTitle}>{selectedData.japTitle}</p>
-                            </div>        
-
-
                             <div className={styles.twennyfour}>
                                 <h6>twenty-four</h6>
                                 <h6>truths</h6>
                                 <h6>per</h6>
                                 <h6>second</h6>
                             </div>
-
                         </div>
                         <div className={styles.rightSection}>
-                            <VideoComp handleButtonClick={handleButtonClick}/>
+                            <VideoComp/>
                         </div>
                     </div>
                 </div>

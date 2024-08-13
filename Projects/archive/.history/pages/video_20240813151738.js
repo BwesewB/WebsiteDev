@@ -5,7 +5,6 @@ import VideoComp from "@/components/VideoPage/videoComp";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { data } from "@/components/VideoPage/Data";
-import { useState } from "react";
 
 export default function video({}){
 
@@ -50,8 +49,8 @@ export default function video({}){
                         <div className={styles.leftSection}>
 
                             <div className={styles.changingArea}>
-                                <h5 className={styles.videoTitle}>{selectedData.title}</h5>
-                                <p className={styles.japTitle}>{selectedData.japTitle}</p>
+                                <h1>{selectedData.title}</h1>
+                                <p>{selectedData.japTitle}</p>
                             </div>        
 
 

@@ -94,10 +94,10 @@ export default function ImageSection() {
         </div>
         <div className={styles.imageContainerImage}>
             <Image 
-                className={styles.actualImage}
-                src="/images/corridor.jpg"
-                layout="fill"
-                objectFit="cover"
+            className={styles.actualImage}
+            src="/images/corridor.jpg"
+            layout="fill"
+            objectFit="cover"
             />
         </div>
         <div className={styles.heighter}></div>
