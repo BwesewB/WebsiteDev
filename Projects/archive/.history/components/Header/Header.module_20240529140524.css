@@ -1,0 +1,13 @@
+.headerArea{
+    width:100%;
+    height: 10rem;
+    display:flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.headerContainer{
+    border: 1px solid blue;
+    width:70vw;
+    height: 100%;
+}

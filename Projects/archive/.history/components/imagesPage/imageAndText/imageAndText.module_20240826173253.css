@@ -1,0 +1,11 @@
+.imageContainer{
+    border: 1px solid red;
+    position:absolute;
+    margin-top: 30vh;
+}
+
+.helvParagraph{
+    color: var(--white);
+    font-family: Helvetica;
+    position: absolute;
+}
