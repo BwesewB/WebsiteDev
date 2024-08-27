@@ -1,0 +1,117 @@
+.imageContainerImage {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heighter{
+    width: 100vw;
+    height: 80vh;
+}
+
+.header{
+    position:fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    display:flex;
+    width:100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.letters{
+    flex:1;
+    display: flex;
+    font-family: 'Helvetica';
+    font-weight: bold;
+    color: var(--black);
+}
+
+.letters > div {
+    font-size: 16vw;
+    text-align: center;
+}
+
+.webContent{
+    top:0;
+    width:100%;
+    min-height: 100vh;
+}
+
+
+.imageContent{
+    width:100%;
+    height: 750vh;
+    overflow: hidden;
+    z-index: 10;
+    /* background-color: blue; */
+}
+
+.whitingular{
+    width:100%;
+    /* border:1px solid red; */
+    position:sticky;
+    top:0;
+    z-index: 10;
+
+}
+
+.marginular{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index: 2;
+}
+
+.bigImage{
+    display: flex;
+    justify-content: center;
+    padding-top: 210vh;
+}
+
+.textular1, .textular2, .textular3{
+    font-family: Helvetica;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.textular1{
+    z-index: 3;
+    position:absolute;
+    padding-top: 53rem;
+    padding-left: 2.5rem;
+}
+
+.ofSomeone{
+    position: absolute;
+    padding-top: 290vh;
+    z-index: 3;
+    padding-left: 55%;
+}
+
+.textular2{
+    margin-bottom: 2rem;
+}
+
+.andNone{
+    position:absolute;
+    left:50%;
+    padding-top: 480vh;
+}
+.textular3{
+    margin-top: 2rem;
+}
+
+.tweny3{
+    position:absolute;
+    left:50%;
+    padding-top: 530vh;
+    letter-spacing: 1rem;
+    font-family: helvetica;
+    font-size: 1rem;
+}

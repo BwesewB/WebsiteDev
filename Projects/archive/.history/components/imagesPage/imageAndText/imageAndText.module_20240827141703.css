@@ -1,0 +1,15 @@
+.entireContainer{
+    position:absolute;
+    border: 1px solid blue;
+}
+
+.imageContainer{
+    border: 1px solid red;
+}
+
+.helvParagraph{
+    color: var(--black);
+    font-family: Helvetica;
+    padding-top: 0rem;
+    z-index: 3;
+}
