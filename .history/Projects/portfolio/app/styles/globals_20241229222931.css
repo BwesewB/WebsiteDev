@@ -1,0 +1,25 @@
+:root{
+  background-color: white;
+  object-fit: cover;
+  overflow: hidden;
+
+  --white: #EBEBEB;
+  --black: #0e0e0e;
+}
+
+html, body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .body {
+
+  }
+}
+
+@media (max-width: 480px) {
+
+}
