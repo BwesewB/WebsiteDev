@@ -1,0 +1,21 @@
+.entireContainer{
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    object-fit: cover;
+}
+
+.imageContainer{
+    /* border: 1px solid red; */
+    position: relative;
+    object-fit: cover;
+}
+
+.helvParagraph{
+    color: var(--black);
+    font-family: Helvetica;
+    padding-top: 0.5rem;
+    z-index: 3;
+    left:0;
+    font-size: 0.8rem;
+}
