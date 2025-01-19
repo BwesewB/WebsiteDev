@@ -1,0 +1,33 @@
+:root{
+  background-color: white;
+  object-fit: cover;
+  overflow: hidden;
+
+  --white: #FAFDFF;
+  --grey: #B4B7B6;
+  --black: #0D0F11;
+
+  --lightBlue: #B0CADF;
+  --kleinBlue: #0051AC;
+  --sand: #FCF2DF;
+  --brown: #452B1D;
+
+
+}
+
+html, body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .body {
+
+  }
+}
+
+@media (max-width: 480px) {
+
+}
