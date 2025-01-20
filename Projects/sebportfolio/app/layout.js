@@ -1,8 +1,5 @@
-"use client";
-
 import "./styles/globals.css"; 
-import { usePathname } from "next/navigation";
-import Navbar from "./components/navbar/page";
+import ClientWrap from "./clientWrap";
 
 export const metadata = {
   title: "Portfolio - Sebastian Fok",
@@ -11,23 +8,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
-  const pageColors = {
-    "/": "var(--white)",
-    "/pages/3d": {bgColor: "var(--black)", navColor: "var(--white)"},
-    "/pages/motion": {bgColor: "var(--black)", navColor: "var(--white)"},
-    "/pages/visual": "var(--white)",
-    "/pages/teamwork": "var(--white)"
-  };
-
-  const { bgColor, navColor } = pageStyles[pathname] || pageStyles["/"];
-
   return (
     <html lang="en" style={{ padding:"0", margin:"0" }}>
-      <body style={{ backgroundColor: bgColor }}>
-        <Navbar navColor={navColor} />
-        {children}
+      <body>
+        <ClientWrap>{children}</ClientWrap>
       </body>
     </html>
   );
