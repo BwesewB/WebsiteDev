@@ -9,7 +9,7 @@ const Scene = dynamic(() => import('../../components/torus/Scene'), {
 export default function ThreeD() {
     return (
         <div className={styles.threeDContainer}>
-            <h1>3D Page</h1>
+            {/* <h1>3D Page</h1> */}
             <div className={styles.torusScene}>
                 <Scene />
             </div>
