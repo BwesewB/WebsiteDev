@@ -10,12 +10,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^15.1.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@react-three/drei": "^9.121.2",
+    "@react-three/fiber": "^8.17.12",
+    "@rollup/plugin-inject": "^5.0.5",
+    "leva": "^0.9.35",
+    "next": "^14.2.23",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.172.0",
+    "three-mesh-bvh": "^0.8.3"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^0.3.8",
+    "@types/debounce": "^1.2.4",
+    "@types/draco3d": "^1.4.10",
+    "@types/estree": "^1.0.6",
+    "@types/offscreencanvas": "^2019.7.3",
+    "@types/react": "^19.0.7",
+    "@types/webxr": "^0.5.21",
     "wrangler": "^3.103.2"
   }
 }

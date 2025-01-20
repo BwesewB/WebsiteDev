@@ -1,4 +1,5 @@
 import Navbar from "@/app/components/navbar/page";
+import * as THREE from 'three';
 
 export default function Visual() {
     return (
