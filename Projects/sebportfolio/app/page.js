@@ -1,9 +1,11 @@
 import styles from './styles/page.module.css';
+import Navbar from './components/navbar/page';
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <p>Hello World!</p>
+      <Navbar />
+      <p className={styles.test}>Hello World!</p>
     </div>
   );
 }

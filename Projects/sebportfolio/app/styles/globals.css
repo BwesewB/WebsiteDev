@@ -1,14 +1,12 @@
 :root{
-  background-color: white;
-  object-fit: cover;
-  overflow: hidden;
+  background-color: var(--white);
 
   --white: #FAFDFF;
   --grey: #B4B7B6;
   --black: #040A10;
 
   --lightBlue: #B0CADF;
-  --kleinBlue: #0051AC;
+  --blue: #0051AC;
   --sand: #EBE3D5;
   --brown: #452B1D;
 
@@ -18,11 +16,20 @@ h1, h2, h3, h4, h5, p{
   margin: 0;
 }
 
+a {
+  all: unset;
+  cursor: pointer;
+}
+
 html, body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 @media (max-width: 768px) {
@@ -67,16 +74,6 @@ html, body {
 /* Global Text Styles */
 :root {
   --font-primary: "TWK Lausanne", sans-serif;
-}
-
-/* NavBar */
-.navbar {
-  font-family: var(--font-primary);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%; /* 16px */
-  letter-spacing: 1.6px;
 }
 
 /* Headings */
