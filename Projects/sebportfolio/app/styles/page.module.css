@@ -1,3 +1,5 @@
 .test{
     height: 3000rem;
+    width:100%;
+    border: 1px solid black;
 }

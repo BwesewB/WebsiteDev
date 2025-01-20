@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Navbar from "./components/navbar/page";
+import { useEffect } from "react";
 
 export default function ClientWrap({ children }) {
   const pathname = usePathname();
@@ -15,10 +16,20 @@ export default function ClientWrap({ children }) {
 
   const { bgColor, navColor } = pageStyles[pathname] || pageStyles["/"];
 
+  // Update styles for the html and body elements directly
+  useEffect(() => {
+    document.documentElement.style.backgroundColor = bgColor; // Update <html> background color
+    document.body.style.backgroundColor = bgColor; // Update <body> background color
+  }, [bgColor]);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--nav-color', navColor); // Update nav color
+  }, [navColor]);
+
   return (
-    <div style={{ backgroundColor: bgColor}}>
+    <>
       <Navbar navColor={navColor} />
       {children}
-    </div>
+    </>
   );
 }
