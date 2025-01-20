@@ -5,14 +5,17 @@
 
   --white: #FAFDFF;
   --grey: #B4B7B6;
-  --black: #0D0F11;
+  --black: #040A10;
 
   --lightBlue: #B0CADF;
   --kleinBlue: #0051AC;
-  --sand: #FCF2DF;
+  --sand: #EBE3D5;
   --brown: #452B1D;
 
+}
 
+h1, h2, h3, h4, h5, p{
+  margin: 0;
 }
 
 html, body {
@@ -30,4 +33,115 @@ html, body {
 
 @media (max-width: 480px) {
 
+}
+
+/* Font Face Declaration */
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Global Text Styles */
+:root {
+  --font-primary: "TWK Lausanne", sans-serif;
+}
+
+/* NavBar */
+.navbar {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 16px */
+  letter-spacing: 1.6px;
+}
+
+/* Headings */
+h1 {
+  font-family: var(--font-primary);
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 70.4px */
+}
+
+h2 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 48px */
+}
+
+h3 {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 32px */
+}
+
+h4 {
+  font-family: var(--font-primary);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 26px */
+}
+
+h5 {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.h5-stretched {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+/* Paragraph Styles */
+p {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+p.bold {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
