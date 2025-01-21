@@ -33,6 +33,7 @@ export default function Visual() {
                             <p>Aliqua anim ea anim ullamco ea do irure reprehenderit. Elit Lorem fugiat dolore culpa mollit duis aliqua amet ullamco irure non commodo. Ex id incididunt veniam cillum. Ea minim exercitation anim qui minim do elit amet consequat cupidatat. Adipisicing pariatur nisi exercitation voluptate esse ipsum adipisicing occaecat cillum veniam duis qui aute est.</p>
                         </div>
                     </div>
+                    
                     <div className={styles.progressBar}>
                         <div className={styles.progress}></div>
                     </div>
