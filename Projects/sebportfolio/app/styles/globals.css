@@ -34,24 +34,15 @@ body {
 h1, h2, h3, h4, h5, p{
   margin: 0;
   color: var(--black);
+}
+
+h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
 a {
   all: unset;
   cursor: pointer;
-}
-
-
-
-@media (max-width: 768px) {
-  .body {
-
-  }
-}
-
-@media (max-width: 480px) {
-
 }
 
 /* Font Face Declaration */
@@ -153,4 +144,19 @@ p.bold {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 32px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
 }

@@ -2,8 +2,11 @@
 import { usePathname } from "next/navigation";
 import Navbar from "./components/navbar/page";
 import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis"
 
 export default function ClientWrap({ children }) {
+
+
   const pathname = usePathname();
 
   const pageStyles = {
@@ -18,13 +21,36 @@ export default function ClientWrap({ children }) {
 
   // Update styles for the html and body elements directly
   useEffect(() => {
-    document.documentElement.style.backgroundColor = bgColor; // Update <html> background color
-    document.body.style.backgroundColor = bgColor; // Update <body> background color
+    document.documentElement.style.backgroundColor = bgColor; // Update html background color
+    document.body.style.backgroundColor = bgColor; // Update body background color
   }, [bgColor]);
 
   useEffect(() => {
     document.documentElement.style.setProperty('--nav-color', navColor); // Update nav color
   }, [navColor]);
+
+
+//Lenis smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.0, // Scroll duration. How smooth it is
+      easing: (t) => 1 - Math.pow(1 - t, 3), // Easing
+      smooth: true, // Enable smooth scrolling
+      smoothTouch: false, // Disable smooth scrolling on touch devices
+      direction: "vertical",
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy(); // Cleanup Lenis
+    };
+  }, []);
 
   return (
     <>
