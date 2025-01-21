@@ -1,9 +1,10 @@
-import Navbar from "@/app/components/navbar/page";
+import styles from "./motion.module.css"
+import HeroSection from "@/app/components/heroSection/page";
 
 export default function Motion() {
     return (
         <div>
-            <h1>Motion</h1>
+            <HeroSection videoSrc="/video/Clip8.mp4"/>
         </div>
     );
 }

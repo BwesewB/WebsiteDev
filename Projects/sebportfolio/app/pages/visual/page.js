@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Lenis from "@studio-freight/lenis"
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import projectsCopy from "./projects.js"
+import HeroSection from "@/app/components/heroSection/page";
 
 export default function Visual() {
 
@@ -32,9 +33,7 @@ export default function Visual() {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.canContainer}>
-                    <h1>Visual</h1>
-                </div>
+                <HeroSection />
                 <div className={styles.projectContainer}>
                     <div className={styles.col}>
                         <div className={styles.projects}>

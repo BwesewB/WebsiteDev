@@ -20,13 +20,13 @@ export default function Navbar({
             <Link href="/pages/3d">3D</Link>
           </li>
           <li className={styles.linkContainer}>
-            <Link href="/pages/motion">Motion</Link>
+            <Link href="/pages/motion">MOTION</Link>
           </li>
           <li className={styles.linkContainer}>
-            <Link href="/pages/visual">Visual</Link>
+            <Link href="/pages/visual">VISUAL</Link>
           </li>
           <li className={styles.linkContainer}>
-            <Link href="/pages/teamwork">Teamwork</Link>
+            <Link href="/pages/teamwork">TEAMWORK</Link>
           </li>
         </ul>
       </nav>
