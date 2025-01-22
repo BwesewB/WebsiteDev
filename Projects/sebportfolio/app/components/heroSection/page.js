@@ -3,15 +3,29 @@ import styles from "./heroSection.module.css"
 
 export default function HeroSection({
     imageSrc="",
-    videoSrc=""
+    videoSrc="/videos/Clip8.mp4"
 }) {
     return(
         <>
             <div className={styles.fullWidth}>
-                <img src={imageSrc} className={styles.image}/>
-                <video autoPlay loop muted preload="auto" playsInline>
-                    <source src={videoSrc} type="video/mp4"/>
-                </video>
+                {
+                    imageSrc && 
+                    <img src={imageSrc} alt={imageSrc} className={styles.image} />
+                }
+                
+                {
+                    videoSrc && 
+                    <video 
+                        autoPlay 
+                        loop 
+                        muted 
+                        preload="metadata" 
+                        playsInline 
+                        className={styles.video}
+                    >
+                        <source src={videoSrc} type="video/mp4" />
+                    </video>
+                }
             </div>
         </>
     )

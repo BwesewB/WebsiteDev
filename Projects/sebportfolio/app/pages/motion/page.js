@@ -4,7 +4,7 @@ import HeroSection from "@/app/components/heroSection/page";
 export default function Motion() {
     return (
         <div>
-            <HeroSection videoSrc="/video/Clip8.mp4"/>
+            <HeroSection videoSrc="/videos/Clip8.mp4"/>
         </div>
     );
 }
