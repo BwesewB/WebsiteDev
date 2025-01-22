@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./navbar.module.css";
+// import styles from "./navbar.module.css";
 import Logo from "@/public/images/Logo";
 
 export default function Navbar({
@@ -33,3 +33,39 @@ export default function Navbar({
     </div>
   );
 }
+
+// .fullWithNavbar{
+//   position: fixed;
+//   box-sizing: border-box;
+//   width: 100%;
+//   left:0;
+//   padding: 20px 90px;
+//   z-index: 1000;
+// }
+
+// .navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   font-family: var(--font-primary);
+//   font-size: 16px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 100%; /* 16px */
+//   letter-spacing: 1.6px;
+//   color: var(--blue);
+//   text-decoration: none;
+//   flex-shrink: 0;
+// }
+
+// .navPages{
+//   display: flex;
+//   justify-content: space-between;
+//   gap:40px;
+// }
+
+// .linkContainer{
+//   padding: 6px 12px;
+//   display: flex;
+//   align-items: center;
+// }
+
