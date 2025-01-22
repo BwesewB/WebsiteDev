@@ -3,7 +3,7 @@ import styles from "./heroSection.module.css"
 
 export default function HeroSection({
     imageSrc="",
-    videoSrc="/videos/Clip8.mp4"
+    videoSrc=""
 }) {
     return(
         <>
