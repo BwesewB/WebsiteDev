@@ -132,8 +132,24 @@ export default function Visual() {
     const [projectText, setProjectText] = useState(projectsData[0].description);
 
     useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
-  
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const projectContainer = document.querySelector(`.${styles.projectContainer}`);
+        const projects = document.querySelectorAll(`.${styles.projectName}`);
+        const indicator = document.querySelector(`.${styles.indicator}`);
+        // const currentCount = document.querySelector(`.${styles.currentCount} p`);
+        // const projectImage = document.querySelector(`.${styles.projectImage}`);
+        // const projectCopy = document.querySelector(`.${styles.projectCopy} p`);
+        // const projectContainerHeight = 38;
+        // const imgHeight = 250;
+
+        // ScrollTrigger.create({
+        //     trigger: projectContainer,
+        //     pin: true,
+        //     start: 'top top', // when the top of the trigger hits the top of the viewport
+        //     end: '+=100px', // end after scrolling 500px beyond the start
+        //     scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        // });
     }, []);
 
     return (
