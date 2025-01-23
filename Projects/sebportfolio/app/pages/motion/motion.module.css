@@ -4,15 +4,16 @@
 
 .motionContainer {
     height: 300vh;
-    border: 2px yellow solid;
+    /* border: 2px yellow solid; */
     width: 100vw;
     position: relative;
 }
 
 .motionContent {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    /* background-color: red; */
+    height: auto;
+    overflow: hidden;
+    /* display: flex;
+    justify-content: center; */
+    border: 2px yellow solid;
 }

@@ -41,6 +41,7 @@ body {
 
 h1, h2, h3, h4, h5, p{
   margin: 0;
+  padding: 0;
   color: var(--black);
 }
 
@@ -90,10 +91,12 @@ a {
 /* Headings */
 h1 {
   font-family: var(--font-primary);
-  font-size: 64px;
+  font-size: 96px;
   font-style: normal;
   font-weight: 700;
   line-height: 110%; /* 70.4px */
+  margin-top: -15px;
+  margin-left: -8px;
 }
 
 h2 {
@@ -128,30 +131,30 @@ h5 {
   line-height: normal;
 }
 
-.h5-stretched {
+.h5stretched {
   font-family: var(--font-primary);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 2.4px;
+  letter-spacing: 2px;
 }
 
 /* Paragraph Styles */
 p {
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 p.bold {
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 /* Responsive */

@@ -12,7 +12,7 @@ export default function ClientWrap({ children }) {
   const pageStyles = {
     "/": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/3d": { bgColor: "var(--black)", navColor: "var(--white)" },
-    "/pages/motion": { bgColor: "var(--black)", navColor: "var(--white)" },
+    "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/teamwork": { bgColor: "var(--white)", navColor: "var(--blue)" },
   };
@@ -33,7 +33,7 @@ export default function ClientWrap({ children }) {
 //Lenis smooth scrolling
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.0, // Scroll duration. How smooth it is
+      duration: 0.7, // Scroll duration. How smooth it is
       easing: (t) => 1 - Math.pow(1 - t, 3), // Easing
       smooth: true, // Enable smooth scrolling
       smoothTouch: false, // Disable smooth scrolling on touch devices

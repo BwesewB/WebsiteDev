@@ -1,7 +1,7 @@
 import styles from "./threeD.module.css";
 import dynamic from 'next/dynamic';
 
-const Scene = dynamic(() => import('../../components/torus/Scene'), {
+const Scene = dynamic(() => import('./torus/Scene'), {
     ssr: false, //u can add placeholder for loading 
     //tells next js only render on client side
 })

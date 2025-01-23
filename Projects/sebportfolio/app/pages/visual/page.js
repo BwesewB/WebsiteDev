@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import Lenis from "@studio-freight/lenis"
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import projectsData from "./projectsData.js"
-import HeroSection from "@/app/components/heroSection/page";
+import HeroSection from "@/app/components/pageComponents/heroSection/page";
 import { useState } from 'react';
 
 export default function Visual() {
