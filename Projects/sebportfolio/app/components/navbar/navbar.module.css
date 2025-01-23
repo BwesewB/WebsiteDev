@@ -1,13 +1,22 @@
 .fullWithNavbar{
     position: fixed;
+    top:0;
     box-sizing: border-box;
-    width: 100%;
-    left:0;
-    padding: 20px 90px;
+    width: 100%; /* Inherit grandparent width */
+    /* width: 100%; */
+    /* left:0; */
+    /* padding: 20px 90px; */
     z-index: 1000;
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw; /* Match viewport width initially */
+    max-width: 100%;
+    padding: 20px 90px;
     display: flex;
     justify-content: space-between;
     font-family: var(--font-primary);
@@ -19,6 +28,7 @@
     color: var(--blue);
     text-decoration: none;
     flex-shrink: 0;
+    z-index: 1000;
 }
 
 .navPages{

@@ -7,7 +7,7 @@ export default function Navbar({
   navColor = "var(--blue)"
 }) {
   return (
-    <div className={styles.fullWithNavbar}>
+    // <div className={styles.fullWithNavbar}>
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
           <Link href="/">
@@ -30,7 +30,7 @@ export default function Navbar({
           </li>
         </ul>
       </nav>
-    </div>
+    // </div>
   );
 }
 

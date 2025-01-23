@@ -154,8 +154,10 @@ export default function Visual() {
 
     return (
         <>
-            <div className={styles.visualContainer}>
+            <div className={styles.heroSection}>
                 <HeroSection imageSrc="/images/cans/Fish1.png" />
+            </div>
+            <div className={styles.visualContainer}>
                 <div className={styles.projectContainer}>
                     <div className={styles.col}>
                         <div className={styles.projects}>

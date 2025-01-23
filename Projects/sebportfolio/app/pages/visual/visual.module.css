@@ -1,3 +1,9 @@
+.heroSection {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
 .visualContainer {
     width: 100%;
     position: relative;

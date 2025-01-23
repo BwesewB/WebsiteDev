@@ -1,5 +1,6 @@
 .fullWidth {
-    margin-left: -90px;
+    /* margin-left: -90px; */
+    position: relative;
     width: 100vw;
     height: 100vh;
     border: 5px solid var(--blue);
