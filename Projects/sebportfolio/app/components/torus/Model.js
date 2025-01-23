@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF, Text, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from '@react-three/fiber'
 import { MeshTransmissionMaterial } from "@react-three/drei";
@@ -29,10 +29,17 @@ export default function Model() {
     const controls = useRef();
     const { nodes } = useGLTF("/models/KnotTorus.glb");
     const { viewport } = useThree()
+    const [isDesktop, setIsDesktop] = useState(true);
 
     useFrame(() => {
         mesh.current.rotation.x += 0.005;
     })
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isMobile = /android|iphone|ipad|ipod|blackberry|windows phone|opera mini|mobile/i.test(userAgent);
+        setIsDesktop(!isMobile);
+    }, []);
 
     useEffect(() => {
         let timeout;
@@ -41,7 +48,6 @@ export default function Model() {
             if (controls.current) {
                 console.log('Smoothly resetting camera position...');
                 
-                // Animate the camera position
                 gsap.to(controls.current.object.position, {
                     x: 0,
                     y: 0,
@@ -50,14 +56,13 @@ export default function Model() {
                     ease: 'power2.out',
                 });
 
-                // Animate target position
                 gsap.to(controls.current.target, {
                     x: 0,
                     y: 0,
                     z: 0,
                     duration: 1.5,
                     ease: 'power2.out',
-                    onUpdate: () => controls.current.update(), // Ensure controls update during animation
+                    onUpdate: () => controls.current.update(),
                 });
             }
         };
@@ -68,17 +73,20 @@ export default function Model() {
             timeout = setTimeout(smoothResetCamera, 2000);
         };
 
-        controls.current?.addEventListener('change', onControlChange);
+        if (isDesktop) {
+            controls.current?.addEventListener('change', onControlChange);
+        }
 
         return () => {
             controls.current?.removeEventListener('change', onControlChange);
             clearTimeout(timeout);
         };
-    }, []);
+    }, [isDesktop]);
 
     return (
         <>
-            <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />
+            {isDesktop && <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />}
+            {/* only render the orbit controls if it is on desktop */}
             <group scale={viewport.width / 3.75} >
                 <Text font={'/fonts/Lausanne/TWKLausanne-700.otf'} position={[0, 0, -1]} fontSize={0.7} color="var(--white)" anchorX="center" anchorY="middle">
                     3D MODELS
