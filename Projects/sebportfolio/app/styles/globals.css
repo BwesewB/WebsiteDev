@@ -10,6 +10,9 @@
   --sand: #EBE3D5;
   --brown: #452B1D;
 
+  --marginRightParagraph: 4px;
+  --marginRightH4: 6px;
+
 }
 
 * {
@@ -168,6 +171,6 @@ p {
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
 
-}
+} */

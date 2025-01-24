@@ -56,16 +56,16 @@
     width: max-content;
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 50px;
     z-index: 1;
 }
 
-.projectName h2 {
+.projectName h3 {
     color: var(--blue);
     transition: color 0.3s;
 }
 
-.projectName.active h2 {
+.projectName.active h3 {
     color: var(--white);
 }
 

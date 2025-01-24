@@ -164,7 +164,7 @@ export default function Visual() {
                             <div className={styles.indicator}></div>
                             {projectsData.map((project, index) => (
                                 <div key={index} className={`${styles.projectName} ${index === 0 ? styles.active : ''}`}>
-                                <h2>{project.name}</h2>
+                                <h3>{project.name}</h3>
                                 </div>
                             ))}
                         </div>

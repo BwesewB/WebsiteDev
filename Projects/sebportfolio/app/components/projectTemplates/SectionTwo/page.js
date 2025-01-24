@@ -27,7 +27,7 @@ export default function SectionTwo({
                     clearInterval(fadeInterval.current);
                     console.log("Volume is inactive");
                 }
-            }, 1);
+            }, 10);
         };
 
         const fadeInVolume = () => {
@@ -41,7 +41,7 @@ export default function SectionTwo({
                     clearInterval(fadeInterval.current);
                     console.log("Full Volume");
                 }
-            }, 1);
+            }, 10);
         };
 
         const observer = new IntersectionObserver(
