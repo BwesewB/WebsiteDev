@@ -14,13 +14,11 @@ export default function ProjectHero ({
     return(
         <>
             <div className={styles.bodyWidth}>
-                <div 
-                    className={styles.textContainer}
-                >
-                    <h1 style={{ color: textColour }}> {projectName} </h1>
+                <div className={styles.textContainer} style={{ color: textColour }}>
+                    <h1> {projectName} </h1>
                     <div className={styles.textHeader}>
-                        <p style={{ color: textColour }}>{toolsUsed}</p>
-                        <p style={{ color: textColour }}>{date}</p>
+                        <p>{toolsUsed}</p>
+                        <p>{date}</p>
                     </div>
                 </div>
 
@@ -28,6 +26,7 @@ export default function ProjectHero ({
                     imageSrc={imageSrc}
                     videoSrc={videoSrc}
                 />
+
             </div>
         </>
     )

@@ -3,11 +3,33 @@
     grid-template-columns: 50% 50%;
     width: 100%;
     height: fit-content;
-    
+    position: relative;
+}
+
+.projectDescription {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
 }
 
 .buttonRound {
     grid-column: 1/2;
+    height: 100%;
+    position: relative;
+    overflow: visible;
+    /* border: 1px solid green */
+}
+
+.buttonSticky {
+    position: sticky;
+    top:100px;
+    /* border: 1px solid yellow; */
 }
 
 .projectDescription {

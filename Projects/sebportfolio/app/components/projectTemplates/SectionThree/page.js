@@ -4,8 +4,10 @@ import ButtonRound from "../../uiComponents/buttonRound/page"
 export default function SectionThree({
     textContent,
     externalLink,
-    textColour,
+    buttonTextColour,
     backgroundColor,
+
+    textColour = "var(--white)",
     challengeHeader = "",
     challengeParagraph = "",
     solutionHeader = "",
@@ -15,20 +17,23 @@ export default function SectionThree({
         <>
             <div className={styles.container}>
                 <div className={styles.buttonRound}>
-                    <ButtonRound 
-                        textContent = {textContent}
-                        externalLink = {externalLink}
-                        textColour = {textColour}
-                        backgroundColor = {backgroundColor}
-                    />
+                    <div className={styles.buttonSticky}>
+                        <ButtonRound 
+                            textContent = {textContent}
+                            externalLink = {externalLink}
+                            buttonTextColour = {buttonTextColour}
+                            backgroundColor = {backgroundColor}
+                        />
+                    </div>
+
                 </div>
-                <div className={styles.projectDescription}>
-                    <div className={styles.challenge}>
-                        <h5>{challengeHeader}</h5>
+                <div className={styles.projectDescription} style={{ color: textColour }}>
+                    <div className={styles.textContainer}>
+                        <h4>{challengeHeader}</h4>
                         <p>{challengeParagraph}</p>
                     </div>
-                    <div className={styles.solution}>
-                        <h5>{solutionHeader}</h5>
+                    <div className={styles.textContainer}>
+                        <h4>{solutionHeader}</h4>
                         <p>{solutionParagraph}</p>
                     </div>
                 </div>

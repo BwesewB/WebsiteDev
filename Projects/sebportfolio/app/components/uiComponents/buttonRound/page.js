@@ -5,13 +5,13 @@ export default function ButtonRound({
     textContent = "VISIT",
     externalLink = "",
     backgroundColor = "var(--blue)",
-    textColour = "var(--white)"
+    buttonTextColour = "var(--white)"
 }) {
     return(
         <>
             <div className={styles.button} style={{backgroundColor: backgroundColor}}>
-                <Link href={externalLink}>
-                    <p style={{color: textColour}}>{textContent}</p>
+                <Link href={externalLink} target="_blank" rel="noopener noreferrer">
+                    <p style={{color: buttonTextColour}}>{textContent}</p>
                 </Link>
             </div>
         </>
