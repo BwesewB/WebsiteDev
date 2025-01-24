@@ -57,31 +57,33 @@ a {
 /* Font Face Declaration */
 @font-face {
   font-family: "TWK Lausanne";
-  src: url("/fonts/Lausanne/TWKLausanne-Regular.otf") format("opentype");
+  src: url("/fonts/Lausanne/TWKLausanne-400.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "TWK Lausanne";
-  src: url("/fonts/Lausanne/TWKLausanne-Bold.otf") format("opentype");
-  font-weight: 700;
+  src: url("/fonts/Lausanne/TWKLausanne-500.otf") format("opentype");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "TWK Lausanne";
-  src: url("/fonts/Lausanne/TWKLausanne-SemiBold.otf") format("opentype");
+  src: url("/fonts/Lausanne/TWKLausanne-600.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "TWK Lausanne";
-  src: url("/fonts/Lausanne/TWKLausanne-Medium.otf") format("opentype");
-  font-weight: 500;
+  src: url("/fonts/Lausanne/TWKLausanne-700.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
+
+
 
 /* Global Text Styles */
 :root {
@@ -91,7 +93,7 @@ a {
 /* Headings */
 h1 {
   font-family: var(--font-primary);
-  font-size: 96px;
+  font-size: 130px;
   font-style: normal;
   font-weight: 700;
   line-height: 110%; /* 70.4px */
@@ -101,10 +103,11 @@ h1 {
 
 h2 {
   font-family: var(--font-primary);
-  font-size: 48px;
+  font-size: 96px;
+  /* font-size: 48px; */
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; /* 48px */
+  line-height: 100%;
 }
 
 h3 {
@@ -145,15 +148,7 @@ p {
   font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-p.bold {
-  font-family: var(--font-primary);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
