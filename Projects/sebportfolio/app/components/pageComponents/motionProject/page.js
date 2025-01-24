@@ -7,10 +7,15 @@ export default function MotionProject({
     description = "Lorem ipsum dolor siet ameit",
     projectLink = ""
 }) {
+
+    const handleClick = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.videoContainer}>
-                <Link href={projectLink} className={styles.videoLink} passHref>
+                <Link href={projectLink} className={styles.videoLink} passHref onClick={handleClick}>
                     <div className={styles.overlay}>
                         <h5 className={styles.overlayText}>Visit Project</h5>
                     </div>

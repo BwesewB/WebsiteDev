@@ -1,3 +1,5 @@
+"use client"
+
 import styles from './sectionTwo.module.css';
 
 export default function SectionTwo({ 
