@@ -17,7 +17,7 @@ export default function SectionTwo({
                 videoSrc && 
                 <video 
                     src={videoSrc} 
-                    type="video/mp4"
+                    // type="video/mp4"
                     className={styles.videoElement}
                     autoPlay
                     loop 
