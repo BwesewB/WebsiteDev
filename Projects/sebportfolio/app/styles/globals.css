@@ -3,7 +3,7 @@
 
   --white: #FAFDFF;
   --grey: #B4B7B6;
-  --black: #040A10;
+  --black: #0D0F11;
 
   --lightBlue: #B0CADF;
   --blue: #0051AC;
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, p{
   color: var(--black);
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
   text-transform: uppercase;
 }
 
@@ -97,8 +97,8 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: 110%; /* 70.4px */
-  /* margin-top: -15px;
-  margin-left: -8px; */
+  margin-top: -24px;
+  margin-left: -10px;
 }
 
 h2 {
@@ -114,9 +114,9 @@ h2 {
 
 h3 {
   font-family: var(--font-primary);
-  font-size: 32px;
+  font-size: 64px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 100%; /* 32px */
 }
 

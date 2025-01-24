@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Navbar from "./components/navbar/page";
+import Navbar from "./components/uiComponents/navbar/page";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis"
 
@@ -15,6 +15,7 @@ export default function ClientWrap({ children }) {
     "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/teamwork": { bgColor: "var(--white)", navColor: "var(--blue)" },
+    "/pages/motion/projects/blackHole": { bgColor: "var(--black)", navColor: "var(--blue)" },
   };
 
   const { bgColor, navColor } = pageStyles[pathname] || pageStyles["/"];
