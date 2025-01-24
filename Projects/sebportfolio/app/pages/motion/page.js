@@ -18,7 +18,7 @@ export default function Motion() {
                     <MotionProject 
                         videoSrc="/videos/blackHole/Clip1.mp4"
                         title="black hole"
-                        projectLink="/projects/blackHole/"
+                        projectLink="/pages/motion/projects/blackHole/"
                         description="This interactive project explores the science of black holes through a one-and-a-half-minute video created entirely in After Effects using sound effects and custom-designed assets to create an immersive experience. Building upon this project, a 12 page interactive coded experience supplements the video's information with smooth animation transitions powered by GSAP, seamlessly combining the original clips with interactive elements. "
                     />
                     <MotionProject 
