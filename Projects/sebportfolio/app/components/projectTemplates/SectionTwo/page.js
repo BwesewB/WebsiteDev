@@ -15,11 +15,15 @@ export default function SectionTwo({
                 videoSrc && 
                 <video 
                     src={videoSrc} 
+                    type="video/mp4"
                     className={styles.videoElement}
                     autoPlay
                     loop 
                     preload="auto"
                     playsInline
+                    onError={(e) => {
+                        console.error('Error loading video', e);
+                    }}
                 />
             }
         </div>
