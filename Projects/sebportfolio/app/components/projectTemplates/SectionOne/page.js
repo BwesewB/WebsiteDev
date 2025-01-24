@@ -24,25 +24,42 @@ export default function SectionOne({
 
     useEffect(() => {
         const headingText = document.querySelectorAll(`.${styles.headingText}`);
-        gsap.fromTo(headingText, {
-            opacity: 0,
-            y: 10
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power4.out",
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: headerRef.current, // Use the container element as the trigger
-                start: "top 95%",
-                end: "bottom 90%",
-                scrub: true, // Scrubs the animation while scrolling
-                once: false, // Ensures the animation runs only once
-                markers:true
-            }
+        
+        // Function to trigger GSAP animation when the element enters the viewport
+        const animateText = (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    gsap.fromTo(headingText, {
+                        opacity: 0,
+                        y: 10
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: "power4.out",
+                        stagger: 0.2
+                    });
+                    // Once animation is triggered, stop observing
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        // Create an IntersectionObserver instance
+        const observer = new IntersectionObserver(animateText, {
+            threshold: 0.6, // The animation triggers when 80% of the element is in the viewport
         });
-    })
+
+        if (headerRef.current) {
+            observer.observe(headerRef.current); // Start observing the target element
+        }
+
+        return () => {
+            if (headerRef.current) {
+                observer.unobserve(headerRef.current); // Clean up observer
+            }
+        };
+    }, []);
 
     return (
         <div ref={headerRef} className={styles.largeTextContainer}>

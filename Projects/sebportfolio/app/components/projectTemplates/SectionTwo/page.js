@@ -67,13 +67,11 @@ export default function SectionTwo({
 
     return (
         <div className={styles.mediaContainer}>
-            {
-                imageSrc && 
+            {imageSrc && 
                 <img src={imageSrc} alt={imageSrc} className={styles.imageElement} />
             }
             
-            {
-                videoSrc && 
+            {videoSrc && 
                 <video 
                     ref={videoRef}
                     src={videoSrc} 

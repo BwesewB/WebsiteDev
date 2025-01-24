@@ -54,11 +54,11 @@ export default function SectionThree({
             stagger: 0.1,
             scrollTrigger: {
                 trigger: paragraphRef.current, // Use the container element as the trigger
-                start: "top 95%",
-                end: "bottom 90%",
+                start: "top 90%",
+                end: "bottom 85%",
                 scrub: true, // Scrubs the animation while scrolling
                 once: true, // Ensures the animation runs only once
-                // markers: true
+                markers: true
             }
         });
     })
