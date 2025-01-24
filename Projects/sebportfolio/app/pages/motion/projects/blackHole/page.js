@@ -10,7 +10,7 @@ export default function blackHole() {
             <ProjectHero 
                 projectName="Black Hole"
                 date="2023-2024"
-                videoSrc="/videos/blackHole/Revised Final.mp4"
+                videoSrc="/videos/blackHole/Revised Final (1).mp4"
                 toolsUsed="After Effects, Illustrator, GSAP, Next.js "
                 textColour="var(--white)"
             />
