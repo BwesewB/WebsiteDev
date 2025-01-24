@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: fit-content;
+    
+}
+
+.buttonRound {
+    grid-column: 1/2;
+}
+
+.projectDescription {
+    grid-column: 2/3;
+}
