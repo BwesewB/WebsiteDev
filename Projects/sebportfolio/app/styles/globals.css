@@ -160,6 +160,10 @@ p.bold {
 /* Responsive */
 
 @media (max-width: 768px) {
+  body {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
   h2 {
     font-size: 32px;
   }

@@ -10,7 +10,7 @@ export default function MotionProject({
     return (
         <div className={styles.container}>
             <div className={styles.videoContainer}>
-                <Link href={projectLink} className={styles.videoLink}>
+                <Link href={projectLink} className={styles.videoLink} passHref>
                     <div className={styles.overlay}>
                         <h5 className={styles.overlayText}>Visit Project</h5>
                     </div>
@@ -24,7 +24,6 @@ export default function MotionProject({
                         playsInline
                     />
                 </Link>
-
             </div>
             <h1>{title}</h1>
             <p>{description}</p>
