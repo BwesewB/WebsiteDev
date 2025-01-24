@@ -1,4 +1,4 @@
-import styles from './SectionTwo.module.css';
+import styles from './sectionTwo.module.css';
 
 export default function SectionTwo({ 
     imageSrc, 
