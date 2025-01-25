@@ -24,6 +24,7 @@ export default function Motion() {
                     <MotionProject 
                         videoSrc="/videos/taxes/GOTTEM.mp4"
                         title="taxes!"
+                        projectLink="/pages/motion/projects/taxes/"
                         description="Taxes are hard! Just turning 18 at the time of my first After Effects project, I got a little taste of how harsh paying your first tax bill can be, so I decided to make a fun and comedic video about taxes."
                     />
                 </div>

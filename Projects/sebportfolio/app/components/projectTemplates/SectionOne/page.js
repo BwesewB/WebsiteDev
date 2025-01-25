@@ -30,7 +30,6 @@ export default function SectionOne({
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     gsap.fromTo(headingText, {
-                        opacity: 0,
                         y: 10
                     }, {
                         opacity: 1,

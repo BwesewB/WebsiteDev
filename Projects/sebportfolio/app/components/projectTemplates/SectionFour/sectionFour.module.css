@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    transition: grid-template-columns 0.5s ease-in-out;
+}
+
+.textContainer {
+    grid-column: 1/2;
+}
+
+.projectMedia {
+    grid-column: 2/3;
+}
+
+.paragraph {
+    display: inline-block;
+    margin:0;
+    margin-right: var(--marginRightParagraph);
+}
+
+.header {
+    margin-right: var(--marginRightH4);
+}
