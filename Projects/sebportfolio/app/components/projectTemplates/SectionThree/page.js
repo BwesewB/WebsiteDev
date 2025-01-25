@@ -19,6 +19,9 @@ export default function SectionThree({
     challengeParagraph = "",
     solutionHeader = "",
     solutionParagraph = "",
+
+    startTrigger = "top 90%",
+    endTrigger = "bottom 85%"
 }) {
 
     const paragraphRef = useRef(null);
@@ -40,28 +43,38 @@ export default function SectionThree({
     };
 
     useEffect(() => {
+        if (!paragraphRef.current) return;  // Ensure the element exists
+    
         const paragraphText = paragraphRef.current.querySelectorAll(`.${styles.paragraph}`);
         const headerText = paragraphRef.current.querySelectorAll(`.${styles.header}`);
-
-        gsap.fromTo([headerText, paragraphText], {
-            opacity: 0,
-            y: 10
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power4.out",
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: paragraphRef.current, // Use the container element as the trigger
-                start: "top 90%",
-                end: "bottom 85%",
-                scrub: true, // Scrubs the animation while scrolling
-                once: true, // Ensures the animation runs only once
-                markers: true
+    
+        if (headerText.length === 0 || paragraphText.length === 0) return; // Ensure elements are found
+    
+        gsap.fromTo(
+            [headerText, paragraphText], 
+            { opacity: 0, y: 10 },
+            { 
+                opacity: 1, 
+                y: 0, 
+                duration: 0.5, 
+                ease: "power4.out", 
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: paragraphRef.current,
+                    start: startTrigger,
+                    end: endTrigger,
+                    scrub: true,
+                    once: true,
+                    markers: true
+                }
             }
-        });
-    })
+        );
+    
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
+    
 
     return (
         <>

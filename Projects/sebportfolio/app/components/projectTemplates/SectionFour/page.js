@@ -13,7 +13,9 @@ export default function SectionFour({
     imageSrc,
     videoSrc,
     sectionHeader = "",
-    sectionParagraph = ""
+    sectionParagraph = "",
+    startTrigger = "top 90%",
+    endTrigger = "bottom 85%"
 
 }) {
 
@@ -45,8 +47,8 @@ export default function SectionFour({
             { opacity: 1, y: 0, duration: 0.5, ease: "power4.out", stagger: 0.1,
               scrollTrigger: {
                   trigger: paragraphRef.current,
-                  start: "top 90%",
-                  end: "bottom 85%",
+                  start: startTrigger,
+                  end: endTrigger,
                   scrub: true,
                   once: true,
                   markers: true

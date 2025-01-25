@@ -9,6 +9,9 @@
 
 .textContainer {
     grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
 }
 
 .projectMedia {
@@ -23,4 +26,21 @@
 
 .header {
     margin-right: var(--marginRightH4);
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50% 50%;
+        gap:40px;
+    }
+
+    .textContainer {
+        grid-row: 1/2;
+    }
+
+    .projectMedia {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
 }
