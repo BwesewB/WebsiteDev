@@ -1,0 +1,72 @@
+.cardsSection {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    /* border: 5px solid var(--blue); */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.bottom {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.img {
+    width: 100%;
+    height: 100%;   
+    object-fit: cover;
+}
+
+.card {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+}
+
+.cardInner {
+    position: relative;
+    will-change: transform;
+    width: 100%;
+    height: 100%;
+    padding-left: 90px;
+    padding-right: 90px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--relatedComponentGap);
+    padding-bottom: var(--relatedComponentGap);
+    border-radius: var(--imgBorderRadius);
+}
+
+.cardContent {
+    flex:3;
+}
+
+.cardImg {
+    flex:1;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--imgBorderRadius);
+    overflow: hidden;
+}
+
+.firstCard {
+    background-color: var(--sand);
+}
+
+.secondCard {
+    background-color: var(--lightBlue);
+}
+
+.thirdCard {
+    background-color: var(--brown);
+}

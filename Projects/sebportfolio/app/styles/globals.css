@@ -16,6 +16,8 @@
   --font-primary: "TWK Lausanne", sans-serif;
 
   --itemSpacing: 140px;
+  --imgBorderRadius:10px;
+  --relatedComponentGap:40px;
 }
 
 * {

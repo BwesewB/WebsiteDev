@@ -1,9 +1,14 @@
 
+import styles from "./teamwork.module.css"
+import PinSection from "../../components/pageComponents/pinSection/page";
+import HeroSection from "../..//components/pageComponents/heroSection/page"
 
 export default function Teamwork() {
     return (
-        <div>
+        <>
+            {/* <HeroSection /> */}
             <h1>Teamwork</h1>
-        </div>
+            <PinSection />
+        </>
     );
 }
