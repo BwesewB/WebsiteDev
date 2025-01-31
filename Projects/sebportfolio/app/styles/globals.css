@@ -13,6 +13,9 @@
   --marginRightParagraph: 4px;
   --marginRightH4: 6px;
 
+  --font-primary: "TWK Lausanne", sans-serif;
+
+  --itemSpacing: 140px;
 }
 
 * {
@@ -85,11 +88,11 @@ a {
   font-style: normal;
 }
 
-
-
-/* Global Text Styles */
-:root {
-  --font-primary: "TWK Lausanne", sans-serif;
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-800.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
 }
 
 /* Headings */
@@ -116,7 +119,7 @@ h2 {
 
 h3 {
   font-family: var(--font-primary);
-  font-size: 64px;
+  font-size: 72px;
   font-style: normal;
   font-weight: 600;
   line-height: 100%; /* 32px */
@@ -134,7 +137,7 @@ h5 {
   font-family: var(--font-primary);
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   line-height: normal;
 }
 
@@ -142,7 +145,7 @@ h5 {
   font-family: var(--font-primary);
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   line-height: normal;
   letter-spacing: 2px;
 }
@@ -159,13 +162,27 @@ p {
 /* Responsive */
 
 @media (max-width: 768px) {
+  :root {
+    --itemSpacing: 90px;
+  }
+
   body {
     margin-left: 30px;
     margin-right: 30px;
   }
-  h2 {
-    font-size: 32px;
+
+  h1 {
+    font-size: 96px;
   }
+
+  h2 {
+    font-size: 72px;
+  }
+
+  h3 {
+    font-size: 56px;
+  }
+
   p {
     font-size: 14px;
   }
