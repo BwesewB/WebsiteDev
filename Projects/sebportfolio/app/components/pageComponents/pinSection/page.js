@@ -99,9 +99,9 @@ export default function PinSection({
     }, {scope: container});
 
     return (
-        <div ref={container}>
+        <div ref={container}  className={styles.pinSectionContainer}>
             <div className={styles.hero}>
-
+                
             </div>
             <section className={styles.cardsSection}>
                 {cards.map((card, index) => (
