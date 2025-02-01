@@ -19,9 +19,12 @@ export default function blackHole() {
                 textColour="var(--white)"
             />
             <SectionThree 
-                    externalLink = "https://black-hole-design-3.vercel.app/"
-                    buttonTextColour = "var(--black)"
-                    backgroundColor = "var(--white)"
+                    externalLinkVisit = "https://black-hole-design-3.vercel.app/"
+                    buttonContentColourVisit = "var(--white)"
+                    backgroundColorVisit = "var(--blue)"
+
+                    externalLinkCode = "https://github.com/BwesewB/Black-Hole-Design-3"
+
                     challengeHeader = "Motion Graphics"
                     challengeParagraph = "Time management was crucial for this project. Within ten weeks, ideation, storyboarding, and production were completed. The old film aesthetic was achieved by applying grain, glow, and frame rate reduction through adjustment layers. Minimal graphics were used to maintain focus on animation and transitions, while the absence of color enhanced both the vintage feel and minimalist approach. Design principles such as patterns and scale were emphasized instead of color to demonstrate thoughtful design choices and strong communication throughout the process."
                     solutionHeader = "Coded Interactive Website"

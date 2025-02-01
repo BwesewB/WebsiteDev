@@ -2,6 +2,7 @@
 
 import styles from "./sectionThree.module.css"
 import VisitButton from "../../uiComponents/visitButton/page"
+import SourceCodeButton from "../../uiComponents/sourceCodeButton/page"
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -9,10 +10,13 @@ import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SectionThree({
-    textContent,
-    externalLink,
-    buttonTextColour,
-    backgroundColor,
+    externalLinkVisit,
+    buttonContentColourVisit,
+    backgroundColorVisit,
+    backgroundColorCode,
+
+    externalLinkCode,
+    buttonContentColourCode,
 
     textColour = "var(--white)",
     challengeHeader = "",
@@ -81,14 +85,21 @@ export default function SectionThree({
             <div className={styles.container}>
                 <div className={styles.buttonRound}>
                     <div className={styles.buttonSticky}>
-                        <VisitButton 
-                            textContent = {textContent}
-                            externalLink = {externalLink}
-                            buttonTextColour = {buttonTextColour}
-                            backgroundColor = {backgroundColor}
-                        />
+                        {externalLinkVisit && (
+                            <VisitButton
+                                externalLink={externalLinkVisit}
+                                buttonContentColour={buttonContentColourVisit}
+                                backgroundColor={backgroundColorVisit}
+                            />
+                        )}
+                        {externalLinkCode && (
+                            <SourceCodeButton
+                                externalLink={externalLinkCode}
+                                buttonContentColour={buttonContentColourCode}
+                                backgroundColor={backgroundColorCode}
+                            />
+                        )}
                     </div>
-
                 </div>
                 <div className={styles.projectDescription} style={{ color: textColour }} ref={paragraphRef}>
                     <div className={styles.textContainer}>

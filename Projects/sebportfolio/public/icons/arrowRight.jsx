@@ -1,4 +1,4 @@
-export default function ArrowRight({ color = 'var(--black)' }) {
+export default function ArrowRight({ color = color }) {
   return (
     <svg
       id="Layer_2"
