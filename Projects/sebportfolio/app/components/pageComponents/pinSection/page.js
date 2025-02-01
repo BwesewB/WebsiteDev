@@ -1,116 +1,90 @@
 "use client";
 
-import styles from "./pinSection.module.css"
+import styles from "./pinSection.module.css";
 import { useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis"
-import HeroSection from "../heroSection/page";
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-const Card = ({ title, copy, src="/images/placeholder.png", index }) => {
-    return (
-        <div className={styles.card}>
-            <div className={`${styles.cardInner} 
-                ${index === 0 ? styles.firstCard : ''}
-                ${index === 1 ? styles.secondCard : ''}
-                ${index === 2 ? styles.thirdCard : ''}`}
-            >
-                <div className={styles.cardContent}>
-                    <h1>{title}</h1>
-                    <p>{copy}</p>
-                </div>
-                <div className={styles.cardImg}>
-                    <img className={styles.img} src={src} alt={title} />
-                </div>
-            </div>
+const Card = ({ title, copy, src, backgroundColor }) => {
+  return (
+    <div className={styles.card}>
+      <div className={styles.cardInner} style={{ backgroundColor }}>
+        <div className={styles.cardContent}>
+          <h1>{title}</h1>
+          <p>{copy}</p>
         </div>
-    )
-}
+        <div className={styles.cardImg}>
+          <img className={styles.img} src={src} alt={title} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default function PinSection({
-    
-}) {
+export default function PinSection({ cards }) {
+  const container = useRef();
 
-    const cards = [
-        {
-            title:"Flare",
-            copy:"FFF",
-        },
-        {
-            title:"Sakanaya",
-            copy:"SSS",
-        },
-        {
-            title:"West Point Hotel",
-            copy:"WWW",
-        },
-        
-    ]
+  useGSAP(() => {
+    const cardsElements = gsap.utils.toArray(`.${styles.card}`);
 
-    const container = useRef()
+    ScrollTrigger.create({
+      trigger: cardsElements[0],
+      start: "top 35%",
+      endTrigger: cardsElements[cardsElements.length - 1],
+      end: "top 30%",
+      pin: `.${styles.hero}`,
+      pinSpacing: false,
+    //   markers:true
+    });
 
-    useGSAP(() => {
-        const cards = gsap.utils.toArray(`.${styles.card}`);
+    cardsElements.forEach((card, index) => {
+      const isLastCard = index === cardsElements.length - 1;
+      const cardInner = card.querySelector(`.${styles.cardInner}`);
 
+      if (!isLastCard) {
         ScrollTrigger.create({
-            trigger:cards[0],
-            start: "top 35%",
-            endTrigger: cards[cards.length - 1],
-            end: "top 30%",
-            pin: `.${styles.hero}`,
-            pinSpacing: false,
+          trigger: card,
+          start: "top 25%", //og 35
+          endTrigger: `.${styles.bottom}`,
+          end: "top 65%", //og 65
+          pin: true,
+          pinSpacing: false,
+        //   markers:true
         });
 
-        cards.forEach((card, index) => {
-            const isLastCard = index === cards.length - 1;
-            const cardInner = card.querySelector(`.${styles.cardInner}`);
+        gsap.to(cardInner, {
+          y: `-${(cardsElements.length - index) * 14}vh`,
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 25%",
+            endTrigger: `.${styles.bottom}`,
+            end: "top 65%",
+            scrub: true,
+            // markers:true
+          },
+        });
+      }
+    });
 
-            if (!isLastCard) {
-                ScrollTrigger.create ({
-                    trigger: card,
-                    start: "top 35%",
-                    endTrigger: `.${styles.bottom}`,
-                    end: "top 65%",
-                    pin: true,
-                    pinSpacing: false,
-                })
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, { scope: container });
 
-                gsap.to(cardInner, {
-                    y: `-${(cards.length - index) * 14}vh`,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger:card,
-                        start: "top 35%",
-                        endTrigger:  `.${styles.bottom}`,
-                        end: "top 65%",
-                        scrub:true,
-                    }
-                })
-            }
-        })
-
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-        }
-    }, {scope: container});
-
-    return (
-        <div ref={container}  className={styles.pinSectionContainer}>
-            <div className={styles.hero}>
-                
-            </div>
-            <section className={styles.cardsSection}>
-                {cards.map((card, index) => (
-                    <Card key={index} {...card} index={index} />
-                ))}
-            </section>
-            <div className={styles.bottom}>
-
-            </div>
-        </div>
-    )
+  return (
+    <div ref={container} className={styles.pinSectionContainer}>
+      <div className={styles.hero}></div>
+      <section className={styles.cardsSection}>
+        {cards.map((card, index) => (
+          <Card key={index} {...card} index={index} />
+        ))}
+      </section>
+      <div className={styles.bottom}></div>
+    </div>
+  );
 }
