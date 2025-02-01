@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import styles from './styles/page.module.css';
 import Link from 'next/link';
+import ArrowRight from "@/public/icons/arrowRight";
 
 export default function Home() {
 
@@ -61,7 +62,7 @@ export default function Home() {
           <div>
             <h5 className={styles.headerFive}>ABOUT ME</h5>
             <div className={styles.headingContent}>
-              <h3><span className={styles.blueText}>I’m a reflective and driven designer</span> who understands how <span className={styles.blueText}>creative and technical elements</span> come together to <span className={styles.blueText}>drive success</span> in projects and teams.</h3>
+              <h3><span className={styles.blueText}>I’m a reflective and driven designer</span> who understands how <span className={styles.blueText}>creative and technical elements</span> come together to <span className={styles.blueText}>drive success</span> in projects and teams. </h3>
             </div>
           </div>
           <h5 className={styles.headerFive}>MY PROJECTS</h5>

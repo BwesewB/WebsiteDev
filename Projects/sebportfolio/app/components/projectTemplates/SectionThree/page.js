@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./sectionThree.module.css"
-import ButtonRound from "../../uiComponents/buttonRound/page"
+import VisitButton from "../../uiComponents/visitButton/page"
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -81,7 +81,7 @@ export default function SectionThree({
             <div className={styles.container}>
                 <div className={styles.buttonRound}>
                     <div className={styles.buttonSticky}>
-                        <ButtonRound 
+                        <VisitButton 
                             textContent = {textContent}
                             externalLink = {externalLink}
                             buttonTextColour = {buttonTextColour}

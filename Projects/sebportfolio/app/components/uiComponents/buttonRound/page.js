@@ -2,7 +2,7 @@ import styles from "./buttonRound.module.css"
 import Link from "next/link"
 
 export default function ButtonRound({
-    textContent = "VISIT",
+    textContent = "CLICKME",
     externalLink = "",
     backgroundColor = "var(--blue)",
     buttonTextColour = "var(--white)"
