@@ -51,7 +51,7 @@ export default function SectionFour({
                   end: endTrigger,
                   scrub: true,
                   once: true,
-                  markers: true
+                //   markers: true
               }
             }
         );

@@ -1,69 +1,87 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from 'react';
-import styles from './sectionTwo.module.css';
+import { useEffect, useRef, useState } from "react";
+import styles from "./sectionTwo.module.css";
 
-
-export default function SectionTwo({ 
-    imageSrc, 
-    videoSrc 
-}) {
+export default function SectionTwo({ imageSrc, videoSrc }) {
     const videoRef = useRef(null);
+    let fadeInterval = useRef(null);
+    const [showOverlay, setShowOverlay] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
 
-    let fadeInterval = useRef(null); // Keeping track of intervals to prevent the overlap
+    const fadeOutVolume = (videoElement) => {
+        clearInterval(fadeInterval.current);
+        fadeInterval.current = setInterval(() => {
+            if (videoElement.volume > 0.05) {
+                videoElement.volume = Math.max(0, videoElement.volume - 0.05);
+            } else {
+                videoElement.volume = 0;
+                videoElement.muted = true;
+                clearInterval(fadeInterval.current);
+            }
+        }, 10);
+    };
 
+    const fadeInVolume = (videoElement) => {
+        clearInterval(fadeInterval.current);
+        videoElement.muted = false;
+        fadeInterval.current = setInterval(() => {
+            if (videoElement.volume < 0.95) {
+                videoElement.volume = Math.min(1, videoElement.volume + 0.05);
+            } else {
+                videoElement.volume = 1;
+                clearInterval(fadeInterval.current);
+            }
+        }, 10);
+    };
+
+    // When the video is in view
     useEffect(() => {
         const videoElement = videoRef.current;
         if (!videoElement) return;
 
-        const fadeOutVolume = () => {
-            clearInterval(fadeInterval.current); // Clear any existing interval
-            fadeInterval.current = setInterval(() => {
-                if (videoElement.volume > 0.05) {
-                    videoElement.volume = Math.max(0, videoElement.volume - 0.05);
-                } else {
-                    videoElement.volume = 0;
-                    videoElement.muted = true;  // Mute once volume reaches 0
-                    clearInterval(fadeInterval.current);
-                    console.log("Volume is inactive");
-                }
-            }, 10);
-        };
-
-        const fadeInVolume = () => {
-            clearInterval(fadeInterval.current); // Clear any existing interval
-            videoElement.muted = false; // Unmute first
-            fadeInterval.current = setInterval(() => {
-                if (videoElement.volume < 0.95) {
-                    videoElement.volume = Math.min(1, videoElement.volume + 0.05);
-                } else {
-                    videoElement.volume = 1;
-                    clearInterval(fadeInterval.current);
-                    console.log("Full Volume");
-                }
-            }, 10);
-        };
+        if (isMuted) {
+            videoElement.muted = true;
+            videoElement.volume = 0;
+        }
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    fadeInVolume();
-                    console.log("Volume Activated");
+                    if (isMuted) {
+                        fadeOutVolume(videoElement); 
+                    } else {
+                        fadeInVolume(videoElement); 
+                    }
                 } else {
-                    fadeOutVolume();
-                    console.log("Muted");
+                    fadeOutVolume(videoElement);
                 }
             },
-            { threshold: 0.5 } // when 50% of the video is visible it triggers 
+            { threshold: 0.5 }
         );
 
         observer.observe(videoElement);
 
         return () => {
-            clearInterval(fadeInterval.current); // Cleanup
+            clearInterval(fadeInterval.current);
             observer.unobserve(videoElement);
         };
-    }, []);
+    }, [isMuted]);
+
+    const handleToggleMute = () => {
+        if (videoRef.current) {
+            const video = videoRef.current;
+
+            if (video.muted || video.volume === 0) {
+                fadeInVolume(video);
+                setIsMuted(false);
+            } else {
+                fadeOutVolume(video);
+                setIsMuted(true);
+            }
+        }
+    };
+
 
     return (
         <div className={styles.mediaContainer}>
@@ -71,21 +89,31 @@ export default function SectionTwo({
                 <img src={imageSrc} alt={imageSrc} className={styles.imageElement} />
             }
             
-            {videoSrc && 
-                <video 
+            {videoSrc && (
+                <div 
+                    className={styles.videoWrapper}
+                    onMouseEnter={() => setShowOverlay(true)}
+                    onMouseLeave={() => setShowOverlay(false)}
+                >
+                <video
                     ref={videoRef}
-                    src={videoSrc} 
-                    // type="video/mp4"
+                    src={videoSrc}
                     className={styles.videoElement}
                     autoPlay
-                    loop 
+                    loop
                     preload="auto"
                     playsInline
                     onError={(e) => {
-                        console.error('Error loading video', e);
+                    console.error("Error loading video", e);
                     }}
                 />
-            }
+                {showOverlay && (
+                    <div className={styles.overlay} onClick={handleToggleMute}>
+                        <h5>{isMuted ? "Unmute" : "Mute"}</h5>
+                    </div>
+                )}
+                </div>
+            )}
         </div>
     );
 }

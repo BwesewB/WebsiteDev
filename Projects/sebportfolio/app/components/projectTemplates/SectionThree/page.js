@@ -65,7 +65,7 @@ export default function SectionThree({
                     end: endTrigger,
                     scrub: true,
                     once: true,
-                    markers: true
+                    // markers: true
                 }
             }
         );
