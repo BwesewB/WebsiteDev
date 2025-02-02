@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./navbar.module.css";
-import Logo from "@/public/media/Logo";
+import Logo from "@/public/media/logo/Logo";
 
 export default function Navbar({
   navColor = "var(--blue)",
