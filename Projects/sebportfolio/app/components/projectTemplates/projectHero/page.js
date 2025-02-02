@@ -22,13 +22,17 @@ export default function ProjectHero ({
                         <p>{date}</p>
                     </div>
                 </div>
-
-                <SectionTwo 
-                    imageSrc={imageSrc}
-                    videoSrc={videoSrc}
-                    initialMute={initialMute}
-                />
-
+                <div 
+                    className={`${styles.sectionTwoContainer} ${(imageSrc || videoSrc) ? '' : styles.hidden}`}
+                >
+                    {(imageSrc || videoSrc) && (
+                        <SectionTwo 
+                            imageSrc={imageSrc}
+                            videoSrc={videoSrc}
+                            initialMute={initialMute}
+                        />
+                    )}
+                </div>
             </div>
         </>
     )

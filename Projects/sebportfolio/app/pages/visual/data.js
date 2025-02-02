@@ -1,7 +1,7 @@
 export const cardData = [
     {
         title: "Logo",
-        copy: "The logo, designed as a fugu (pufferfish), reflects the craftsmanship and precision required in my fish-cutting hobby, symbolizing the careful attention to detail and quality present in my work. (In Progress)",
+        copy: "The logo, designed as a fugu (pufferfish), reflects the craftsmanship and precision required in my fish-cutting hobby, symbolizing the careful attention to detail and quality present in my work.",
         skills: ["Adobe Illustrator"],
         src: "/media/logo/WhiteColour.svg",
         backgroundColor: "var(--blue)",

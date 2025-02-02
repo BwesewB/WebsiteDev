@@ -4,3 +4,14 @@
     height: auto;
     gap: var(--itemSpacing);
 }
+
+.fullWidth {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoSmallerContainer {
+    width: 30%;
+}
