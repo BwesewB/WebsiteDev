@@ -17,18 +17,20 @@ export const cardData = [
         title: "H/H Techwear",
         copy: "HH",
         src: "/images/placeholder.png",
-        backgroundColor: "#D8574D"
+        backgroundColor: "#D8574D",
+        color: "var(--white)"
     },
     {
         title: "Mech.obj",
         copy: "WWW",
         src: "/images/placeholder.png",
-        backgroundColor: "var(--sand)"
+        backgroundColor: "var(--sand)",
     },
     {
         title: "Reimagining Spaces",
         copy: "WWW",
         src: "/images/placeholder.png",
         backgroundColor: "#008F7A",
+        color: "var(--white)"
     },
 ];
