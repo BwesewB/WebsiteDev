@@ -10,24 +10,25 @@ export const cardData = [
         title: "Decked Beer",
         copy: "Decked",
         src: "/images/placeholder.png",
-        backgroundColor: "#D46A1F"
+        backgroundColor: "var(--black)",
+        color: "var(--white)"
     },
     {
         title: "H/H Techwear",
         copy: "HH",
         src: "/images/placeholder.png",
-        backgroundColor: "#008F7A"
-    },
-    {
-        title: "Reimagining Spaces",
-        copy: "WWW",
-        src: "/images/placeholder.png",
-        backgroundColor: "var(--blue)"
+        backgroundColor: "#D8574D"
     },
     {
         title: "Mech.obj",
         copy: "WWW",
         src: "/images/placeholder.png",
-        backgroundColor: "var(--blue)"
-    }
+        backgroundColor: "var(--sand)"
+    },
+    {
+        title: "Reimagining Spaces",
+        copy: "WWW",
+        src: "/images/placeholder.png",
+        backgroundColor: "#008F7A",
+    },
 ];
