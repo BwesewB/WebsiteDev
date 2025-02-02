@@ -60,7 +60,7 @@
     display: grid;
     grid-column: 1/2;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 60% 40%;
     width: 100%;
     /* flex: 3; */
     /* border: 1px solid red; */
@@ -97,10 +97,13 @@
     width: fit-content;
 }
 
-.cardContent p {
+.cardContent li {
     grid-column: 2/3;
     grid-row: 2/3;
     width: fit-content;
+}
+.cardContent ul {
+    list-style: none;
 }
 
 .headingText {

@@ -21,7 +21,7 @@ const splitTextToSpans = (text) => {
 const Card = ({ 
     title, 
     copy, 
-    skills = "Lorem ipsum dolor seit ameit", 
+    skills = [], 
     src, 
     projectHref = "",
     backgroundColor, 
@@ -40,7 +40,11 @@ const Card = ({
                     <div className={styles.cardContent} style={{ color }}>
                         <h2>{splitTextToSpans(title)}</h2>
                         <h5>{copy}</h5>
-                        <p>{skills}</p>
+                        <ul>
+                            {skills.map((skill, index) => (
+                                <li key={index}><p>{skill}</p></li>
+                            ))}
+                        </ul>
                     </div>
                     <div className={styles.cardImg}>
                         {isVideo(src) ? (
