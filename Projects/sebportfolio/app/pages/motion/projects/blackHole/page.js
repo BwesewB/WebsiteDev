@@ -33,7 +33,6 @@ export default function blackHole() {
             />
             <SectionTwo 
                 videoSrc="/media/blackHole/Clip12andReverse.mp4"
-                initialMute={true}
             />
         </div>
     );

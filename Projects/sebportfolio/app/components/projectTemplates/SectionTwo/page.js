@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./sectionTwo.module.css";
 
-export default function SectionTwo({ imageSrc, videoSrc, initialMute = false }) {
+export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
     const videoRef = useRef(null);
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
@@ -92,7 +92,7 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = false }) 
             {videoSrc && (
                 <div 
                     className={styles.videoWrapper}
-                    onMouseEnter={() => !initialMute && setShowOverlay(true)}
+                    onMouseEnter={() => !initialMute && setShowOverlay(true)} //nice
                     onMouseLeave={() => setShowOverlay(false)}
                 >
                     <video

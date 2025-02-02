@@ -17,7 +17,7 @@ export default function SectionOne({
     const splitTextToSpans = (text) => {
         return text.split(" ").map((word, index) => (
             <span key={index} className={styles.headingText}>
-                {word}
+                {word}&nbsp;
             </span>
         ));
     };

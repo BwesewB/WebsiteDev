@@ -14,6 +14,7 @@ export default function Taxes ({
                     videoSrc="/media/taxes/GOTTEM.mp4"
                     toolsUsed="After Effects"
                     textColour="var(--black)"
+                    initialMute={false}
                 />
                 <SectionFour 
                     sectionHeader="Taxation Frustration"

@@ -24,7 +24,7 @@ export default function SectionFour({
     const splitTextToSpans = (text) => {
         return text.split(" ").map((word, index) => (
             <span key={index} className={styles.paragraph}>
-                {word}
+                {word}&nbsp;
             </span>
         ));
     };
@@ -32,7 +32,7 @@ export default function SectionFour({
     const splitHeaderToSpans = (text) => {
         return text.split(" ").map((word, index) => (
             <span key={index} className={styles.header}>
-                {word}
+                {word}&nbsp;
             </span>
         ));
     };
