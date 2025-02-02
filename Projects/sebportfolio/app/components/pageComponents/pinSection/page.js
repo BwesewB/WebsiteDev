@@ -70,7 +70,7 @@ export default function PinSection({ cards }) {
                         scrub: true,
                         toggleActions: "play none none none",
                         once: true,
-                        markers: true, // Optional: markers to visualize trigger points
+                        // markers: true,
                     }
                 }
             );
