@@ -1,12 +1,19 @@
 export const cardData = [
     {
+        title: "Logo",
+        copy: "fishy",
+        src: "/images/placeholder.png",
+        backgroundColor: "var(--blue)",
+        color: "var(--white)"
+    },
+    {
         title: "Decked Beer",
         copy: "Decked",
         src: "/images/placeholder.png",
         backgroundColor: "#D46A1F"
     },
     {
-        title: "Helly Hansen Techwear",
+        title: "H/H Techwear",
         copy: "HH",
         src: "/images/placeholder.png",
         backgroundColor: "#008F7A"
@@ -18,7 +25,7 @@ export const cardData = [
         backgroundColor: "var(--blue)"
     },
     {
-        title: "Mechanical.obj",
+        title: "Mech.obj",
         copy: "WWW",
         src: "/images/placeholder.png",
         backgroundColor: "var(--blue)"
