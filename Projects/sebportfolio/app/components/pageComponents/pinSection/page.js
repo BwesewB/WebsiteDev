@@ -27,22 +27,32 @@ const Card = ({
     backgroundColor, 
     color = "var(--black)"
 }) => {
-  return (
-    <div className={styles.card}>
-        <Link href={projectHref} className={styles.projectLink}>
-            <div className={styles.cardInner} style={{ backgroundColor }}>
-                <div className={styles.cardContent} style={{ color }}>
-                    <h2>{splitTextToSpans(title)}</h2>
-                    <h5>{copy}</h5>
-                    <p>{skills}</p>
+
+    const isVideo = (src) => {
+        const videoExtensions = ['.mp4', '.mov'];
+        return videoExtensions.some(ext => src.endsWith(ext));
+    };
+
+    return (
+        <div className={styles.card}>
+            <Link href={projectHref} className={styles.projectLink}>
+                <div className={styles.cardInner} style={{ backgroundColor }}>
+                    <div className={styles.cardContent} style={{ color }}>
+                        <h2>{splitTextToSpans(title)}</h2>
+                        <h5>{copy}</h5>
+                        <p>{skills}</p>
+                    </div>
+                    <div className={styles.cardImg}>
+                        {isVideo(src) ? (
+                            <video className={styles.img} src={src} alt={title} autoPlay loop muted />
+                        ) : (
+                            <img className={styles.img} src={src} alt={title} />
+                        )}
+                    </div>
                 </div>
-                <div className={styles.cardImg}>
-                    <img className={styles.img} src={src} alt={title} />
-                </div>
-            </div>
-        </Link>
-    </div>
-  );
+            </Link>
+        </div>
+    );
 };
 
 export default function PinSection({ cards = [] }) {
@@ -70,7 +80,7 @@ export default function PinSection({ cards = [] }) {
                         scrub: true,
                         toggleActions: "play none none none",
                         once: true,
-                        markers: true,
+                        // markers: true,
                     }
                 }
             );
@@ -132,10 +142,10 @@ export default function PinSection({ cards = [] }) {
 
     return (
         <div ref={container} className={styles.pinSectionContainer}>
-            <div className={styles.hero}></div>
+            <div className={styles.hero}><h1>Hero section in progress... Please Scroll Down</h1></div>
                 <section className={styles.cardsSection}>
                     {cards.map((card, index) => (
-                    <Card key={index} {...card} index={index} />
+                        <Card key={index} {...card} index={index} />
                     ))}
                 </section>
             <div className={styles.bottom}></div>

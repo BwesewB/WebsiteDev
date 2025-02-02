@@ -10,7 +10,7 @@ export default function blackHole() {
             <ProjectHero 
                 projectName="Black Hole"
                 date="2023-2024"
-                videoSrc="/videos/blackHole/RevisedFinal.mp4"
+                videoSrc="/media/blackHole/RevisedFinal.mp4"
                 toolsUsed="After Effects, Illustrator, GSAP, Next.js "
                 textColour="var(--white)"
             />
@@ -31,7 +31,7 @@ export default function blackHole() {
                     solutionParagraph = "The primary goal was to achieve three key features: smooth video playback, clean GSAP animations, and seamless transitions. To accomplish this, the project was structured using two types of video clips: transition clips and still clips. Transition clips served to smoothly bridge the gap between static scenes, ensuring that when a user clicked the “next” button, the still clip transitioned seamlessly to the next without abrupt cuts. Without these dedicated still clips, the animation would feel disjointed, as users could trigger the next page while a moving animation was still playing, leading to a choppy experience. This strategic planning allowed for a fluid, professional user experience perfectly aligned with the project’s creative vision."
             />
             <SectionTwo 
-                videoSrc="/videos/blackHole/Clip12andReverse.mp4"
+                videoSrc="/media/blackHole/Clip12andReverse.mp4"
             />
         </div>
     );

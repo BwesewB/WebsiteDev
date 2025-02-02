@@ -11,7 +11,7 @@ export default function Taxes ({
                 <ProjectHero 
                     projectName="TAXES!"
                     date="2023-2024"
-                    videoSrc="/videos/taxes/GOTTEM.mp4"
+                    videoSrc="/media/taxes/GOTTEM.mp4"
                     toolsUsed="After Effects"
                     textColour="var(--black)"
                 />

@@ -11,18 +11,18 @@ export default function Motion() {
     return (
         <>
             <div ref={motionRef} className={styles.motionContainer}>
-                <HeroSection videoSrc="/videos/blackHole/Watermelon video.mp4" parentRef={motionRef} position="sticky"/>
+                <HeroSection videoSrc="/media/blackHole/Watermelon video.mp4" parentRef={motionRef} position="sticky"/>
             </div>
             <div className={styles.motionPage}>
                 <div className={styles.motionContent}>
                     <MotionProject 
-                        videoSrc="/videos/blackHole/Clip1.mp4"
+                        videoSrc="/media/blackHole/Clip1.mp4"
                         title="black hole"
                         projectLink="/pages/motion/projects/blackHole/"
                         description="This interactive project explores the science of black holes through a one-and-a-half-minute video using sound effects and custom-designed assets to create an immersive experience. Building upon this project, a 12 page interactive coded experience using next.js supplements the video's information with smooth animation transitions powered by GSAP, seamlessly combining the original clips with interactive elements. "
                     />
                     <MotionProject 
-                        videoSrc="/videos/taxes/GOTTEM.mp4"
+                        videoSrc="/media/taxes/GOTTEM.mp4"
                         title="taxes!"
                         projectLink="/pages/motion/projects/taxes/"
                         description="Taxes are hard! Just turning 18 at the time of my first After Effects project, I got a little taste of how harsh paying your first tax bill can be, so I decided to make a fun and comedic video about taxes."
