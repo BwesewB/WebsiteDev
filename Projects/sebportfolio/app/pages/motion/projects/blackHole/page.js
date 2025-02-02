@@ -13,6 +13,7 @@ export default function blackHole() {
                 videoSrc="/media/blackHole/RevisedFinal.mp4"
                 toolsUsed="After Effects, Adobe Illustrator, GSAP, Next.js"
                 textColour="var(--white)"
+                initialMute={false}
             />
             <SectionOne 
                 paragraphTitleText="Black hole is an interactive project that merges custom-designed After Effects assets with a 12-page interactive coded experience."
@@ -32,6 +33,7 @@ export default function blackHole() {
             />
             <SectionTwo 
                 videoSrc="/media/blackHole/Clip12andReverse.mp4"
+                initialMute={true}
             />
         </div>
     );

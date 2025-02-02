@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./sectionTwo.module.css";
 
-export default function SectionTwo({ imageSrc, videoSrc }) {
+export default function SectionTwo({ imageSrc, videoSrc, initialMute = false }) {
     const videoRef = useRef(null);
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
-    const [isMuted, setIsMuted] = useState(false);
+    const [isMuted, setIsMuted] = useState(initialMute);
 
     const fadeOutVolume = (videoElement) => {
         clearInterval(fadeInterval.current);
@@ -92,26 +92,26 @@ export default function SectionTwo({ imageSrc, videoSrc }) {
             {videoSrc && (
                 <div 
                     className={styles.videoWrapper}
-                    onMouseEnter={() => setShowOverlay(true)}
+                    onMouseEnter={() => !initialMute && setShowOverlay(true)}
                     onMouseLeave={() => setShowOverlay(false)}
                 >
-                <video
-                    ref={videoRef}
-                    src={videoSrc}
-                    className={styles.videoElement}
-                    autoPlay
-                    loop
-                    preload="auto"
-                    playsInline
-                    onError={(e) => {
-                    console.error("Error loading video", e);
-                    }}
-                />
-                {showOverlay && (
-                    <div className={styles.overlay} onClick={handleToggleMute}>
-                        <h5>{isMuted ? "Unmute" : "Mute"}</h5>
-                    </div>
-                )}
+                    <video
+                        ref={videoRef}
+                        src={videoSrc}
+                        className={styles.videoElement}
+                        autoPlay
+                        loop
+                        preload="auto"
+                        playsInline
+                        onError={(e) => {
+                        console.error("Error loading video", e);
+                        }}
+                    />
+                    {showOverlay && (
+                        <div className={styles.overlay} onClick={handleToggleMute}>
+                            <h5>{isMuted ? "Unmute" : "Mute"}</h5>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

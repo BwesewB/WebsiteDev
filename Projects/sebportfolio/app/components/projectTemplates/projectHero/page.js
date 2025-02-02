@@ -7,6 +7,7 @@ export default function ProjectHero ({
     date = "",
     imageSrc = "",
     videoSrc = "",
+    initialMute,
     toolsUsed = "",
     textColour = "var(--black)"
 }) {
@@ -25,6 +26,7 @@ export default function ProjectHero ({
                 <SectionTwo 
                     imageSrc={imageSrc}
                     videoSrc={videoSrc}
+                    initialMute={initialMute}
                 />
 
             </div>

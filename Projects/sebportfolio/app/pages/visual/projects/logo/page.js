@@ -9,7 +9,7 @@ export default function LogoPage({}) {
             <ProjectHero 
                 projectName="Fugu"
                 date="2024"
-                videoSrc="/media/"
+                videoSrc=""
                 toolsUsed="Adobe Illustrator"
                 textColour="var(--black)"
             />
