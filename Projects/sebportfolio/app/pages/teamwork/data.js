@@ -5,7 +5,6 @@ export const cardData = [
         skills: ["Adobe Illustrator", "Adobe InDesign", "After Effects", "Figma", "React.js"],
         src: "/media/flare/FlareLogoAnime.mp4",
         backgroundColor: "#D8574D",
-        color: "var(--white)"
     },
     {
         title: "Sakanaya",
@@ -13,7 +12,6 @@ export const cardData = [
         skills: ["Adobe Illustrator", "Figma"],
         src: "/media/placeholder.png",
         backgroundColor: "#008F7A",
-        color: "var(--white)"
     },
     {
         title: "West Point Hotel",
@@ -21,6 +19,5 @@ export const cardData = [
         skills: ["Figma", "Wordpress"],
         src: "/media/placeholder.png",
         backgroundColor: "var(--blue)",
-        color: "var(--white)"
     }
 ];

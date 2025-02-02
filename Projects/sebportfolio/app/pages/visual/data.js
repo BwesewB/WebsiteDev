@@ -1,11 +1,10 @@
 export const cardData = [
     {
         title: "Logo",
-        copy: "fishy (In Progress)",
+        copy: "The logo, designed as a fugu (pufferfish), reflects the craftsmanship and precision required in my fish-cutting hobby, symbolizing the careful attention to detail and quality present in my work. (In Progress)",
         skills: ["Adobe Illustrator"],
         src: "/media/WhiteColour.svg",
         backgroundColor: "var(--blue)",
-        color: "var(--white)"
     },
     {
         title: "Decked Beer",
@@ -13,7 +12,6 @@ export const cardData = [
         skills: ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
         src: "/media/cans/fishCanVideo.mp4",
         backgroundColor: "var(--black)",
-        color: "var(--white)"
     },
     {
         title: "H/H Techwear",
@@ -21,7 +19,7 @@ export const cardData = [
         src: "/media/poster/Sebastian_Fok_Assignment07.png",
         skills: ["Adobe Photoshop"],
         backgroundColor: "#D8574D",
-        color: "var(--white)"
+
     },
     {
         title: "Mech.obj",
@@ -29,6 +27,7 @@ export const cardData = [
         skills: ["Adobe Illustrator"],
         src: "/media/mechAppliance/mechanicalAppliance.png",
         backgroundColor: "var(--sand)",
+        color: "var(--black)"
     },
     {
         title: "Reimagining Spaces",
@@ -36,6 +35,5 @@ export const cardData = [
         skills: ["Adobe Photoshop", "Adobe InDesign"],
         src: "/media/magazine/reimagining.png",
         backgroundColor: "#008F7A",
-        color: "var(--white)"
     },
 ];

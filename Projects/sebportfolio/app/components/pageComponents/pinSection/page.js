@@ -25,7 +25,7 @@ const Card = ({
     src, 
     projectHref = "",
     backgroundColor, 
-    color = "var(--black)"
+    color = "var(--white)"
 }) => {
 
     const isVideo = (src) => {
@@ -111,26 +111,26 @@ export default function PinSection({ cards = [] }) {
 
         if (!isLastCard) {
             ScrollTrigger.create({
-            trigger: card,
-            start: "top 25%", //og 35
-            endTrigger: `.${styles.bottom}`,
-            end: "top 65%", //og 65
-            pin: true,
-            pinSpacing: false,
-            //   markers:true
+                trigger: card,
+                start: "top 25%", //og 35
+                endTrigger: `.${styles.bottom}`,
+                end: "top 75%", //og 65. make sure the one below has sthe same end percentage. more padding higher percentage
+                pin: true,
+                pinSpacing: false,
+                // markers:true
             });
 
             gsap.to(cardInner, {
-            y: `-${(cardsElements.length - index) * 14}vh`,
-            ease: "none",
-            scrollTrigger: {
-                trigger: card,
-                start: "top 25%",
-                endTrigger: `.${styles.bottom}`,
-                end: "top 65%",
-                scrub: true,
-                // markers:true
-            },
+                y: `-${(cardsElements.length - index) * 14}vh`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 25%",
+                    endTrigger: `.${styles.bottom}`,
+                    end: "top 75%", //og 65
+                    scrub: true,
+                    // markers:true
+                },
             });
         }
         });
