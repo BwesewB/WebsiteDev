@@ -18,7 +18,7 @@ export const cardData = [
     {
         title: "H/H Techwear",
         copy: "HH",
-        src: "/media/placeholder.png",
+        src: "/media/poster/Sebastian_Fok_Assignment07.png",
         skills: ["Adobe Photoshop"],
         backgroundColor: "#D8574D",
         color: "var(--white)"

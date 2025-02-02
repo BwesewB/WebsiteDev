@@ -38,6 +38,7 @@
     justify-content: center;
     transition: 1s ease;
     user-select: none;
+    border-radius: var(--imgBorderRadius);
 }
   
 .overlay:hover {
