@@ -2,7 +2,7 @@ export const cardData = [
     {
         title: "Logo",
         copy: "fishy",
-        src: "/images/placeholder.png",
+        src: "/images/WhiteColour.svg",
         backgroundColor: "var(--blue)",
         color: "var(--white)"
     },

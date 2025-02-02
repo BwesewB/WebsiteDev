@@ -36,7 +36,7 @@ const Card = ({
                     <h5>{copy}</h5>
                     <p>{skills}</p>
                 </div>
-                    <div className={styles.cardImg}>
+                <div className={styles.cardImg}>
                     <img className={styles.img} src={src} alt={title} />
                 </div>
             </div>

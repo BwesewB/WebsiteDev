@@ -1,7 +1,6 @@
 .pinSectionContainer {
     max-width: 100%;
     position: relative;
-    cursor: pointer;
     user-select: none;
 }
 
@@ -18,7 +17,7 @@
     position: relative;
     max-width: 100%;
     height: 100vh;
-    border: 1px solid yellow
+    /* border: 1px solid yellow */
 }
 
 .bottom {
@@ -27,27 +26,20 @@
     height: 100vh;
 }
 
-.img {
-    width: 100%;
-    height: 100%;   
-    object-fit: cover;
-}
-
 .card {
     position: relative;
-    height: 50vh;
+    height: 30vw;
     width: 100%;
 }
 
 .cardInner {
     position: relative;
-    will-change: transform;
-    /* max-width: 100%; */
+    display: grid;
+    grid-template-columns: 65% 35%;
+    cursor: pointer;
     height: 100%;
     padding-left: 90px;
     padding-right: 90px;
-    display: flex;
-    justify-content: space-between;
     padding-top: var(--relatedComponentGap);
     padding-bottom: var(--relatedComponentGap);
     border-radius: var(--imgBorderRadius);
@@ -56,11 +48,24 @@
 
 .cardContent {
     display: grid;
+    grid-column: 1/2;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 70% 30%;
-    /* gap: var(--relatedComponentGap); */
-    flex: 3;
+    width: 100%;
+    /* flex: 3; */
     /* border: 1px solid red; */
+}
+
+.cardImg {
+    border-radius: var(--imgBorderRadius);
+    width: 100%;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 100%;
 }
 
 .cardContent h2 {
@@ -81,13 +86,6 @@
     grid-column: 2/3;
     grid-row: 2/3;
     width: fit-content;
-}
-
-.cardImg {
-    flex: 1;
-    aspect-ratio: 16 / 9;
-    border-radius: var(--imgBorderRadius);
-    overflow: hidden;
 }
 
 .headingText {
