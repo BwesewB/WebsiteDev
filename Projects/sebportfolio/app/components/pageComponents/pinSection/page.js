@@ -65,12 +65,12 @@ export default function PinSection({ cards = [] }) {
                     stagger: 0.2,
                     scrollTrigger: {
                         trigger: card, // Each card will trigger its own animation
-                        start: "top 85%",
-                        end: "top 70%",
+                        start: "top 75%",
+                        end: "top 50%",
                         scrub: true,
                         toggleActions: "play none none none",
                         once: true,
-                        // markers: true,
+                        markers: true,
                     }
                 }
             );

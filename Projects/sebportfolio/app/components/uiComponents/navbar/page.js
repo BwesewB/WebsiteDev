@@ -4,11 +4,12 @@ import styles from "./navbar.module.css";
 import Logo from "@/public/images/Logo";
 
 export default function Navbar({
-  navColor = "var(--blue)"
+  navColor = "var(--blue)",
+  navBG,
 }) {
   return (
     // <div className={styles.fullWithNavbar}>
-      <nav className={styles.navbar}>
+      <nav className={styles.navbar} style={{ backgroundColor: navBG}}>
         <div className={styles.logoContainer}>
           <Link href="/">
             <Logo color={navColor} />

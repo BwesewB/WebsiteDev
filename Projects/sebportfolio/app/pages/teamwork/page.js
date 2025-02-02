@@ -6,9 +6,9 @@ import HeroSection from "../..//components/pageComponents/heroSection/page"
 
 export default function Teamwork() {
     return (
-        <>
-            <h1>Teamwork</h1>
+        <div className={styles.projectContainer}>
+            {/* <h1>Teamwork</h1> */}
             <PinSection cards={cardData}/>
-        </>
+        </div>
     );
 }
