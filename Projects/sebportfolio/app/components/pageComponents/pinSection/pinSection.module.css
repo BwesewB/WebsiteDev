@@ -28,16 +28,18 @@
 
 .card {
     position: relative;
-    height: 30vw;
+    height: 50vh;
     width: 100%;
 }
 
 .cardInner {
     position: relative;
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 65% calc(35% - var(--relatedComponentGap));
     cursor: pointer;
     height: 100%;
+    max-width: 100%;
+    object-fit: contain;
     padding-left: 90px;
     padding-right: 90px;
     padding-top: var(--relatedComponentGap);
@@ -62,10 +64,14 @@
     grid-column: 2/3;
     display: flex;
     align-items: center;
+    position: relative;
+    object-fit: contain;
 }
 
 .img {
     width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .cardContent h2 {
@@ -95,10 +101,9 @@
 @media (max-width: 768px) {
 
     .cardsSection {
-        width: 100vw;
         overflow: visible;
         position: relative;
-        margin-left: -30px;
+        /* margin-left: -30px; */
     }
 
     .cardInner {
@@ -109,7 +114,6 @@
     }
 
     .card {
-        width: 100vw;
-
+        /* width: 80vw; */
     }
 }
