@@ -45,7 +45,7 @@ const Card = ({
   );
 };
 
-export default function PinSection({ cards }) {
+export default function PinSection({ cards = [] }) {
     const container = useRef();
     
     useEffect(() => {
@@ -125,6 +125,10 @@ export default function PinSection({ cards }) {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, { scope: container });
+    
+    if (!cards || cards.length === 0) {
+        return <div>No cards available</div>;
+    }
 
     return (
         <div ref={container} className={styles.pinSectionContainer}>
