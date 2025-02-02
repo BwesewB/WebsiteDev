@@ -48,39 +48,11 @@ const Card = ({
 export default function PinSection({ cards }) {
     const container = useRef();
     
-    // useEffect(() => {
-    //     const cardInnerElements = document.querySelectorAll(`.${styles.cardInner}`);
-      
-    //     cardInnerElements.forEach((cardInner) => {
-    //       const headingText = cardInner.querySelectorAll(`.${styles.headingText}`);
-      
-    //       // Set initial opacity to prevent flicker
-    //       gsap.set(headingText, { opacity: 0 });
-      
-    //       gsap.fromTo(
-    //         headingText,
-    //         { y: 20, opacity: 0 },
-    //         {
-    //           y: 0,
-    //           opacity: 1,
-    //           duration: 0.5,
-    //           ease: "power4.out",
-    //           stagger: 0.2,
-    //           scrollTrigger: {
-    //             trigger: cardInner,
-    //             start: "top 80%", // Trigger when cardInner reaches 50% viewport
-    //             toggleActions: "play none none reverse",
-    //             markers: true
-    //           }
-    //         }
-    //       );
-    //     });
-    //   }, []);
     useEffect(() => {
-        const cardsElements = document.querySelectorAll(`.${styles.card}`); // Select all cards
+        const cardsElements = document.querySelectorAll(`.${styles.card}`);
         
         cardsElements.forEach((card) => {
-            const headingTextSpans = card.querySelectorAll(`.${styles.headingText}`); // Select the spans inside the card
+            const headingTextSpans = card.querySelectorAll(`.${styles.headingText}`);
             
             gsap.fromTo(
                 headingTextSpans,
@@ -94,7 +66,7 @@ export default function PinSection({ cards }) {
                     scrollTrigger: {
                         trigger: card, // Each card will trigger its own animation
                         start: "top 85%",
-                        end: "top 65%",
+                        end: "top 70%",
                         scrub: true,
                         toggleActions: "play none none none",
                         once: true,
