@@ -5,6 +5,7 @@ export const cardData = [
         skills: ["Adobe Illustrator"],
         src: "/media/WhiteColour.svg",
         backgroundColor: "var(--blue)",
+        projectLink: "/pages/visual/projects/logo/"
     },
     {
         title: "Decked Beer",

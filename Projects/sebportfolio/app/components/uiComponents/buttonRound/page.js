@@ -11,7 +11,7 @@ export default function ButtonRound({
         <>
             <div className={styles.button} style={{backgroundColor: backgroundColor}}>
                 <Link href={externalLink} target="_blank" rel="noopener noreferrer">
-                    <p style={{color: buttonTextColour}}>{textContent}</p>
+                    <p style={{color: buttonTextColour}} className={styles.buttonText}>{textContent}</p>
                 </Link>
             </div>
         </>

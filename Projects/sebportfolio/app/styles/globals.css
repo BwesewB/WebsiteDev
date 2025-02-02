@@ -10,10 +10,8 @@
   --sand: #EBE3D5;
   --brown: #452B1D;
 
-  --marginRightParagraph: 4px;
-  --marginRightH4: 6px;
-
   --font-primary: "TWK Lausanne", sans-serif;
+  --font-weight-button: 600;
 
   --itemSpacing: 140px;
   --imgBorderRadius:10px;
@@ -62,6 +60,13 @@ a {
 }
 
 /* Font Face Declaration */
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-200.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
 @font-face {
   font-family: "TWK Lausanne";
   src: url("/fonts/Lausanne/TWKLausanne-400.otf") format("opentype");
@@ -155,9 +160,9 @@ h5 {
 /* Paragraph Styles */
 p {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1.5;
 }
 

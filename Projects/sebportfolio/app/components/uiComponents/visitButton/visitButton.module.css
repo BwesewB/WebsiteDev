@@ -11,6 +11,7 @@
 .pText {
     height: fit-content;
     display: flex;
+    font-weight: var(--font-weight-button);
 }
 
 .link {

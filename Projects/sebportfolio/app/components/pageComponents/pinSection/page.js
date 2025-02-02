@@ -23,7 +23,7 @@ const Card = ({
     copy, 
     skills = [], 
     src, 
-    projectHref = "",
+    projectLink = "",
     backgroundColor, 
     color = "var(--white)"
 }) => {
@@ -35,7 +35,7 @@ const Card = ({
 
     return (
         <div className={styles.card}>
-            <Link href={projectHref} className={styles.projectLink}>
+            <Link href={projectLink} className={styles.projectLink}>
                 <div className={styles.cardInner} style={{ backgroundColor }}>
                     <div className={styles.cardContent} style={{ color }}>
                         <h2>{splitTextToSpans(title)}</h2>

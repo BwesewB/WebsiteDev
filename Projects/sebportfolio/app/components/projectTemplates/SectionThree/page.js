@@ -33,7 +33,7 @@ export default function SectionThree({
     const splitTextToSpans = (text) => {
         return text.split(" ").map((word, index) => (
             <span key={index} className={styles.paragraph}>
-                {word}
+                {word}&nbsp;
             </span>
         ));
     };
@@ -41,7 +41,7 @@ export default function SectionThree({
     const splitHeaderToSpans = (text) => {
         return text.split(" ").map((word, index) => (
             <span key={index} className={styles.header}>
-                {word}
+                {word}&nbsp;
             </span>
         ));
     };

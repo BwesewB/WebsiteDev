@@ -24,13 +24,14 @@
 .paragraph {
     display: inline-block;
     margin:0;
+    margin-right: var(--marginRightParagraph);
 }
 
 .header {
-
+    margin-right: var(--marginRightH4);
 }
 
-.buttonRound {
+.headerSection {
     grid-column: 1/2;
     height: 100%;
     position: relative;
@@ -38,7 +39,7 @@
     /* border: 1px solid green */
 }
 
-.buttonSticky {
+.headerSticky {
     position: sticky;
     top:100px;
     display: flex;
