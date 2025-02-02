@@ -1,7 +1,7 @@
 export const cardData = [
     {
         title: "Logo",
-        copy: "fishy",
+        copy: "fishy (In Progress)",
         skills: ["Adobe Illustrator"],
         src: "/media/WhiteColour.svg",
         backgroundColor: "var(--blue)",
@@ -9,7 +9,7 @@ export const cardData = [
     },
     {
         title: "Decked Beer",
-        copy: "Decked",
+        copy: "Decked (In Progress)",
         skills: ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
         src: "/media/cans/fishCanVideo.mp4",
         backgroundColor: "var(--black)",
@@ -17,7 +17,7 @@ export const cardData = [
     },
     {
         title: "H/H Techwear",
-        copy: "HH",
+        copy: "Helly Hansen (In Progress)",
         src: "/media/poster/Sebastian_Fok_Assignment07.png",
         skills: ["Adobe Photoshop"],
         backgroundColor: "#D8574D",
@@ -25,16 +25,16 @@ export const cardData = [
     },
     {
         title: "Mech.obj",
-        copy: "WWW",
+        copy: "Mechanical Object (In Progress)",
         skills: ["Adobe Illustrator"],
-        src: "/media/placeholder.png",
+        src: "/media/mechAppliance/mechanicalAppliance.png",
         backgroundColor: "var(--sand)",
     },
     {
         title: "Reimagining Spaces",
-        copy: "WWW",
+        copy: "Reimagining Spaces magazine (In Progress)",
         skills: ["Adobe Photoshop", "Adobe InDesign"],
-        src: "/media/placeholder.png",
+        src: "/media/magazine/reimagining.png",
         backgroundColor: "#008F7A",
         color: "var(--white)"
     },

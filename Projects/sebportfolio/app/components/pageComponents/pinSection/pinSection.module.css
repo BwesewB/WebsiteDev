@@ -47,7 +47,7 @@
     cursor: pointer;
     height: 100%;
     max-width: 100%;
-    object-fit: contain;
+    /* object-fit: contain; */
     padding-left: 90px;
     padding-right: 90px;
     padding-top: var(--relatedComponentGap);
@@ -58,12 +58,14 @@
 
 .cardContent {
     display: grid;
+    position: relative;
+    /* overflow: hidden; */ /*ASK ABOUT RESPONSIVE*/
     grid-column: 1/2;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 60% 40%;
+    transition: ease 1s;
     width: 100%;
-    /* flex: 3; */
-    /* border: 1px solid red; */
+    column-gap: var(--relatedComponentGap);
 }
 
 .cardImg {
@@ -87,8 +89,6 @@
 
 .cardContent h2 {
     grid-column: 1/3;
-    /* opacity: 0; */
-    /* padding-bottom: 90px; */
 }
 
 .cardContent h5 {
