@@ -3,6 +3,8 @@
     flex-direction: column;
     height: auto;
     gap: var(--itemSpacing);
+    padding-left: var(--paddingleftRight);
+    padding-right: var(--paddingleftRight);
 }
 
 .fullWidth {

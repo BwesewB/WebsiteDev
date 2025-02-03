@@ -2,33 +2,25 @@
     display: grid;
     grid-template-columns: 50% 50%;
     width: 100%;
-    height: fit-content;
+    height: auto;
     position: relative;
-    transition: grid-template-columns 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 .projectDescription {
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+
 }
 
 .textContainer {
     display: flex;
     flex-direction: column;
-    gap:10px;
-    width: 80%;
+    width: 90%;
     position: relative;
 }
 
 .paragraph {
     display: inline-block;
     margin:0;
-    margin-right: var(--marginRightParagraph);
-}
-
-.header {
-    margin-right: var(--marginRightH4);
 }
 
 .headerSection {
@@ -53,12 +45,17 @@
 
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 30% calc(70% - var(--relatedComponentGap));
+        column-gap: var(--relatedComponentGap);
     }
 
     .buttonSticky {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+
+    .textContainer {
+        width: 100%;
     }
 }

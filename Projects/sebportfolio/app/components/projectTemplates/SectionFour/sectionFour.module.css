@@ -11,7 +11,7 @@
     grid-column: 1/2;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    column-gap:var(--relatedComponentGap);
 }
 
 .projectMedia {

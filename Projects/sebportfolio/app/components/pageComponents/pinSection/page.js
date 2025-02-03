@@ -63,6 +63,10 @@ export default function PinSection({ cards = [] }) {
     const container = useRef();
     
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
         const cardsElements = document.querySelectorAll(`.${styles.card}`);
         
         cardsElements.forEach((card) => {

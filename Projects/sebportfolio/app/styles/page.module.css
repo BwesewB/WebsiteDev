@@ -62,7 +62,7 @@
 .navigationSection {
     color: var(--blue);
     width: calc(100vw - 180px);
-    height: var(--itemSpacing);
+    height: 140px;
     display: flex;
     position: relative;
     align-items: center;

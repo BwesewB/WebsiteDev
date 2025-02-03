@@ -22,7 +22,7 @@ export default function LogoPage({}) {
                 </div>
             </div>
             <SectionOne 
-                paragraphTitleText="Preparing fugu requires precision and mastery, with chefs undergoing years of specialized training to safely handle this art"
+                paragraphTitleText="Preparing fugu requires precision and mastery, with chefs undergoing years of specialized training to safely practice this art"
                 textColour="var(--black)"
             />
             <div className={styles.fullWidth}>
