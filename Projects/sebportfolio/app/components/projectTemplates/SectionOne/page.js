@@ -35,7 +35,7 @@ export default function SectionOne({
                         opacity: 1,
                         y: 0,
                         duration: 0.5,
-                        ease: "power4.out",
+                        ease: "expoScale",
                         stagger: 0.2
                     });
                     // Once animation is triggered, stop observing
