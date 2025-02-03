@@ -42,3 +42,8 @@
     display: flex;
     justify-content: center;
 }
+
+.projectRole {
+    padding-bottom: 10px;
+    text-transform: none;
+}

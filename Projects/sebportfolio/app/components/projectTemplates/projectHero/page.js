@@ -4,6 +4,7 @@ import SectionTwo from "../SectionTwo/page"
 
 export default function ProjectHero ({
     projectName = "",
+    projectRole,
     date = "",
     imageSrc = "",
     videoSrc = "",
@@ -16,7 +17,8 @@ export default function ProjectHero ({
     return(
         <section className={styles.bodyWidth}>
             <div className={styles.textContainer} style={{ color: textColour }}>
-                <h1> {projectName} </h1>
+                <h1>{projectName}</h1>
+                { projectRole && <h5 className={styles.projectRole}>Role: {projectRole}</h5> }
                 <div className={styles.textHeader}>
                     <p>{toolsUsed}</p>
                     <p>{date}</p>

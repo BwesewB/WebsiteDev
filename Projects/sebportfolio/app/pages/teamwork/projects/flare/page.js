@@ -17,6 +17,7 @@ export default function Flare({}) {
         <div className={styles.container}>
             <ProjectHero 
                 projectName="Flare"
+                projectRole="UI/UX Designer and Marketer"
                 date="2024"
                 imageSrc="/media/flare/MockupPhoneFlareCropped.png"
                 toolsUsed="Adobe Illustrator / Adobe InDesign / After Effects / Figma / React.js"
