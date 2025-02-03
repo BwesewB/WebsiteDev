@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: auto;
     gap: var(--itemSpacing);
     padding-left: var(--paddingleftRight);

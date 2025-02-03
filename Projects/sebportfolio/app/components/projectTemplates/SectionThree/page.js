@@ -11,18 +11,18 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function SectionThree({
     externalLinkVisit,
-    buttonContentColourVisit,
-    backgroundColorVisit,
-    backgroundColorCode,
+    buttonContentColourVisit = "var(--sand)",
+    backgroundColorVisit = "var(--blue)",
 
     externalLinkCode,
-    buttonContentColourCode,
+    buttonContentColourCode = "var(--sand)",
+    backgroundColorCode = "var(--brown)",
 
-    textColour = "var(--white)",
-    challengeHeader = "",
-    challengeParagraph = "",
-    solutionHeader = "",
-    solutionParagraph = "",
+    textColour = "var(--black)",
+    challengeHeader = "Title",
+    challengeParagraph = "Paragraph",
+    solutionHeader = "Title",
+    solutionParagraph = "Paragraph",
 
     startTrigger = "top 90%",
     endTrigger = "bottom 85%"

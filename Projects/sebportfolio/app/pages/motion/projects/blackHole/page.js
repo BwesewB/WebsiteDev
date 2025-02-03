@@ -24,6 +24,11 @@ export default function blackHole() {
                     buttonContentColourVisit = "var(--white)"
                     backgroundColorVisit = "var(--blue)"
 
+                    buttonContentColourCode = "var(--blue)"
+                    backgroundColorCode = "var(--white)"
+
+                    textColour = "var(--white)"
+
                     externalLinkCode = "https://github.com/BwesewB/Black-Hole-Design-3"
 
                     challengeHeader = "Motion Graphics"
