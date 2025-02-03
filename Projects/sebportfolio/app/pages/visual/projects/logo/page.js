@@ -10,20 +10,12 @@ export default function LogoPage({}) {
             <ProjectHero 
                 projectName="Fugu"
                 date="2024"
-                videoSrc=""
+                imageSrc="/media/logo/LogoBlue.png"
+                mediaWidth="30%"
                 toolsUsed="Adobe Illustrator"
-                textColour="var(--black)"
             />
-            <div className={styles.fullWidth}>
-                <div className={styles.logoSmallerContainer}>
-                    <SectionTwo
-                        imageSrc="/media/logo/LogoBlue.png"
-                    />
-                </div>
-            </div>
             <SectionOne 
                 paragraphTitleText="Preparing fugu requires precision and mastery, with chefs undergoing years of specialized training to safely practice this art"
-                textColour="var(--black)"
             />
             <div className={styles.fullWidth}>
                 <div style={{width:"60%"}}>
@@ -33,7 +25,6 @@ export default function LogoPage({}) {
                 </div>
             </div>
             <SectionFive 
-                textColour="var(--black)"
                 challengeHeader="The Logo"
                 challengeParagraph="The logo depicts a fugu, or pufferfish, chosen for its connection to craft and precision. Drawing inspiration from a passion for Japanese fish cutting, the design reflects the same focus and care required to handle this delicacy, representing a thoughtful and careful approach to creating work with attention to detail."
             />

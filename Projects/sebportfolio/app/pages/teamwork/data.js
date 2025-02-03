@@ -5,6 +5,7 @@ export const cardData = [
         skills: ["Adobe Illustrator", "Adobe InDesign", "After Effects", "Figma", "React.js"],
         src: "/media/flare/FlareLogoAnime.mp4",
         backgroundColor: "#D8574D",
+        projectLink: "/pages/teamwork/projects/flare/"
     },
     {
         title: "Sakanaya",

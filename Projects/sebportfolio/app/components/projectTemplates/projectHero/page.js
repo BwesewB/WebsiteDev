@@ -7,6 +7,7 @@ export default function ProjectHero ({
     date = "",
     imageSrc = "",
     videoSrc = "",
+    mediaWidth = "100%",
     initialMute,
     toolsUsed = "",
     textColour = "var(--black)"
@@ -22,17 +23,21 @@ export default function ProjectHero ({
                         <p>{date}</p>
                     </div>
                 </div>
-                <div 
-                    className={`${styles.sectionTwoContainer} ${(imageSrc || videoSrc) ? '' : styles.hidden}`}
-                >
-                    {(imageSrc || videoSrc) && (
-                        <SectionTwo 
-                            imageSrc={imageSrc}
-                            videoSrc={videoSrc}
-                            initialMute={initialMute}
-                        />
-                    )}
+                <div className={styles.mediaContainer}>
+                    <div 
+                        className={`${styles.sectionTwoContainer} ${(imageSrc || videoSrc) ? '' : styles.hidden}`}
+                        style={{width: mediaWidth}}
+                    >
+                        {(imageSrc || videoSrc) && (
+                            <SectionTwo 
+                                imageSrc={imageSrc}
+                                videoSrc={videoSrc}
+                                initialMute={initialMute}
+                            />
+                        )}
+                    </div>
                 </div>
+
             </div>
         </>
     )

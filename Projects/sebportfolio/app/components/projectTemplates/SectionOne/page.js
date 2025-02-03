@@ -8,7 +8,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SectionOne({
-    paragraphTitleText = "",
+    paragraphTitleText = "Lorem Ipsum",
     textColour = "var(--black)",
 }) {
 

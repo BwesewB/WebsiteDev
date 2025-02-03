@@ -16,7 +16,9 @@ export default function ClientWrap({ children }) {
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/teamwork": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/motion/projects/blackHole": { bgColor: "var(--black)", navColor: "var(--blue)" },
+    "/pages/motion/projects/taxes": { bgColor: "var(--sand)", navColor: "var(--blue)" },
     "/pages/visual/projects/logo": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/pages/teamwork/projects/flare": { bgColor: "var(--sand)", navColor: "var(--blue)" },
   };
 
   const { bgColor, navColor } = pageStyles[pathname] || pageStyles["/"];

@@ -106,6 +106,7 @@ export default function PinSection({ cards = [] }) {
             end: "top 30%",
             pin: `.${styles.hero}`,
             pinSpacing: false,
+            anticipatePin: 1
             // markers:true
         });
 
@@ -119,6 +120,7 @@ export default function PinSection({ cards = [] }) {
                 start: "top 25%", //og 35
                 endTrigger: `.${styles.bottom}`,
                 end: "top 75%", //og 65. make sure the one below has sthe same end percentage. more padding higher percentage
+                scrub: 0.3,
                 pin: true,
                 pinSpacing: false,
                 // markers:true

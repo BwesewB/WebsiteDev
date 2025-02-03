@@ -8,9 +8,9 @@ import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SectionFive({
-    textColour = "var(--white)",
-    challengeHeader = "",
-    challengeParagraph = "",
+    textColour = "var(--black)",
+    challengeHeader = "Title",
+    challengeParagraph = "Paragraph Content",
 
     // startTrigger = "top 90%",
     // endTrigger = "bottom 85%"

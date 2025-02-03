@@ -20,7 +20,7 @@ export default function Motion() {
                         videoSrc="/media/blackHole/Clip1.mp4"
                         title="black hole"
                         projectLink="/pages/motion/projects/blackHole/"
-                        description="This interactive project explores the science of black holes through a one-and-a-half-minute video using sound effects and custom-designed assets to create an immersive experience. Building upon this project, a 12 page interactive coded experience using next.js supplements the video's information with smooth animation transitions powered by GSAP, seamlessly combining the original clips with interactive elements. "
+                        description="This project explores black holes through a 90-second video blending together sound effects and custom assets to create a visual story. A 12-page interactive experience, built with Next.js and GSAP, extends the video's content with smooth animations and interactive elements."
                     />
                     <MotionProject 
                         videoSrc="/media/taxes/GOTTEM.mp4"
