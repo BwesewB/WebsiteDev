@@ -84,7 +84,7 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
 
 
     return (
-        <div className={styles.mediaContainer}>
+        <section className={styles.mediaContainer}>
             {imageSrc && 
                 <img src={imageSrc} alt={imageSrc} className={styles.imageElement} />
             }
@@ -114,6 +114,6 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
                     )}
                 </div>
             )}
-        </div>
+        </section>
     );
 }

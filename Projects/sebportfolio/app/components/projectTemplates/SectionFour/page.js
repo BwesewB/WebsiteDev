@@ -63,16 +63,14 @@ export default function SectionFour({
     }, []);
 
     return (
-        <>
-            <div className={styles.container}>
-                <div className={styles.textContainer} style={{ color: textColour }} ref={paragraphRef}>
-                    <h4>{splitHeaderToSpans(sectionHeader)}</h4>
-                    <p>{splitTextToSpans(sectionParagraph)}</p>
-                </div>
-                <div className={styles.projectMedia}>
-                    <SectionTwo imageSrc={imageSrc} videoSrc={videoSrc}/>
-                </div>
+        <section className={styles.container}>
+            <div className={styles.textContainer} style={{ color: textColour }} ref={paragraphRef}>
+                <h4>{splitHeaderToSpans(sectionHeader)}</h4>
+                <p>{splitTextToSpans(sectionParagraph)}</p>
             </div>
-        </>
+            <div className={styles.projectMedia}>
+                <SectionTwo imageSrc={imageSrc} videoSrc={videoSrc}/>
+            </div>
+        </section>
     )
 }

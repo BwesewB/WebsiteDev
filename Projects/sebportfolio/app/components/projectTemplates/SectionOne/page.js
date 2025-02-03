@@ -61,10 +61,10 @@ export default function SectionOne({
     }, []);
 
     return (
-        <div ref={headerRef} className={styles.largeTextContainer}>
+        <section ref={headerRef} className={styles.largeTextContainer}>
             <h3 style={{ color: textColour }}>
                 {splitTextToSpans(paragraphTitleText)}
             </h3>
-        </div>
+        </section>
     );
 }

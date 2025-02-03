@@ -44,10 +44,10 @@ export default function Flare({}) {
                     />
                 </div>
             </div>
-            {/* <SectionFive 
+            <SectionFive 
                 challengeHeader=""
                 challengeParagraph=""
-            /> */}
+            />
         </div>
     )
 }

@@ -14,31 +14,28 @@ export default function ProjectHero ({
 }) {
 
     return(
-        <>
-            <div className={styles.bodyWidth}>
-                <div className={styles.textContainer} style={{ color: textColour }}>
-                    <h1> {projectName} </h1>
-                    <div className={styles.textHeader}>
-                        <p>{toolsUsed}</p>
-                        <p>{date}</p>
-                    </div>
+        <section className={styles.bodyWidth}>
+            <div className={styles.textContainer} style={{ color: textColour }}>
+                <h1> {projectName} </h1>
+                <div className={styles.textHeader}>
+                    <p>{toolsUsed}</p>
+                    <p>{date}</p>
                 </div>
-                <div className={styles.mediaContainer}>
-                    <div 
-                        className={`${styles.sectionTwoContainer} ${(imageSrc || videoSrc) ? '' : styles.hidden}`}
-                        style={{width: mediaWidth}}
-                    >
-                        {(imageSrc || videoSrc) && (
-                            <SectionTwo 
-                                imageSrc={imageSrc}
-                                videoSrc={videoSrc}
-                                initialMute={initialMute}
-                            />
-                        )}
-                    </div>
-                </div>
-
             </div>
-        </>
+            <div className={styles.mediaContainer}>
+                <div 
+                    className={`${styles.sectionTwoContainer} ${(imageSrc || videoSrc) ? '' : styles.hidden}`}
+                    style={{width: mediaWidth}}
+                >
+                    {(imageSrc || videoSrc) && (
+                        <SectionTwo 
+                            imageSrc={imageSrc}
+                            videoSrc={videoSrc}
+                            initialMute={initialMute}
+                        />
+                    )}
+                </div>
+            </div>
+        </section>
     )
 }

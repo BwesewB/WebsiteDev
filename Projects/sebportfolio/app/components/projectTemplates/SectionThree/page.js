@@ -81,37 +81,35 @@ export default function SectionThree({
     
 
     return (
-        <>
-            <div className={styles.container}>
-                <div className={styles.buttonRound}>
-                    <div className={styles.buttonSticky}>
-                        {externalLinkVisit && (
-                            <VisitButton
-                                externalLink={externalLinkVisit}
-                                buttonContentColour={buttonContentColourVisit}
-                                backgroundColor={backgroundColorVisit}
-                            />
-                        )}
-                        {externalLinkCode && (
-                            <SourceCodeButton
-                                externalLink={externalLinkCode}
-                                buttonContentColour={buttonContentColourCode}
-                                backgroundColor={backgroundColorCode}
-                            />
-                        )}
-                    </div>
-                </div>
-                <div className={styles.projectDescription} style={{ color: textColour }} ref={paragraphRef}>
-                    <div className={styles.textContainer}>
-                        <h4>{splitHeaderToSpans(challengeHeader)}</h4>
-                        <p>{splitTextToSpans(challengeParagraph)}</p>
-                    </div>
-                    <div className={styles.textContainer}>
-                        <h4>{splitHeaderToSpans(solutionHeader)}</h4>
-                        <p>{splitTextToSpans(solutionParagraph)}</p>
-                    </div>
+        <section className={styles.container}>
+            <div className={styles.buttonRound}>
+                <div className={styles.buttonSticky}>
+                    {externalLinkVisit && (
+                        <VisitButton
+                            externalLink={externalLinkVisit}
+                            buttonContentColour={buttonContentColourVisit}
+                            backgroundColor={backgroundColorVisit}
+                        />
+                    )}
+                    {externalLinkCode && (
+                        <SourceCodeButton
+                            externalLink={externalLinkCode}
+                            buttonContentColour={buttonContentColourCode}
+                            backgroundColor={backgroundColorCode}
+                        />
+                    )}
                 </div>
             </div>
-        </>
+            <div className={styles.projectDescription} style={{ color: textColour }} ref={paragraphRef}>
+                <div className={styles.textContainer}>
+                    <h4>{splitHeaderToSpans(challengeHeader)}</h4>
+                    <p>{splitTextToSpans(challengeParagraph)}</p>
+                </div>
+                <div className={styles.textContainer}>
+                    <h4>{splitHeaderToSpans(solutionHeader)}</h4>
+                    <p>{splitTextToSpans(solutionParagraph)}</p>
+                </div>
+            </div>
+        </section>
     )
 }

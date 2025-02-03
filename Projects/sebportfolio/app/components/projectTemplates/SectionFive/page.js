@@ -69,21 +69,19 @@ export default function SectionFive({
     
 
     return (
-        <>
-            <div className={styles.container}>
-                <div className={styles.headerSection} style={{ color: textColour }}>
-                    {/* <div className={styles.headerSticky}> */}
-                        {/* <h4>{splitHeaderToSpans(challengeHeader)}</h4> */}
-                        <h4>{challengeHeader}</h4>
-                    {/* </div> */}
-                </div>
-                <div className={styles.projectDescription} style={{ color: textColour }}>
-                    <div className={styles.textContainer}>              
-                        {/* <p>{splitTextToSpans(challengeParagraph)}</p> */}
-                        <p>{challengeParagraph}</p>
-                    </div>
+        <section className={styles.container}>
+            <div className={styles.headerSection} style={{ color: textColour }}>
+                {/* <div className={styles.headerSticky}> */}
+                    {/* <h4>{splitHeaderToSpans(challengeHeader)}</h4> */}
+                    <h4>{challengeHeader}</h4>
+                {/* </div> */}
+            </div>
+            <div className={styles.projectDescription} style={{ color: textColour }}>
+                <div className={styles.textContainer}>              
+                    {/* <p>{splitTextToSpans(challengeParagraph)}</p> */}
+                    <p>{challengeParagraph}</p>
                 </div>
             </div>
-        </>
+        </section>
     )
 }
