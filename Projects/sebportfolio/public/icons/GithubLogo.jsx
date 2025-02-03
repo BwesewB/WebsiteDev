@@ -1,4 +1,4 @@
-export default function ArrowRight({ color = color }) {
+export default function GithubLogo({ color = color }) {
     return (
       <svg
         id="Layer_2"

@@ -3,6 +3,7 @@
 import styles from "./sectionThree.module.css"
 import VisitButton from "../../uiComponents/visitButton/page"
 import SourceCodeButton from "../../uiComponents/sourceCodeButton/page"
+import FigmaButton from "../../uiComponents/figmaButton/page"
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -17,6 +18,10 @@ export default function SectionThree({
     externalLinkCode,
     buttonContentColourCode = "var(--sand)",
     backgroundColorCode = "var(--brown)",
+
+    externalLinkFigma,
+    buttonContentColourFigma = "var(--sand)",
+    backgroundColorFigma = "var(--brown)",
 
     textColour = "var(--black)",
     challengeHeader = "Title",
@@ -96,6 +101,13 @@ export default function SectionThree({
                             externalLink={externalLinkCode}
                             buttonContentColour={buttonContentColourCode}
                             backgroundColor={backgroundColorCode}
+                        />
+                    )}
+                    {externalLinkFigma && (
+                        <FigmaButton
+                            externalLink={externalLinkFigma}
+                            buttonContentColour={buttonContentColourFigma}
+                            backgroundColor={backgroundColorFigma}
                         />
                     )}
                 </div>
