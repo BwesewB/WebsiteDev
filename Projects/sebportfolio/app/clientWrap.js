@@ -6,7 +6,6 @@ import Lenis from "@studio-freight/lenis"
 
 export default function ClientWrap({ children }) {
 
-
   const pathname = usePathname();
 
   const pageStyles = {

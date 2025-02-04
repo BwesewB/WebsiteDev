@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./sectionTwo.module.css";
+import Image from "next/image";
 
 export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
     const videoRef = useRef(null);
@@ -86,7 +87,7 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
     return (
         <section className={styles.mediaContainer}>
             {imageSrc && 
-                <img src={imageSrc} alt={imageSrc} className={styles.imageElement} />
+                <img src={imageSrc} alt={imageSrc} className={styles.imageElement}/>
             }
             
             {videoSrc && (
