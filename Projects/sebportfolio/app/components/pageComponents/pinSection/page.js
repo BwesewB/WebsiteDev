@@ -66,8 +66,8 @@ export default function PinSection({ cards = [] }) {
         window.scrollTo(0, 0);
     }, []);
 
-    useEffect(() => {
-        const cardsElements = document.querySelectorAll(`.${styles.card}`);
+    useGSAP(() => {
+        const cardsElements = container.current.querySelectorAll(`.${styles.card}`);
         
         cardsElements.forEach((card) => {
             const headingTextSpans = card.querySelectorAll(`.${styles.headingText}`);
@@ -93,7 +93,7 @@ export default function PinSection({ cards = [] }) {
                 }
             );
         });
-    }, []);
+    }, { scope: container });
 
 
     useGSAP(() => {
