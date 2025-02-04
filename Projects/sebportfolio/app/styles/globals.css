@@ -17,6 +17,7 @@
   --itemSpacing: 180px;
   --imgBorderRadius:10px;
   --relatedComponentGap:40px;
+  --textGap:20px;
 }
 
 * {

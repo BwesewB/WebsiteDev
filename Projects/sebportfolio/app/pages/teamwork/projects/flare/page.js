@@ -10,6 +10,7 @@ import SectionFive from "@/app/components/projectTemplates/SectionFive/page"
 import SectionSix from "@/app/components/projectTemplates/SectionSix/page"
 import dynamic from "next/dynamic";
 import logoAnimation from "/public/media/flare/LogoAnimation.json";
+import SectionSeven from "@/app/components/projectTemplates/SectionSeven/page"
 
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -59,9 +60,12 @@ export default function Flare({}) {
                 imageTwo = "/media/flare/MockupPhoneNews.png"
                 imageThree = "/media/flare/MockupPhoneSafety.png"
             />
-            <SectionFive 
+
+            <SectionSeven
                 challengeHeader = "User Testing"
-                challengeParagraph = "conducted user testing in sprints"
+                challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as during the coding process. Each week, our team conducted sprints and user testing for all five pages of the website to ensure continuous refinement and improvement. These one-week sprints allowed us to iterate quickly based on user feedback, ensuring that the designs were both user-friendly and aligned with the project's goals. This process helped us consistently enhance the user interface, making our app more intuitive and functional with every cycle."
+                solutionHeader="Navigation Architecture"
+                solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of our three features, ensuring ease of use when they need it most."
             />
             <h1>Marketing Material</h1>
         </div>

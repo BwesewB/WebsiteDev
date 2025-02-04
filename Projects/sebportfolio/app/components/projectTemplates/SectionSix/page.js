@@ -25,7 +25,6 @@ export default function SectionSix({
                     <p>{challengeParagraph}</p>
                 </div>
             </div>
-            <div className={styles.projectImages} style={{ color: textColour }}>
                 <div className={styles.mediaContainer}>              
                     {(imageOne || videoOne) && (
                         <SectionTwo imageSrc={imageOne} videoSrc={videoOne} />
@@ -37,7 +36,6 @@ export default function SectionSix({
                         <SectionTwo imageSrc={imageThree} videoSrc={videoThree} />
                     )}
                 </div>
-            </div>
         </section>
     )
 }

@@ -77,10 +77,10 @@ export default function SectionFive({
                 {/* </div> */}
             </div>
             <div className={styles.projectDescription} style={{ color: textColour }}>
-                <div className={styles.textContainer}>              
+                {/* <div className={styles.textContainer}>               */}
                     {/* <p>{splitTextToSpans(challengeParagraph)}</p> */}
                     <p>{challengeParagraph}</p>
-                </div>
+                {/* </div> */}
             </div>
         </section>
     )
