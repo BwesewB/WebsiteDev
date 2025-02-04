@@ -1,7 +1,7 @@
 export const cardData = [
     {
         title: "Flare",
-        copy: "Flare is a BC wildfire safety app that combines weather updates, fire alerts, and fire-related news into a single, user-friendly interface. (In Progress)",
+        copy: "Flare is a BC wildfire safety app that combines weather updates, fire alerts, and fire-related news into a single, user-friendly interface.",
         skills: ["Adobe Illustrator", "Adobe InDesign", "After Effects", "Figma", "React.js"],
         src: "/media/flare/FlareLogoAnime.mp4",
         backgroundColor: "#D8574D",

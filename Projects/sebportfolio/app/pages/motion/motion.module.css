@@ -22,6 +22,8 @@
 .motionContent {
     width: 100%;
     height: auto;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--itemSpacing)
 }
 
