@@ -16,7 +16,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Flare({}) {
     return (
-        <div className={styles.container}>
+        <div className="container">
             <ProjectHero 
                 projectName="Flare"
                 projectRole="UI/UX Designer and Marketer"

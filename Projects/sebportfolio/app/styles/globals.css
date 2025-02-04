@@ -167,6 +167,17 @@ p {
   line-height: 1.5;
 }
 
+/* Page Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: var(--itemSpacing);
+  padding-left: var(--paddingleftRight);
+  padding-right: var(--paddingleftRight);
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
@@ -193,6 +204,11 @@ p {
 
   p {
     font-size: 14px;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

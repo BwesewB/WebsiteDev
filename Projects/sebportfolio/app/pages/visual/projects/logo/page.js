@@ -6,7 +6,7 @@ import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page"
 
 export default function LogoPage({}) {
     return(
-        <div className={styles.container}>
+        <div className="container">
             <ProjectHero 
                 projectName="Fugu"
                 date="2024"
