@@ -48,17 +48,22 @@ export default function Flare({}) {
                 </div>
             </div>
             <SectionFive 
-                challengeHeader="Competitive Analysis"
-                challengeParagraph="Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach"
+                challengeHeader = "Competitive Analysis"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach"
             />
             <SectionSix 
-                challengeHeader="Design Process"
-                challengeParagraph="Our team of "
+                challengeHeader = "Design Process"
+                challengeParagraph = "Our team of four designers was responsible for creating the high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. We also chose a dynamic, component-based design system, utilizing the shadcn/ui component library, to serve as a UI library for the three developers. By keeping this component library in mind during the design process, we ensured an easy transition from design to code, making implementation more efficient and consistent across the app."
+
+                imageOne = "/media/flare/MockupPhoneMap.png"
+                imageTwo = "/media/flare/MockupPhoneNews.png"
+                imageThree = "/media/flare/MockupPhoneSafety.png"
             />
             <SectionFive 
-                challengeHeader="User Testing"
-                challengeParagraph=""
+                challengeHeader = "User Testing"
+                challengeParagraph = "conducted user testing in sprints"
             />
+            <h1>Marketing Material</h1>
         </div>
     )
 }

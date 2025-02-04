@@ -17,6 +17,7 @@
     width: 100%;
     height: auto;
     position: relative;
+    gap: var(--relatedComponentGap)
 }
 
 .paragraph {
@@ -36,6 +37,8 @@
     position: sticky;
     top:100px;
     display: flex;
+    flex-direction: column;
+    width: 90%;
     gap: 20px;
     /* border: 1px solid yellow; */
 }

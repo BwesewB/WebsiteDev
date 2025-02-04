@@ -18,7 +18,7 @@
 .textContainer {
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap:20px;
     width: 90%;
     position: relative;
 }
