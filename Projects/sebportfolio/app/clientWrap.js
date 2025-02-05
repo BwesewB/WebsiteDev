@@ -43,14 +43,17 @@ export default function ClientWrap({ children }) {
       direction: "vertical",
     });
 
+    let animationFrameId;
+
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animationFrameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animationFrameId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
       lenis.destroy(); // Cleanup Lenis
     };
   }, []);

@@ -87,7 +87,7 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
     return (
         <section className={styles.mediaContainer}>
             {imageSrc && 
-                <img src={imageSrc} alt={imageSrc} className={styles.imageElement}/>
+                <img src={imageSrc} alt={imageSrc} className={styles.imageElement} loading="lazy"/>
             }
             
             {videoSrc && (

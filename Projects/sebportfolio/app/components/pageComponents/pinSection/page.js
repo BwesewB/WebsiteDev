@@ -22,7 +22,7 @@ const Card = ({
     title, 
     copy, 
     skills = [], 
-    src, 
+    src = "/media/placeholder.png", 
     projectLink = "",
     backgroundColor, 
     color = "var(--white)"
@@ -67,84 +67,73 @@ export default function PinSection({ cards = [] }) {
     }, []);
 
     useGSAP(() => {
-        const cardsElements = container.current.querySelectorAll(`.${styles.card}`);
-        
-        cardsElements.forEach((card) => {
-            const headingTextSpans = card.querySelectorAll(`.${styles.headingText}`);
-            
-            gsap.fromTo(
-                headingTextSpans,
-                { y: 20, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 2,
-                    ease: "power4.out",
-                    stagger: 0.2,
-                    scrollTrigger: {
-                        trigger: card, // Each card will trigger its own animation
-                        start: "top 75%",
-                        end: "top 50%",
-                        scrub: true,
-                        toggleActions: "play none none none",
-                        once: true,
-                        // markers: true,
-                    }
-                }
-            );
-        });
-    }, { scope: container });
-
-
-    useGSAP(() => {
         const cardsElements = gsap.utils.toArray(`.${styles.card}`);
-
-        ScrollTrigger.create({
-            trigger: cardsElements[0],
-            start: "top 35%",
-            endTrigger: cardsElements[cardsElements.length - 1],
-            end: "top 30%",
-            pin: `.${styles.hero}`,
-            pinSpacing: false,
-            anticipatePin: 1
-            // markers:true
-        });
-
-        cardsElements.forEach((card, index) => {
-        const isLastCard = index === cardsElements.length - 1;
-        const cardInner = card.querySelector(`.${styles.cardInner}`);
-
-        if (!isLastCard) {
-            ScrollTrigger.create({
+    
+        // Animation for text spans
+        cardsElements.forEach((card) => {
+          const headingTextSpans = card.querySelectorAll(`.${styles.headingText}`);
+    
+          gsap.fromTo(
+            headingTextSpans,
+            { y: 20, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              ease: "power4.out",
+              stagger: 0.2,
+              scrollTrigger: {
                 trigger: card,
-                start: "top 25%", //og 35
-                endTrigger: `.${styles.bottom}`,
-                end: "top 75%", //og 65. make sure the one below has sthe same end percentage. more padding higher percentage
-                scrub: 0.3,
-                pin: true,
-                pinSpacing: false,
-                // markers:true
-            });
-
-            gsap.to(cardInner, {
-                y: `-${(cardsElements.length - index) * 14}vh`,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 25%",
-                    endTrigger: `.${styles.bottom}`,
-                    end: "top 75%", //og 65
-                    scrub: true,
-                    // markers:true
-                },
-            });
-        }
+                start: "top 75%",
+                end: "top 50%",
+                scrub: true,
+                once: true,
+              },
+            }
+          );
         });
-
-        return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
-    }, { scope: container });
+    
+        // Pinning and scrolling logic
+        ScrollTrigger.create({
+          trigger: cardsElements[0],
+          start: "top 35%",
+          endTrigger: cardsElements[cardsElements.length - 1],
+          end: "top 30%",
+          pin: `.${styles.hero}`,
+          pinSpacing: false,
+          anticipatePin: 1,
+        });
+    
+        cardsElements.forEach((card, index) => {
+          const isLastCard = index === cardsElements.length - 1;
+          const cardInner = card.querySelector(`.${styles.cardInner}`);
+    
+          if (!isLastCard) {
+            ScrollTrigger.create({
+              trigger: card,
+              start: "top 25%",
+              endTrigger: `.${styles.bottom}`,
+              end: "top 75%",
+              scrub: 0.3,
+              pin: true,
+              pinSpacing: false,
+            });
+    
+            gsap.to(cardInner, {
+              y: `-${(cardsElements.length - index) * 14}vh`,
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 25%",
+                endTrigger: `.${styles.bottom}`,
+                end: "top 75%",
+                scrub: true,
+              },
+            });
+          }
+        });
+      }, container);
+    
     
     if (!cards || cards.length === 0) {
         return <div>No cards available</div>;
