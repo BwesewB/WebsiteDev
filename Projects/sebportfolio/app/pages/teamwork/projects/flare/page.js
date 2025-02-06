@@ -60,14 +60,34 @@ export default function Flare({}) {
                 imageTwo = "/media/flare/MockupPhoneNews.png"
                 imageThree = "/media/flare/MockupPhoneSafety.png"
             />
-
             <SectionSeven
                 challengeHeader = "User Testing"
                 challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as during the coding process. Each week, our team conducted sprints and user testing for all five pages of the website to ensure continuous refinement and improvement. These one-week sprints allowed us to iterate quickly based on user feedback, ensuring that the designs were both user-friendly and aligned with the project's goals. This process helped us consistently enhance the user interface, making our app more intuitive and functional with every cycle."
                 solutionHeader="Navigation Architecture"
                 solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of our three features, ensuring ease of use when they need it most."
             />
-            <h1>Marketing Material</h1>
+            {/* <SectionFour
+                sectionHeader="Business Cards"
+                sectionParagraph="These were created for the final showcase of our app, to market ourselves and our product."
+                imageSrc="/media/flare/MockupBusinessCard2.png"
+            /> */}
+            <SectionOne 
+                paragraphTitleText="Business Cards were also created for the final showcase of our product."
+            />
+            <div className={styles.fullWidth}>
+                <div style={{width:"130%"}}>
+                    <SectionTwo
+                        imageSrc="/media/flare/MockupBusinessCard2.png"
+                    />
+                </div>
+            </div>
+            <div className={styles.fullWidthTeam}>
+                <div style={{width:"50%"}}>
+                    <SectionTwo
+                        imageSrc="/media/flare/FlareUpWithTheMayourOfBurnaby.jpg"
+                    />
+                </div>
+            </div>
         </div>
     )
 }
