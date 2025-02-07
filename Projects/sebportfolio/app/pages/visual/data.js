@@ -13,6 +13,7 @@ export const cardData = [
         skills: ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
         src: "/media/cans/fishCanVideo.mp4",
         backgroundColor: "var(--black)",
+        projectLink: "/pages/visual/projects/deckedBeer/"
     },
     {
         title: "H/H Techwear",

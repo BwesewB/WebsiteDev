@@ -12,8 +12,8 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@jridgewell/sourcemap-codec": "^1.5.0",
-    "@react-three/drei": "^9.121.2",
-    "@react-three/fiber": "^8.17.12",
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
     "@rollup/plugin-inject": "^5.0.5",
     "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.12.7",
