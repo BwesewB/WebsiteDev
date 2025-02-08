@@ -1,10 +1,16 @@
 "use client"
 
-import { Canvas } from "@react-three/fiber"
-import { BeerCan } from "./BeerCan.js"
+import { Canvas } from "@react-three/fiber";
+import { BeerCan } from "./BeerCan.js";
+import { Environment, Float, OrbitControls } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 
-export default function ViewCanvas({}) {
+export default function ViewCanvas({
+    flavor,
+}) {
+      
     return (
         <Canvas
             style={{
@@ -22,13 +28,17 @@ export default function ViewCanvas({}) {
                 fov:30,
             }}
         >
-            <mesh rotation={[0.5, 0.5, 0]} position={[1, 0, 0]}>
-                <boxGeometry />
-                <meshStandardMaterial color={"orange"}/>
-            </mesh>
-            <BeerCan />
-            <ambientLight intensity={2} />
-            <spotLight intensity={3} position={[1, 1, 1]} />
+            <Float
+                speed={1}
+                rotationIntensity={1}
+                floatIntensity={1}
+                floatingRange={[-0.1, 0.1]}
+            >
+                <BeerCan flavor={flavor}/>
+            </Float>
+
+            <Environment files="/hdr/beach.hdr" environmentIntensity={1.2}/>
+
         </Canvas>
     )
 }
