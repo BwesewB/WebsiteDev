@@ -92,9 +92,6 @@ export const BeerCan = forwardRef(({ flavor = "fish", ...props }, ref) => {
           {...props} 
           dispose={null}      
           rotation={[0, 0.7, 0]}   
-          position={DEFAULT_BEER_CAN_TRANSFORMS.position}
-          
-          scale={DEFAULT_BEER_CAN_TRANSFORMS.scale}
         >
           <mesh
             castShadow
