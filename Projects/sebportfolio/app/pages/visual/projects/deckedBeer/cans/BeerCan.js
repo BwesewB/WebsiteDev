@@ -5,6 +5,7 @@ import { Float } from '@react-three/drei';
 
 export const DEFAULT_BEER_CAN_TRANSFORMS = {
   position: [0, -0.3, 0],
+  rotation: [0, 0.7, 0], 
   scale: 0.7,
 };
 
@@ -90,8 +91,7 @@ export const BeerCan = forwardRef(({ flavor = "fish", ...props }, ref) => {
         <group 
           ref={groupRef} 
           {...props} 
-          dispose={null}      
-          rotation={[0, 0.7, 0]}   
+          dispose={null}        
         >
           <mesh
             castShadow

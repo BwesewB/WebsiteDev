@@ -5,6 +5,7 @@ import ProjectHero from "../../../../components/projectTemplates/projectHero/pag
 import SectionOne from "../../../../components/projectTemplates/SectionOne/page"
 import SectionSix from "@/app/components/projectTemplates/SectionSix/page"
 import ViewCanvas from "./cans/page"
+import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page"
 
 export default function DeckedBeer({}) {
     return (
@@ -23,11 +24,14 @@ export default function DeckedBeer({}) {
             />
             <SectionSix 
                 challengeHeader = "Labels"
-                challengeParagraph = "www"
+                challengeParagraph = 'The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
 
                 imageOne = "/media/cans/labels/Fish@2x.png"
                 imageTwo = "/media/cans/labels/Crab@2x.png"
                 imageThree = "/media/cans/labels/Seaweed@2x.png"
+            />
+            <SectionTwo 
+                videoSrc="/media/cans/fishCanVideo.mp4"
             />
         </div>
     )
