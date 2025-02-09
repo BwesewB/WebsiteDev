@@ -5,7 +5,7 @@ import { Float } from '@react-three/drei';
 
 export const DEFAULT_BEER_CAN_TRANSFORMS = {
   position: [0, -0.3, 0],
-  rotation: [0, 0.7, 0], 
+  // rotation: [0, 0.7, 0], 
   scale: 0.7,
 };
 
@@ -82,16 +82,17 @@ export const BeerCan = forwardRef(({ flavor = "fish", ...props }, ref) => {
 
   return (
     <Float
-    speed={1}
-    rotationIntensity={1}
-    floatIntensity={1}
-    floatingRange={[-0.1, 0.1]}
+      speed={1}
+      rotationIntensity={1}
+      floatIntensity={1}
+      floatingRange={[-0.1, 0.1]}
     >
       <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />
         <group 
           ref={groupRef} 
           {...props} 
-          dispose={null}        
+          dispose={null} 
+          rotation= {[0, 0.7, 0]}       
         >
           <mesh
             castShadow
