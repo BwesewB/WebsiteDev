@@ -1,0 +1,16 @@
+.canStyle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1400px) {
+    .canStyle {
+        position: relative;
+    }
+}

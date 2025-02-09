@@ -1,0 +1,8 @@
+
+.canvasArea {
+    height: 100vh;
+    position: relative;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+}

@@ -1,10 +1,14 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useImperativeHandle  } from 'react';
 import { useGLTF, useTexture, OrbitControls } from '@react-three/drei';
-import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { Float } from '@react-three/drei';
+
+export const DEFAULT_BEER_CAN_TRANSFORMS = {
+  position: [0, -0.3, 0],
+  scale: 0.7,
+};
 
 export const BeerCan = forwardRef(({ flavor = "fish", ...props }, ref) => {
-
   const { nodes, materials } = useGLTF('/media/cans/beerCan/CansWeb.gltf');
 
   const flavorTextures = {
@@ -13,92 +17,96 @@ export const BeerCan = forwardRef(({ flavor = "fish", ...props }, ref) => {
     seaweed: '/media/cans/labels/Seaweed@2x.png',
   };
 
+  // Load the correct label texture based on the flavor prop
   const labelTexture = useTexture(flavorTextures[flavor]);
   labelTexture.flipY = false;
 
-  const [isDesktop, setIsDesktop] = useState(true);
   const controls = useRef();
-  // const canRef = useRef();
+  const groupRef = useRef();
 
-  // useEffect(() => {
-  //   if (controls.current && canRef.current) {
-  //     const targetPosition = canRef.current.position;
-  //     controls.current.target.copy(targetPosition);
-  //     controls.current.update();
-  //   }
-  // }, []);
+  useImperativeHandle(ref, () => groupRef.current);
 
   useEffect(() => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isMobile = /android|iphone|ipad|ipod|blackberry|windows phone|opera mini|mobile/i.test(userAgent);
-      setIsDesktop(!isMobile);
-    }, []);
+    console.log("GroupRef connected in BeerCan:", groupRef.current);
+  }, []);
   
-    useEffect(() => {
-      let timeout;
+  useEffect(() => {
+    if (controls.current) {
+      controls.current.update();
+    }
+  }, [flavor]);
+
+  useEffect(() => {
+    let timeout;
   
-      const smoothResetCamera = () => {
-        if (controls.current) {
-          console.log("Smoothly resetting camera position...");
-          
-          gsap.to(controls.current.object.position, {
-            x: 0,
-            y: 0,
-            z: 5,
-            duration: 1.5,
-            ease: "power2.out",
-          });
+    const smoothResetCamera = () => {
+      if (controls.current) {
+        gsap.to(controls.current.object.position, {
+          x: 0,
+          y: 0,
+          z: 5,
+          duration: 1.5,
+          ease: 'power2.out',
+        });
   
-          gsap.to(controls.current.target, {
-            x: 0,
-            y: 0,
-            z: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            onUpdate: () => controls.current.update(),
-          });
-        }
-      };
-  
-      const onControlChange = () => {
-        console.log("User interaction detected, resetting timer...");
-        clearTimeout(timeout);
-        timeout = setTimeout(smoothResetCamera, 2000);
-      };
-  
-      const controlInstance = controls.current;
-      if (isDesktop && controlInstance) {
-        controlInstance.addEventListener("change", onControlChange);
+        gsap.to(controls.current.target, {
+          x: 0,
+          y: 0,
+          z: 0,
+          duration: 1.5,
+          ease: 'power2.out',
+          onUpdate: () => {
+            if (controls.current) {
+              controls.current.update();
+            }
+          },
+        });
       }
+    };
   
-      return () => {
-        controlInstance?.removeEventListener("change", onControlChange);
-        clearTimeout(timeout);
-      };
-    }, [isDesktop]);
+    const onControlChange = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(smoothResetCamera, 2000);
+    };
+  
+    if (controls.current) {
+      controls.current.addEventListener('change', onControlChange);
+    }
+  
+    return () => {
+      controls.current?.removeEventListener('change', onControlChange);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
-    <>
-      {isDesktop && <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />}
-      <group ref={ref} {...props} dispose={null}>
-        <group position={[0, -0.3, 0]} rotation={[0, 0.7, 0]} scale={0.7}>
+    <Float
+    speed={1}
+    rotationIntensity={1}
+    floatIntensity={1}
+    floatingRange={[-0.1, 0.1]}
+    >
+      <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />
+        <group 
+          ref={groupRef} 
+          {...props} 
+          dispose={null}      
+          rotation={[0, 0.7, 0]}   
+          position={DEFAULT_BEER_CAN_TRANSFORMS.position}
+          
+          scale={DEFAULT_BEER_CAN_TRANSFORMS.scale}
+        >
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Cylinder005.geometry}
             material={materials['Material.001']}
           />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Cylinder005_1.geometry}
-          >
+          <mesh castShadow receiveShadow geometry={nodes.Cylinder005_1.geometry}>
             <meshStandardMaterial map={labelTexture} />
           </mesh>
         </group>
-      </group>
-    </>
-
+    </Float>
   );
 });
 
