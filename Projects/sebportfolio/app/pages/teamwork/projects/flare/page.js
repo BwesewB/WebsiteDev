@@ -84,7 +84,7 @@ export default function Flare({}) {
             <div className={styles.fullWidthTeam}>
                 <div style={{width:"50%"}}>
                     <SectionTwo
-                        imageSrc="/media/flare/FlareUpWithTheMayourOfBurnaby.jpg"
+                        imageSrc="/media/flare/FlareTeam.png"
                     />
                 </div>
             </div>
