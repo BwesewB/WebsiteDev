@@ -6,3 +6,19 @@
     display: flex;
     flex-direction: column;
 }
+
+.sectionTwoSideBySide {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: var(--relatedComponentGap);
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .sectionTwoSideBySide {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+}

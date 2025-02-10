@@ -14,7 +14,7 @@ export default function DeckedBeer({}) {
                 <ProjectHero 
                     projectName="Decked Beer"
                     date="2024"
-                    toolsUsed="Adobe Illustrator, Adobe Photoshop, Three.js, Blender"
+                    toolsUsed="Adobe Illustrator, Adobe Photoshop, Blender, Three.js"
                 />
                 <ViewCanvas />
             </div>
@@ -33,6 +33,17 @@ export default function DeckedBeer({}) {
             <SectionTwo 
                 videoSrc="/media/cans/fishCanVideo.mp4"
             />
+            <SectionOne 
+                paragraphTitleText="Blender was used to bring Decked to life, creating realistic product visuals that showcased the custom label designs and branding."
+            />
+            <div className={styles.sectionTwoSideBySide}>
+                <SectionTwo 
+                    imageSrc="/media/cans/3cans1.png"
+                />
+                <SectionTwo 
+                    imageSrc="/media/cans/3cans2.png"
+                />
+            </div>
         </div>
     )
 }

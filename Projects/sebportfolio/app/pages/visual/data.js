@@ -9,8 +9,8 @@ export const cardData = [
     },
     {
         title: "Decked Beer",
-        copy: "Decked (In Progress)",
-        skills: ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
+        copy: "Decked is a premium lager from Raging Alc. Brewing, featuring custom labels for fishermen with practical details like hook-making instructions and bilingual recycling graphics.",
+        skills: ["Adobe Illustrator", "Adobe Photoshop", "Blender", "Three.js"],
         src: "/media/cans/fishCanVideo.mp4",
         backgroundColor: "var(--black)",
         projectLink: "/pages/visual/projects/deckedBeer/"
