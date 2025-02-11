@@ -3,11 +3,17 @@
 import SectionTwo from "../../projectTemplates/SectionTwo/page"
 import styles from "./footer.module.css"
 import Link from "next/link"
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
 
 export default function Footer({}) {
     const [copyMessage, setCopyMessage] = useState("");
     const [showMessage, setShowMessage] = useState(false);
+    const linkRefs = useRef([]);
+
+    useEffect(() => {
+        linkRefs.current = linkRefs.current.slice(0, 6); // Ensure the refs match the number of links
+    }, []);
   
     const copyEmailToClipboard = () => {
       const email = "info.sebfok@gmail.com";
@@ -25,6 +31,33 @@ export default function Footer({}) {
         });
     };
 
+    const handleMouseEnter = (index) => {
+        gsap.to(linkRefs.current[index], 
+        {
+            width: "100%",
+            duration: 0.3,
+            ease: "power2.out",
+        });
+    };
+
+    const handleMouseLeave = (index) => {
+        gsap.to(linkRefs.current[index], 
+        {
+            width: "0%",
+            duration: 0.3,
+            ease: "power2.out",
+        });
+    };
+
+    const links = [
+        { text: "3D", href: "/pages/3d" },
+        { text: "Motion", href: "/pages/motion" },
+        { text: "Visual", href: "/pages/visual" },
+        { text: "Teamwork", href: "/pages/teamwork" },
+        { text: "LinkedIn", href: "https://www.linkedin.com/in/sebastianfok/", external: true },
+        { text: "Instagram", href: "https://www.instagram.com/bwes_design?utm_source=qr", external: true },
+    ];
+
     return(
         <footer className={styles.footerWrap}>
             <section className={styles.footerContainer}>
@@ -33,17 +66,59 @@ export default function Footer({}) {
                         <div className={styles.linkSection}>
                             <h5 className={styles.footerH5}>EXPLORE</h5>
                             <div className={styles.linkies}>
-                                <Link href="/pages/3d"><h4>3D</h4></Link>
-                                <Link href="/pages/motion"><h4>Motion</h4></Link>
-                                <Link href="/pages/visual"><h4>Visual</h4></Link>
-                                <Link href="/pages/teamwork"><h4>Teamwork</h4></Link>
+                                {links.slice(0, 4).map((link, index) => (
+                                    <Link key={index} href={link.href} passHref>
+                                        <div 
+                                            className={styles.linkWrapper}
+                                            onMouseEnter={() => handleMouseEnter(index)}
+                                            onMouseLeave={() => handleMouseLeave(index)}
+                                        >
+                                            <h4>{link.text}</h4>
+                                            <span ref={(el) => (linkRefs.current[index] = el)} className={styles.underline}></span>
+                                        </div>
+                                    </Link>
+                                ))}
+                                {/* <Link href="/pages/3d">
+                                    <h4>3D</h4>
+                                    <span className={styles.underline}></span>
+                                </Link>
+                                <Link href="/pages/motion">
+                                    <h4>Motion</h4>
+                                    <span className={styles.underline}></span>
+                                </Link>
+                                <Link href="/pages/visual">
+                                    <h4>Visual</h4>
+                                    <span className={styles.underline}></span>
+                                </Link>
+                                <Link href="/pages/teamwork">
+                                    <h4>Teamwork</h4>
+                                    <span className={styles.underline}></span>
+                                </Link> */}
                             </div>
                         </div>
                         <div className={styles.linkSection}>
                             <h5 className={styles.footerH5}>STALK ME</h5>
                             <div className={styles.linkies}>
-                                <Link href="https://www.linkedin.com/in/sebastianfok/" target="_blank" className={styles.blueText}><h4>LinkedIn</h4></Link>
-                                <Link href="https://www.instagram.com/bwes_design?utm_source=qr" target="_blank" className={styles.blueText}><h4>Instagram</h4></Link>
+                                {links.slice(4).map((link, index) => (
+                                    <Link key={index + 4} href={link.href} target="_blank" passHref>
+                                        <div 
+                                            className={styles.linkWrapper}
+                                            onMouseEnter={() => handleMouseEnter(index + 4)}
+                                            onMouseLeave={() => handleMouseLeave(index + 4)}
+                                        >
+                                            <h4 className={styles.blueText}>{link.text}</h4>
+                                            <span ref={(el) => (linkRefs.current[index + 4] = el)} className={styles.underline}></span>
+                                        </div>
+                                    </Link>
+                                ))}
+                                {/* <Link href="https://www.linkedin.com/in/sebastianfok/" target="_blank" className={styles.blueText}>
+                                    <h4>LinkedIn</h4>
+                                    <span className={styles.underline}></span>
+                                </Link>
+                                <Link href="https://www.instagram.com/bwes_design?utm_source=qr" target="_blank" className={styles.blueText}>
+                                    <h4>Instagram</h4>
+                                    <span className={styles.underline}></span>
+                                </Link> */}
                             </div>
                         </div>
                     </div>
