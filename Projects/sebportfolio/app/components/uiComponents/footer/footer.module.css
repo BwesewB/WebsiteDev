@@ -12,6 +12,7 @@
 
 .footerContainer {
     display: grid;
+    position: relative;
     grid-template-rows: auto auto;
     gap: var(--relatedComponentGap);
     padding-top: var(--paddingleftRight);
@@ -22,8 +23,12 @@
 
 .sectionTop {
     position: relative;
-    display: grid;
-    grid-template-columns: auto auto;
+    max-width: 100%;
+    /* display: grid;
+    grid-template-columns: 40% auto; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: var(--paddingleftRight);
 }
 
@@ -49,6 +54,7 @@
 
 .linkSectionLeft {
     display: flex;
+    min-width: 40%;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--relatedComponentGap);

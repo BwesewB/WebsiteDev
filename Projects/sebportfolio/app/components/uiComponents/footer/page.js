@@ -62,7 +62,7 @@ export default function Footer({}) {
                         </Link>
                     </div>
                     <div className={styles.textLowest}>
-                        <p>SEBASTIAN FOK</p>
+                        <p>&copy; SEBASTIAN FOK</p>
                         <p>2024/2025</p>
                     </div>
                 </div>

@@ -83,15 +83,15 @@ export default function Home() {
               </Link>
             ))}
           </div>
-          <h5 className={styles.headerFive}>CONTACT</h5>
+          {/* <h5 className={styles.headerFive}>CONTACT</h5> */}
         </div>
-        <div className={styles.containerContentContact}>
+        {/* <div className={styles.containerContentContact}>
           <div className={styles.headingContent}>
             <p>info.sebfok@gmail.com</p>
             <Link href="https://www.instagram.com/bwes_design?utm_source=qr" target="_blank" className={styles.blueText}><p>Instagram</p></Link>
             <Link href="https://www.linkedin.com/in/sebastianfok/" target="_blank" className={styles.blueText}><p>LinkedIn</p></Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
 
