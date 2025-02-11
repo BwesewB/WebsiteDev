@@ -26,7 +26,7 @@ export default function Motion() {
                         videoSrc="/media/taxes/GOTTEM.mp4"
                         title="taxes!"
                         projectLink="/pages/motion/projects/taxes/"
-                        description="Taxes are hard! Just turning 18 at the time of my first After Effects project, I got a little taste of how harsh paying your first tax bill can be, so I decided to make a fun and comedic video about taxes."
+                        description="Taxes are hard! Inspired by the experience of paying a first tax bill at 18, this fun and comedic After Effects project was created to explore the topic with humor."
                     />
                 </div>
             </div>
