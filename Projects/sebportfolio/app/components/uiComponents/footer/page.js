@@ -1,3 +1,5 @@
+"use client"
+
 import SectionTwo from "../../projectTemplates/SectionTwo/page"
 import styles from "./footer.module.css"
 import Link from "next/link"
