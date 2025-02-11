@@ -4,8 +4,8 @@ import GithubLogo from "@/public/icons/GithubLogo";
 
 export default function SourceCodeButton({
     externalLink = "",
-    backgroundColor = "var(--white)",
-    buttonContentColour = "var(--black)",
+    backgroundColor = "var(--blue)",
+    buttonContentColour = "var(--sand)",
 }) {
     return(
         <>

@@ -87,10 +87,15 @@
     .navigationSection {
         margin-left: -120px;
         padding-left: 120px; 
-        width: calc(100vw - 90px);
+        width: calc(100vw - 30px);
     }
 
     .navDescription {
         display: none;
+    }
+
+    .containerContent, .containerContentContact {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

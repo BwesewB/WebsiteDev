@@ -4,8 +4,11 @@ import styles from "./sectionOne.module.css";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(useGSAP)
 
 export default function SectionOne({
     paragraphTitleText = "Lorem Ipsum",
@@ -23,42 +26,37 @@ export default function SectionOne({
     };
 
     useEffect(() => {
-        const headingText = document.querySelectorAll(`.${styles.headingText}`);
-        
-        // Function to trigger GSAP animation when the element enters the viewport
-        const animateText = (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    gsap.fromTo(headingText, {
-                        y: 10
-                    }, {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: "expoScale",
-                        stagger: 0.2
-                    });
-                    // Once animation is triggered, stop observing
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        // Create an IntersectionObserver instance
-        const observer = new IntersectionObserver(animateText, {
-            threshold: 0.6, // The animation triggers when 80% of the element is in the viewport
-        });
-
-        if (headerRef.current) {
-            observer.observe(headerRef.current); // Start observing the target element
-        }
-
-        return () => {
-            if (headerRef.current) {
-                observer.unobserve(headerRef.current); // Clean up observer
+        // Target all largeTextContainer sections
+        const sections = gsap.utils.toArray(`.${styles.largeTextContainer}`);
+    
+        sections.forEach((section) => {
+          const headingText = section.querySelectorAll(`.${styles.headingText}`);
+    
+          gsap.fromTo(
+            headingText,
+            { y: 10, opacity: 0 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "expo.out",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                markers: true,
+                scrub: false,
+              },
             }
+          );
+        });
+    
+        // Cleanup triggers
+        return () => {
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, []);
+      }, []);
 
     return (
         <section ref={headerRef} className={styles.largeTextContainer}>

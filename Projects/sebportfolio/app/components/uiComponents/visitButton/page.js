@@ -5,7 +5,7 @@ import ArrowRight from "@/public/icons/arrowRight";
 export default function VisitButton({
     externalLink = "",
     backgroundColor = "var(--blue)",
-    buttonContentColour = "var(--white)",
+    buttonContentColour = "var(--sand)",
 }) {
     return(
         <>

@@ -4,8 +4,8 @@ import FigmaLogo from "@/public/icons/FigmaLogo";
 
 export default function SourceCodeButton({
     externalLink = "",
-    backgroundColor = "var(--white)",
-    buttonContentColour = "var(--black)",
+    backgroundColor = "var(--blue)",
+    buttonContentColour = "var(--sand)",
 }) {
     return(
         <>
