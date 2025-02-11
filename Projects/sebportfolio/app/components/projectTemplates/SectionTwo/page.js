@@ -83,6 +83,9 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
         }
     };
 
+    const handleMouseLeave = () => {
+        setTimeout(() => setShowOverlay(false), 300); // Delayed hide to match the CSS transition
+    };
 
     return (
         <section className={styles.mediaContainer}>
@@ -94,7 +97,7 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
                 <div 
                     className={styles.videoWrapper}
                     onMouseEnter={() => !initialMute && setShowOverlay(true)} //nice
-                    onMouseLeave={() => setShowOverlay(false)}
+                    onMouseLeave={handleMouseLeave}
                 >
                     <video
                         ref={videoRef}

@@ -14,7 +14,7 @@ export default function DeckedBeer({}) {
                 <ProjectHero 
                     projectName="Decked Beer"
                     date="2024"
-                    toolsUsed="Adobe Illustrator, Adobe Photoshop, Blender, Three.js"
+                    toolsUsed="Adobe Illustrator / Adobe Photoshop / Blender / Three.js"
                 />
                 <ViewCanvas />
             </div>
