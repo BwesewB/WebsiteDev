@@ -1,0 +1,13 @@
+.footerWrap {
+    width: 100vw;
+    height: 70vh;
+    padding-left: calc(-1 * var(--paddingleftRight));
+    padding-right: calc(-1 * var(--paddingleftRight));
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.footerContainer {
+    padding-left: calc(2 * var(--paddingleftRight));
+    padding-right: calc(2 * var(--paddingleftRight));
+}

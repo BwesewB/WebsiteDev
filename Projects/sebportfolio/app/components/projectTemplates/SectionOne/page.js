@@ -52,7 +52,6 @@ export default function SectionOne({
           );
         });
     
-        // Cleanup triggers
         return () => {
           ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };

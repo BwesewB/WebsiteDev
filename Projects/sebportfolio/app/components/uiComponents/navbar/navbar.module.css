@@ -16,7 +16,7 @@
     right: 0;
     width: 100vw; /* Match viewport width initially */
     max-width: 100%;
-    padding: 20px 90px;
+    padding: 20px var(--paddingleftRight);
     display: flex;
     justify-content: space-between;
     font-family: var(--font-primary);
@@ -45,7 +45,5 @@
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 20px 30px;
-    }
+
 }

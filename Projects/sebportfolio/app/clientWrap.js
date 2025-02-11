@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "./components/uiComponents/navbar/page";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis"
+import Footer from "./components/uiComponents/footer/page";
 
 export default function ClientWrap({ children }) {
 
@@ -64,6 +65,7 @@ export default function ClientWrap({ children }) {
     <>
       <Navbar navColor={navColor} />
       {children}
+      <Footer />
     </>
   );
 }

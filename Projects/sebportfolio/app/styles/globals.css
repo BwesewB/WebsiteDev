@@ -38,13 +38,25 @@ html, body {
 
 body {
   position: relative;
-  margin-left: 90px;
-  margin-right: 90px;
+  padding-left: var(--paddingleftRight);
+  padding-right: var(--paddingleftRight);
   /* border:1px solid red; */
   overflow-x: hidden;
   flex-direction: column;
   align-items: center;
   max-width: 1920px;
+  margin-right: -10px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: none;
+  position: absolute;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--lightBlue);
+  border-radius: 5px;
 }
 
 h1, h2, h3, h4, h5, p{
@@ -184,11 +196,7 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
-  }
-
-  body {
-    margin-left: 30px;
-    margin-right: 30px;
+    --paddingleftRight:30px;
   }
 
   h1 {
