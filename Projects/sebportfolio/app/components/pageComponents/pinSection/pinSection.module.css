@@ -13,7 +13,7 @@
     flex-direction: column;
 }
 
-.hero {
+.hero, .bottom {
     position: relative;
     max-width: 100%;
     height: 80vh;
@@ -26,12 +26,6 @@
 .hero h1 {
     color: var(--sand);
     text-align: center;
-}
-
-.bottom {
-    position: relative;
-    max-width: 100%;
-    height: 100vh;
 }
 
 .card {

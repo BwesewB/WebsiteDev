@@ -27,7 +27,7 @@ export const cardData = [
         title: "Mech.obj",
         copy: "Mechanical Object (In Progress)",
         skills: ["Adobe Illustrator"],
-        src: "/media/mechAppliance/mechanicalAppliance.png",
+        src: "/media/mechAppliance/BraunRadio.png",
         backgroundColor: "var(--sand)",
         color: "var(--black)"
     },
