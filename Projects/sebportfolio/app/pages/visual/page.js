@@ -7,7 +7,7 @@ import HeroSection from "../..//components/pageComponents/heroSection/page"
 
 export default function Visual() {
     return (
-        <div className={styles.projectContainer}>
+        <div className="pinContainer">
             <PinSection cards={cardData}/>
         </div>
     );

@@ -193,6 +193,14 @@ p {
   padding-right: var(--paddingleftRight);
 }
 
+.pinContainer {
+  position: relative;
+  width: 100vw;
+  padding-left: calc(-1 * var(--paddingleftRight));
+  padding-right: calc(-1 * var(--paddingleftRight));
+}
+
+
 /* Responsive */
 
 @media (max-width: 768px) {
