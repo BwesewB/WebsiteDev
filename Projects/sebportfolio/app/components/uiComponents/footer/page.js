@@ -9,11 +9,7 @@ import gsap from "gsap";
 export default function Footer({}) {
     const [copyMessage, setCopyMessage] = useState("");
     const [showMessage, setShowMessage] = useState(false);
-    const linkRefs = useRef([]);
-
-    useEffect(() => {
-        linkRefs.current = linkRefs.current.slice(0, 6); // Ensure the refs match the number of links
-    }, []);
+    const linkRefs = useRef({});
   
     const copyEmailToClipboard = () => {
       const email = "info.sebfok@gmail.com";
