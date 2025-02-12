@@ -16,9 +16,9 @@
     grid-template-rows: auto auto;
     gap: var(--relatedComponentGap);
     padding-top: var(--paddingleftRight);
-    padding-left: calc(1 * var(--paddingleftRight));
-    padding-right: calc(1 * var(--paddingleftRight));
-    padding-bottom: var(--relatedComponentGap);
+    padding-left: var(--sideSpacing);
+    padding-right: var(--sideSpacing);
+    padding-bottom: var(--sideSpacing);
 }
 
 .sectionTop {

@@ -5,7 +5,7 @@
     right: 0;
     width: 100vw; /* Match viewport width initially */
     max-width: 100%;
-    padding: 20px var(--paddingleftRight);
+    padding: 30px;
     display: flex;
     justify-content: space-between;
     font-family: var(--font-primary);
