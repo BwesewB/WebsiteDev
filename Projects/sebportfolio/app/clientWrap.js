@@ -63,7 +63,7 @@ export default function ClientWrap({ children }) {
 
   return (
     <>
-      <Navbar navColor={navColor} />
+      <Navbar navColor={navColor} navBG={bgColor}/>
       {children}
       <Footer />
     </>

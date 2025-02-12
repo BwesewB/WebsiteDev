@@ -5,7 +5,7 @@ import Logo from "@/public/media/logo/Logo";
 
 export default function Navbar({
   navColor = "var(--blue)",
-  navBG,
+  navBG = "",
 }) {
   return (
     // <div className={styles.fullWithNavbar}>

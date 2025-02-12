@@ -56,6 +56,7 @@ export default function Footer({}) {
         { text: "Teamwork", href: "/pages/teamwork" },
         { text: "LinkedIn", href: "https://www.linkedin.com/in/sebastianfok/", external: true },
         { text: "Instagram", href: "https://www.instagram.com/bwes_design?utm_source=qr", external: true },
+        { text: "Resume", href: "/media/SebastianFokResume.pdf", external: true },
     ];
 
     return(

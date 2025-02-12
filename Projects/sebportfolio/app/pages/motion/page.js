@@ -12,7 +12,6 @@ export default function Motion() {
         <div className="container">
             <div ref={motionRef} className={styles.motionContainer}>
                 <h1>Hero section in progress... Please Scroll Down</h1>
-                {/* <HeroSection videoSrc="/media/blackHole/Watermelon video.mp4" parentRef={motionRef} position="sticky"/> */}
             </div>
             <div className={styles.motionPage}>
                 <div className={styles.motionContent}>
