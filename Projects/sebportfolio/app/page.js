@@ -56,7 +56,8 @@ export default function Home() {
     <>
       <div className={styles.topContainer}>
           <div className={styles.heroContainer}>
-            <h1 className={styles.name}>Sebastian Fok</h1>
+            <h1 className={styles.name}>sebastian fok</h1>
+            <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p>
           </div>
           <div>
             <SectionTwo 

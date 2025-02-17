@@ -176,7 +176,8 @@ h5 {
 /* Paragraph Styles */
 p {
   font-family: var(--font-primary);
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(14px, 1vw, 18px);
+  /* font-size: 1.1vw; */
   font-style: normal;
   font-weight: 200;
   line-height: 1.5;
