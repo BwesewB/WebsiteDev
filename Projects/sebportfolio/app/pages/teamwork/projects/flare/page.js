@@ -11,6 +11,7 @@ import SectionSix from "@/app/components/projectTemplates/SectionSix/page"
 import dynamic from "next/dynamic";
 import logoAnimation from "/public/media/flare/LogoAnimation.json";
 import SectionSeven from "@/app/components/projectTemplates/SectionSeven/page"
+import SectionEight from "@/app/components/projectTemplates/SectionEight/page"
 
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -51,6 +52,10 @@ export default function Flare({}) {
             <SectionFive 
                 challengeHeader = "Competitive Analysis"
                 challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach"
+            />
+            <SectionEight
+                imageOne="/media/flare/FlarePersona-1.png"
+                imageTwo="/media/flare/FlarePersona-2.png"
             />
             <SectionSix 
                 challengeHeader = "Design Process"
