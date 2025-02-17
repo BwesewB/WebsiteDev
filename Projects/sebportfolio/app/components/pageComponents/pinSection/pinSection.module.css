@@ -23,6 +23,10 @@
     /* border: 1px solid yellow */
 }
 
+.bottom {
+    height: 0
+}
+
 .hero h1 {
     color: var(--sand);
     text-align: center;

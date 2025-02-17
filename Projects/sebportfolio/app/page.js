@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import styles from './styles/page.module.css';
@@ -9,6 +10,24 @@ import SectionTwo from "./components/projectTemplates/SectionTwo/page";
 export default function Home() {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(`.${styles.letter}`, {
+        y:40,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "expoScale",
+        stagger: 0.05, // Stagger for smoother animation
+      });
+    });
+  
+    return () => ctx.revert(); // Cleanup GSAP animation on unmount
+  }, []);
+  
 
   useEffect(() => {
     const navLinks = document.querySelectorAll(`.${styles.navigationSection}`);
@@ -56,7 +75,11 @@ export default function Home() {
     <>
       <div className={styles.topContainer}>
           <div className={styles.heroContainer}>
-            <h1 className={styles.name}>sebastian fok</h1>
+          <h1 className={styles.name}>
+  {"sebastian fok".split("").map((char, index) => (
+    <span key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</span>
+  ))}
+</h1>
             <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p>
           </div>
           <div>
