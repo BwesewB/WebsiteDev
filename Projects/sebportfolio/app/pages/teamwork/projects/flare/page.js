@@ -80,6 +80,12 @@ export default function Flare({}) {
             <SectionOne 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."
             />
+            <SectionTwo 
+                sectionHeading="Promotional Video"
+                videoSrc="/media/flare/FlarePromoVideo.mp4"
+                initialMute={false}
+                mediaWidth="60%"
+            />
             <div className={styles.fullWidth}>
                 <div style={{width:"130%"}}>
                     <SectionTwo

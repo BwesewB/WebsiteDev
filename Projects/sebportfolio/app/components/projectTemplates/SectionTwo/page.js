@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./sectionTwo.module.css";
 import Image from "next/image";
 
-export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
+export default function SectionTwo({ 
+    imageSrc, 
+    videoSrc, 
+    initialMute = true, 
+    sectionHeading,
+    mediaWidth,
+}) {
     const videoRef = useRef(null);
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
@@ -88,36 +94,40 @@ export default function SectionTwo({ imageSrc, videoSrc, initialMute = true }) {
     };
 
     return (
-        <section className={styles.mediaContainer}>
-            {imageSrc && 
-                <img src={imageSrc} alt={imageSrc} className={styles.imageElement} loading="lazy"/>
-            }
-            
-            {videoSrc && (
-                <div 
-                    className={styles.videoWrapper}
-                    onMouseEnter={() => !initialMute && setShowOverlay(true)} //nice
-                    onMouseLeave={handleMouseLeave}
-                >
-                    <video
-                        ref={videoRef}
-                        src={videoSrc}
-                        className={styles.videoElement}
-                        autoPlay
-                        loop
-                        preload="auto"
-                        playsInline
-                        onError={(e) => {
-                        console.error("Error loading video", e);
-                        }}
-                    />
-                    {showOverlay && (
-                        <div className={styles.overlay} onClick={handleToggleMute}>
-                            <h5>{isMuted ? "Unmute" : "Mute"}</h5>
-                        </div>
-                    )}
-                </div>
-            )}
+        <section className={styles.sectionTwoWrap}>
+            <h4>{sectionHeading}</h4>
+            <div className={styles.mediaContainer}>
+                {imageSrc && 
+                    <img src={imageSrc} alt={imageSrc} className={styles.imageElement} loading="lazy" style={{width: mediaWidth}}/>
+                }
+                
+                {videoSrc && (
+                    <div 
+                        className={styles.videoWrapper}
+                        onMouseEnter={() => !initialMute && setShowOverlay(true)} //nice
+                        onMouseLeave={handleMouseLeave}
+                        style={{width: mediaWidth}}
+                    >
+                        <video
+                            ref={videoRef}
+                            src={videoSrc}
+                            className={styles.videoElement}
+                            autoPlay
+                            loop
+                            preload="auto"
+                            playsInline
+                            onError={(e) => {
+                            console.error("Error loading video", e);
+                            }}
+                        />
+                        {showOverlay && (
+                            <div className={styles.overlay} onClick={handleToggleMute}>
+                                <h5>{isMuted ? "Unmute" : "Mute"}</h5>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
         </section>
     );
 }

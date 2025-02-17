@@ -1,7 +1,6 @@
 .sectionEightWrap {
     display: flex;
     flex-direction: column;
-    gap: var(--textGap);
     height: auto;
 }
 
