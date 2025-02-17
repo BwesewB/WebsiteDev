@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import styles from './styles/page.module.css';
 import Link from 'next/link';
 import ArrowRight from "@/public/icons/arrowRight";
+import SectionTwo from "./components/projectTemplates/SectionTwo/page";
 
 export default function Home() {
 
@@ -53,12 +54,18 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.container}>
-        <h1 className={styles.underConstruction}>This site is currently under development</h1>
-        <p className={styles.test}>This is a fire website!</p>
+      <div className={styles.topContainer}>
+          <div className={styles.heroContainer}>
+            <h1 className={styles.name}>Sebastian Fok</h1>
+          </div>
+          <div>
+            <SectionTwo 
+              imageSrc="/media/3dWorks/3shilo-minFlip.png"
+            />
+          </div>
       </div>
       <div className={styles.sectionContent}>
-        <div className={styles.containerContent}>
+        <div className={styles.containerContent1}>
           <div>
             <h5 className={styles.headerFive}>ABOUT ME</h5>
             <div className={styles.headingContent}>
@@ -67,7 +74,7 @@ export default function Home() {
           </div>
           <h5 className={styles.headerFive}>MY PROJECTS</h5>
         </div>
-        <div className={styles.containerContent}>
+        <div className={styles.containerContent2}>
           <div className={styles.headingContent}>
             {[
               { href: "/pages/3d", title: "3D", description: "Personal 3D projects in Blender" },

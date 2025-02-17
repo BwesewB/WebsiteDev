@@ -39,13 +39,13 @@ html, body {
 
 body {
   position: relative;
-  padding-left: var(--paddingleftRight);
-  padding-right: var(--paddingleftRight);
+  padding-left: calc(2 * var(--paddingleftRight));
+  padding-right: calc(2 * var(--paddingleftRight));
   /* border:1px solid red; */
   overflow-x: hidden;
   flex-direction: column;
   align-items: center;
-  max-width: 1920px;
+  /* max-width: 1920px; */
   /* margin-right: -10px; */
 }
 
@@ -189,8 +189,6 @@ p {
   width: 100%;
   height: auto;
   gap: var(--itemSpacing);
-  padding-left: var(--paddingleftRight);
-  padding-right: var(--paddingleftRight);
 }
 
 .pinContainer {

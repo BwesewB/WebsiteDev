@@ -1,38 +1,52 @@
-.container{
-    height: 100vh;
-    width:100%;
-    /* border: 1px solid black; */
+.heroContainer{
+    height: 30vw;
+    /* border: 1px solid red; */
+    margin-top: var(--itemSpacing);
+    position: relative;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     justify-content:center;
-    align-items:center;
+    align-items:center; */
 }
 
-.underConstruction {
-    color: var(--sand);
-    text-align: center;
+.topContainer{
+    gap: var(--itemSpacing);
+    padding-bottom: var(--itemSpacing);
+    width: 100%;
+    height: fit-content;
+}
+
+.name {
+    color: var(--black);
+    /* text-align: center; */
+    /* font-size: max(300px, 16vw); */
+    font-size: 12vw;
+    line-height: 10vw;
+    /* font-size: 300px; */
 }
 
 .sectionContent {
-    width: 100%;
+    width: 100vw;
     height: fit-content;
-    padding-top: 140px;
+    position: relative;
+    padding-left: calc(-1 * var(--paddingleftRight));
+    padding-right: calc(-1 * var(--paddingleftRight));
 }
 
-.containerContent {
+.containerContent1 {
     width: 100%;
-    height: calc(100vh - 140px);
+    height: calc(100vh - var(--itemSpacing));
+    padding-left: calc(2 * var(--paddingleftRight));
+    padding-right: calc(2 * var(--paddingleftRight));
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     position: relative;
-    padding-left: 90px;
-    padding-right: 90px;
     transition: 0.3s ease;
     /* border: 1px solid green */
 }
 
-.containerContent h3 {
+.containerContent1 h3 {
     text-transform: none;
 }
 
@@ -49,31 +63,30 @@
     margin-top: 90px;
 }
 
-.containerContentContact {
+.containerContent2 {
     width: 100%;
-    height: 60vh;
+    height: calc(100vh - var(--itemSpacing));
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     position: relative;
-    padding-left: var(--paddingleftRight);
-    padding-right: var(--paddingleftRight);
     transition: 0.3s ease;
+    /* border: 1px solid green */
 }
 
 .navigationSection {
     color: var(--blue);
-    width: 100%;
-    /* padding-left: calc(2 * var(--paddingleftRight));
-    margin-left: calc(-2 * var(--paddingleftRight)); */
-    /* margin-right: calc(-2 * var(--paddingleftRight)); */
+    width: 100vw;
+
+    padding-left: calc(2 * var(--paddingleftRight));
+    padding-right: calc(2 * var(--paddingleftRight));
+
     height: clamp(100px, 6vw, 140px);
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-between;
     background-color: var(--white);
-
     transition: background-color 0.3s;
 }
 
