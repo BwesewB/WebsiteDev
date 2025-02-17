@@ -199,6 +199,9 @@ p {
   padding-right: calc(-1 * var(--paddingleftRight));
 }
 
+.headerAndContent {
+  gap: var(--relatedComponentGap);
+}
 
 /* Responsive */
 

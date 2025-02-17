@@ -54,6 +54,7 @@ export default function Flare({}) {
                 challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach"
             />
             <SectionEight
+                sectionHeading="User Personas"
                 imageOne="/media/flare/FlarePersona-1.png"
                 imageTwo="/media/flare/FlarePersona-2.png"
             />
@@ -77,7 +78,7 @@ export default function Flare({}) {
                 imageSrc="/media/flare/MockupBusinessCard2.png"
             /> */}
             <SectionOne 
-                paragraphTitleText="Business Cards were also created for the final showcase of our product."
+                paragraphTitleText="To highlight the final product, a range of marketing materials was produced."
             />
             <div className={styles.fullWidth}>
                 <div style={{width:"130%"}}>
@@ -86,13 +87,11 @@ export default function Flare({}) {
                     />
                 </div>
             </div>
-            <div className={styles.fullWidthTeam}>
-                <div style={{width:"50%"}}>
-                    <SectionTwo
-                        imageSrc="/media/flare/FlareTeam.png"
-                    />
-                </div>
-            </div>
+            <SectionEight 
+                sectionHeading="Our Team"
+                videoOne="/media/flare/FlareTechDemo.mp4"
+                imageTwo="/media/flare/FlareTeam.png"
+            />
         </div>
     )
 }
