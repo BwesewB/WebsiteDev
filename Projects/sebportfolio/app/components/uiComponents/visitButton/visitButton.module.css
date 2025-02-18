@@ -5,7 +5,7 @@
     padding: 6px 20px;
     display: flex;
     position: relative;
-
+    cursor: pointer;
 }
 
 .pText {

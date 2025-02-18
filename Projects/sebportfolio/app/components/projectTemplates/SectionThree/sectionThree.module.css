@@ -48,7 +48,8 @@
 
 .buttonSticky {
     position: sticky;
-    top:120px;
+    /* top:120px; */
+    top: var(--sideSpacing);
     display: flex;
     gap:var(--textGap);
     flex-wrap: wrap;
