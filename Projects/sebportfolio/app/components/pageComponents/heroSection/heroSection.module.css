@@ -5,7 +5,6 @@
     align-items: end;
     padding-left: calc(1 * var(--sideSpacing));
     padding-right: calc(1 * var(--sideSpacing));
-    position: relative;
 }
 
 .hero h1 {

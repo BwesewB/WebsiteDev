@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection({
     heroSectionTitle = "",
-    japaneseText = ""
+    japaneseText = "",
+    position = "fixed"
 }) {
 
     useEffect(() => {
@@ -48,7 +49,7 @@ export default function HeroSection({
     }, []);
 
     return (
-      <div className={styles.hero}>
+      <div className={styles.hero} style={{position:position}}>
           <div className={styles.title}>
             {heroSectionTitle.split("").map((char, index) => (
               <h1 key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</h1>

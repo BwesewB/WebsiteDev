@@ -13,6 +13,7 @@ export default function Motion() {
                 <HeroSection 
                     heroSectionTitle = "Motion"
                     japaneseText = "モーション"
+                    position="relative"
                 />
             </div>
         </div>

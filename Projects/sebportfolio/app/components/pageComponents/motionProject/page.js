@@ -26,6 +26,7 @@ export default function MotionProject({
                     <SectionTwo 
                         videoSrc={videoSrc}
                     />
+
                 </Link>
             </div>
             <h2>{title}</h2>

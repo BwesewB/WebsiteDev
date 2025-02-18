@@ -152,6 +152,8 @@ export default function PinSection({
                     japaneseText={japaneseText}
                 />
             </div>
+
+
             <section className={styles.cardsSection}>
                 {cards.map((card, index) => (
                     <Card key={index} {...card} index={index} />
