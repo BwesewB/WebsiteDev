@@ -84,15 +84,12 @@ export default function Flare({}) {
                 sectionHeading="Promotional Video"
                 videoSrc="/media/flare/FlarePromoVideo.mp4"
                 initialMute={false}
-                mediaWidth="60%"
             />
-            <div className={styles.fullWidth}>
-                <div style={{width:"130%"}}>
-                    <SectionTwo
-                        imageSrc="/media/flare/MockupBusinessCard2.png"
-                    />
-                </div>
-            </div>
+            <SectionEight 
+                sectionHeading="Brochure & Business Card"
+                imageOne="/media/flare/FlareTriFold.png"
+                imageTwo="/media/flare/MockupBusinessCardCropped.png"
+            />
             <SectionEight 
                 sectionHeading="Our Team"
                 videoOne="/media/flare/FlareTechDemo.mp4"
