@@ -9,7 +9,6 @@
     display: flex;
     justify-content: space-between;
     font-family: var(--font-primary);
-    font-size: 16px;
     font-style: normal;
     line-height: 100%;
     letter-spacing: 1.6px;
@@ -30,7 +29,7 @@
 .navPages{
     display: flex;
     justify-content: space-between;
-    gap:40px;
+    gap: var(--textGap);
     user-select: none;
 }
 
@@ -38,6 +37,65 @@
     padding: 6px 12px;
     display: flex;
     align-items: center;
+}
+
+.hoverMenu {
+    height: 60px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.textNav {
+    text-transform: none;
+    height: 100%;
+    padding-left: var(--sideSpacing);
+    padding-right: var(--sideSpacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+}
+
+.arrowDivOne, .arrowDivTwo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.arrowDivOne {
+    width: 60px;
+    height: 60px;
+}
+
+.arrowDivTwo {
+    width: 0;
+    height: 0;
+}
+
+.arrowContainerOne, .arrowContainerTwo {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.arrowContainerOne {
+    transform: rotate(-135deg);
+}
+
+.arrowContainerTwo {
+    transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {
