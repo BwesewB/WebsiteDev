@@ -1,10 +1,32 @@
 .threeDContainer{
     width: 100vw;
+    height: auto;
 }
 
 .torusScene{
     width: 100vw;
     height: 100vh;
-    position: relative;
+    /* position: sticky; */
+    /* position: absolute; */
+    /* top:0; */
     cursor: move;
+}
+
+.torusSceneHeight {
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+}
+
+.spacerDisplay {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--black);
+}
+
+.threeDProjectDisplay {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blue);
+    z-index: 1000;
 }

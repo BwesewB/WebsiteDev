@@ -87,7 +87,7 @@ export default function Model() {
         <>
             {isDesktop && <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />}
             {/* only render the orbit controls if it is on desktop */}
-            <group scale={viewport.width / 3.75} >
+            <group scale={viewport.width / 4.00} >
                 <Text font={'/fonts/Lausanne/TWKLausanne-700.otf'} position={[0, 0, -1]} fontSize={0.7} color="var(--white)" anchorX="center" anchorY="middle">
                     3D MODELS
                 </Text>

@@ -16,7 +16,11 @@ export default function Navbar({
           </Link>
         </div>
 
-        <ul className={styles.navPages} style={{ color: navColor }}>
+        <div style={{backgroundColor: navColor}} className={styles.hoverMenu}>
+
+        </div>
+
+        {/* <ul className={styles.navPages} style={{ color: navColor }}>
           <li className={styles.linkContainer}>
             <Link href="/pages/3d">3D</Link>
           </li>
@@ -29,7 +33,7 @@ export default function Navbar({
           <li className={styles.linkContainer}>
             <Link href="/pages/teamwork">TEAMWORK</Link>
           </li>
-        </ul>
+        </ul> */}
       </nav>
     // </div>
   );
