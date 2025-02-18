@@ -8,7 +8,11 @@ import HeroSection from "../..//components/pageComponents/heroSection/page"
 export default function Visual() {
     return (
         <div className="pinContainer">
-            <PinSection cards={cardData}/>
+            <PinSection 
+                cards={cardData}
+                heroSectionTitle="Visual"
+                japaneseText="ビジュアル"
+            />
         </div>
     );
 }

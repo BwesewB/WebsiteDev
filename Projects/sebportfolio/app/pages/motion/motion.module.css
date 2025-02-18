@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.motionContainer {
+.motionContaine {
     height: 60vh;
     /* height: 300vh; */
     /* width: 100vw; */
@@ -14,16 +14,11 @@
     /* border: 1px solid red */
 }
 
-.motionContainer h1 {
-    color: var(--sand);
-    text-align: center;
-}
-
 .motionContent {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: var(--itemSpacing)
+    gap: var(--itemSpacing);
 }
 

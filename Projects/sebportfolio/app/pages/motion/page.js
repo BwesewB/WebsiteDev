@@ -6,13 +6,17 @@ import { useRef } from "react";
 import MotionProject from "@/app/components/pageComponents/motionProject/page"; 
 
 export default function Motion() {
-    const motionRef = useRef(null);
-
     return (
-        <div className="container">
-            <div ref={motionRef} className={styles.motionContainer}>
-                <h1>Hero section in progress... Please Scroll Down</h1>
+    <>
+        <div className="pinContainer">
+            <div className="hero">
+                <HeroSection 
+                    heroSectionTitle = "Motion"
+                    japaneseText = "モーション"
+                />
             </div>
+        </div>
+        <div className="container">
             <div className={styles.motionPage}>
                 <div className={styles.motionContent}>
                     <MotionProject 
@@ -30,5 +34,7 @@ export default function Motion() {
                 </div>
             </div>
         </div>
+    </>
+
     );
 }

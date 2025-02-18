@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
+import HeroSection from "../heroSection/page";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -28,10 +29,10 @@ const Card = ({
     color = "var(--white)"
 }) => {
 
-    const isVideo = (src) => {
-        const videoExtensions = ['.mp4', '.mov'];
-        return videoExtensions.some(ext => src.endsWith(ext));
-    };
+const isVideo = (src) => {
+    const videoExtensions = ['.mp4', '.mov'];
+    return videoExtensions.some(ext => src.endsWith(ext));
+};
 
     return (
         <div className={styles.card}>
@@ -59,7 +60,11 @@ const Card = ({
     );
 };
 
-export default function PinSection({ cards = [] }) {
+export default function PinSection({ 
+    cards = [], 
+    heroSectionTitle,
+    japaneseText,
+}) {
     const container = useRef();
     
     useEffect(() => {
@@ -141,12 +146,17 @@ export default function PinSection({ cards = [] }) {
 
     return (
         <div ref={container} className={styles.pinSectionContainer}>
-            <div className={styles.hero}><h1>Hero section in progress... Please Scroll Down</h1></div>
-                <section className={styles.cardsSection}>
-                    {cards.map((card, index) => (
-                        <Card key={index} {...card} index={index} />
-                    ))}
-                </section>
+            <div className="hero">
+                <HeroSection
+                    heroSectionTitle={heroSectionTitle}
+                    japaneseText={japaneseText}
+                />
+            </div>
+            <section className={styles.cardsSection}>
+                {cards.map((card, index) => (
+                    <Card key={index} {...card} index={index} />
+                ))}
+            </section>
             <div className={styles.bottom}></div>
         </div>
     );
