@@ -84,6 +84,7 @@ export default function Flare({}) {
                 sectionHeading="Promotional Video"
                 videoSrc="/media/flare/FlarePromoVideo.mp4"
                 initialMute={false}
+                mediaWidth="50%"
             />
             <SectionEight 
                 sectionHeading="Brochure & Business Card"
