@@ -45,7 +45,7 @@ export default function SectionOne({
                 trigger: section,
                 start: "top 80%",
                 end: "bottom 20%",
-                markers: true,
+                // markers: true,
                 scrub: false,
               },
             }
