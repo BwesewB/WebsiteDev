@@ -6,27 +6,38 @@
 .torusScene{
     width: 100vw;
     height: 100vh;
-    /* position: sticky; */
-    /* position: absolute; */
-    /* top:0; */
     cursor: move;
-}
-
-.torusSceneHeight {
-    height: 100vh;
-    width: 100vw;
-    pointer-events: none;
-}
-
-.spacerDisplay {
-    width: 100%;
-    height: 100vh;
-    background-color: var(--black);
+    /* position: fixed; */
 }
 
 .threeDProjectDisplay {
     width: 100vw;
-    height: 100vh;
-    background-color: var(--blue);
+    height: auto;
+    /* background-color: var(--blue); */
     z-index: 1000;
+}
+.masonryGrid {
+    display: flex;
+    width: 100%;
+    gap: var(--relatedComponentGap);
+}
+
+/* Ensures each column takes full width */
+.masonryColumn {
+    background-clip: padding-box;
+}
+
+.imageContainer {
+    width: 100%;
+    padding-bottom:  var(--relatedComponentGap);
+}
+
+.imageContainer img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wideImage {
+    width: 100%;
 }

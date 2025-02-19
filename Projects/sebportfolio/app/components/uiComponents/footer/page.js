@@ -31,7 +31,7 @@ export default function Footer({}) {
         gsap.to(linkRefs.current[index], 
         {
             width: "100%",
-            duration: 0.3,
+            duration: 0.2,
             ease: "power2.out",
         });
     };
@@ -40,7 +40,7 @@ export default function Footer({}) {
         gsap.to(linkRefs.current[index], 
         {
             width: "0%",
-            duration: 0.3,
+            duration: 0.2,
             ease: "power2.out",
         });
     };

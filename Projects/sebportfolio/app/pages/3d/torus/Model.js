@@ -3,6 +3,7 @@ import { useGLTF, Text, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from '@react-three/fiber'
 import { MeshTransmissionMaterial } from "@react-three/drei";
 import { useControls } from 'leva';
+import Image from 'next/image';
 import gsap from 'gsap';
 
 export default function Model() {
@@ -32,7 +33,7 @@ export default function Model() {
     const [isDesktop, setIsDesktop] = useState(true);
 
     useFrame(() => {
-        mesh.current.rotation.x += 0.005;
+        mesh.current.rotation.x += 0.001;
     })
 
     useEffect(() => {
@@ -85,7 +86,14 @@ export default function Model() {
 
     return (
         <>
-            {isDesktop && <OrbitControls ref={controls} enableZoom={false} enableRotate={true} enablePan={false} />}
+            {isDesktop && 
+                <OrbitControls
+                ref={controls}
+                enableZoom={false}
+                enableRotate={true}
+                enablePan={false}
+            />
+            }
             {/* only render the orbit controls if it is on desktop */}
             <group scale={viewport.width / 4.00} >
                 <Text font={'/fonts/Lausanne/TWKLausanne-700.otf'} position={[0, 0, -1]} fontSize={0.7} color="var(--white)" anchorX="center" anchorY="middle">
