@@ -45,7 +45,9 @@ export default function ThreeD() {
     return (
         <div className={styles.threeDContainer}>
             <div className={styles.torusScene}>
-                <Scene />
+                <div className={styles.torusFloat}>
+                    <Scene />
+                </div>
             </div>
             <div className={styles.threeDProjectDisplay}>
                 <Masonry

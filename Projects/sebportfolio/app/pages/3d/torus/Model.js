@@ -2,9 +2,10 @@ import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF, Text, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from '@react-three/fiber'
 import { MeshTransmissionMaterial } from "@react-three/drei";
-import { useControls } from 'leva';
-import Image from 'next/image';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Model() {
 
@@ -31,10 +32,26 @@ export default function Model() {
     const { nodes } = useGLTF("/models/KnotTorus.glb");
     const { viewport } = useThree()
     const [isDesktop, setIsDesktop] = useState(true);
+    const [scaleFactor, setScaleFactor] = useState(4);
 
     useFrame(() => {
         mesh.current.rotation.x += 0.001;
     })
+
+    useEffect(() => {
+        gsap.to({}, { // Empty object to ensure GSAP initializes properly
+            scrollTrigger: {
+                trigger: document.body,
+                start: "top top",
+                end: "200vh top",
+                scrub: 1, // Smooth animation
+                onUpdate: (self) => {
+                    const newScale = 4 + self.progress * 4; // Scale from 4 to 8
+                    setScaleFactor(newScale);
+                }
+            }
+        });
+    }, []);
 
     useEffect(() => {
         const userAgent = navigator.userAgent.toLowerCase();
@@ -95,7 +112,7 @@ export default function Model() {
             />
             }
             {/* only render the orbit controls if it is on desktop */}
-            <group scale={viewport.width / 4.00} >
+            <group scale={viewport.width / scaleFactor} >
                 <Text font={'/fonts/Lausanne/TWKLausanne-700.otf'} position={[0, 0, -1]} fontSize={0.7} color="var(--white)" anchorX="center" anchorY="middle">
                     3D MODELS
                 </Text>
