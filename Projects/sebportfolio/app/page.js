@@ -6,6 +6,7 @@ import styles from './styles/page.module.css';
 import Link from 'next/link';
 import ArrowRight from "@/public/icons/arrowRight";
 import SectionTwo from "./components/projectTemplates/SectionTwo/page";
+import ProjectLayout from "./components/pageComponents/projectLayout/page";
 
 export default function Home() {
 
@@ -114,7 +115,23 @@ export default function Home() {
               </Link>
             ))}
           </div>
-          {/* <h5 className={styles.headerFive}>CONTACT</h5> */}
+          
+        </div>
+        <div className={styles.containerContent3}>
+          <h5 className={styles.headerFive}>Featured</h5>
+          <div className={styles.headingContent}>          
+            <ProjectLayout
+              videoSrc = "/media/cans/fishCanVideo.mp4"
+              h4Title = "Decked Beer"
+              description = "3D model integration"
+              projectLink = "/pages/visual/projects/deckedBeer/"
+
+              videoSrcTwo = "/media/flare/FlareTechDemo.mp4"
+              h4TitleTwo = "Flare"
+              descriptionTwo = "BC wildfire risk mitigation app"
+              projectLinkTwo = "/pages/teamwork/projects/flare/"
+            />
+          </div>
         </div>
         {/* <div className={styles.containerContentContact}>
           <div className={styles.headingContent}>

@@ -95,7 +95,7 @@ export default function SectionTwo({
 
     return (
         <section className={styles.sectionTwoWrap}>
-            <h4>{sectionHeading}</h4>
+            {sectionHeading && (<h4>{sectionHeading}</h4>)}
             <div className={styles.mediaContainer}>
                 {imageSrc && 
                     <img src={imageSrc} alt={imageSrc} className={styles.imageElement} style={{width: mediaWidth}}/>

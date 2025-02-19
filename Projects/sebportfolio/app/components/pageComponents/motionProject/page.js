@@ -7,7 +7,9 @@ import { useEffect } from "react";
 
 export default function MotionProject({
     videoSrc = "",
+    imageSrc,
     title = "",
+    h4Title = "",
     description = "Lorem ipsum dolor siet ameit",
     projectLink = ""
 }) {
@@ -24,12 +26,13 @@ export default function MotionProject({
                         <h5 className="h5stretched" style={{color: "var(--white)"}}>Visit Project</h5>
                     </div>
                     <SectionTwo 
+                        imageSrc={imageSrc}
                         videoSrc={videoSrc}
                     />
 
                 </Link>
             </div>
-            <h2>{title}</h2>
+            {title ? <h2>{title}</h2> : h4Title && <h4>{h4Title}</h4>}
             <p>{description}</p>
         </div>
     );

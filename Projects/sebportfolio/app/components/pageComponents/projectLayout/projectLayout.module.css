@@ -1,0 +1,15 @@
+.gridContainer {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--relatedComponentGap);
+  }
+  
+  @media (max-width: 768px) {
+    .gridContainer {
+      grid-template-columns: 1fr;
+    }
+  }

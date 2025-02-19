@@ -16,6 +16,7 @@ export default function Navbar({
   const hoverMenuRef = useRef(null);
   const menuWordRef = useRef(null)
   const navWordRef = useRef(null)
+  const ease = "expoScale"
 
   const arrowOneRef = useRef(null);
   const arrowOneCircleRef = useRef(null);
@@ -40,13 +41,13 @@ export default function Navbar({
         y: 50,
         width: 0,
         duration: 0.3,
-        ease: "expoScale",
+        ease: ease,
       });
 
       gsap.to(navWord, {
         width: "auto",
         duration: 0.3,
-        ease: "expoScale",
+        ease: ease,
       });
 
       gsap.fromTo(
@@ -58,7 +59,7 @@ export default function Navbar({
           y: 0,
           duration: 0.3,
           stagger: { each: 0.1, from: "end" },
-          ease: "expoScale",
+          ease: ease,
         }
       );
 
@@ -67,7 +68,7 @@ export default function Navbar({
         x: -50, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease 
       });
 
       gsap.to(arrowOneCircle, { 
@@ -75,14 +76,14 @@ export default function Navbar({
         height: 0, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease
       });
 
       gsap.to(arrowTwo, { 
         x: 0, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease
       });
 
       gsap.to(arrowTwoCircle, { 
@@ -90,7 +91,7 @@ export default function Navbar({
         height: "60px", 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease
       });
     };
 
@@ -98,14 +99,14 @@ export default function Navbar({
       gsap.to(navWord, {
         width: 0,
         duration: 0.3, 
-        ease: "expoScale", 
+        ease: ease, 
       })
 
       gsap.to(menuWord, {
         width: "auto",
         y:0,
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease 
       })
 
       gsap.fromTo(
@@ -117,7 +118,7 @@ export default function Navbar({
           y: -20,
           duration: 0.3,
           stagger: { each: 0.1, from: "end" },
-          ease: "expoScale",
+          ease: ease,
         }
       );
 
@@ -126,7 +127,7 @@ export default function Navbar({
         x: 0, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "power2.in" 
+        ease: ease
       });
 
       gsap.to(arrowOneCircle, { 
@@ -134,14 +135,14 @@ export default function Navbar({
         height: "60px", 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease 
       });
 
       gsap.to(arrowTwo, { 
         x: -80, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease
       });
 
       gsap.to(arrowTwoCircle, { 
@@ -149,7 +150,7 @@ export default function Navbar({
         height: 0, 
         opacity: 1, 
         duration: 0.3, 
-        ease: "expoScale" 
+        ease: ease
       });
     };
 
