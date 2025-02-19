@@ -89,6 +89,7 @@ export default function Home() {
             />
           </div>
       </div>
+
       <div className={styles.sectionContent}>
         <div className={styles.containerContent1}>
           <div>
@@ -133,13 +134,7 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* <div className={styles.containerContentContact}>
-          <div className={styles.headingContent}>
-            <p>info.sebfok@gmail.com</p>
-            <Link href="https://www.instagram.com/bwes_design?utm_source=qr" target="_blank" className={styles.blueText}><p>Instagram</p></Link>
-            <Link href="https://www.linkedin.com/in/sebastianfok/" target="_blank" className={styles.blueText}><p>LinkedIn</p></Link>
-          </div>
-        </div> */}
+
       </div>
     </>
 

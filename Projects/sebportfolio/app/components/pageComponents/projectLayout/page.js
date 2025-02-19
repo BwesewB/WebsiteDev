@@ -41,7 +41,7 @@ export default function ProjectLayout({
             start: "top 95%",
             // toggleActions: "play none none reverse",
             once: true,
-            markers:true
+            // markers:true
           },
         }
       );
