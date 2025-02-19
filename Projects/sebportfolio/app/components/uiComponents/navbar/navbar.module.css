@@ -31,6 +31,18 @@
     justify-content: space-between;
     gap: var(--textGap);
     user-select: none;
+    overflow: hidden;
+    width: 0;
+    /* transform: translateX(-100px); */
+}
+
+.menuWord {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    overflow: hidden;
 }
 
 .linkContainer{
@@ -59,6 +71,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 100px;
+    overflow: hidden;
 }
 
 .arrowDivOne, .arrowDivTwo {
