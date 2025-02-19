@@ -31,8 +31,8 @@ const images = [
     { src: "/media/3dWorks/GateBuilding4.png" },
     { src: "/media/3dWorks/GateBuilding5.png" },
     { src: "/media/3dWorks/GateBuilding6.png" },
-    { src: "/media/3dWorks/landscape texture.png" },
-    { src: "/media/3dWorks/Planet Atmosphere.png" },
+    { src: "/media/3dWorks/landscapeTexture.png" },
+    { src: "/media/3dWorks/PlanetAtmosphere.png" },
 ];
 
 export default function ThreeD() {
