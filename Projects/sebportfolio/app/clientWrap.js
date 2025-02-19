@@ -11,7 +11,7 @@ export default function ClientWrap({ children }) {
 
   const pageStyles = {
     "/": { bgColor: "var(--white)", navColor: "var(--blue)" },
-    "/pages/3d": { bgColor: "var(--black)", navColor: "var(--white)" },
+    "/pages/3d": { bgColor: "var(--black)", navColor: "var(--white)", textColor: "var(--black)" },
     "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/teamwork": { bgColor: "var(--white)", navColor: "var(--blue)" },
@@ -23,7 +23,7 @@ export default function ClientWrap({ children }) {
     "/pages/teamwork/projects/flare": { bgColor: "var(--sand)", navColor: "var(--blue)" },
   };
 
-  const { bgColor, navColor } = pageStyles[pathname] || pageStyles["/"];
+  const { bgColor, navColor, textColor } = pageStyles[pathname] || pageStyles["/"];
 
   // Update styles for the html and body elements directly
   useEffect(() => {
@@ -34,6 +34,10 @@ export default function ClientWrap({ children }) {
   useEffect(() => {
     document.documentElement.style.setProperty('--nav-color', navColor); // Update nav color
   }, [navColor]);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--text-color', textColor); // Update nav color
+  }, [textColor]);
 
 
 //Lenis smooth scrolling
@@ -63,7 +67,7 @@ export default function ClientWrap({ children }) {
 
   return (
     <>
-      <Navbar navColor={navColor} navBG=""/>
+      <Navbar navColor={navColor} textColor={textColor}/>
       {children}
       <Footer />
     </>

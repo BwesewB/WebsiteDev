@@ -18,7 +18,7 @@ export default function ThreeD() {
                 <Scene />
             </div>
             <div className={styles.threeDProjectDisplay}>
-                <h1>bruh</h1>
+                {/* <h1>bruh</h1> */}
             </div>
         </div>
     );
