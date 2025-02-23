@@ -107,6 +107,7 @@ export default function PinSection({
           pin: `.${styles.hero}`,
           pinSpacing: false,
           anticipatePin: 1,
+          scrub: true,
         });
     
         cardsElements.forEach((card, index) => {
@@ -152,8 +153,9 @@ export default function PinSection({
                     japaneseText={japaneseText}
                 />
             </div>
+            <div className={styles.spacerSection}>
 
-
+            </div>
             <section className={styles.cardsSection}>
                 {cards.map((card, index) => (
                     <Card key={index} {...card} index={index} />

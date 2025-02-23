@@ -5,12 +5,17 @@
 }
 
 .cardsSection {
+    margin-top: -10vh;
     max-width: 100%;
     height: fit-content;
     overflow: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.spacerSection {
+    height: 100vh;
 }
 
 .hero, .bottom {
@@ -31,6 +36,7 @@
     position: relative;
     height: 60vh;
     width: 100%;
+
 }
 
 .cardInner {
@@ -42,10 +48,6 @@
     max-width: 100%;
     /* object-fit: contain; */
     padding: 90px calc( 2 * var(--paddingleftRight)); /*if you change padding you need to change the scrolltrigger percent for the last card*/
-    /* padding-left: 90px;
-    padding-right: 90px;
-    padding-top: var(--relatedComponentGap);
-    padding-bottom: var(--relatedComponentGap); */
     border-radius: 0;
     gap: var(--relatedComponentGap);
 }

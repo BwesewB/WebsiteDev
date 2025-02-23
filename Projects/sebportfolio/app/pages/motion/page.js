@@ -16,6 +16,7 @@ export default function Motion() {
                     position="relative"
                 />
             </div>
+            <div className={styles.spacerSection}></div>
         </div>
         <div className="container">
             <div className={styles.motionPage}>

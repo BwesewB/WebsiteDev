@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.spacerSection {
+    height: 90vh;
+}
+
 .motionContaine {
     height: 60vh;
     /* height: 300vh; */
