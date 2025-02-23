@@ -75,7 +75,7 @@
 
 .containerContent3 {
     width: 100%;
-    height: calc(100vh - var(--itemSpacing));
+    height: fit-content;
     padding-left: calc(2 * var(--paddingleftRight));
     padding-right: calc(2 * var(--paddingleftRight));
     display: flex;
@@ -138,5 +138,15 @@
     .containerContent, .containerContentContact {
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .topContainer {
+        height: 90vh;
+        justify-content: flex-end;
+    }
+    .containerContent2 {
+        height: calc(80vh - var(--itemSpacing));
     }
 }

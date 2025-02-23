@@ -216,7 +216,7 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
-    --paddingleftRight:30px;
+    --paddingleftRight: 10px;
   }
 
   h1 {
@@ -242,7 +242,15 @@ p {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --paddingleftRight: 10px;
+    --sideSpacing: 10px;
+    /* --itemSpacing: 180px; */
+  }
+  
   p {
     font-size: 16px;
   }
+
+
 }

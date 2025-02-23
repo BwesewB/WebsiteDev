@@ -25,11 +25,12 @@ export default function MotionProject({
                     <div className={styles.overlay}>
                         <h5 className="h5stretched" style={{color: "var(--white)"}}>Visit Project</h5>
                     </div>
-                    <SectionTwo 
-                        imageSrc={imageSrc}
-                        videoSrc={videoSrc}
-                    />
-
+                    <div className={styles.sectionTwoWrap}>
+                        <SectionTwo 
+                            imageSrc={imageSrc}
+                            videoSrc={videoSrc}
+                        />
+                    </div>
                 </Link>
             </div>
             {title ? <h2>{title}</h2> : h4Title && <h4>{h4Title}</h4>}
