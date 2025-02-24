@@ -55,12 +55,14 @@ export default function SectionTwo({
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
+                    setTimeout(() => videoElement.play().catch((error) => console.error("Video playback failed", error)), 300) 
                     if (isMuted) {
                         fadeOutVolume(videoElement); 
                     } else {
                         fadeInVolume(videoElement); 
                     }
                 } else {
+                    setTimeout(() => videoElement.pause(), 300)
                     fadeOutVolume(videoElement);
                 }
             },
