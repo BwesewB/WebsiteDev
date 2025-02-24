@@ -4,6 +4,11 @@ import Masonry from "react-masonry-css";
 import Image from "next/image";
 import styles from "./threeD.module.css";
 import dynamic from 'next/dynamic';
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useState, useRef, useEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Scene = dynamic(() => import('./torus/Scene'), {
     ssr: false, //u can add placeholder for loading 
@@ -35,6 +40,32 @@ const images = [
 ];
 
 export default function ThreeD() {
+    const imageRefs = useRef([])
+
+    useEffect(() => {
+        if (window.innerWidth <= 768) return;
+
+        imageRefs.current.forEach((image) => {
+            if (!image) return;
+
+            gsap.fromTo(
+                image,
+                { y: -50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: image,
+                        start: "top 90%",
+                        end: "top 80%",
+                        scrub: 1, 
+                        once: true,
+                    }
+                }
+            );
+        });
+    }, []);
+
     const breakpointColumnsObj = {
         default: 3,
         768: 2,
@@ -55,8 +86,16 @@ export default function ThreeD() {
                     columnClassName={styles.masonryColumn}
                 >
                     {images.map(({ src }, index) => (
-                        <div key={index} className={styles.imageContainer}>
-                            <img src={src} alt={`3D Work ${index}`} />
+                        <div 
+                            key={index} 
+                            className={styles.imageContainer} 
+                        >
+                            <img 
+                                src={src} 
+                                alt={`3D Work ${index}`} 
+                                loading="lazy" 
+                                ref={(el) => (imageRefs.current[index] = el)}
+                            />
                         </div>
                     ))}
                 </Masonry>

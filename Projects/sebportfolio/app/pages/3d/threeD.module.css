@@ -15,13 +15,14 @@
     height: 100vh;
     position: fixed;
     mix-blend-mode: lighten;
+    z-index: 1;
 }
 
 .threeDProjectDisplay {
     width: 100vw;
     height: auto;
     /* background-color: var(--blue); */
-    z-index: 1000;
+    z-index: -1000;
     user-select: none;
 }
 .masonryGrid {
