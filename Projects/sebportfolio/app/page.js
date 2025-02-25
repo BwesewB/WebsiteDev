@@ -75,19 +75,19 @@ export default function Home() {
   return (
     <>
       <div className={styles.topContainer}>
-          <div className={styles.heroContainer}>
-          <h1 className={styles.name}>
-            {"sebastian fok".split("").map((char, index) => (
-              <span key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</span>
-            ))}
-          </h1>
-            {/* <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p> */}
-          </div>
-          <div>
-            <SectionTwo 
-              imageSrc="/media/3dWorks/3shilo-minFlip.png"
-            />
-          </div>
+        <div className={styles.heroContainer}>
+        <h1 className={styles.name}>
+          {"sebastian fok".split("").map((char, index) => (
+            <span key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</span>
+          ))}
+        </h1>
+          {/* <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p> */}
+        </div>
+        <div>
+          <SectionTwo 
+            imageSrc="/media/3dWorks/3shilo-minFlip.png"
+          />
+        </div>
       </div>
 
       <div className={styles.sectionContent}>

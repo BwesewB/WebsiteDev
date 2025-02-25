@@ -40,12 +40,12 @@ export default function Navbar({
       .fromTo(logo, 
         { 
           rotate: -45, 
-          opacity: 0 
+          x: -120
         }, 
         { 
+          delay: 0.1,
           x: 30, 
           rotate: 30, 
-          opacity: 1, 
           duration: 0.6, 
           ease: "rollingEase" 
         }
