@@ -55,7 +55,7 @@ export function setupNavbarAnimations(
     });
 
     gsap.to(arrowTwoRef.current, {
-        delay:0.1,
+        delay:0.2,
         x: 0,
         opacity: 1,
         duration: 0.3,
@@ -73,59 +73,65 @@ export function setupNavbarAnimations(
 
   const handleMouseLeave = () => {
     gsap.to(navWordRef.current, {
-      width: 0,
-      duration: 0.3,
-      ease: ease
+        width: 0,
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.to(menuWordRef.current, {
-      width: "auto",
-      y: 0,
-      duration: 0.3,
-      ease: ease
+        width: "auto",
+        y: 0,
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.fromTo(
-      linkContainers,
-      { 
-        y: 0
-      },
-      {
-        y: -20,
-        duration: 0.3,
-        stagger: { each: 0.1, from: "end" },
-        ease: ease
-      }
+        linkContainers,
+        { 
+            y: 0
+        },
+        {
+            y: -20,
+            duration: 0.3,
+            stagger: { each: 0.1, from: "end" },
+            ease: ease
+        }
     );
 
-    gsap.to(arrowOneRef.current, {
-      x: 0,
-      opacity: 1,
-      duration: 0.3,
-      ease: "back.out"
-    });
+    gsap.fromTo(arrowOneRef.current, 
+        {
+            x:50
+        },
+        {
+            delay: 0.2,
+            x: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: "back.out"
+        }
+    );
 
     gsap.to(arrowOneCircleRef.current, {
-      width: "60px",
-      height: "60px",
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        width: "60px",
+        height: "60px",
+        opacity: 1,
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.to(arrowTwoRef.current, {
-      x: -80,
-      opacity: 1,
-      duration: 0.3,
-      ease: "back.out"
+        x: -80,
+        opacity: 1,
+        duration: 0.3,
+        ease: "back.out"
     });
 
     gsap.to(arrowTwoCircleRef.current, {
-      width: 0,
-      height: 0,
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        width: 0,
+        height: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: ease
     });
   };
 
