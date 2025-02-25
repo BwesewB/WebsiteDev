@@ -47,7 +47,7 @@ export default function HeroSection({
       );
     });
 
-    return () => ctx.revert(); // Cleanup GSAP animation on unmount
+    return () => ctx.revert();
   }, []);
 
     return (
