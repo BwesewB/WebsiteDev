@@ -1,72 +1,73 @@
 import gsap from "gsap";
 
 export function setupNavbarAnimations(
-  hoverMenuRef,
-  menuWordRef,
-  navWordRef,
-  linkContainers,
-  arrowOneRef,
-  arrowOneCircleRef,
-  arrowTwoRef,
-  arrowTwoCircleRef,
+    hoverMenuRef,
+    menuWordRef,
+    navWordRef,
+    linkContainers,
+    arrowOneRef,
+    arrowOneCircleRef,
+    arrowTwoRef,
+    arrowTwoCircleRef,
 ) {
   const ease = "expoScale";
 
   const handleMouseEnter = () => {
     gsap.to(menuWordRef.current, {
-      y: 50,
-      width: 0,
-      duration: 0.3,
-      ease: ease
+        y: 50,
+        width: 0,
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.to(navWordRef.current, {
-      width: "auto",
-      duration: 0.3,
-      ease: ease
+        width: "auto",
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.fromTo(
-      linkContainers,
-      { 
-        y: -20
-      },
-      {
-        y: 0,
-        duration: 0.3,
-        stagger: { each: 0.1, from: "end" },
-        ease: ease
-      }
+        linkContainers,
+        { 
+            y: -20
+        },
+        {
+            y: 0,
+            duration: 0.3,
+            stagger: { each: 0.1, from: "end" },
+            ease: ease
+        }
     );
 
     gsap.to(arrowOneRef.current, {
-      x: -50,
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        x: -50,
+        opacity: 1,
+        duration: 0.3,
+        ease: "back.out"
     });
 
     gsap.to(arrowOneCircleRef.current, {
-      width: 0,
-      height: 0,
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        width: 0,
+        height: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: ease
     });
 
     gsap.to(arrowTwoRef.current, {
-      x: 0,
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        delay:0.1,
+        x: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "back.out"
     });
 
     gsap.to(arrowTwoCircleRef.current, {
-      width: "60px",
-      height: "60px",
-      opacity: 1,
-      duration: 0.3,
-      ease: ease
+        width: "60px",
+        height: "60px",
+        opacity: 1,
+        duration: 0.3,
+        ease: ease
     });
   };
 
@@ -101,7 +102,7 @@ export function setupNavbarAnimations(
       x: 0,
       opacity: 1,
       duration: 0.3,
-      ease: ease
+      ease: "back.out"
     });
 
     gsap.to(arrowOneCircleRef.current, {
@@ -116,7 +117,7 @@ export function setupNavbarAnimations(
       x: -80,
       opacity: 1,
       duration: 0.3,
-      ease: ease
+      ease: "back.out"
     });
 
     gsap.to(arrowTwoCircleRef.current, {

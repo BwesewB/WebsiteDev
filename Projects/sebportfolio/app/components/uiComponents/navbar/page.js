@@ -29,22 +29,11 @@ export default function Navbar({
   const arrowTwoRef = useRef(null);
   const arrowTwoCircleRef = useRef(null);
   const logoContainerRef = useRef(null);
+  const textNavRef = useRef(null)
   const ease = "expoScale";
 
   useEffect(() => {
     const linkContainers = document.querySelectorAll(`.${styles.linkContainer}`);
-
-    const { handleMouseEnter, handleMouseLeave } = setupNavbarAnimations(
-      hoverMenuRef,
-      menuWordRef,
-      navWordRef,
-      linkContainers,
-      arrowOneRef,
-      arrowOneCircleRef,
-      arrowTwoRef,
-      arrowTwoCircleRef,
-    );
-
     const logo = logoContainerRef.current;
 
     gsap.timeline()
@@ -69,6 +58,82 @@ export default function Navbar({
           ease: "power1.out" 
         }
       );
+
+      gsap.fromTo(arrowOneRef.current, 
+        {
+          x:50,
+          rotate:-60,
+        },
+        {
+          delay:0.6,
+          x:0,
+          rotate:-135,
+          duration: 0.6, 
+          ease: "power2.out"
+        }
+      )
+
+      gsap.fromTo(hoverMenuRef.current,
+        {
+          x:100,
+        },
+        {
+          x:0,
+          duration: 0.9, 
+          ease: "rollingEase" 
+        }
+      )
+
+      gsap.fromTo(arrowOneCircleRef.current,
+        {
+          scale:0.3,
+        },
+        {
+          delay:0.2,
+          scale:1,
+          duration:0.6,
+          ease: "power4.out"
+        }
+      )
+
+      gsap.fromTo(textNavRef.current,
+        {
+          width:0,
+          x:60,
+          scale:0.3,
+        },
+        {
+          delay:0.8,
+          x:0,
+          scale:1,
+          width:"auto",
+          duration: 0.6,
+          ease: "power2.out"
+        }
+      )
+
+      gsap.fromTo(menuWordRef.current,
+        {
+          y:50,
+        },
+        {
+          y:0,
+          delay:1.3,
+          duration: 0.6,
+          ease: "back.out"
+        }
+      )
+
+    const { handleMouseEnter, handleMouseLeave } = setupNavbarAnimations(
+      hoverMenuRef,
+      menuWordRef,
+      navWordRef,
+      linkContainers,
+      arrowOneRef,
+      arrowOneCircleRef,
+      arrowTwoRef,
+      arrowTwoCircleRef,
+    );
 
     const hoverMenu = hoverMenuRef.current;
     hoverMenu.addEventListener("mouseenter", handleMouseEnter);
@@ -97,7 +162,7 @@ export default function Navbar({
         </div>
 
         {/* Navigation Links */}
-        <div className={styles.textNav} style={{ backgroundColor: navColor, color: textColor }}>
+        <div className={styles.textNav} style={{ backgroundColor: navColor, color: textColor }} ref={textNavRef}>
           <div className={styles.menuWord}>
             <h4 ref={menuWordRef}>Menu</h4>
           </div>
