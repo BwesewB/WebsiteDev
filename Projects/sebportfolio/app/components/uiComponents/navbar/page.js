@@ -62,14 +62,12 @@ export default function Navbar({
       gsap.fromTo(arrowOneRef.current, 
         {
           x:50,
-          rotate:-60,
         },
         {
           delay:0.6,
           x:0,
-          rotate:-135,
           duration: 0.6, 
-          ease: "power2.out"
+          ease: "back.out"
         }
       )
 
@@ -103,7 +101,7 @@ export default function Navbar({
           scale:0.3,
         },
         {
-          delay:0.8,
+          delay:0.7,
           x:0,
           scale:1,
           width:"auto",
@@ -118,7 +116,7 @@ export default function Navbar({
         },
         {
           y:0,
-          delay:1.3,
+          delay:1,
           duration: 0.6,
           ease: "back.out"
         }
