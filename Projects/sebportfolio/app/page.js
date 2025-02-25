@@ -127,10 +127,10 @@ export default function Home() {
               description = "3D model integration"
               projectLink = "/pages/visual/projects/deckedBeer/"
 
-              videoSrcTwo = "/media/flare/FlareTechDemo.mp4"
-              h4TitleTwo = "Flare"
-              descriptionTwo = "BC wildfire risk mitigation app"
-              projectLinkTwo = "/pages/teamwork/projects/flare/"
+              videoSrcTwo = "/media/blackHole/Clip1.mp4"
+              h4TitleTwo = "Black Hole"
+              descriptionTwo = "Motion Graphic and a coded web experience"
+              projectLinkTwo = "/pages/motion/projects/blackHole/"
             />
           </div>
         </div>

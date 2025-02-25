@@ -25,6 +25,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
+    transform: translateX(-100px);
 }
 
 .navPages{
