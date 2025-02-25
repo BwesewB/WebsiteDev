@@ -85,7 +85,7 @@ export default function Home() {
         </div>
         <div>
           <SectionTwo 
-            imageSrc="/media/3dWorks/3shilo-minFlip.png"
+            imageSrc="/media/3dWorks/3shilo-minFlip.webp"
           />
         </div>
       </div>
