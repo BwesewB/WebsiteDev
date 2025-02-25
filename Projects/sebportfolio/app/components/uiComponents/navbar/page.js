@@ -43,7 +43,7 @@ export default function Navbar({
           x: -120
         }, 
         { 
-          delay: 0.1,
+          delay: 0.3,
           x: 30, 
           rotate: 30, 
           duration: 0.6, 
