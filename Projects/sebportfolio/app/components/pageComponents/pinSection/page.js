@@ -65,13 +65,12 @@ export default function PinSection({
     heroSectionTitle,
     japaneseText,
 }) {
-    const container = useRef();
-    
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const containerRef = useRef(null);
 
-    useGSAP(() => {
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+    
         const cardsElements = gsap.utils.toArray(`.${styles.card}`);
     
         // Animation for text spans
@@ -138,7 +137,11 @@ export default function PinSection({
             });
           }
         });
-      }, container);
+    
+        return () => {
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+      }, []);
     
     
     if (!cards || cards.length === 0) {
@@ -146,7 +149,7 @@ export default function PinSection({
     }
 
     return (
-        <div ref={container} className={styles.pinSectionContainer}>
+        <div ref={containerRef} className={styles.pinSectionContainer}>
             <div className="hero">
                 <HeroSection
                     heroSectionTitle={heroSectionTitle}
