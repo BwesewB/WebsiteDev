@@ -1,6 +1,7 @@
 import SectionOne from "../../../../components/projectTemplates/SectionOne/page";
 import SectionThree from "../../../../components/projectTemplates/SectionThree/page";
 import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page";
+import SectionEight  from "../../../../components/projectTemplates/SectionEight/page"
 import styles from "./blackHole.module.css";
 import ProjectHero from "@/app/components/projectTemplates/projectHero/page.js";
 
@@ -36,8 +37,13 @@ export default function blackHole() {
                     solutionHeader = "Coded Interactive Website"
                     solutionParagraph = "The primary goal was to achieve three key features: smooth video playback, clean GSAP animations, and seamless transitions. To accomplish this, the project was structured using two types of video clips: transition clips and still clips. Transition clips served to smoothly bridge the gap between static scenes, ensuring that when a user clicked the “next” button, the still clip transitioned seamlessly to the next without abrupt cuts. Without these dedicated still clips, the animation would feel disjointed, as users could trigger the next page while a moving animation was still playing, leading to a choppy experience. This strategic planning allowed for a fluid, professional user experience perfectly aligned with the project’s creative vision."
             />
-            <SectionTwo 
-                videoSrc="/media/blackHole/Clip12andReverse.mp4"
+            <SectionEight 
+                sectionHeading="Clips from Interactive Website"
+                color="var(--white)"
+                videoOne="/media/blackHole/smallTransform.mp4"
+                videoTwo="/media/blackHole/Clip12andReverse.mp4"
+                videoThree="/media/blackHole/solarSystem.mp4"
+                videoFour="/media/blackHole/scaleVisualizer.mp4"
             />
         </div>
     );

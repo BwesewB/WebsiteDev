@@ -3,6 +3,7 @@ import styles from "./SectionEight.module.css";
 
 export default function SectionEight({ 
     sectionHeading,
+    color = "var(--black)",
     imageOne, 
     videoOne, 
     imageTwo, 
@@ -22,7 +23,7 @@ export default function SectionEight({
 
     return (
         <section className={styles.sectionEightWrap}>
-            <h4>{sectionHeading}</h4>
+            <h4 style={{color: color}}>{sectionHeading}</h4>
             <div className={`${styles.mediaContainer} ${styles[`layout-${mediaItems.length}`]}`}>
                 {mediaItems.map((item, index) => (
                     <SectionTwo key={index} imageSrc={item.image} videoSrc={item.video} />
