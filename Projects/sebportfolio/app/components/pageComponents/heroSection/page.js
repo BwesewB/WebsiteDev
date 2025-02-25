@@ -34,9 +34,11 @@ export default function HeroSection({
       const ctx = gsap.context(() => {
         gsap.fromTo(`.${styles.japanese}`, {
           x:-40,
+          rotate:-10,
         },
         {
           x: 0,
+          rotate:0,
           delay:0.5,
           opacity: 1,
           duration: 0.6,
