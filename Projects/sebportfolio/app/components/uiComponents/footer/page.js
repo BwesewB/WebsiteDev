@@ -134,7 +134,7 @@ export default function Footer({}) {
                         </Link>
                     </div>
                     <div className={styles.textLowest}>
-                        <p>&copy; SEBASTIAN FOK</p>
+                        <p>INSPIRED BY @<a href="https://serious.business/">SERIOUS.BUSINESS</a></p>
                         <p>2024/2025</p>
                     </div>
                 </div>
