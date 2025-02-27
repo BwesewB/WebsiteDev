@@ -3,7 +3,7 @@
     align-content: space-between;
     flex-direction: column;
     gap: var(--relatedComponentGap);
-    width: 100%;
+    width: calc(100vw - calc(var(--paddingleftRight) * 4));
     height: fit-content;
 }
 

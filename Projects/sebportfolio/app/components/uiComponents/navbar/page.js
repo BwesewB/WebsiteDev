@@ -39,6 +39,7 @@ export default function Navbar({
     gsap.timeline()
       .to(logo, 
         { 
+          delay: 0.3,
           x: 30, 
           rotate: 30, 
           duration: 0.6, 
