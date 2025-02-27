@@ -60,6 +60,7 @@ export default function ThreeD() {
                         end: "top 80%",
                         scrub: 1, 
                         once: true,
+                        // markers:true,
                     }
                 }
             );
@@ -93,7 +94,6 @@ export default function ThreeD() {
                             <img 
                                 src={src} 
                                 alt={`3D Work ${index}`} 
-                                loading="lazy" 
                                 ref={(el) => (imageRefs.current[index] = el)}
                             />
                         </div>
