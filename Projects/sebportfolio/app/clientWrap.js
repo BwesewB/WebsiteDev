@@ -42,6 +42,11 @@ export default function ClientWrap({ children }) {
 
 //Lenis smooth scrolling
   useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile = /android|iphone|ipad|ipod|blackberry|windows phone|opera mini|mobile/i.test(userAgent);
+  
+    if (isMobile) return;
+
     const lenis = new Lenis({
       duration: 0.7, // Scroll duration. How smooth it is
       easing: (t) => 1 - Math.pow(1 - t, 3), // Easing
