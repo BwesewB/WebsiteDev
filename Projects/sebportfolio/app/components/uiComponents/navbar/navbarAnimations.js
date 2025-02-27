@@ -10,7 +10,7 @@ export function setupNavbarAnimations(
     arrowTwoRef,
     arrowTwoCircleRef,
 ) {
-  const ease = "expoScale";
+  const ease = "power2.inOut";
 
   const handleMouseEnter = () => {
     gsap.to(menuWordRef.current, {

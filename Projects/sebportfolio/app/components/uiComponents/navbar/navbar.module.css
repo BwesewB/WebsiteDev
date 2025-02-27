@@ -25,7 +25,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    transform: translateX(-100px);
+    transform: translateX(-100px) rotate(-45deg);
 }
 
 .navPages{
@@ -62,6 +62,7 @@
     /* border: 1px solid red; */
     cursor: pointer;
     overflow: hidden;
+    transform: translateX(100px);
 }
 
 .textNav {
@@ -74,6 +75,8 @@
     align-items: center;
     border-radius: 100px;
     overflow: hidden;
+    transform: translateX(60px) scale(0.3);
+    width: 0;
 }
 
 .arrowDivOne, .arrowDivTwo {
@@ -88,6 +91,7 @@
 .arrowDivOne {
     width: 60px;
     height: 60px;
+    transform: scale(0.3);
 }
 
 .arrowDivTwo {
@@ -106,7 +110,7 @@
 }
 
 .arrowContainerOne {
-    transform: rotate(-135deg);
+    transform: translateX(50px) rotate(-135deg);
 }
 
 .arrowContainerTwo {

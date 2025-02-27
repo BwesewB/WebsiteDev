@@ -37,15 +37,10 @@ export default function Navbar({
     const logo = logoContainerRef.current;
 
     gsap.timeline()
-      .fromTo(logo, 
-        { 
-          rotate: -45, 
-          opacity: 0 
-        }, 
+      .to(logo, 
         { 
           x: 30, 
           rotate: 30, 
-          opacity: 1, 
           duration: 0.6, 
           ease: "rollingEase" 
         }
@@ -59,10 +54,7 @@ export default function Navbar({
         }
       );
 
-      gsap.fromTo(arrowOneRef.current, 
-        {
-          x:50,
-        },
+      gsap.to(arrowOneRef.current, 
         {
           delay:0.6,
           x:0,
@@ -71,10 +63,7 @@ export default function Navbar({
         }
       )
 
-      gsap.fromTo(hoverMenuRef.current,
-        {
-          x:100,
-        },
+      gsap.to(hoverMenuRef.current,
         {
           x:0,
           duration: 0.9, 
@@ -82,10 +71,7 @@ export default function Navbar({
         }
       )
 
-      gsap.fromTo(arrowOneCircleRef.current,
-        {
-          scale:0.3,
-        },
+      gsap.to(arrowOneCircleRef.current,
         {
           delay:0.2,
           scale:1,
@@ -94,12 +80,7 @@ export default function Navbar({
         }
       )
 
-      gsap.fromTo(textNavRef.current,
-        {
-          width:0,
-          x:60,
-          scale:0.3,
-        },
+      gsap.to(textNavRef.current,
         {
           delay:0.7,
           x:0,
