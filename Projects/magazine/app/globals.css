@@ -1,42 +1,38 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --gap: 30px
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html, body {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  position: relative;
+  border:1px solid red;
+  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap); /* Adjust spacing between columns */
+  width: 100%;
+  margin: 0 auto; /* Center the grid */
+  padding: var(--gap);
+  border: 1px solid red;
 }
