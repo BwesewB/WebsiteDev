@@ -23,7 +23,7 @@ export default function Flare({}) {
                 projectName="Flare"
                 projectRole="UI/UX Designer and Marketer"
                 date="2024"
-                imageSrc="/media/flare/MockupPhoneFlareCropped.png"
+                imageSrc="/media/flare/MockupPhoneFlareCropped.webp"
                 toolsUsed="Adobe Illustrator / Adobe InDesign / After Effects / Figma / React.js"
                 textColour="var(--black)"
                 mediaWidth="80%"
@@ -55,12 +55,16 @@ export default function Flare({}) {
             />
             <SectionEight
                 sectionHeading="User Personas"
-                imageOne="/media/flare/FlarePersona-1.png"
-                imageTwo="/media/flare/FlarePersona-2.png"
+                imageOne="/media/flare/flarePersona1.webp"
+                imageTwo="/media/flare/flarePersona2.webp"
+            />
+            <SectionTwo 
+                sectionHeading="Flare Sitemap"
+                imageSrc="/media/flare/flareSitemap.png"
             />
             <SectionSix 
                 challengeHeader = "Design Process"
-                challengeParagraph = "Our team of four designers was responsible for creating the high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. We also chose a dynamic, component-based design system, utilizing the shadcn/ui component library, to serve as a UI library for the three developers. By keeping this component library in mind during the design process, we ensured an easy transition from design to code, making implementation more efficient and consistent across the app."
+                challengeParagraph = "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
 
                 imageOne = "/media/flare/MockupPhoneMap.png"
                 imageTwo = "/media/flare/MockupPhoneNews.png"
@@ -68,15 +72,10 @@ export default function Flare({}) {
             />
             <SectionSeven
                 challengeHeader = "User Testing"
-                challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as during the coding process. Each week, our team conducted sprints and user testing for all five pages of the website to ensure continuous refinement and improvement. These one-week sprints allowed us to iterate quickly based on user feedback, ensuring that the designs were both user-friendly and aligned with the project's goals. This process helped us consistently enhance the user interface, making our app more intuitive and functional with every cycle."
+                challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."
                 solutionHeader="Navigation Architecture"
-                solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of our three features, ensuring ease of use when they need it most."
+                solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of the three features, ensuring ease of use when they need it most."
             />
-            {/* <SectionFour
-                sectionHeader="Business Cards"
-                sectionParagraph="These were created for the final showcase of our app, to market ourselves and our product."
-                imageSrc="/media/flare/MockupBusinessCard2.png"
-            /> */}
             <SectionOne 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."
             />
@@ -92,7 +91,7 @@ export default function Flare({}) {
                 imageTwo="/media/flare/MockupBusinessCardCropped.png"
             />
             <SectionEight 
-                sectionHeading="Our Team"
+                sectionHeading="Team"
                 videoOne="/media/flare/FlareTechDemo.mp4"
                 imageTwo="/media/flare/FlareTeam.png"
             />

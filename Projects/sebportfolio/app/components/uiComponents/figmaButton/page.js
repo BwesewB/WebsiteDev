@@ -11,7 +11,7 @@ export default function SourceCodeButton({
         <>
             <div className={styles.button} style={{backgroundColor: backgroundColor}}>
                 <Link href={externalLink} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                    <p style={{color: buttonContentColour}} className={styles.pText}>FIGMA</p>
+                    <p style={{color: buttonContentColour}} className={styles.pText}>PROTOTYPE</p>
                     <div className={styles.arrowDiv}><FigmaLogo color={buttonContentColour}/></div>
                 </Link>
             </div>
