@@ -19,8 +19,8 @@
 }
 
 .letter {
-    opacity: 0;
     display: inline-block;
+    transform: translateY(20vh);
 }
 
 .name {
@@ -114,11 +114,6 @@
 .navDescription {
     color: var(--white);
     padding-right: 180px;
-}
-
-.letter {
-    display: inline-block;
-    transform-origin: center;
 }
 
 @media (max-width: 768px) {

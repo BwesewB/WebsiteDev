@@ -14,21 +14,17 @@ export default function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(`.${styles.letter}`, {
-        y:40,
-      },
+      gsap.to(`.${styles.letter}`,
       {
         y: 0,
-        opacity: 1,
         duration: 0.6,
         ease: "expoScale",
-        stagger: 0.05, // Stagger for smoother animation
+        stagger: 0.03, // Stagger for smoother animation
       });
     });
   
     return () => ctx.revert(); // Cleanup GSAP animation on unmount
   }, []);
-  
 
   useEffect(() => {
     const navLinks = document.querySelectorAll(`.${styles.navigationSection}`);

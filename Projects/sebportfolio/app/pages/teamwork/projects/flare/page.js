@@ -76,6 +76,11 @@ export default function Flare({}) {
                     imageSrc="/media/flare/flareSitemap.png"
                 />
             </section>
+            <SectionTwo
+                sectionHeading = "Styleguide"
+                imageSrc="/media/flare/FlareStyleguide.png"
+                mediaWidth="50%"
+            />
             <SectionSix 
                 challengeHeader = "Design Process"
                 challengeParagraph = "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
