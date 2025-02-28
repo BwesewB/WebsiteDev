@@ -4,8 +4,8 @@ export default function SectionSeven({
     textColour = "var(--black)",
     challengeHeader = "Title",
     challengeParagraph = "Paragraph Content",
-    solutionHeader = "Title",
-    solutionParagraph = "Paragraph Content",
+    solutionHeader = "",
+    solutionParagraph = "",
 
 }) {
 

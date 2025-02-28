@@ -49,22 +49,38 @@ export default function Flare({}) {
                     />
                 </div>
             </div>
-            <SectionFive 
+            <SectionSeven
                 challengeHeader = "Competitive Analysis"
-                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
             />
-            <SectionEight
-                sectionHeading="User Personas"
-                imageOne="/media/flare/flarePersona1.webp"
-                imageTwo="/media/flare/flarePersona2.webp"
-            />
+            <section className="sectionContainer">
+                <SectionFive 
+                    challengeHeader = "Our Users"
+                    challengeParagraph = "User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
+                />
+                <SectionEight
+                    imageOne="/media/flare/flarePersona1.webp"
+                    imageTwo="/media/flare/flarePersona2.webp"
+                />
+            </section>
             <SectionTwo 
-                sectionHeading="Flare Sitemap"
-                imageSrc="/media/flare/flareSitemap.png"
+                sectionHeading="User Flow"
+                imageSrc="/media/flare/userStoryMap.png"
             />
+            <section className="sectionContainer">
+                <SectionFive 
+                    challengeHeader = "Flare Sitemap"
+                    challengeParagraph = "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
+                />
+                <SectionTwo 
+                    imageSrc="/media/flare/flareSitemap.png"
+                />
+            </section>
             <SectionSix 
                 challengeHeader = "Design Process"
                 challengeParagraph = "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
+
+                externalLinkFigma = "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
 
                 imageOne = "/media/flare/MockupPhoneMap.png"
                 imageTwo = "/media/flare/MockupPhoneNews.png"
