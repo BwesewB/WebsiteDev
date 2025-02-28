@@ -22,6 +22,7 @@ const images = [
     { src: "/media/3dWorks/Shilo2.webp" },
     { src: "/media/3dWorks/Astro1.webp" },
     { src: "/media/3dWorks/Astro2.webp" },
+    { src: "/media/3dWorks/AstronautPose.webp" },
     { src: "/media/3dWorks/City.webp" },
     { src: "/media/3dWorks/Concrete1.webp" },
     { src: "/media/3dWorks/Concrete2.webp" },
