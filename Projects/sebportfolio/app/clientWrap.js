@@ -1,13 +1,26 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Navbar from "./components/uiComponents/navbar/page";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis"
 import Footer from "./components/uiComponents/footer/page";
 
 export default function ClientWrap({ children }) {
-
   const pathname = usePathname();
+  const [preloaderDone, setPreloaderDone] = useState(false);
+
+  useEffect(() => {
+    async function handlePreloader() {
+      if (sessionStorage.getItem("preloaderShown")) {
+        setPreloaderDone(true);
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        setPreloaderDone(true);
+        sessionStorage.setItem("preloaderShown", "true");
+      }
+    }
+    handlePreloader();
+  }, []);
 
   const pageStyles = {
     "/": { bgColor: "var(--white)", navColor: "var(--blue)" },
@@ -72,9 +85,9 @@ export default function ClientWrap({ children }) {
 
   return (
     <>
-      <Navbar navColor={navColor} textColor={textColor}/>
+      {preloaderDone && <Navbar />}
       {children}
-      <Footer />
+      {preloaderDone && <Footer />}
     </>
   );
 }

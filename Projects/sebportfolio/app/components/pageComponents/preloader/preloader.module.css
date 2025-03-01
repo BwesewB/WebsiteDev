@@ -1,0 +1,13 @@
+.preloader {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blue); /* Adjust to match your design */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1;
+}

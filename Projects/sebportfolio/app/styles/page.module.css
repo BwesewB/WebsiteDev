@@ -113,7 +113,7 @@
 
 .navDescription {
     color: var(--white);
-    padding-right: 180px;
+    padding-right: calc(3 * var(--paddingleftRight));
 }
 
 @media (max-width: 768px) {
