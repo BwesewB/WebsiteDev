@@ -14,10 +14,9 @@ export default function ClientWrap({ children }) {
     if (typeof window !== "undefined") {
       const screenWidth = window.innerWidth;
 
-      // If the screen width is below 590px, skip the preloader
       if (screenWidth < 590) {
         setPreloaderDone(true);
-        setTimeout(() => setFooterVisible(true), 1000); // Ensure footer delay
+        setTimeout(() => setFooterVisible(true), 1000);
         return;
       }
 
@@ -97,7 +96,7 @@ export default function ClientWrap({ children }) {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      lenis.destroy(); // Cleanup Lenis
+      lenis.destroy();
     };
   }, []);
 
