@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--blue); /* Adjust to match your design */
+    background-color: var(--white); /* Adjust to match your design */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,20 @@
 }
 
 .video {
-    /* height: auto;
-    width: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
     object-fit: cover;
+    transform: translate(-50%, -50%);
 }
+/* 
+@media (max-width: 480px) {
+    .video {
+        mix-blend-mode: lighten;
+        width: 100vw;
+        min-height:min-content;
+    }
+} */

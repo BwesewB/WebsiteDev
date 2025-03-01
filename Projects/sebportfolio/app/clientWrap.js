@@ -11,15 +11,32 @@ export default function ClientWrap({ children }) {
   const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("preloaderShown")) {
-      setPreloaderDone(true);
-      setTimeout(() => setFooterVisible(true), 1000); // 1-second delay for footer
-    } else {
-      setTimeout(() => {
+    if (typeof window !== "undefined") {
+      const screenWidth = window.innerWidth;
+
+      // If the screen width is below 590px, skip the preloader
+      if (screenWidth < 590) {
         setPreloaderDone(true);
-        setTimeout(() => setFooterVisible(true), 1000); // Ensures footer delay after preloader
-        sessionStorage.setItem("preloaderShown", "true");
-      }, 3000);
+        setTimeout(() => setFooterVisible(true), 1000); // Ensure footer delay
+        return;
+      }
+
+      if (pathname !== "/") {
+        setPreloaderDone(true);
+        setTimeout(() => setFooterVisible(true), 1000);
+        return;
+      }
+
+      if (sessionStorage.getItem("preloaderShown")) {
+        setPreloaderDone(true);
+        setTimeout(() => setFooterVisible(true), 1000); // 1-second delay for footer
+      } else {
+        setTimeout(() => {
+          setPreloaderDone(true);
+          setTimeout(() => setFooterVisible(true), 1000); // Ensures footer delay after preloader
+          sessionStorage.setItem("preloaderShown", "true");
+        }, 3000);
+      }
     }
   }, []);
 

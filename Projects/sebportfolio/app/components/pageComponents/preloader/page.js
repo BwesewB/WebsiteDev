@@ -24,7 +24,7 @@ export default function Preloader() {
     return (
         <>
             <div className={styles.preloader} ref={preloaderRef} >
-                <video src="/media/3dWorks/SphereSun.mp4" className={styles.video} autoPlay/>
+                <video src="/media/3dWorks/SphereSunHighRes.mp4" className={styles.video} autoPlay/>
             </div>
         </>
         

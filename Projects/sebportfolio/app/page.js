@@ -14,18 +14,45 @@ export default function Home() {
   const [preloader, setPreloader] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hasPreloaderShown = sessionStorage.getItem("preloaderShown");
+    const checkPreloader = async () => {
+      if (typeof window !== "undefined") {
+        const screenWidth = window.innerWidth;
 
-      if (!hasPreloaderShown) {
-        setPreloader(true);
-        setTimeout(() => {
+        // If the device width is below 590px, disable the preloader immediately
+        if (screenWidth < 590) {
+          setPreloader(false);
+          return;
+        }
+
+        const hasPreloaderShown = sessionStorage.getItem("preloaderShown");
+
+        if (!hasPreloaderShown) {
+          setPreloader(true);
+          await new Promise((resolve) => setTimeout(resolve, 4000)); // Wait for 4 seconds
           setPreloader(false);
           sessionStorage.setItem("preloaderShown", "true");
-        }, 4000);
+        } else {
+          setPreloader(false); // If preloader was already shown, immediately hide it
+        }
       }
-    }
+    };
+
+    checkPreloader();
   }, []);
+
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const hasPreloaderShown = sessionStorage.getItem("preloaderShown");
+
+  //     if (!hasPreloaderShown) {
+  //       setPreloader(true);
+  //       setTimeout(() => {
+  //         setPreloader(false);
+  //         sessionStorage.setItem("preloaderShown", "true");
+  //       }, 4000);
+  //     }
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (!preloader) {
