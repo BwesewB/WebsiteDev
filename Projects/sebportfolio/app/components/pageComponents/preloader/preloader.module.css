@@ -8,6 +8,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: -1;
     opacity: 1;
+    overflow: hidden;
+}
+
+.video {
+    /* height: auto;
+    width: 100%; */
+    object-fit: cover;
 }

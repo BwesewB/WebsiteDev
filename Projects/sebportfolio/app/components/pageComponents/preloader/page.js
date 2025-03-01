@@ -11,7 +11,7 @@ export default function Preloader() {
     useEffect(() => {
         if (preloaderRef.current) {
             gsap.to(preloaderRef.current, {
-                delay: 4.5,
+                delay: 3.5,
                 opacity: 0,
                 duration: 0.4,
                 onComplete: () => setIsVisible(false) // Remove after fade-out
@@ -23,7 +23,9 @@ export default function Preloader() {
 
     return (
         <>
-            <div className={styles.preloader} ref={preloaderRef} />
+            <div className={styles.preloader} ref={preloaderRef} >
+                <video src="/media/3dWorks/SphereSun.mp4" className={styles.video} autoPlay/>
+            </div>
         </>
         
     );

@@ -11,88 +11,65 @@ import Preloader from "./components/pageComponents/preloader/page";
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [preloader, setPreloader] = useState(true); // Default to true
+  const [preloader, setPreloader] = useState(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Now it's safe to access sessionStorage
       const hasPreloaderShown = sessionStorage.getItem("preloaderShown");
-      setPreloader(!hasPreloaderShown);
 
       if (!hasPreloaderShown) {
+        setPreloader(true);
         setTimeout(() => {
           setPreloader(false);
           sessionStorage.setItem("preloaderShown", "true");
-        }, 5000);
+        }, 4000);
       }
     }
   }, []);
-  // preloader
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    if (!preloader) {
       gsap.set(`.${styles.letter}`, { opacity: 0, y: 20 });
-  
+
       gsap.to(`.${styles.letter}`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         ease: "expo.out",
         stagger: 0.03,
-        delay: preloader ? 5 : 0, // Delay animation until preloader ends
       });
-    });
-  
-    return () => ctx.revert();
+    }
   }, [preloader]);
 
   useEffect(() => {
     const navLinks = document.querySelectorAll(`.${styles.navigationSection}`);
-  
+
     navLinks.forEach((link, index) => {
       const h2 = link.querySelector("h2");
-  
-      const ctx = gsap.context(() => {
-        link.addEventListener("mouseenter", () => {
-          gsap.to(link, {
-            backgroundColor: "var(--blue)",
-            duration: 0, 
-          });
-    
-          gsap.to(h2, {
-            color: "var(--white)",
-            duration: 0.2, 
-            ease: "power1.out",
-          });
-    
-          setHoveredIndex(index);
-        });
-  
-        link.addEventListener("mouseleave", () => {
-          gsap.to(link, {
-            backgroundColor: "var(--white)",
-            duration: 0,
-          });
-    
-          gsap.to(h2, {
-            color: "var(--blue)",
-            duration: 0.2,
-            ease: "power1.out",
-          });
-    
-          setHoveredIndex(null);
-        });
-      }, link);
-  
-      return () => ctx.revert();
+
+      link.addEventListener("mouseenter", () => {
+        gsap.to(link, { backgroundColor: "var(--blue)", duration: 0 });
+        gsap.to(h2, { color: "var(--white)", duration: 0.2, ease: "power1.out" });
+        setHoveredIndex(index);
+      });
+
+      link.addEventListener("mouseleave", () => {
+        gsap.to(link, { backgroundColor: "var(--white)", duration: 0 });
+        gsap.to(h2, { color: "var(--blue)", duration: 0.2, ease: "power1.out" });
+        setHoveredIndex(null);
+      });
     });
+
+    return () => {
+      navLinks.forEach((link) => {
+        link.replaceWith(link.cloneNode(true));
+      });
+    };
   }, []);
 
   return (
     <>
-      {preloader ? (
-        <Preloader />
-      ) : (
+      {preloader ? <Preloader /> : (
       <>
         <div className={styles.topContainer}>
           <div className={styles.heroContainer}>

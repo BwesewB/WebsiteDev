@@ -8,18 +8,19 @@ import Footer from "./components/uiComponents/footer/page";
 export default function ClientWrap({ children }) {
   const pathname = usePathname();
   const [preloaderDone, setPreloaderDone] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
-    async function handlePreloader() {
-      if (sessionStorage.getItem("preloaderShown")) {
+    if (sessionStorage.getItem("preloaderShown")) {
+      setPreloaderDone(true);
+      setTimeout(() => setFooterVisible(true), 1000); // 1-second delay for footer
+    } else {
+      setTimeout(() => {
         setPreloaderDone(true);
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-        setPreloaderDone(true);
+        setTimeout(() => setFooterVisible(true), 1000); // Ensures footer delay after preloader
         sessionStorage.setItem("preloaderShown", "true");
-      }
+      }, 3000);
     }
-    handlePreloader();
   }, []);
 
   const pageStyles = {
@@ -87,7 +88,7 @@ export default function ClientWrap({ children }) {
     <>
       {preloaderDone && <Navbar />}
       {children}
-      {preloaderDone && <Footer />}
+      {footerVisible && <Footer />}
     </>
   );
 }
