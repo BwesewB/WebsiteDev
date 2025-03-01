@@ -30,6 +30,7 @@ export default function Preloader() {
                     autoPlay
                     preload="auto"
                     playsInline
+                    muted
                 />
             </div>
         </>
