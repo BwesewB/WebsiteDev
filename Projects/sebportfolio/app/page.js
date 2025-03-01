@@ -11,18 +11,22 @@ import Preloader from "./components/pageComponents/preloader/page";
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [preloader, setPreloader] = useState(() => {
-    return sessionStorage.getItem("preloaderShown") ? false : true;
-  });
+  const [preloader, setPreloader] = useState(true); // Default to true
 
   useEffect(() => {
-    if (preloader) {
-      setTimeout(() => {
-        setPreloader(false);
-        sessionStorage.setItem("preloaderShown", "true");
-      }, 5000);
+    if (typeof window !== "undefined") {
+      // Now it's safe to access sessionStorage
+      const hasPreloaderShown = sessionStorage.getItem("preloaderShown");
+      setPreloader(!hasPreloaderShown);
+
+      if (!hasPreloaderShown) {
+        setTimeout(() => {
+          setPreloader(false);
+          sessionStorage.setItem("preloaderShown", "true");
+        }, 5000);
+      }
     }
-  }, [preloader]);
+  }, []);
   // preloader
 
   useEffect(() => {
