@@ -220,7 +220,11 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
-    --paddingleftRight: 10px;
+    --paddingleftRight: 30px;
+  }
+  body {
+    padding-left: var(--paddingleftRight);
+    padding-right: var(--paddingleftRight);
   }
 
   h1 {
