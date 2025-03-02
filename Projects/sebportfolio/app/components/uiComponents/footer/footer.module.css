@@ -173,3 +173,13 @@
         gap: var(--itemSpacing);
     }
 }
+
+@media (max-width: 480px) {
+    .footerH5 {
+        font-size: 16px;
+    }
+    
+    .linkies h4 {
+        font-size: 28px;
+    }
+}

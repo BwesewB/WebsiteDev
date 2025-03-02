@@ -233,6 +233,8 @@ p {
 
   h2 {
     font-size: 72px;
+    margin-top: 0px;
+    margin-left: 0px;
   }
 
   h3 {
@@ -253,7 +255,25 @@ p {
   :root {
     --paddingleftRight: 10px;
     --sideSpacing: 10px;
+    --relatedComponentGap:40px;
+    --textGap: 5px;
     /* --itemSpacing: 180px; */
+  }
+
+  h1 {
+    font-size: 72px;
+  }
+
+  h2 {
+    font-size: 56px;
+  }
+
+  h3 {
+    font-size: 42px;
+  }
+
+  h4 {
+    font-size: 20px;
   }
   
   p {
