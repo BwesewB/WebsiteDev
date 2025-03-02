@@ -69,6 +69,7 @@
     position: relative;
     transition: 0.3s ease;
     /* border: 1px solid green */
+    /* overflow: hidden; */
 }
 
 .containerContent3 {
@@ -98,12 +99,13 @@
 .navigationSection {
     color: var(--blue);
     width: 100vw;
+    box-sizing: border-box;
 
     padding-left: calc(2 * var(--paddingleftRight));
     padding-right: calc(2 * var(--paddingleftRight));
 
     height: clamp(100px, 6vw, 140px);
-    display: flex;
+    display: flex; 
     position: relative;
     align-items: center;
     justify-content: space-between;

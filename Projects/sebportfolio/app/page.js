@@ -124,6 +124,7 @@ export default function Home() {
             </div>
             <h5 className={styles.headerFive}>MY PROJECTS</h5>
           </div>
+
           <div className={styles.containerContent2}>
             <div className={styles.headingContent}>
               {[
@@ -140,8 +141,8 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            
           </div>
+          
           <div className={styles.containerContent3}>
             <h5 className={styles.headerFive}>Featured</h5>
             <div className={styles.headingContent}>          
