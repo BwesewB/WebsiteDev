@@ -6,6 +6,8 @@ import SectionOne from "../../../../components/projectTemplates/SectionOne/page"
 import SectionSix from "@/app/components/projectTemplates/SectionSix/page"
 import ViewCanvas from "./cans/page"
 import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page"
+import SectionEight from "@/app/components/projectTemplates/SectionEight/page"
+import SectionFive from "@/app/components/projectTemplates/SectionFive/page"
 
 export default function DeckedBeer({}) {
     return (
@@ -18,13 +20,23 @@ export default function DeckedBeer({}) {
                 />
                 <ViewCanvas />
             </div>
-
             <SectionOne 
                 paragraphTitleText="Decked is a premium lager crafted for fishermen, delivering a refined and refreshing taste."
             />
+            <section className="sectionContainer">
+                <SectionFive 
+                    challengeHeader = "Graphics"
+                    challengeParagraph = 'The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
+                />
+                <SectionEight
+                    imageOne="/media/cans/noFeedFish.svg"
+                    imageTwo="/media/cans/hookInstructions.svg"
+                    scale="50%"
+                />
+            </section>
             <SectionSix 
                 challengeHeader = "Labels"
-                challengeParagraph = 'The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
+                challengeParagraph = "Decked Lager is a premium brew designed with fishermen in mind, featuring three distinct label variations—Seaweed, Crab, and Fish. Each design draws from maritime elements, reinforcing the brand’s connection to the fishing community. With a focus on quality and craftsmanship, Decked delivers a refined lager experience while embracing the culture of those who spend their days on the water."
 
                 imageOne = "/media/cans/labels/Fish@2x.png"
                 imageTwo = "/media/cans/labels/Crab@2x.png"

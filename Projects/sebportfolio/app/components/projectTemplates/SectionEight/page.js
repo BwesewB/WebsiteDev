@@ -11,7 +11,8 @@ export default function SectionEight({
     imageThree, 
     videoThree, 
     imageFour, 
-    videoFour 
+    videoFour,
+    scale = "100%"
 }) {
 
     const mediaItems = [
@@ -25,9 +26,9 @@ export default function SectionEight({
         <section className={styles.sectionEightWrap}>
             <h4 style={{color: color}}>{sectionHeading}</h4>
             <div className={`${styles.mediaContainer} ${styles[`layout-${mediaItems.length}`]}`}>
-                {mediaItems.map((item, index) => (
-                    <SectionTwo key={index} imageSrc={item.image} videoSrc={item.video} />
-                ))}
+                    {mediaItems.map((item, index) => (
+                        <SectionTwo key={index} imageSrc={item.image} videoSrc={item.video} mediaWidth={scale}/>
+                    ))}
             </div>
         </section>
     );
