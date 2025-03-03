@@ -37,5 +37,6 @@ export const cardData = [
         skills: ["Adobe Photoshop", "Adobe InDesign"],
         src: "/media/magazine/reimagining.png",
         backgroundColor: "#008F7A",
+        projectLink: "/pages/visual/projects/magazine/"
     },
 ];

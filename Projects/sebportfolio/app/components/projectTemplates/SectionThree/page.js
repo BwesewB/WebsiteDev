@@ -14,6 +14,7 @@ export default function SectionThree({
     externalLinkVisit,
     buttonContentColourVisit,
     backgroundColorVisit,
+    visit,
 
     externalLinkCode,
     buttonContentColourCode,
@@ -26,8 +27,8 @@ export default function SectionThree({
     textColour = "var(--black)",
     challengeHeader = "Title",
     challengeParagraph = "Paragraph",
-    solutionHeader = "Title",
-    solutionParagraph = "Paragraph",
+    solutionHeader = "",
+    solutionParagraph = "",
 
     startTrigger = "top 90%",
     endTrigger = "bottom 85%"
@@ -94,6 +95,7 @@ export default function SectionThree({
                             externalLink={externalLinkVisit}
                             buttonContentColour={buttonContentColourVisit}
                             backgroundColor={backgroundColorVisit}
+                            visit={visit}
                         />
                     )}
                     {externalLinkCode && (
@@ -117,10 +119,12 @@ export default function SectionThree({
                     <h4>{splitHeaderToSpans(challengeHeader)}</h4>
                     <p>{splitTextToSpans(challengeParagraph)}</p>
                 </div>
-                <div className={styles.textContainer}>
-                    <h4>{splitHeaderToSpans(solutionHeader)}</h4>
-                    <p>{splitTextToSpans(solutionParagraph)}</p>
-                </div>
+                {(solutionHeader.trim() || solutionParagraph.trim()) && (
+                    <div className={styles.textContainer}>
+                        <h4>{splitHeaderToSpans(solutionHeader)}</h4>
+                        <p>{splitTextToSpans(solutionParagraph)}</p>
+                    </div>
+                )}
             </div>
         </section>
     )
