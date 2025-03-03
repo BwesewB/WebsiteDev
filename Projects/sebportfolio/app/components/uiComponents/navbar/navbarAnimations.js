@@ -22,20 +22,20 @@ export function setupNavbarAnimations(
 
     gsap.to(navWordRef.current, {
         width: "auto",
-        duration: 0.3,
+        duration: 0.6,  //was 0.3
         ease: ease
     });
 
     gsap.fromTo(
         linkContainers,
         { 
-            y: -20
+            y: -50
         },
         {
             y: 0,
             duration: 0.3,
             stagger: { each: 0.1, from: "end" },
-            ease: ease
+            ease: "back.inOut"
         }
     );
 
@@ -74,7 +74,7 @@ export function setupNavbarAnimations(
   const handleMouseLeave = () => {
     gsap.to(navWordRef.current, {
         width: 0,
-        duration: 0.3,
+        duration: 0.6, //was 0.3
         ease: ease
     });
 
@@ -91,10 +91,10 @@ export function setupNavbarAnimations(
             y: 0
         },
         {
-            y: -20,
+            y: -50,
             duration: 0.3,
             stagger: { each: 0.1, from: "end" },
-            ease: ease
+            ease: "back.inOut"
         }
     );
 
