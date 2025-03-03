@@ -19,11 +19,11 @@ export default function MagazinePage({}) {
                 paragraphTitleText="A Casa Brutus and Popeyes-insipired magazine that explores the interaction between Japanese design and its environment"
             />
             <SectionThree 
-                externalLinkVisit = "/media/magazine/ReimaginingSpacesInteractive.pdf"
+                externalLinkVisit = "/media/magazine/ReimaginingSpaces.pdf"
                 visit = "Web PDF"
             
                 challengeHeader = "Reimagining Spaces: A Japanese Perspective"
-                challengeParagraph = "Spaces are not just containers for life—they shape behaviors, perceptions, and the way people connect with their surroundings. Japanese design, with its emphasis on adaptability, materiality, and spatial flow, offers a unique perspective on how environments can be structured and experienced. This project considers how contemporary Japanese spaces respond to limitations, integrate practicality with aesthetic intent, and challenge conventional spatial boundaries."
+                challengeParagraph = "Spaces are not just containers for life—they shape behaviors, perceptions, and the way people connect with their surroundings. Japanese design, with its emphasis on adaptability, materiality, and spatial flow, offers a unique perspective on how environments can be structured and experienced. This printed magazine considers how contemporary Japanese spaces respond to limitations, integrate practicality with aesthetic intent, and challenge conventional spatial boundaries."
             />
             <section className="sectionContainer">
                 <SectionTwo
