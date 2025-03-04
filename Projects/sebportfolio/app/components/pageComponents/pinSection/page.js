@@ -145,7 +145,7 @@ export default function PinSection({
                                 endTrigger: `.${styles.bottom}`,
                                 end: "top 75%",
                                 scrub: true,
-                                markers: true,
+                                // markers: true,
                             },
                         });
                     }
