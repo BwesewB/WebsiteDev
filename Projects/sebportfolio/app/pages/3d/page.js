@@ -62,7 +62,7 @@ export default function ThreeD() {
                         end: "top 80%",
                         scrub: 1, 
                         once: true,
-                        markers:true,
+                        // markers:true,
                     }
                 }
             );
