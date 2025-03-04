@@ -46,22 +46,23 @@ export default function ThreeD() {
     useEffect(() => {
         if (window.innerWidth <= 768) return;
 
-        imageRefs.current.forEach((image) => {
-            if (!image) return;
+        imageRefs.current.forEach((image, index) => {
+            if (!image || index < 3) return;
 
             gsap.fromTo(
                 image,
-                { y: -50, opacity: 0 },
+                { y: -50, opacity: 0, scale:0.6, },
                 {
                     y: 0,
                     opacity: 1,
+                    scale:1,
                     scrollTrigger: {
                         trigger: image,
                         start: "top 90%",
                         end: "top 80%",
                         scrub: 1, 
                         once: true,
-                        // markers:true,
+                        markers:true,
                     }
                 }
             );
