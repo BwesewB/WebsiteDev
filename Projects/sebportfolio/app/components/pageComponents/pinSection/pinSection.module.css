@@ -36,7 +36,6 @@
     position: relative;
     height: 60vh;
     width: 100%;
-
 }
 
 .cardInner {
@@ -47,7 +46,7 @@
     height: 100%;
     max-width: 100%;
     /* object-fit: contain; */
-    padding: 90px calc( 2 * var(--paddingleftRight)); /*if you change padding you need to change the scrolltrigger percent for the last card*/
+    padding: calc(2 * var(--relatedComponentGap)) calc( 2 * var(--paddingleftRight)); /*if you change padding you need to change the scrolltrigger percent for the last card*/
     border-radius: 0;
     gap: var(--relatedComponentGap);
 }
@@ -58,14 +57,13 @@
     /* overflow: hidden; */ /*ASK ABOUT RESPONSIVE*/
     grid-column: 1/2;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 60% 40%;
+    grid-template-rows: auto auto;
     transition: ease 1s;
     width: 100%;
-    column-gap: 90px;
+    gap: var(--relatedComponentGap);
 }
 
 .cardImg {
-    border-radius: var(--imgBorderRadius);
     width: 100%;
     height: 100%;
     grid-column: 2/3;
@@ -74,6 +72,14 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.cardImgWrap {
+    border-radius: var(--imgBorderRadius);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img {
@@ -111,20 +117,40 @@
 
 @media (max-width: 768px) {
 
+    .card{
+        height: auto;
+    }
+
     .cardsSection {
         overflow: visible;
         position: relative;
-        /* margin-left: -30px; */
     }
 
     .cardInner {
         width: 100%;
         overflow: hidden;
+        padding-top:var(--relatedComponentGap);
+        padding-bottom:var(--relatedComponentGap);
         padding-left: 30px;
         padding-right: 30px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
     }
 
-    .card {
-        /* width: 80vw; */
+    .cardImg {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    } 
+
+    .cardContent {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+}
+
+@media (max-width: 480px) { 
+    .cardInner {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
