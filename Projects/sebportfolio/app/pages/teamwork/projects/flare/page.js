@@ -35,6 +35,7 @@ export default function Flare({}) {
                 externalLinkVisit = "https://www.flare-bc.com/"
                 externalLinkCode = "https://github.com/BCITKevin/Flare_IDSP"
                 externalLinkFigma = "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                figma="WIREFRAME"
             
                 challengeHeader = "The Rising Danger of Wildfires"
                 challengeParagraph = "British Columbia is facing increasingly severe wildfire seasons due to climate change and prolonged droughts, not only affecting outdoor enthusiasts, but more importantly rural communities with limited access to timely information. "
@@ -79,13 +80,14 @@ export default function Flare({}) {
             <SectionTwo
                 sectionHeading = "Styleguide"
                 imageSrc="/media/flare/FlareStyleguide.png"
-                mediaWidth="50%"
+                mediaWidth="60vw"
             />
             <SectionSix 
                 challengeHeader = "Design Process"
                 challengeParagraph = "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
 
                 externalLinkFigma = "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                figma="WIREFRAME"
 
                 imageOne = "/media/flare/MockupPhoneMap.png"
                 imageTwo = "/media/flare/MockupPhoneNews.png"
@@ -104,13 +106,20 @@ export default function Flare({}) {
                 sectionHeading="Promotional Video"
                 videoSrc="/media/flare/FlarePromoVideo.mp4"
                 initialMute={false}
-                mediaWidth="50%"
+                mediaWidth="60vw"
             />
-            <SectionEight 
-                sectionHeading="Brochure & Business Card"
-                imageOne="/media/flare/FlareTriFold.png"
-                imageTwo="/media/flare/MockupBusinessCardCropped.png"
-            />
+            <section className="sectionContainer">
+                <SectionEight 
+                    sectionHeading="Brochure & Business Card"
+                    imageOne="/media/flare/FlareTriFold.png"
+                    imageTwo="/media/flare/FlareTriFold2.png"
+                />
+                <SectionTwo
+                    imageSrc="/media/flare/MockupBusinessCardCropped.png"
+                    mediaWidth="80vw"
+                />
+            </section>
+
             <SectionEight 
                 sectionHeading="Team"
                 videoOne="/media/flare/FlareTechDemo.mp4"

@@ -23,6 +23,7 @@ export default function SectionSix({
     externalLinkFigma,
     buttonContentColourFigma,
     backgroundColorFigma,
+    figma,
 
     imageOne,
     imageTwo,
@@ -58,6 +59,7 @@ export default function SectionSix({
                             externalLink={externalLinkFigma}
                             buttonContentColour={buttonContentColourFigma}
                             backgroundColor={backgroundColorFigma}
+                            figma={figma}
                         />
                     )}
                 </div>

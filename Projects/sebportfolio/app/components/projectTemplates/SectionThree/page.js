@@ -23,6 +23,7 @@ export default function SectionThree({
     externalLinkFigma,
     buttonContentColourFigma,
     backgroundColorFigma,
+    figma,
 
     textColour = "var(--black)",
     challengeHeader = "Title",
@@ -110,6 +111,7 @@ export default function SectionThree({
                             externalLink={externalLinkFigma}
                             buttonContentColour={buttonContentColourFigma}
                             backgroundColor={backgroundColorFigma}
+                            figma={figma}
                         />
                     )}
                 </div>
