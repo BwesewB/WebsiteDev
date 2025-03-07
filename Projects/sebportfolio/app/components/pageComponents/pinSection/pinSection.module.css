@@ -119,6 +119,7 @@
 
     .card{
         height: auto;
+        max-height: 100vh;
     }
 
     .cardsSection {
