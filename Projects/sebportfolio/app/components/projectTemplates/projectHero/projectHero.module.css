@@ -44,6 +44,14 @@
 }
 
 .projectRole {
-    padding-bottom: 10px;
+    padding-bottom: var(--textGap);
     text-transform: none;
+}
+
+@media (max-width: 768px) {
+    .textHeader {
+        flex-direction: column;
+        /* gap: var(--textGap); */
+        align-items: flex-start;
+    }
 }

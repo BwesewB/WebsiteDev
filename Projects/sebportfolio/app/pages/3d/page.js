@@ -55,11 +55,13 @@ export default function ThreeD() {
                 {
                     y: 0,
                     opacity: 1,
-                    scale:1,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: "power1.in",
                     scrollTrigger: {
                         trigger: image,
-                        start: "top 90%",
-                        end: "top 80%",
+                        start: "top-=100px 90%",
+                        end: "top-=100px 85%",
                         scrub: 1, 
                         once: true,
                         // markers:true,
