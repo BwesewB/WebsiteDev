@@ -44,7 +44,7 @@ export const cardData = [
         title: "Reimagining Spaces",
         copy: "This project explores contemporary Japanese spaces in print and digital PDFs, with the magazine also physically produced for hands-on experience in print.",
         skills: ["Adobe Photoshop", "Adobe InDesign"],
-        src: "/media/magazine/reimagining.png",
+        src: "/media/magazine/Toilet1.webp",
         backgroundColor: "#008F7A",
         projectLink: "/pages/visual/projects/magazine/"
     },
