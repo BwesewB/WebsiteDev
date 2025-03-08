@@ -16,13 +16,21 @@ export const cardData = [
         projectLink: "/pages/visual/projects/deckedBeer/"
     },
     {
-        title: "H/H Techwear",
-        copy: "Helly Hansen (In Progress)",
-        src: "/media/poster/Sebastian_Fok_Assignment07.png",
-        skills: ["Adobe Photoshop"],
+        title: "Flare",
+        copy: "Flare is a BC wildfire safety app that combines weather updates, fire alerts, and fire-related news into a single, user-friendly interface.",
+        skills: ["Adobe Illustrator", "Adobe InDesign", "After Effects", "Figma", "React.js"],
+        src: "/media/flare/FlareLogoAnime.mp4",
         backgroundColor: "#D8574D",
-        color: "var(--white)"
+        projectLink: "/pages/teamwork/projects/flare/"
     },
+    // {
+    //     title: "H/H Techwear",
+    //     copy: "Helly Hansen (In Progress)",
+    //     src: "/media/poster/Sebastian_Fok_Assignment07.png",
+    //     skills: ["Adobe Photoshop"],
+    //     backgroundColor: "#D8574D",
+    //     color: "var(--white)"
+    // },
     {
         title: "Citadel",
         copy: "Citadel, inspired by Zdzisław Beksiński, combines a surreal, towering structure with atmospheric lighting, textured surfaces, and an astronaut model to emphasize scale, all set to the eerie track 'What Do You Offer' from Lost in Vivo.",
@@ -32,14 +40,6 @@ export const cardData = [
         color: "var(--black)",
         projectLink: "/pages/visual/projects/citadel/"
     },
-    // {
-    //     title: "Mech.obj",
-    //     copy: "Mechanical Object (In Progress)",
-    //     skills: ["Adobe Illustrator"],
-    //     src: "/media/mechAppliance/BraunRadio.png",
-    //     backgroundColor: "var(--sand)",
-    //     color: "var(--black)"
-    // },
     {
         title: "Reimagining Spaces",
         copy: "This project explores contemporary Japanese spaces in print and digital PDFs, with the magazine also physically produced for hands-on experience in print.",

@@ -147,7 +147,7 @@ export default function Navbar({
             <h4 ref={menuWordRef}>Menu</h4>
           </div>
           <ul className={styles.navPages} ref={navWordRef}>
-            {["3d", "motion", "visual", "teamwork"].map((page) => (
+            {["3d", "motion", "visual"].map((page) => (
               <li className={styles.linkContainer} key={page}>
                 <Link href={`/pages/${page}`}>
                   <h5>{page.toUpperCase()}</h5>

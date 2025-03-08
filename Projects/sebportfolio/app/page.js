@@ -131,7 +131,7 @@ export default function Home() {
                 { href: "/pages/3d", title: "3D", description: "Personal 3D projects in Blender" },
                 { href: "/pages/motion", title: "MOTION", description: "Animations in After Effects" },
                 { href: "/pages/visual", title: "VISUAL", description: "Utilizing Photoshop, Illustrator and InDesign" },
-                { href: "/pages/teamwork", title: "TEAMWORK", description: "Collaboration and teamwork projects" },
+                // { href: "/pages/teamwork", title: "TEAMWORK", description: "Collaboration and teamwork projects" },
               ].map((link, index) => (
                 <Link key={link.href} href={link.href} className={styles.navigationSection}>
                   <h2>{link.title}</h2>
