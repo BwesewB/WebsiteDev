@@ -7,6 +7,7 @@ import SectionSix from "@/app/components/projectTemplates/SectionSix/page"
 import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page"
 import SectionEight from "@/app/components/projectTemplates/SectionEight/page"
 import SectionFive from "@/app/components/projectTemplates/SectionFive/page"
+import SectionThree from "../../../../components/projectTemplates/SectionThree/page"
 
 export default function Citadel({}) {
     return (
@@ -16,6 +17,11 @@ export default function Citadel({}) {
                 date="2022-2025"
                 toolsUsed="Shapr3D / Blender / Adobe Photoshop / Adobe After Effects"
                 imageSrc="/media/citadel/gate.webp"
+            />
+            <SectionThree
+                imageSrc="/media/citadel/Beksinski.webp"
+                challengeHeader="Inspiration"
+                challengeParagraph="Zdzisław Beksiński was a Polish artist renowned for his uncanny and dystopian landscapes, often depicting haunting structures and vast, desolate environments. His work, marked by intricate textures and dramatic lighting, blends beauty with horror, evoking themes of isolation and existential dread. Inspired by his 1983 painting, this piece captures his influence through its towering architecture, obscured details, and eerie atmosphere."
             />
             <SectionOne 
                 paragraphTitleText="A surreal architectural landscape inspired by Zdzisław Beksiński's 1983 painting in Shapr3D and blender"
@@ -32,25 +38,34 @@ export default function Citadel({}) {
             </section>
             <SectionSix 
                 challengeHeader = "Import to Blender"
-                challengeParagraph = ""
+                challengeParagraph = "After creating the building in Shapr3D, the model was imported into Blender, where additional elements like lighting and a landscape were incorporated. As seen in the image, a cube was added around the project, and volumetric fog was applied to further enhance the atmosphere, adding both realism and a sense of mystery to the scene."
                 sticky = {false}
 
-                imageOne = "/media/cans/labels/Fish@2x.png"
+                imageOne = "/media/citadel/shaprImport.png"
             />
-            <SectionSix 
-                challengeHeader = "Labels"
-                challengeParagraph = "Decked Lager is a premium brew designed with fishermen in mind, featuring three distinct label variations—Seaweed, Crab, and Fish. Each design draws from maritime elements, reinforcing the brand’s connection to the fishing community. With a focus on quality and craftsmanship, Decked delivers a refined lager experience while embracing the culture of those who spend their days on the water."
+            <section className="sectionContainer">
+                <SectionFive 
+                    challengeHeader = "Shading"
+                    challengeParagraph = "The next step was creating the textures. The building is covered in a rusty texture, giving it an aged, weathered appearance that complements the surreal, dystopian theme. In contrast, the ground features a metallic and rough texture, adding a sense of harshness and weight to the environment. These textural choices help to create a dynamic contrast between the structure and its surroundings, further enhancing the overall atmosphere of the piece."
+                />
+                <SectionEight
+                    imageOne="/media/citadel/shadingBuilding.png"
+                    imageTwo="/media/citadel/shadingGround.png"
+                    imageThree="/media/citadel/shadingTotal.png"
+                    imageFour="/media/citadel/shadingCloseup.png"
+                />
+            </section>
 
-                imageOne = "/media/cans/labels/Fish@2x.png"
-                imageTwo = "/media/cans/labels/Crab@2x.png"
-                imageThree = "/media/cans/labels/Seaweed@2x.png"
-            />
-            <SectionTwo 
-                videoSrc=""
-            />
-            <SectionOne 
-                paragraphTitleText=""
+            <SectionSix 
+                challengeHeader = "Rendered Animation"
+                challengeParagraph = "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece."
+                sticky = {false}
+
+                videoOne = "/media/citadel/citadelVideo.mp4"
+                initialMute={false}
             />
         </div>
     )
 }
+
+//final render in cycles

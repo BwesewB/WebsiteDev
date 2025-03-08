@@ -32,6 +32,8 @@ export default function SectionSix({
     videoTwo,
     videoThree,
 
+    initialMute,
+
 }) {
 
     return (
@@ -41,7 +43,7 @@ export default function SectionSix({
                     className={styles.textSticky} 
                     style={{ 
                         position: sticky ? "sticky" : "relative", 
-                        top: sticky ? "120px" : "auto" 
+                        top: sticky ? "var(--sideSpacing)" : "auto" 
                     }}>
                     <h4>{challengeHeader}</h4>
                     <p>{challengeParagraph}</p>
@@ -72,13 +74,13 @@ export default function SectionSix({
 
             <div className={styles.mediaContainer}>              
                 {(imageOne || videoOne) && (
-                    <SectionTwo imageSrc={imageOne} videoSrc={videoOne} />
+                    <SectionTwo imageSrc={imageOne} videoSrc={videoOne} initialMute={initialMute}/>
                 )}
                 {(imageTwo || videoTwo) && (
-                    <SectionTwo imageSrc={imageTwo} videoSrc={videoTwo} />
+                    <SectionTwo imageSrc={imageTwo} videoSrc={videoTwo} initialMute={initialMute}/>
                 )}
                 {(imageThree || videoThree) && (
-                    <SectionTwo imageSrc={imageThree} videoSrc={videoThree} />
+                    <SectionTwo imageSrc={imageThree} videoSrc={videoThree} initialMute={initialMute}/>
                 )}
             </div>
         </section>

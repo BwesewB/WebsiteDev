@@ -47,9 +47,8 @@
 }
 
 .buttonSticky {
-    position: sticky;
-    /* top:120px; */
-    top: var(--sideSpacing);
+    /* position: sticky; */
+    /* top: var(--sideSpacing); */
     display: flex;
     gap:var(--textGap);
     flex-wrap: wrap;
@@ -64,10 +63,11 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
     }
+
     .buttonRound {
         width: 100%;
         grid-column: 1/2;
-        grid-row: 2/3;
+        grid-row: 1/2;
     }
     .projectDescription {
         grid-column: 1/2;

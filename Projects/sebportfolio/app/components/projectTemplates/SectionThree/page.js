@@ -7,6 +7,7 @@ import FigmaButton from "../../uiComponents/figmaButton/page"
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import SectionTwo from "../SectionTwo/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -25,6 +26,9 @@ export default function SectionThree({
     backgroundColorFigma,
     figma,
 
+    imageSrc,
+    videoSrc,
+
     textColour = "var(--black)",
     challengeHeader = "Title",
     challengeParagraph = "Paragraph",
@@ -32,7 +36,8 @@ export default function SectionThree({
     solutionParagraph = "",
 
     startTrigger = "top 90%",
-    endTrigger = "bottom 85%"
+    endTrigger = "bottom 85%",
+    sticky = true,
 }) {
 
     const paragraphRef = useRef(null);
@@ -90,7 +95,13 @@ export default function SectionThree({
     return (
         <section className={styles.container}>
             <div className={styles.buttonRound}>
-                <div className={styles.buttonSticky}>
+                <div 
+                    className={styles.buttonSticky}
+                    style={{ 
+                        position: sticky ? "sticky" : "relative", 
+                        top: sticky ? "var(--sideSpacing)" : "auto" 
+                    }}
+                >
                     {externalLinkVisit && (
                         <VisitButton
                             externalLink={externalLinkVisit}
@@ -113,6 +124,9 @@ export default function SectionThree({
                             backgroundColor={backgroundColorFigma}
                             figma={figma}
                         />
+                    )}
+                    {(imageSrc || videoSrc) && (
+                        <SectionTwo imageSrc={imageSrc} videoSrc={videoSrc} />
                     )}
                 </div>
             </div>

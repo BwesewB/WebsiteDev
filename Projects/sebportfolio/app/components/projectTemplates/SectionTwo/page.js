@@ -15,6 +15,7 @@ export default function SectionTwo({
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
     const [isMuted, setIsMuted] = useState(initialMute);
+    const MAX_VOLUME = 0.4;
 
     const fadeOutVolume = (videoElement) => {
         clearInterval(fadeInterval.current);
@@ -33,10 +34,10 @@ export default function SectionTwo({
         clearInterval(fadeInterval.current);
         videoElement.muted = false;
         fadeInterval.current = setInterval(() => {
-            if (videoElement.volume < 0.95) {
-                videoElement.volume = Math.min(1, videoElement.volume + 0.05);
+            if (videoElement.volume < MAX_VOLUME - 0.05) {
+                videoElement.volume = Math.min(MAX_VOLUME, videoElement.volume + 0.05);
             } else {
-                videoElement.volume = 1;
+                videoElement.volume = MAX_VOLUME;
                 clearInterval(fadeInterval.current);
             }
         }, 10);

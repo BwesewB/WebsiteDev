@@ -25,7 +25,7 @@ export const cardData = [
     },
     {
         title: "Citadel",
-        copy: "Citadel (In Progress)",
+        copy: "Citadel, inspired by Zdzisław Beksiński, combines a surreal, towering structure with atmospheric lighting, textured surfaces, and an astronaut model to emphasize scale, all set to the eerie track 'What Do You Offer' from Lost in Vivo.",
         src: "/media/citadel/gate.webp",
         skills: ["Shapr3D", "Blender", "Photoshop", "Adobe After Effects"],
         backgroundColor: "var(--sand)",
