@@ -4,11 +4,15 @@ import Navbar from "./components/uiComponents/navbar/page";
 import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis"
 import Footer from "./components/uiComponents/footer/page";
+import CustomCursor from "./components/uiComponents/cursor/CustomCursor";
+import { CursorProvider } from "./components/uiComponents/cursor/CursorContext";
 
 export default function ClientWrap({ children }) {
   const pathname = usePathname();
   const [preloaderDone, setPreloaderDone] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
+  const [cursorHovered, setCursorHovered] = useState(false);
+  
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -104,8 +108,13 @@ export default function ClientWrap({ children }) {
     };
   }, []);
 
+  const handleHover = (isHovered) => {
+    setCursorHovered(isHovered);
+  };
+
   return (
     <>
+      <CustomCursor/>
       {preloaderDone && <Navbar />}
       {children}
       {footerVisible && <Footer />}

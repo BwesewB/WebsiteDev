@@ -8,10 +8,17 @@ import ArrowRight from "@/public/icons/arrowRight";
 import SectionTwo from "./components/projectTemplates/SectionTwo/page";
 import ProjectLayout from "./components/pageComponents/projectLayout/page";
 import Preloader from "./components/pageComponents/preloader/page";
+// import { useCursor } from "./components/uiComponents/cursor/CursorContext";
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [preloader, setPreloader] = useState(null);
+  // const { setHoverState } = useCursor();
+
+  // useEffect(() => {
+  //   // Reset cursor state when component unmounts
+  //   return () => setHoverState(false);
+  // }, [setHoverState]);
 
   useEffect(() => {
     const checkPreloader = async () => {
