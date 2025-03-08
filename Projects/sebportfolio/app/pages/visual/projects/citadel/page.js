@@ -8,29 +8,35 @@ import SectionTwo from "../../../../components/projectTemplates/SectionTwo/page"
 import SectionEight from "@/app/components/projectTemplates/SectionEight/page"
 import SectionFive from "@/app/components/projectTemplates/SectionFive/page"
 
-export default function DeckedBeer({}) {
+export default function Citadel({}) {
     return (
         <div className="container">
             <ProjectHero 
-                projectName="Gate"
+                projectName="Citadel"
                 date="2022-2025"
                 toolsUsed="Shapr3D / Blender / Adobe Photoshop / Adobe After Effects"
-                imageSrc="/media/gate/gate.webp"
+                imageSrc="/media/citadel/gate.webp"
             />
             <SectionOne 
-                paragraphTitleText="Decked is a premium lager crafted for fishermen, delivering a refined and refreshing taste."
+                paragraphTitleText="A surreal architectural landscape inspired by Zdzisław Beksiński's 1983 painting in Shapr3D and blender"
             />
             <section className="sectionContainer">
                 <SectionFive 
-                    challengeHeader = "Graphics"
-                    challengeParagraph = 'The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
+                    challengeHeader = "Model"
+                    challengeParagraph = 'Using Shapr3D, the building was created by starting with a large plane, from which various shapes were subtracted to form intricate holes. This plane was then duplicated, and volumes were added to build the final structure, giving depth and complexity to the architecture. This method allowed for the creation of a surreal, imposing design that aligns with the intended atmosphere of the piece.'
                 />
                 <SectionEight
-                    imageOne="/media/cans/noFeedFish.svg"
-                    imageTwo="/media/cans/hookInstructions.svg"
-                    scale="50%"
+                    imageOne="/media/citadel/Shapr3DModel1.webp"
+                    imageTwo="/media/citadel/Shapr3DModel2.webp"
                 />
             </section>
+            <SectionSix 
+                challengeHeader = "Import to Blender"
+                challengeParagraph = ""
+                sticky = {false}
+
+                imageOne = "/media/cans/labels/Fish@2x.png"
+            />
             <SectionSix 
                 challengeHeader = "Labels"
                 challengeParagraph = "Decked Lager is a premium brew designed with fishermen in mind, featuring three distinct label variations—Seaweed, Crab, and Fish. Each design draws from maritime elements, reinforcing the brand’s connection to the fishing community. With a focus on quality and craftsmanship, Decked delivers a refined lager experience while embracing the culture of those who spend their days on the water."
@@ -40,10 +46,10 @@ export default function DeckedBeer({}) {
                 imageThree = "/media/cans/labels/Seaweed@2x.png"
             />
             <SectionTwo 
-                videoSrc="/media/cans/fishCanVideo.mp4"
+                videoSrc=""
             />
             <SectionOne 
-                paragraphTitleText="Blender was used to bring Decked to life, creating realistic product visuals that showcased the custom label designs and branding."
+                paragraphTitleText=""
             />
         </div>
     )

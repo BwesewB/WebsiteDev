@@ -37,7 +37,12 @@ export default function SectionSix({
     return (
         <section className={styles.container}>
             <div className={styles.textSection} style={{ color: textColour }}>
-                <div className={styles.textSticky} style={{ position: sticky ? "sticky" : "relative" }}>
+                <div 
+                    className={styles.textSticky} 
+                    style={{ 
+                        position: sticky ? "sticky" : "relative", 
+                        top: sticky ? "120px" : "auto" 
+                    }}>
                     <h4>{challengeHeader}</h4>
                     <p>{challengeParagraph}</p>
                     {externalLinkVisit && (

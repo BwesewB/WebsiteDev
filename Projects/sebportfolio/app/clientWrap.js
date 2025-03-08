@@ -52,7 +52,7 @@ export default function ClientWrap({ children }) {
     "/pages/visual/projects/logo": { bgColor: "var(--sand)", navColor: "var(--blue)" },
     "/pages/visual/projects/deckedBeer": { bgColor: "var(--sand)", navColor: "var(--blue)" },
     "/pages/visual/projects/magazine": { bgColor: "var(--sand)", navColor: "var(--blue)" },
-    "/pages/visual/projects/gate": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/pages/visual/projects/citadel": { bgColor: "var(--sand)", navColor: "var(--blue)" },
 
     "/pages/teamwork/projects/flare": { bgColor: "var(--sand)", navColor: "var(--blue)" },
   };

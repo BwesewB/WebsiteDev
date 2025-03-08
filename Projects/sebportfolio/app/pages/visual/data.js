@@ -24,13 +24,13 @@ export const cardData = [
         color: "var(--white)"
     },
     {
-        title: "Gate",
-        copy: "Gate (In Progress)",
-        src: "/media/gate/gate.webp",
+        title: "Citadel",
+        copy: "Citadel (In Progress)",
+        src: "/media/citadel/gate.webp",
         skills: ["Shapr3D", "Blender", "Photoshop", "Adobe After Effects"],
         backgroundColor: "var(--sand)",
         color: "var(--black)",
-        projectLink: "/pages/visual/projects/gate/"
+        projectLink: "/pages/visual/projects/citadel/"
     },
     // {
     //     title: "Mech.obj",
