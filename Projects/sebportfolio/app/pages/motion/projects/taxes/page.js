@@ -11,7 +11,7 @@ export default function Taxes ({
                 projectName="TAXES!"
                 date="2023-2024"
                 videoSrc="/media/taxes/GOTTEM.mp4"
-                toolsUsed="After Effects"
+                toolsUsed="Adobe After Effects"
                 textColour="var(--black)"
                 initialMute={false}
             />

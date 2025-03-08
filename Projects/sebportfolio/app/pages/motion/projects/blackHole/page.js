@@ -12,7 +12,7 @@ export default function blackHole() {
                 projectName="Black Hole"
                 date="2023-2024"
                 videoSrc="/media/blackHole/RevisedFinal.mp4"
-                toolsUsed="After Effects / Adobe Illustrator / GSAP / Next.js / Figma"
+                toolsUsed="Adobe After Effects / Adobe Illustrator / GSAP / Next.js / Figma"
                 textColour="var(--white)"
                 initialMute={false}
             />

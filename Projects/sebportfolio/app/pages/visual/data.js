@@ -21,16 +21,25 @@ export const cardData = [
         src: "/media/poster/Sebastian_Fok_Assignment07.png",
         skills: ["Adobe Photoshop"],
         backgroundColor: "#D8574D",
-
+        color: "var(--white)"
     },
     {
-        title: "Mech.obj",
-        copy: "Mechanical Object (In Progress)",
-        skills: ["Adobe Illustrator"],
-        src: "/media/mechAppliance/BraunRadio.png",
+        title: "Gate",
+        copy: "Gate (In Progress)",
+        src: "/media/gate/gate.webp",
+        skills: ["Shapr3D", "Blender", "Photoshop", "Adobe After Effects"],
         backgroundColor: "var(--sand)",
-        color: "var(--black)"
+        color: "var(--black)",
+        projectLink: "/pages/visual/projects/gate/"
     },
+    // {
+    //     title: "Mech.obj",
+    //     copy: "Mechanical Object (In Progress)",
+    //     skills: ["Adobe Illustrator"],
+    //     src: "/media/mechAppliance/BraunRadio.png",
+    //     backgroundColor: "var(--sand)",
+    //     color: "var(--black)"
+    // },
     {
         title: "Reimagining Spaces",
         copy: "This project explores contemporary Japanese spaces in print and digital PDFs, with the magazine also physically produced for hands-on experience in print.",
