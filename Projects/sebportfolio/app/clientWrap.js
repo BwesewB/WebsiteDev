@@ -114,7 +114,7 @@ export default function ClientWrap({ children }) {
 
   return (
     <>
-      <CustomCursor/>
+      {/* <CustomCursor/> */}
       {preloaderDone && <Navbar />}
       {children}
       {footerVisible && <Footer />}
