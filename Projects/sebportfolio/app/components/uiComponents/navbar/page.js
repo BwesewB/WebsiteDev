@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./navbar.module.css";
 import Logo from "@/public/media/logo/Logo";
 import ArrowRight from "@/public/icons/arrowRight";
-import { useState, useRef, useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import { setupNavbarAnimations } from "./navbarAnimations";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
