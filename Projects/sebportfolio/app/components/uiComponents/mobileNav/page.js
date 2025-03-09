@@ -58,7 +58,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
         borderBottomRightRadius: "0%",
         borderTopLeftRadius: "0%",
         transformOrigin: "top right",
-        duration: 1,
+        duration: 0.6,
         ease: "power1.inOut",
       });
     }
