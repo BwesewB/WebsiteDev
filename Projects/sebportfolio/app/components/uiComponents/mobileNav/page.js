@@ -17,61 +17,115 @@ export default function MobileNavbar({ navColor, textColor }) {
   const arrowMobileCircleRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  const handleArrowClick = () => {
-    const mobileMenuCircle = arrowMobileCircleRef.current;
-    const mobileMenu = mobileMenuRef.current;
+  const mobileNavBackgroundWrapRef = useRef(null);
 
+//   const handleArrowClick = () => {
+//     const mobileMenuCircle = arrowMobileCircleRef.current;
+//     const mobileMenu = mobileMenuRef.current;
+
+//     setIsActive((prevState) => !prevState);
+
+//     const tl = gsap.timeline();
+
+//     if (isActive) {
+//       gsap.to(mobileMenuCircle, {
+//         borderRadius: "100%", 
+//         duration: 0.6,
+//         ease: "power1.inOut",
+//       });
+
+//       tl.to(mobileMenu, {
+//         width: "auto",
+//         height: "60px",
+//         borderRadius: "100%",
+//         transformOrigin: "top right",
+//         duration: 0.6,
+//         ease: "power1.inOut",
+//       })
+//       .to(
+//         mobileMenu,
+//         {
+//             margin: "var(--sideSpacing)",
+//             padding: 0,
+//             duration: 0.6,
+//         },
+//         "-=1"
+//       )
+      
+//     } else {
+//       gsap.to(mobileMenuCircle, {
+//         borderRadius: "0%",
+//         duration: 0.6,
+//         ease: "power1.inOut",
+//       });
+
+//       tl.to(mobileMenu, {
+//         top: 0,
+//         right: 0,
+
+//         height: "100vh",
+//         width: "100vw",
+//         borderRadius: "0%",
+//         transformOrigin: "top right",
+//         duration: 0.6,
+//         ease: "power1.inOut",
+//       }, )
+//       .to(
+//         mobileMenu,
+//         {
+//             margin: 0,
+//             padding: "var(--sideSpacing)",
+//             duration: 0.6,
+//         },
+//         "-=1"
+//       )
+//     }
+//   };
+
+const handleArrowClick = () => {
     setIsActive((prevState) => !prevState);
 
     if (isActive) {
-      gsap.to(mobileMenuCircle, {
-        borderRadius: "100%", 
-        duration: 0.6,
-        ease: "power4.inOut",
-      });
+        gsap.to(arrowMobileCircleRef.current, {
+            rotate: 0,
+            duration: 0.4,
+            ease: "back.inOut",
+        });
 
-      gsap.to(mobileMenu, {
-        width: "auto",
-        height: "60px",
-        borderRadius: "100%",
-        transformOrigin: "top right",
-        duration: 0.6,
-        ease: "power4.inOut",
-        padding: 0,
-        margin: "var(--sideSpacing)",
-      });
-    } else {
-      gsap.to(mobileMenuCircle, {
-        borderRadius: "0%",
-        duration: 0.6,
-        ease: "power4.inOut",
-      });
-
-      gsap.to(mobileMenu, {
-        top: 0,
-        right: 0,
-        height: "calc(100vh)",
-        width: "calc(100vw)",
-        borderRadius: "0%",
-        transformOrigin: "top right",
-        duration: 0.6,
-        ease: "power4.inOut",
-        margin: 0,
-        border: "1px solid red",
-        onComplete: () => {
-          gsap.to(mobileMenu, {
-            padding: "var(--sideSpacing)",
+        gsap.to(mobileNavBackgroundWrapRef.current, {
+            height: "0",
+            width: "0",
+            // borderRadius: "100%",
+            borderBottomLeftRadius: "100%",
+            borderBottomRightRadius: "100%",
+            borderTopLeftRadius: "100%",
+            transformOrigin: "top right",
             duration: 0.6,
-            ease: "power4.out",
-          });
-        },
-      });
+        });
+    } else {
+        gsap.to(arrowMobileCircleRef.current, {
+            rotate: 180,
+            duration: 0.4,
+            ease: "back.inOut",
+        });
+
+        gsap.to(mobileNavBackgroundWrapRef.current, {
+            height: "200vh",
+            width: "200vh",
+            // borderRadius: "0%",
+            borderBottomLeftRadius: "0%",
+            borderBottomRightRadius: "0%",
+            borderTopLeftRadius: "0%",
+            transformOrigin: "top right",
+            duration: 1,
+        });
     }
   };
 
   useEffect(() => {
     gsap.to(mobileMenuRef.current, {
-      x: 0,
+      margin: "var(--sideSpacing)",
+      x:0,
       duration: 0.9,
       scale: 1,
       ease: "rollingEase",
@@ -90,6 +144,10 @@ export default function MobileNavbar({ navColor, textColor }) {
         <div className={styles.arrowMobileContainer} ref={arrowMobileRef} style={{ transform: "rotate(180deg)" }}>
           <ArrowRight color={textColor} width="auto" height="auto" />
         </div>
+      </div>
+
+      <div className={styles.mobileNavBackgroundWrap} ref={mobileNavBackgroundWrapRef} style={{ backgroundColor: navColor }}>
+
       </div>
     </div>
   );
