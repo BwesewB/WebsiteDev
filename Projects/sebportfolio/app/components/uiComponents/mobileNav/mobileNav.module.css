@@ -1,0 +1,35 @@
+.mobileNav {
+    position: fixed;
+    top:0;
+    right: 0;
+    margin: var(--sideSpacing);
+    border-radius: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid red; */
+    cursor: pointer;
+    overflow: hidden;
+    transform: translateX(100px) scale(0.1);
+  }
+  
+  .arrowDivMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .arrowMobileContainer {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

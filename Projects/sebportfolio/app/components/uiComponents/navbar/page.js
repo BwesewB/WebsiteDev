@@ -5,10 +5,11 @@ import Image from "next/image";
 import styles from "./navbar.module.css";
 import Logo from "@/public/media/logo/Logo";
 import ArrowRight from "@/public/icons/arrowRight";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use } from "react";
 import { setupNavbarAnimations } from "./navbarAnimations";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import MobileNavbar from "../mobileNav/page";
 
 gsap.registerPlugin(CustomEase);
 
@@ -29,32 +30,46 @@ export default function Navbar({
   const arrowTwoRef = useRef(null);
   const arrowTwoCircleRef = useRef(null);
   const logoContainerRef = useRef(null);
-  const textNavRef = useRef(null)
-  const ease = "expoScale";
+  const textNavRef = useRef(null);
+
+
+  
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
-    const linkContainers = document.querySelectorAll(`.${styles.linkContainer}`);
     const logo = logoContainerRef.current;
+    gsap.timeline()
+    .to(logo, 
+      { 
+        delay: 0.3,
+        x: 30, 
+        rotate: 30, 
+        duration: 0.6, 
+        ease: "rollingEase" 
+      }
+    )
+    .to(logo, 
+      { 
+        x: 0, 
+        rotate: 0, 
+        duration: 0.3, 
+        ease: "power1.out" 
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
+    const linkContainers = document.querySelectorAll(`.${styles.linkContainer}`);
 
     gsap.timeline()
-      .to(logo, 
-        { 
-          delay: 0.3,
-          x: 30, 
-          rotate: 30, 
-          duration: 0.6, 
-          ease: "rollingEase" 
-        }
-      )
-      .to(logo, 
-        { 
-          x: 0, 
-          rotate: 0, 
-          duration: 0.3, 
-          ease: "power1.out" 
-        }
-      );
-
       gsap.to(arrowOneRef.current, 
         {
           delay:0.6,
@@ -68,7 +83,7 @@ export default function Navbar({
         {
           x:0,
           duration: 0.9, 
-          ease: "rollingEase" 
+          ease: "rollingEase",
         }
       )
 
@@ -123,7 +138,9 @@ export default function Navbar({
       hoverMenu.removeEventListener("mouseenter", handleMouseEnter);
       hoverMenu.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [isMobile]);
+
+
 
   return (
     <nav className={styles.navbar} style={{ backgroundColor: navBG }}>
@@ -133,37 +150,41 @@ export default function Navbar({
         </Link>
       </div>
 
-      <div className={styles.hoverMenu} ref={hoverMenuRef}>
-        {/* Arrow Two */}
-        <div className={styles.arrowDivTwo} style={{ backgroundColor: navColor }} ref={arrowTwoCircleRef}>
-          <div className={styles.arrowContainerTwo} ref={arrowTwoRef}>
-            <ArrowRight color={textColor} width="auto" height="auto" />
+      {isMobile ? (
+        <MobileNavbar navColor={navColor} textColor={textColor} />
+      ) : (
+        <div className={styles.hoverMenu} ref={hoverMenuRef}>
+          {/* Arrow Two */}
+          <div className={styles.arrowDivTwo} style={{ backgroundColor: navColor }} ref={arrowTwoCircleRef}>
+            <div className={styles.arrowContainerTwo} ref={arrowTwoRef}>
+              <ArrowRight color={textColor} width="auto" height="auto" />
+            </div>
           </div>
-        </div>
 
-        {/* Navigation Links */}
-        <div className={styles.textNav} style={{ backgroundColor: navColor, color: textColor }} ref={textNavRef}>
-          <div className={styles.menuWord}>
-            <h4 ref={menuWordRef}>Menu</h4>
+          {/* Navigation Links */}
+          <div className={styles.textNav} style={{ backgroundColor: navColor, color: textColor }} ref={textNavRef}>
+            <div className={styles.menuWord}>
+              <h4 ref={menuWordRef}>Menu</h4>
+            </div>
+            <ul className={styles.navPages} ref={navWordRef}>
+              {["3d", "motion", "visual"].map((page) => (
+                <li className={styles.linkContainer} key={page}>
+                  <Link href={`/pages/${page}`}>
+                    <h5>{page.toUpperCase()}</h5>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className={styles.navPages} ref={navWordRef}>
-            {["3d", "motion", "visual"].map((page) => (
-              <li className={styles.linkContainer} key={page}>
-                <Link href={`/pages/${page}`}>
-                  <h5>{page.toUpperCase()}</h5>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        {/* Arrow One */}
-        <div className={styles.arrowDivOne} style={{ backgroundColor: navColor }} ref={arrowOneCircleRef}>
-          <div className={styles.arrowContainerOne} ref={arrowOneRef}>
-            <ArrowRight color={textColor} width="auto" height="auto" />
+          {/* Arrow One */}
+          <div className={styles.arrowDivOne} style={{ backgroundColor: navColor }} ref={arrowOneCircleRef}>
+            <div className={styles.arrowContainerOne} ref={arrowOneRef}>
+              <ArrowRight color={textColor} width="auto" height="auto" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

@@ -53,9 +53,8 @@
     align-items: center;
 }
 
-.hoverMenu {
+.hoverMenu{
     height: 60px;
-    border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,15 +82,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 100px;
+    border-radius: 100%;
     overflow: hidden;
     position: relative;
+    /* border: 2px solid yellow; */
 }
 
 .arrowDivOne {
     width: 60px;
     height: 60px;
-    transform: scale(0.3);
+    transform: scale(0.1);
 }
 
 .arrowDivTwo {
@@ -99,7 +99,7 @@
     height: 0;
 }
 
-.arrowContainerOne, .arrowContainerTwo {
+.arrowContainerOne, .arrowContainerTwo{
     position: absolute;
     width: 25px;
     height: 25px;
@@ -116,6 +116,8 @@
 .arrowContainerTwo {
     transform: rotate(45deg);
 }
+
+/* Media Queries */
 
 @media (max-width: 768px) {
 
