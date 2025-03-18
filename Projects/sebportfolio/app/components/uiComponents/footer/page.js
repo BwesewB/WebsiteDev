@@ -49,7 +49,7 @@ export default function Footer({}) {
         { text: "3D", href: "/pages/3d" },
         { text: "Motion", href: "/pages/motion" },
         { text: "Visual", href: "/pages/visual" },
-        { text: "Teamwork", href: "/pages/teamwork" },
+        // { text: "Teamwork", href: "/pages/teamwork" },
         { text: "LinkedIn", href: "https://www.linkedin.com/in/sebastianfok/", external: true },
         { text: "Instagram", href: "https://www.instagram.com/bwes_design?utm_source=qr", external: true },
         { text: "Resume", href: "/media/SebastianFokResume.pdf", external: true },
@@ -63,7 +63,7 @@ export default function Footer({}) {
                         <div className={styles.linkSection}>
                             <h5 className={styles.footerH5}>EXPLORE</h5>
                             <div className={styles.linkies}>
-                                {links.slice(0, 4).map((link, index) => (
+                                {links.slice(0, 3).map((link, index) => (
                                     <Link key={index} href={link.href} passHref>
                                         <div 
                                             className={styles.linkWrapper}
@@ -96,15 +96,15 @@ export default function Footer({}) {
                         <div className={styles.linkSection}>
                             <h5 className={styles.footerH5}>STALK ME</h5>
                             <div className={styles.linkies}>
-                                {links.slice(4).map((link, index) => (
-                                    <Link key={index + 4} href={link.href} target="_blank" passHref>
+                                {links.slice(3).map((link, index) => (
+                                    <Link key={index + 3} href={link.href} target="_blank" passHref>
                                         <div 
                                             className={styles.linkWrapper}
-                                            onMouseEnter={() => handleMouseEnter(index + 4)}
-                                            onMouseLeave={() => handleMouseLeave(index + 4)}
+                                            onMouseEnter={() => handleMouseEnter(index + 3)}
+                                            onMouseLeave={() => handleMouseLeave(index + 3)}
                                         >
                                             <h4 className={styles.blueText}>{link.text}</h4>
-                                            <span ref={(el) => (linkRefs.current[index + 4] = el)} className={styles.underline}></span>
+                                            <span ref={(el) => (linkRefs.current[index + 3] = el)} className={styles.underline}></span>
                                         </div>
                                     </Link>
                                 ))}
