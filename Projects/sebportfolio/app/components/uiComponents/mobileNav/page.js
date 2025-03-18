@@ -86,8 +86,8 @@ const MobileNavbar = ({ navColor, textColor }) => {
     <div className={styles.mobileNav} ref={mobileMenuRef} style={{ backgroundColor: navColor }}>
       <div className={styles.arrowDivMobile} ref={arrowMobileCircleRef} onClick={handleArrowClick}>
         <div className={styles.arrowMobileContainer}>
-          <img src="/icons/ArrowRight.svg" alt="arrow" />
-          {/* <ArrowRight color={textColor} width="auto" height="auto" /> */}
+          {/* <img src="/icons/ArrowRight.svg" alt="arrow" /> */}
+          <ArrowRight color={textColor} width="auto" height="auto" />
         </div>
       </div>
 
