@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import ArrowRight from "@/public/icons/arrowRight.jsx";
+import ArrowRight from "@/app/components/uiComponents/arrowRight.jsx";
 import styles from "./mobileNav.module.css";
 import dynamic from "next/dynamic";
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import styles from './styles/page.module.css';
 import Link from 'next/link';
-import ArrowRight from "@/public/icons/arrowRight";
+import ArrowRight from "@/app/components/uiComponents/arrowRight";
 import SectionTwo from "./components/projectTemplates/SectionTwo/page";
 import ProjectLayout from "./components/pageComponents/projectLayout/page";
 import Preloader from "./components/pageComponents/preloader/page";

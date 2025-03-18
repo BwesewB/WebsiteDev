@@ -1,6 +1,6 @@
 import styles from "./visitButton.module.css"
 import Link from "next/link"
-import ArrowRight from "@/public/icons/arrowRight";
+import ArrowRight from "@/app/components/uiComponents/arrowRight";
 
 export default function VisitButton({
     externalLink = "",
