@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./navbar.module.css";
 import Logo from "@/public/media/logo/Logo";
-import ArrowRight from "@/public/icons/arrowRight";
+import ArrowRight from "@/public/icons/arrowRight.jsx";
 import { useState, useRef, useEffect } from "react";
 import { setupNavbarAnimations } from "./navbarAnimations";
 import gsap from "gsap";
