@@ -67,7 +67,6 @@ const MobileNavbar = ({ navColor, textColor }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.to(mobileMenuRef.current, {
-        // margin: "calc( 2 * var(--sideSpacing))",
         x: 0,
         duration: 0.9,
         scale: 1,
@@ -76,8 +75,9 @@ const MobileNavbar = ({ navColor, textColor }) => {
 
       gsap.to(arrowMobileCircleRef.current, {
         scale: 1,
-        duration: 0.6,
-        ease: "power4.out",
+        duration: 1,
+        ease: "back.inOut",
+        rotate: 0,
       });
     }
   }, []);
