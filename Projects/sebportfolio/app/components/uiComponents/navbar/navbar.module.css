@@ -119,6 +119,9 @@
 
 /* Media Queries */
 
-@media (max-width: 768px) {
-
+@media (max-width: 480px) {
+    .navbar {
+        padding-left: calc(2 * var(--sideSpacing));
+        padding-right: calc(2 * var(--sideSpacing));
+    }
 }
