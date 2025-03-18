@@ -1,12 +1,11 @@
-export default function ArrowRight({ color = "var(--white)", width = "16px", height = "16px"}) {
+export default function ArrowRight({ color = "var(--white)", width = "16px", height = "16px" }) {
   return (
     <svg
-      id="Layer_2"
-      data-name="Layer 2"
+      width={width}
+      height={height}
       viewBox="0 0 382.49 384"
-      xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
-      style={{ width: width, height: height }}
+      xmlns="http://www.w3.org/2000/svg"
     >
       <g id="Layer_1-2" data-name="Layer 1">
         <path
