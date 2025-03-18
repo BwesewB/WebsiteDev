@@ -67,10 +67,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.to(mobileMenuRef.current, {
-        marginTop: "var(--sideSpacing)",
-        marginLeft: "var(--sideSpacing)",
-        marginBottom: "var(--sideSpacing)",
-        marginRight: "calc( 2 * var(--sideSpacing))",
+        // margin: "calc( 2 * var(--sideSpacing))",
         x: 0,
         duration: 0.9,
         scale: 1,

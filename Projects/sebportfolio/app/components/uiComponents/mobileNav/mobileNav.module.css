@@ -10,6 +10,7 @@
     cursor: pointer;
     /* overflow: hidden; */
     transform: translateX(100px) scale(0.1);
+    margin: calc( 2 * var(--sideSpacing));
 }
   
 .arrowDivMobile {
@@ -39,7 +40,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    transform: translateY(calc( -1 * var(--sideSpacing))) translateX(var(--sideSpacing));
+    /* transform: translateY(calc( -2 * var(--sideSpacing))) translateX(var(--sideSpacing)); */
     width: 0;
     height: 0;
     display: flex;
@@ -48,7 +49,7 @@
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
     border-top-left-radius: 100%;
-    margin-right: calc( -1 * var(--sideSpacing));
+    margin: calc( -2 * var(--sideSpacing));
     /* z-index: 100; */
 }
 
