@@ -127,9 +127,6 @@ export default function Home() {
               <h5 className={styles.headerFive}>ABOUT ME</h5>
               <div className={styles.headingContent}>
                 <h3><span className={styles.blueText}>I’m a reflective and driven designer</span> who understands how <span className={styles.blueText}>creative and technical elements</span> come together to <span className={styles.blueText}>drive success</span> in projects and teams. </h3>
-                <ArrowRight color="var(--blue)" />
-                <ArrowRight color="var(--blue)" />
-                <ArrowRight color="var(--blue)" />
               </div>
             </div>
             <h5 className={styles.headerFive}>MY PROJECTS</h5>
