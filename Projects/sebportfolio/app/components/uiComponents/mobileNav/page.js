@@ -6,6 +6,7 @@ import { CustomEase } from "gsap/CustomEase";
 import ArrowRight from "@/app/components/uiComponents/arrowRight.jsx";
 import styles from "./mobileNav.module.css";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 gsap.registerPlugin(CustomEase);
 
@@ -17,6 +18,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
   const arrowMobileCircleRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const mobileNavBackgroundWrapRef = useRef(null);
+  const navWordRef = useRef(null);
 
   const handleArrowClick = () => {
     setIsActive((prevState) => !prevState);
@@ -35,15 +37,25 @@ const MobileNavbar = ({ navColor, textColor }) => {
       });
 
       gsap.to(mobileNavBackgroundWrapRef.current, {
-        height: "0",
-        width: "0",
+        height: 0,
+        width: 0,
         borderBottomLeftRadius: "100%",
         borderBottomRightRadius: "100%",
         borderTopLeftRadius: "100%",
         transformOrigin: "top right",
         duration: 0.6,
         ease: "power1.inOut",
+        // padding: "0",
       });
+
+      gsap.to(navWordRef.current.children, {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power1.inOut",
+        stagger: 0.1,
+      });
+
     } else {
       gsap.to(arrowMobileCircleRef.current, {
         rotate: 180,
@@ -60,7 +72,19 @@ const MobileNavbar = ({ navColor, textColor }) => {
         transformOrigin: "top right",
         duration: 0.6,
         ease: "power1.inOut",
+        // padding: "var(--sideSpacing)",
       });
+
+      gsap.to(
+        navWordRef.current.children,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power1.out",
+          stagger: 0.1,
+        }
+      );
     }
   };
 
@@ -79,6 +103,8 @@ const MobileNavbar = ({ navColor, textColor }) => {
         ease: "back.inOut",
         rotate: 0,
       });
+
+      gsap.set(navWordRef.current.children, { y: 50, opacity: 0 });
     }
   }, []);
 
@@ -90,7 +116,19 @@ const MobileNavbar = ({ navColor, textColor }) => {
         </div>
       </div>
 
-      <div className={styles.mobileNavBackgroundWrap} ref={mobileNavBackgroundWrapRef} style={{ backgroundColor: navColor }} />
+      <div className={styles.mobileNavBackgroundWrap} ref={mobileNavBackgroundWrapRef} style={{ backgroundColor: navColor }} >
+        <ul className={styles.navPages} ref={navWordRef} style={{ color: "var(--white)" }} >
+          {["home", "3d", "motion", "visual"].map((page) => (
+            <li className={styles.linkContainer} key={page} onClick={handleArrowClick}>
+              <Link href={page === "home" ? "/" : `/pages/${page}`}>
+                <div className={styles.linkWrapper}>
+                  <h1>{page.toUpperCase()}</h1>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
