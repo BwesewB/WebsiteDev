@@ -15,6 +15,7 @@ export default function SectionTwo({
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
     const [isMuted, setIsMuted] = useState(initialMute);
+    const [shouldAutoplay, setShouldAutoplay] = useState(false);
     const MAX_VOLUME = 0.4;
 
     const fadeOutVolume = (videoElement) => {
@@ -42,6 +43,13 @@ export default function SectionTwo({
             }
         }, 10);
     };
+
+    useEffect(() => {
+        // Check screen width
+        if (typeof window !== "undefined") {
+            setShouldAutoplay(window.innerWidth > 1024);
+        }
+    }, []);
 
     // When the video is in view
     useEffect(() => {
@@ -115,7 +123,7 @@ export default function SectionTwo({
                             ref={videoRef}
                             src={videoSrc}
                             className={styles.videoElement}
-                            autoPlay
+                            autoPlay={shouldAutoplay}
                             loop
                             preload="auto"
                             playsInline
