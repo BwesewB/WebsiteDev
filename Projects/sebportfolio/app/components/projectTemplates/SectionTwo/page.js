@@ -15,7 +15,7 @@ export default function SectionTwo({
     let fadeInterval = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
     const [isMuted, setIsMuted] = useState(initialMute);
-    const [shouldAutoplay, setShouldAutoplay] = useState(false);
+    const [shouldAutoplay, setShouldAutoplay] = useState(null);
     const MAX_VOLUME = 0.4;
 
     const fadeOutVolume = (videoElement) => {
@@ -45,7 +45,6 @@ export default function SectionTwo({
     };
 
     useEffect(() => {
-        // Check screen width
         if (typeof window !== "undefined") {
             setShouldAutoplay(window.innerWidth > 1024);
         }
@@ -54,37 +53,37 @@ export default function SectionTwo({
     // When the video is in view
     useEffect(() => {
         const videoElement = videoRef.current;
-        if (!videoElement) return;
-
+        if (!videoElement || shouldAutoplay === null) return;
+    
         if (isMuted) {
             videoElement.muted = true;
             videoElement.volume = 0;
         }
-
+    
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => videoElement.play().catch((error) => console.error("Video playback failed", error)), 300) 
+                    setTimeout(() => videoElement.play().catch((error) => console.error("Video playback failed", error)), 300);
                     if (isMuted) {
-                        fadeOutVolume(videoElement); 
+                        fadeOutVolume(videoElement);
                     } else {
-                        fadeInVolume(videoElement); 
+                        fadeInVolume(videoElement);
                     }
                 } else {
-                    setTimeout(() => videoElement.pause(), 300)
+                    setTimeout(() => videoElement.pause(), 300);
                     fadeOutVolume(videoElement);
                 }
             },
             { threshold: 0.5 }
         );
-
+    
         observer.observe(videoElement);
-
+    
         return () => {
             clearInterval(fadeInterval.current);
             observer.unobserve(videoElement);
         };
-    }, [isMuted]);
+    }, [isMuted, shouldAutoplay])
 
     const handleToggleMute = () => {
         if (videoRef.current) {
@@ -123,7 +122,7 @@ export default function SectionTwo({
                             ref={videoRef}
                             src={videoSrc}
                             className={styles.videoElement}
-                            autoPlay={shouldAutoplay}
+                            autoPlay={shouldAutoplay ?? false}
                             loop
                             preload="auto"
                             playsInline
