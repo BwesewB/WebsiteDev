@@ -161,7 +161,7 @@
 
     .cardContent ul {
         display: flex;
-        gap: var(--textGap);
+        gap: 4px;
     }
 
     .cardContent li {
