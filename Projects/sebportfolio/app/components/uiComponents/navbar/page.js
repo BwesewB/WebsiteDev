@@ -157,7 +157,7 @@ export default function Navbar({
           {/* Arrow Two */}
           <div className={styles.arrowDivTwo} style={{ backgroundColor: navColor }} ref={arrowTwoCircleRef}>
             <div className={styles.arrowContainerTwo} ref={arrowTwoRef}>
-              <ArrowRight color={textColor} width="auto" height="auto" />
+              <ArrowRight color={textColor} width="100%" height="100%"/>
             </div>
           </div>
 
@@ -180,7 +180,7 @@ export default function Navbar({
           {/* Arrow One */}
           <div className={styles.arrowDivOne} style={{ backgroundColor: navColor }} ref={arrowOneCircleRef}>
             <div className={styles.arrowContainerOne} ref={arrowOneRef}>
-              <ArrowRight color={textColor} width="auto" height="auto" />
+              <ArrowRight color={textColor} width="100%" height="100%"/>
             </div>
           </div>
         </div>

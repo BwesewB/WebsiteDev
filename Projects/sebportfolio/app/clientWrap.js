@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Navbar from "./components/uiComponents/navbar/page";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lenis from "@studio-freight/lenis"
 import Footer from "./components/uiComponents/footer/page";
 import CustomCursor from "./components/uiComponents/cursor/CustomCursor";
@@ -13,6 +13,45 @@ export default function ClientWrap({ children }) {
   const [footerVisible, setFooterVisible] = useState(false);
   const [cursorHovered, setCursorHovered] = useState(false);
   
+  const hasLogged = useRef(false);
+
+  useEffect(() => {
+    if (!hasLogged.current) {
+      hasLogged.current = true;
+
+      const asciiArt = `
+                 *###############*                 
+             %##@@@@@@@@@@@@@@@@@@@###             
+          +@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+          
+        +@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+        
+      +@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*      
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@   
+  #@@@@@@@@@@@@@@@@@@@@@@@@@@#%*      #%%@@@@@@@#  
+ *@@@@@@@@@@@@@@@@@@@##@@@@+              *@@@@@@  
+ @@@@@@@@@@@@@@@@@@@    *+             #    #@@@@@ 
+#@@@@@@#####%@@@@@@#                 +@@@@=  %@@@@%
+#@@@@*        *###%                 +@@@@@#   %@@@#
+#@@@                                 #@@@@=    @@@#
+#@@%                                   +       #@@#
+#@@%                                           #@@#
+#@@@                                           @@@#
+#@@@@+         %#%#                           *@@@#
+#@@@@@@#####%@@@@@@@#                        %@@@@*
+ @@@@@@@@@@@@@@@@@@@@@###+                  #@@@@@ 
+ %@@@@@@@@@@@@@@@@@@@@@@@@@*              *@@@@@@# 
+  %@@@@@@@@@@@@@@@@@@@@@@@@@@%#%      %#%@@@@@@@#  
+   %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@#   
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*    
+      *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+      
+        *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+        
+          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*          
+             ###@@@@@@@@@@@@@@@@@@@###             
+                 *###############+                 
+      `;
+      console.log(`%c${asciiArt}`, 'font-size: 16px;');
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
