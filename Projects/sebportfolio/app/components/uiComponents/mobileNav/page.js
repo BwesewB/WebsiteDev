@@ -44,6 +44,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
         borderTopLeftRadius: "100%",
         transformOrigin: "top right",
         duration: 0.6,
+        delay: 0.2,
         ease: "power1.inOut",
         // padding: "0",
       });
@@ -53,7 +54,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
         opacity: 0,
         duration: 0.6,
         ease: "power1.inOut",
-        stagger: 0.1,
+        stagger: -0.1,
       });
 
     } else {
@@ -81,6 +82,7 @@ const MobileNavbar = ({ navColor, textColor }) => {
           y: 0,
           opacity: 1,
           duration: 0.6,
+          delay:0.2,
           ease: "power1.out",
           stagger: 0.1,
         }
