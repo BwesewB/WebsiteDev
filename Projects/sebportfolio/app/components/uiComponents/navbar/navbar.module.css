@@ -28,11 +28,6 @@
     transform: translateX(-100px) rotate(-45deg);
 }
 
-.logoImage {
-    width: 60px;
-    height: 60px;
-}
-
 .navPages{
     display: flex;
     justify-content: space-between;

@@ -146,8 +146,7 @@ export default function Navbar({
     <nav className={styles.navbar} style={{ backgroundColor: navBG }}>
       <div className={styles.logoContainer} ref={logoContainerRef}>
         <Link href="/">
-          {/* <Logo color={navColor} /> */}
-          <img src="/media/logo/WhiteColour.svg" className={styles.logoImage}/>
+          <Logo color={navColor} />
         </Link>
       </div>
 
