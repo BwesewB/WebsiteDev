@@ -73,11 +73,13 @@
 
 .linkContainer {
     list-style-type: none;
+    /* border: 1px solid red; */
+    height: auto;
 }
 
-/* .linkWrapper {
-    overflow: hidden;
-} */
+.linkContainer h1 {
+    transform: translateY(10px);
+}
 
 @media (max-width: 480px) {
     .mobileNav {
@@ -85,5 +87,8 @@
     }
     .mobileNavBackgroundWrap {
         margin: calc( -2 * var(--sideSpacing));
+    }
+    .linkContainer h1 {
+        transform: translateY(12px);
     }
 }
