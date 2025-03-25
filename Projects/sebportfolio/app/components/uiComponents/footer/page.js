@@ -134,8 +134,8 @@ export default function Footer({}) {
                         </Link>
                     </div>
                     <div className={styles.textLowest}>
-                        <p>INSPIRED BY @<a href="https://serious.business/">SERIOUS.BUSINESS</a></p>
-                        <p>2024/2025</p>
+                        <p>INSPIRED BY <a href="https://serious.business/" style={{ textDecoration:"underline" }}>@SERIOUS.BUSINESS</a></p>
+                        <p><a href="https://unhandled-runtime-error-json.vercel.app/" target="_blank"  style={{ textDecoration:"underline" }}>2024/2025</a></p>
                     </div>
                 </div>
             </section>
