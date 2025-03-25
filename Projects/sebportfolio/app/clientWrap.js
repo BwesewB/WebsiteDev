@@ -84,20 +84,19 @@ export default function ClientWrap({ children }) {
 
   const pageStyles = {
     "/": { bgColor: "var(--white)", navColor: "var(--blue)" },
-    "/pages/3d": { bgColor: "var(--black)", navColor: "var(--white)", textColor: "var(--black)" },
+    "/pages/3d": { bgColor: "var(--black)", navColor: "var(--blue)" },
     "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
-    "/pages/teamwork": { bgColor: "var(--white)", navColor: "var(--blue)" },
 
     "/pages/motion/projects/blackHole": { bgColor: "var(--black)", navColor: "var(--blue)" },
-    "/pages/motion/projects/taxes": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/pages/motion/projects/taxes": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)" },
 
-    "/pages/visual/projects/logo": { bgColor: "var(--sand)", navColor: "var(--blue)" },
-    "/pages/visual/projects/deckedBeer": { bgColor: "var(--sand)", navColor: "var(--blue)" },
-    "/pages/visual/projects/magazine": { bgColor: "var(--sand)", navColor: "var(--blue)" },
-    "/pages/visual/projects/citadel": { bgColor: "var(--sand)", navColor: "var(--blue)" },
-
-    "/pages/teamwork/projects/flare": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/pages/visual/projects/logo": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)"  },
+    "/pages/visual/projects/deckedBeer": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)"  },
+    "/pages/visual/projects/magazine": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)"  },
+    "/pages/visual/projects/citadel": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)"  },
+    
+    "/pages/teamwork/projects/flare": { bgColor: "var(--sand)", navColor: "var(--blue)", textColor: "var(--sand)"  },
   };
 
   const { bgColor, navColor, textColor } = pageStyles[pathname] || pageStyles["/"];
@@ -154,7 +153,7 @@ export default function ClientWrap({ children }) {
   return (
     <>
       {/* <CustomCursor/> */}
-      {preloaderDone && <Navbar />}
+      {preloaderDone && <Navbar navColor={navColor} textColor={textColor}/>}
       {children}
       {footerVisible && <Footer />}
     </>

@@ -17,7 +17,6 @@ CustomEase.create("rollingEase", "M0,0 C0.2,0.8 0.4,1.2 1,1");
 
 export default function Navbar({ 
   navColor = "var(--blue)", 
-  navBG = "", 
   textColor = "var(--white)" 
 }) {
 
@@ -143,10 +142,10 @@ export default function Navbar({
 
 
   return (
-    <nav className={styles.navbar} style={{ backgroundColor: navBG }}>
+    <nav className={styles.navbar}>
       <div className={styles.logoContainer} ref={logoContainerRef}>
         <Link href="/">
-          <Logo color={navColor} />
+          <Logo color={navColor} fill={textColor}/>
         </Link>
       </div>
 
