@@ -1,95 +1,72 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import styles from './styles/page.module.css';
+import Link from 'next/link';
+
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [preloader, setPreloader] = useState(null);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+
+  useEffect(() => {
+    if (!preloader) {
+      gsap.set(`.${styles.letter}`, { opacity: 0, y: 20 });
+
+      gsap.to(`.${styles.letter}`, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "expo.out",
+        stagger: 0.03,
+      });
+    }
+  }, [preloader]);
+
+  return (
+    <>
+        <div className={styles.topContainer}>
+          <div className={styles.heroContainer}>
+            <h1 className={styles.name}>
+              {"sebastian fok".split("").map((char, index) => (
+                <span key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</span>
+              ))}
+            </h1>
+          </div>
+          <div className=".hero">
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className={styles.sectionContent}>
+          <div className={styles.containerContent1}>
+            <div>
+              <h5 className={styles.headerFive}>ABOUT ME</h5>
+              <div className={styles.headingContent}>
+                <h3><span className={styles.blueText}>I’m a reflective and driven designer</span> who understands how <span className={styles.blueText}>creative and technical elements</span> come together to <span className={styles.blueText}>drive success</span> in projects and teams. </h3>
+              </div>
+            </div>
+            <h5 className={styles.headerFive}>MY PROJECTS</h5>
+          </div>
+          
+          <div className={styles.containerContent3}>
+            <h5 className={styles.headerFive}>Featured</h5>
+            <div className={styles.headingContent}>          
+              {/* <ProjectLayout
+                videoSrc = "/media/cans/fishCanVideo.mp4"
+                h4Title = "Decked Beer"
+                description = "3D model integration"
+                projectLink = "/pages/visual/projects/deckedBeer/"
+
+                videoSrcTwo = "/media/blackHole/Clip1.mp4"
+                h4TitleTwo = "Black Hole"
+                descriptionTwo = "Motion Graphic and a coded web experience"
+                projectLinkTwo = "/pages/motion/projects/blackHole/"
+              /> */}
+            </div>
+          </div>
+        </div>
+    </>
   );
 }

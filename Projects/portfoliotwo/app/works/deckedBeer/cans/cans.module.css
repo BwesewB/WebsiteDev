@@ -1,0 +1,53 @@
+.canStyle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas {
+    /* border: 1px solid red */
+    cursor: move;
+}
+
+.leftButton, .rightButton {
+    width: 70px;
+    height: 70px;
+    /* background-color: var(--black); */
+    cursor: pointer;
+    position: absolute;
+    padding: 10px;
+    border: 2px solid var(--black);
+    border-radius: 40px;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.rightButton {
+    transform: rotate(180deg);
+    right: 0;
+    margin-right:8vw;
+}
+
+.leftButton {
+    left:0;
+    margin-left:8vw;
+}
+
+.leftButton:hover, .rightButton:hover {
+    width: 67px;
+    height: 67px;
+}
+
+@media (max-width: 1400px) {
+    .canStyle {
+        position: relative;
+    }
+}

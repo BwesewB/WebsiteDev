@@ -1,0 +1,80 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    transition: grid-template-columns 0.5s ease-in-out;
+    gap: var(--relatedComponentGap);
+}
+
+.projectDescription {
+    display: flex;
+    flex-direction: column;
+    gap: var(--relatedComponentGap);
+    max-width: 100%;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap:var(--textGap);
+    width: 90%;
+    position: relative;
+}
+
+.textContainer h4 {
+    width: 100%;
+    height: auto;
+}
+
+.paragraph {
+    display: inline-block;
+    margin:0;
+}
+
+.header {
+    display: inline-block;
+    margin:0;
+}
+
+.buttonRound {
+    grid-column: 1/2;
+    height: 100%;
+    position: relative;
+    overflow: visible;
+    /* border: 1px solid green */
+}
+
+.buttonSticky {
+    /* position: sticky; */
+    /* top: var(--sideSpacing); */
+    display: flex;
+    gap:var(--textGap);
+    flex-wrap: wrap;
+}
+
+.projectDescription {
+    grid-column: 2/3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .buttonRound {
+        width: 100%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .projectDescription {
+        grid-column: 1/2;
+    }
+
+    .buttonSticky {
+        display: flex;
+        flex-direction: column;
+    }
+}
