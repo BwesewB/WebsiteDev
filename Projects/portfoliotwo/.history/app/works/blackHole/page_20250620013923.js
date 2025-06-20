@@ -27,7 +27,7 @@ export default function blackHole() {
                         text: "SOURCE CODE",
                         icon: "github",
                         externalLink: "https://github.com/BwesewB/Black-Hole-Design-3"
-                    }
+                    },
                 ]}
 
                 challengeHeader = "Motion Graphics"

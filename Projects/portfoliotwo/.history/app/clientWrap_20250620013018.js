@@ -56,7 +56,7 @@ export default function ClientWrap({ children }) {
     "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
 
-    "/works/blackHole": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/works/blackHole": { bgColor: "var(--black)", navColor: "var(--blue)" },
     "/works/taxes": { bgColor: "var(--sand)", navColor: "var(--blue)" },
     "/works/logo": { bgColor: "var(--sand)", navColor: "var(--blue)"},
     "/works/deckedBeer": { bgColor: "var(--sand)", navColor: "var(--blue)"},
@@ -96,7 +96,14 @@ export default function ClientWrap({ children }) {
   }, []);
 
   return (
-    <div id="smooth-wrapper">
+    <div id="smooth-wrapper"
+      style={{ 
+        boxSizing: "border-box",
+        display: "flex",
+        justifyContent: "center",
+        // border:"1px solid blue"
+      }}
+    >
       <div id="smooth-content"
         style={{ 
             position: "relative",
@@ -104,7 +111,6 @@ export default function ClientWrap({ children }) {
             paddingRight: "calc(2 * var(--paddingleftRight))",
             // border:"1px solid red",
             overflowX: "hidden",
-            margin:"0 auto",
             /* flex-direction: column; */
             alignItems: "center",
             maxWidth: "1920px",

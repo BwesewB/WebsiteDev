@@ -22,7 +22,7 @@ export default function Flare({}) {
         <div className="container">
             <ProjectHero 
                 projectName="Flare"
-                projectRole="Marketing & Animation"
+                projectRole="Marketer"
                 date="2024"
                 imageSrc="/media/flare/MockupPhoneFlareCropped.webp"
                 toolsUsed="Adobe Illustrator / Adobe InDesign / After Effects / Figma / React.js"

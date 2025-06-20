@@ -5,7 +5,7 @@ import { Environment, Float, OrbitControls } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { BeerCan, DEFAULT_BEER_CAN_TRANSFORMS  } from "./BeerCan";
 import styles from "./cans.module.css"
-import ArrowIcon from "@/public/icons/arrowCarouselIcon";
+import ArrowIcon from "@/arrowCarouselIcon";
 
 
 const FLAVORS = ["fish", "crab", "seaweed"];

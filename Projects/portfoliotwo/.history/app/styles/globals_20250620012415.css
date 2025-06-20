@@ -26,6 +26,14 @@
   box-sizing: border-box;
 }
 
+html{
+
+}
+
+body {
+
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -163,7 +171,7 @@ p {
   width: 100%;
   height: auto;
   gap: var(--itemSpacing);
-  /* border: 3px solid green; */
+  border: 3px solid green;
 }
 
 .pinContainer {

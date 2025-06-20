@@ -26,6 +26,27 @@
   box-sizing: border-box;
 }
 
+html {
+    border:1px solid blue;
+}
+
+html, body {
+  /* box-sizing: border-box;
+  display: flex;
+  justify-content: center; */
+}
+
+body {
+  position: relative;
+  /* padding-left: calc(2 * var(--paddingleftRight));
+  padding-right: calc(2 * var(--paddingleftRight)); */
+  border:1px solid red;
+  overflow-x: hidden;
+  /* flex-direction: column; */
+  align-items: center;
+  max-width: 1920px;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -163,7 +184,7 @@ p {
   width: 100%;
   height: auto;
   gap: var(--itemSpacing);
-  /* border: 3px solid green; */
+  border: 3px solid green;
 }
 
 .pinContainer {

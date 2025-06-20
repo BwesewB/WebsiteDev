@@ -27,6 +27,11 @@ export default function blackHole() {
                         text: "SOURCE CODE",
                         icon: "github",
                         externalLink: "https://github.com/BwesewB/Black-Hole-Design-3"
+                    },
+                    {
+                        text: "WIREFRAME",
+                        icon: "figma",
+                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
                     }
                 ]}
 

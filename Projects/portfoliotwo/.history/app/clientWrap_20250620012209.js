@@ -56,7 +56,7 @@ export default function ClientWrap({ children }) {
     "/pages/motion": { bgColor: "var(--white)", navColor: "var(--blue)" },
     "/pages/visual": { bgColor: "var(--white)", navColor: "var(--blue)" },
 
-    "/works/blackHole": { bgColor: "var(--sand)", navColor: "var(--blue)" },
+    "/works/blackHole": { bgColor: "var(--black)", navColor: "var(--blue)" },
     "/works/taxes": { bgColor: "var(--sand)", navColor: "var(--blue)" },
     "/works/logo": { bgColor: "var(--sand)", navColor: "var(--blue)"},
     "/works/deckedBeer": { bgColor: "var(--sand)", navColor: "var(--blue)"},
@@ -102,9 +102,8 @@ export default function ClientWrap({ children }) {
             position: "relative",
             paddingLeft: "calc(2 * var(--paddingleftRight))",
             paddingRight: "calc(2 * var(--paddingleftRight))",
-            // border:"1px solid red",
+            border:"1px solid red",
             overflowX: "hidden",
-            margin:"0 auto",
             /* flex-direction: column; */
             alignItems: "center",
             maxWidth: "1920px",
