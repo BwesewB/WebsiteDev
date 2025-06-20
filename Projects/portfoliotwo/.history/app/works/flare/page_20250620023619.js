@@ -1,10 +1,5 @@
 "use client"
 
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ControllableLottie from "@/components/atoms/ControllableLottie/page";
-
 import styles from "./flare.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
@@ -16,57 +11,48 @@ import SectionSeven from "@/components/templates/SectionSeven/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import dynamic from "next/dynamic";
 import logoAnimation from "/public/media/flare/LogoAnimation.json";
+import { useRef, useLayoutEffect } from 'react';
+import Lottie from "lottie-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Flare({}) {
-    const lottieRef = useRef(null);
-    const triggerRef = useRef(null);
+    const lottieRef = useRef(null);      // Ref for the Lottie player instance
+    const containerRef = useRef(null);   // Ref for the trigger container element
 
     useLayoutEffect(() => {
-        // We use a small timeout to ensure ScrollSmoother has initialized first.
-        // This is the key to solving the race condition.
-        const timeout = setTimeout(() => {
-            const lottieInstance = lottieRef.current;
-            const triggerElement = triggerRef.current;
+        // Get the Lottie instance from the ref
+        const lottieInstance = lottieRef.current;
 
-            console.log("Attempting to create ScrollTrigger...");
-            console.log("Trigger Element:", triggerElement);
-            console.log("Lottie Instance:", lottieInstance);
+        // Ensure the Lottie instance is available
+        if (!lottieInstance) return;
 
-            if (!lottieInstance || !triggerElement) {
-                console.error("GSAP setup failed: a ref is missing.");
-                return;
-            }
+        // Stop the animation initially
+        lottieInstance.stop();
 
-            lottieInstance.stop();
+        // Use GSAP Context for robust cleanup
+        const ctx = gsap.context(() => {
+            // Create the ScrollTrigger
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "top 80%",
+                // We use callbacks to control the Lottie animation
+                onEnter: () => lottieInstance.play(),
+                onLeave: () => lottieInstance.stop(), // Optional: Stop when it scrolls out of view
+                onEnterBack: () => lottieInstance.play(), // Optional: Play again when scrolling back up
+                onLeaveBack: () => lottieInstance.stop(), // Optional: Stop when scrolling back up
+                // markers: true // Uncomment for debugging
+            });
+        }, containerRef);
 
-            const ctx = gsap.context(() => {
-                console.log("GSAP context creating...");
-                ScrollTrigger.create({
-                    trigger: triggerElement,
-                    start: "top 60%",
-                    onEnter: () => lottieInstance.play(),
-                    onLeave: () => lottieInstance.stop(),
-                    onEnterBack: () => lottieInstance.play(),
-                    onLeaveBack: () => lottieInstance.stop(),
-                    markers: true
-                });
-            }, triggerRef);
+        // Cleanup function
+        return () => ctx.revert();
 
-            // Store the context on the timeout to clean it up properly
-            // timeout.ctx = ctx;
-
-        }, 100); // 100ms delay
-
-        return () => {
-            clearTimeout(timeout);
-            if (timeout.ctx) {
-                timeout.ctx.revert();
-            }
-        };
-    }, []);
+    }, [animationData, startTrigger]);
 
     return (
         <div className="container">
@@ -106,20 +92,18 @@ export default function Flare({}) {
                 solutionHeader = "How Flare Makes a Difference"
                 solutionParagraph = "Flare provides users with a quick and accessible answer to address concerns about wildfires. Wildfires can have devastating impacts on remote areas, cutting off access to critical information and emergency services. Flare bridges this gap by providing real-time, reliable wildfire alerts, even for those living in isolated regions with limited access to traditional media or wildfire updates."
             />
-            <ControllableLottie
-                ref={triggerRef}
-                lottieRef={lottieRef}
-                animationData={logoAnimation}
-                className={styles.fullWidth} 
-            />
-            {/* <div className={styles.fullWidth}>
+            <div className={styles.fullWidth}>
                 <div style={{ width:"100%" }}>
-                    <Lottie
-                        animationData={logoAnimation}
-                        loop={true}
-                    />
+                    <div ref={containerRef}>
+                        <Lottie
+                            lottieRef={lottieRef}
+                            animationData={animationData}
+                            loop={true}
+                            autoplay={false}
+                        />
+                    </div>
                 </div>
-            </div> */}
+            </div>
             <SectionSeven
                 challengeHeader = "Competitive Analysis"
                 challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."

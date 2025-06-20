@@ -1,0 +1,6 @@
+.lottieContainer {
+  height: 30vh; /* Give it a specific height */
+  width: 100%;
+  max-width: 600px; /* Optional: control the max size */
+  margin: 8rem auto; /* Center it on the page and give it vertical breathing room */
+}

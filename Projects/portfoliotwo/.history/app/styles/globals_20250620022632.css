@@ -27,7 +27,7 @@
 }
 
 html{
-  border: 10px solid var(--white);
+  border: 10px solid var(--white) round;
 }
 
 
@@ -198,6 +198,7 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
+    --paddingleftRight: 30px;
   }
 
   body {
@@ -231,6 +232,7 @@ p {
 
 @media (max-width: 480px) {
   :root {
+    --paddingleftRight: 10px;
     --sideSpacing: 10px;
     --relatedComponentGap:40px;
     --textGap: 5px;

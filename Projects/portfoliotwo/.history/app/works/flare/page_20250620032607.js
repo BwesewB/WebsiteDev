@@ -46,7 +46,7 @@ export default function Flare({}) {
                 console.log("GSAP context creating...");
                 ScrollTrigger.create({
                     trigger: triggerElement,
-                    start: "top 60%",
+                    start: "top 80%",
                     onEnter: () => lottieInstance.play(),
                     onLeave: () => lottieInstance.stop(),
                     onEnterBack: () => lottieInstance.play(),
@@ -56,7 +56,7 @@ export default function Flare({}) {
             }, triggerRef);
 
             // Store the context on the timeout to clean it up properly
-            // timeout.ctx = ctx;
+            timeout.ctx = ctx;
 
         }, 100); // 100ms delay
 
@@ -112,14 +112,14 @@ export default function Flare({}) {
                 animationData={logoAnimation}
                 className={styles.fullWidth} 
             />
-            {/* <div className={styles.fullWidth}>
+            <div className={styles.fullWidth}>
                 <div style={{ width:"100%" }}>
                     <Lottie
                         animationData={logoAnimation}
                         loop={true}
                     />
                 </div>
-            </div> */}
+            </div>
             <SectionSeven
                 challengeHeader = "Competitive Analysis"
                 challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."

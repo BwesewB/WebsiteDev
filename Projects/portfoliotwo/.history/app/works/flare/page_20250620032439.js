@@ -22,50 +22,30 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Flare({}) {
     const lottieRef = useRef(null);
-    const triggerRef = useRef(null);
+    const triggerRef = useRef(null); // A ref for the element that will trigger the animation
 
+    // The GSAP animation logic now lives in the page
     useLayoutEffect(() => {
-        // We use a small timeout to ensure ScrollSmoother has initialized first.
-        // This is the key to solving the race condition.
-        const timeout = setTimeout(() => {
-            const lottieInstance = lottieRef.current;
-            const triggerElement = triggerRef.current;
+        const lottieInstance = lottieRef.current;
+        const triggerElement = triggerRef.current;
 
-            console.log("Attempting to create ScrollTrigger...");
-            console.log("Trigger Element:", triggerElement);
-            console.log("Lottie Instance:", lottieInstance);
+        if (!lottieInstance || !triggerElement) return;
 
-            if (!lottieInstance || !triggerElement) {
-                console.error("GSAP setup failed: a ref is missing.");
-                return;
-            }
+        lottieInstance.stop();
 
-            lottieInstance.stop();
+        const ctx = gsap.context(() => {
+            ScrollTrigger.create({
+                trigger: triggerElement,
+                start: "top 80%",
+                onEnter: () => lottieInstance.play(),
+                onLeave: () => lottieInstance.stop(),
+                onEnterBack: () => lottieInstance.play(),
+                onLeaveBack: () => lottieInstance.stop(),
+                markers: true
+            });
+        }, triggerRef); // Scope context to the trigger element
 
-            const ctx = gsap.context(() => {
-                console.log("GSAP context creating...");
-                ScrollTrigger.create({
-                    trigger: triggerElement,
-                    start: "top 60%",
-                    onEnter: () => lottieInstance.play(),
-                    onLeave: () => lottieInstance.stop(),
-                    onEnterBack: () => lottieInstance.play(),
-                    onLeaveBack: () => lottieInstance.stop(),
-                    markers: true
-                });
-            }, triggerRef);
-
-            // Store the context on the timeout to clean it up properly
-            // timeout.ctx = ctx;
-
-        }, 100); // 100ms delay
-
-        return () => {
-            clearTimeout(timeout);
-            if (timeout.ctx) {
-                timeout.ctx.revert();
-            }
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
@@ -112,14 +92,7 @@ export default function Flare({}) {
                 animationData={logoAnimation}
                 className={styles.fullWidth} 
             />
-            {/* <div className={styles.fullWidth}>
-                <div style={{ width:"100%" }}>
-                    <Lottie
-                        animationData={logoAnimation}
-                        loop={true}
-                    />
-                </div>
-            </div> */}
+
             <SectionSeven
                 challengeHeader = "Competitive Analysis"
                 challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."

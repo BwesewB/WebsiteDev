@@ -46,7 +46,7 @@ export default function Flare({}) {
                 console.log("GSAP context creating...");
                 ScrollTrigger.create({
                     trigger: triggerElement,
-                    start: "top 60%",
+                    start: "top 70%",
                     onEnter: () => lottieInstance.play(),
                     onLeave: () => lottieInstance.stop(),
                     onEnterBack: () => lottieInstance.play(),

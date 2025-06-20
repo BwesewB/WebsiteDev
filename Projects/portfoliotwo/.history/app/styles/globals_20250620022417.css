@@ -11,7 +11,7 @@
   --font-primary: "TWK Lausanne", sans-serif;
   --font-weight-button: 600;
 
-  --paddingleftRight: 10px; /*could be renamed as not just padding left and right*/
+  --paddingleftRight: 60px; /*could be renamed as not just padding left and right*/
   --sideSpacing: 30px;
   --itemSpacing: 180px;
   --imgBorderRadius:10px;
@@ -198,6 +198,7 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
+    --paddingleftRight: 30px;
   }
 
   body {
@@ -231,6 +232,7 @@ p {
 
 @media (max-width: 480px) {
   :root {
+    --paddingleftRight: 10px;
     --sideSpacing: 10px;
     --relatedComponentGap:40px;
     --textGap: 5px;
