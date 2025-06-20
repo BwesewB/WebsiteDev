@@ -1,7 +1,5 @@
 "use client"
 
-//SECTION IS REDUNDANT
-
 import styles from "./sectionFour.module.css";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";

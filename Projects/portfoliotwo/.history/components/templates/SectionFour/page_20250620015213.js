@@ -1,7 +1,5 @@
 "use client"
 
-//SECTION IS REDUNDANT
-
 import styles from "./sectionFour.module.css";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
@@ -57,13 +55,15 @@ export default function SectionFour({
 
         }, containerRef); // Scope the context to the container
 
+        // The cleanup function is now handled by GSAP Context
         return () => ctx.revert();
 
-    }, [sectionHeader, sectionParagraph, startTrigger, endTrigger]);
+    }, [sectionHeader, sectionParagraph, startTrigger, endTrigger]); // Rerun if props change
 
     return (
         <section className={styles.container} ref={containerRef}>
             <div className={styles.textContainer} style={{ color: textColour }}>
+                {/* Render text directly. GSAP will handle splitting it. */}
                 <h4>{sectionHeader}</h4>
                 <p>{sectionParagraph}</p>
             </div>

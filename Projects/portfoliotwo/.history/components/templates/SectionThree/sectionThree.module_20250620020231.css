@@ -15,6 +15,19 @@
     max-width: 100%;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap:var(--textGap);
+    width: 90%;
+    position: relative;
+}
+
+.textContainer h4 {
+    width: 100%;
+    height: auto;
+}
+
 .paragraph {
     display: inline-block;
     margin:0;
@@ -43,6 +56,11 @@
 
 .projectDescription {
     grid-column: 2/3;
+}
+
+.split-line {
+    overflow: hidden;
+    display: block;
 }
 
 @media (max-width: 768px) {

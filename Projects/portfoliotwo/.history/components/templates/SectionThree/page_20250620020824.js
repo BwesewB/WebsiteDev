@@ -91,15 +91,15 @@ export default function SectionThree({
                  </div>
              </div>
              <div className={styles.projectDescription} style={{ color: textColour }} ref={textContainerRef}>
-                    <TextContainer
-                        header={challengeHeader}
-                        paragraph={challengeParagraph}
-                    />
+                 <div className={styles.textContainer}>
+                     <h4>{challengeHeader}</h4>
+                     <p>{challengeParagraph}</p>
+                 </div>
                  {(solutionHeader.trim() || solutionParagraph.trim()) && (
-                    <TextContainer
-                        header={solutionHeader}
-                        paragraph={solutionParagraph}
-                    />
+                     <div className={styles.textContainer}>
+                         <h4>{solutionHeader}</h4>
+                         <p>{solutionParagraph}</p>
+                     </div>
                  )}
              </div>
          </section>

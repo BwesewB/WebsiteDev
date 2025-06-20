@@ -2,7 +2,6 @@
 
 import styles from "./sectionThree.module.css"
 import UnifiedButton from "@/components/atoms/unifiedButton/page"
-import TextContainer from "@/components/molecules/textContainer/page"
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,11 +44,12 @@ export default function SectionThree({
                 yPercent: 100, // Move words down by 100% of their own height
                 duration: 0.6,
                 ease: "power4.out",
-                stagger: 0.02,
+                stagger: 0.05,
                 // CHANGE #2: The new ScrollTrigger config
                 scrollTrigger: {
                     trigger: textContainerRef.current,
                     start: startTrigger,
+                    // REMOVED scrub and once
                     toggleActions: "play none none none", // Play once on enter, then do nothing
                     // markers: true
                 }
@@ -91,15 +91,15 @@ export default function SectionThree({
                  </div>
              </div>
              <div className={styles.projectDescription} style={{ color: textColour }} ref={textContainerRef}>
-                    <TextContainer
-                        header={challengeHeader}
-                        paragraph={challengeParagraph}
-                    />
+                 <div className={styles.textContainer}>
+                     <h4>{challengeHeader}</h4>
+                     <p>{challengeParagraph}</p>
+                 </div>
                  {(solutionHeader.trim() || solutionParagraph.trim()) && (
-                    <TextContainer
-                        header={solutionHeader}
-                        paragraph={solutionParagraph}
-                    />
+                     <div className={styles.textContainer}>
+                         <h4>{solutionHeader}</h4>
+                         <p>{solutionParagraph}</p>
+                     </div>
                  )}
              </div>
          </section>
