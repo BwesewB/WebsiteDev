@@ -105,6 +105,11 @@ export default function Home() {
     <>
       {preloader ? <Preloader /> : (
       <>
+                <div className=".hero">
+            <SectionTwo 
+              imageSrc="/media/3dWorks/3shilo-minFlip.webp"
+            />
+          </div>
         <div className={styles.topContainer}>
           <div className={styles.heroContainer}>
             <h1 className={styles.name}>
@@ -114,11 +119,7 @@ export default function Home() {
             </h1>
             {/* <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p> */}
           </div>
-          <div className=".hero">
-            <SectionTwo 
-              imageSrc="/media/3dWorks/3shilo-minFlip.webp"
-            />
-          </div>
+
         </div>
 
         <div className={styles.sectionContent}>

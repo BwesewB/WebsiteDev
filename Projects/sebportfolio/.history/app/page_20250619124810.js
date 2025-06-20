@@ -114,7 +114,7 @@ export default function Home() {
             </h1>
             {/* <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p> */}
           </div>
-          <div className=".hero">
+          <div className={styles.heroImageContainer}>
             <SectionTwo 
               imageSrc="/media/3dWorks/3shilo-minFlip.webp"
             />

@@ -107,6 +107,11 @@ export default function Home() {
       <>
         <div className={styles.topContainer}>
           <div className={styles.heroContainer}>
+                      <div className=".hero">
+            <SectionTwo 
+              imageSrc="/media/3dWorks/3shilo-minFlip.webp"
+            />
+          </div>
             <h1 className={styles.name}>
               {"sebastian fok".split("").map((char, index) => (
                 <span key={index} className={styles.letter}>{char === " " ? "\u00A0" : char}</span>
@@ -114,11 +119,7 @@ export default function Home() {
             </h1>
             {/* <p className={styles.heroDescription}>A hand-coded and specially curated web experience of my greatest projects.</p> */}
           </div>
-          <div className=".hero">
-            <SectionTwo 
-              imageSrc="/media/3dWorks/3shilo-minFlip.webp"
-            />
-          </div>
+
         </div>
 
         <div className={styles.sectionContent}>
