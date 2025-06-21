@@ -8,24 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function StickyContainer({
     children,
-    // THE FIX #1: We now accept a direct ref object, not a string selector
-    endTriggerRef, 
+    endTrigger, // The CSS selector for the end trigger element
+    scope,      // THE FIX: A ref to the parent container to search within
     className
 }) {
     const containerRef = useRef(null);
 
     useLayoutEffect(() => {
         let ctx; 
-        // We use a timeout to ensure all child elements (like images) have rendered
-        // and have their final dimensions, which is crucial for the height calculation.
         const timeout = setTimeout(() => {
+            // Ensure the scope and selector are provided
+            if (!scope || !scope.current || !endTrigger) {
+                console.warn("StickyContainer requires a 'scope' ref and an 'endTrigger' prop.");
+                return;
+            }
+
             const triggerElement = containerRef.current;
-            // THE FIX #2: We get the element directly from the ref's .current property
-            const endTriggerElement = endTriggerRef ? endTriggerRef.current : null;
+            // THE FIX: We now search for the end trigger *within the provided scope*, not the whole document.
+            const endTriggerElement = scope.current.querySelector(endTrigger);
             
             if (!triggerElement || !endTriggerElement) {
-                // This check is now much more reliable
-                console.warn(`StickyContainer: A trigger or endTrigger element ref is missing.`);
+                console.warn(`StickyContainer: Trigger or endTrigger element ("${endTrigger}") not found within the provided scope.`);
                 return;
             }
 
@@ -35,7 +38,6 @@ export default function StickyContainer({
                     pin: true,
                     start: "top var(--sideSpacing)",
                     endTrigger: endTriggerElement,
-                    // The robust calculation that handles all height scenarios
                     end: () => {
                         const triggerHeight = triggerElement.offsetHeight;
                         const endTriggerHeight = endTriggerElement.offsetHeight;
@@ -46,7 +48,7 @@ export default function StickyContainer({
                         return `+=${endTriggerHeight - triggerHeight}`;
                     },
                     pinSpacing: true, 
-                    markers: true, 
+                    // markers: true,
                 });
             }, containerRef);
 
@@ -54,10 +56,11 @@ export default function StickyContainer({
 
         return () => {
             clearTimeout(timeout);
-            if (ctx) ctx.revert();
+            if (ctx) {
+                ctx.revert();
+            }
         };
-
-    }, [endTriggerRef]);
+    }, [endTrigger, scope]); // Add `scope` to the dependency array
 
     return (
         <div ref={containerRef} className={className}>

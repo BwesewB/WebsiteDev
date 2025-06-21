@@ -157,12 +157,7 @@ export default function Flare({}) {
     textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
                     // mediaColumnItems (the 3 images) will be on the RIGHT.
 
-    textBlocks={[ // This content goes to the LEFT column
-        { 
-            header: "Design Process", 
-            paragraph: "A team of four designers was responsible..." 
-        }
-    ]}
+ 
     buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
         {
             text: "WIREFRAME",
@@ -178,7 +173,7 @@ export default function Flare({}) {
     ]}
 
     // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left'}}
+    stickyConfig={{ column: 'left' }} 
     
     textColour="var(--black)"
 />

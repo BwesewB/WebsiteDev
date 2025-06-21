@@ -7,7 +7,7 @@
     height: auto;
     position: relative;
     transition: 0.5s ease-in-out; /* Your transition */
-    gap: var(--relatedComponentGap); /* Your gap, added a default fallback */
+    gap: var(--relatedComponentGap, 30px); /* Your gap, added a default fallback */
     /* border: 1px solid red; */ /* Your debug border */
 }
 
@@ -17,11 +17,11 @@
     position: relative; /* For positioning context of sticky/absolute children */
     display: flex; /* To allow content within to align/stack easily if needed */
     flex-direction: column; /* Stack multiple items within this column */
-    /* border: 1px dashed blue; */
+    /* border: 1px dashed blue; */ /* Debugging individual columns */
 }
 
 /* Specific identifiers for left and right grid columns, mainly for endTrigger */
-.leftGridColumn { border: 1px solid blue; }
+.leftGridColumn {}
 .rightGridColumn {}
 
 /* Wrapper for main text content (text blocks, buttons, inline media) */
@@ -29,16 +29,16 @@
     position: relative; /* Your original style */
     display: flex;
     flex-direction: column;
-    gap: var(--textGap);
+    gap: var(--spacing-medium, 20px); /* Gap between text blocks / button group / inline media */
 }
 
 /* Your button container style */
 .buttonContainer {
+    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    align-items: flex-start;
-    border: 1px solid red;
+    align-items: flex-start; /* Good practice for button alignment */
 }
 
 /* Styles for buttons when they are part of the 'mediaColumnItems' */

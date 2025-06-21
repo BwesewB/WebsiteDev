@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react'; // Removed useLayoutEffect as it's not directly used here
 import styles from "./TwoColumnMediaLayout.module.css";
 import SectionTwo from "../SectionTwo/page";
 import UnifiedButton from "@/components/atoms/unifiedButton/page";
@@ -54,14 +54,11 @@ export default function TwoColumnMediaLayout({
     // 'right': The physical right column will be sticky.
     // 'none': No stickiness.
     // 'endTriggerSelf': if true, sticky column ends based on its own height, else based on other column's height.
-    stickyConfig = { column: 'none', endTriggerSelf: false }, 
+    stickyConfig = { column: 'none', endTriggerSelf: true }, 
                                                            
     textColour = "var(--black)",
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
-
-    const leftColumnRef = useRef(null);
-    const rightColumnRef = useRef(null);
 
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent
@@ -163,9 +160,9 @@ export default function TwoColumnMediaLayout({
             ) : (
                 <>
                     {leftSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`}>
                             {isLeftSticky ? (
-                                <StickyContainer endTriggerRef={rightColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForLeftSticky}>
                                     {leftSlotContent}
                                 </StickyContainer>
                             ) : (
@@ -174,9 +171,9 @@ export default function TwoColumnMediaLayout({
                         </div>
                     )}
                     {rightSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`}>
                             {isRightSticky ? (
-                                <StickyContainer endTriggerRef={leftColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForRightSticky}>
                                     {rightSlotContent}
                                 </StickyContainer>
                             ) : (

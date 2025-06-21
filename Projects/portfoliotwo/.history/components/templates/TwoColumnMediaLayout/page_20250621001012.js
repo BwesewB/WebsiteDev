@@ -163,9 +163,9 @@ export default function TwoColumnMediaLayout({
             ) : (
                 <>
                     {leftSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`}>
                             {isLeftSticky ? (
-                                <StickyContainer endTriggerRef={rightColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForLeftSticky}>
                                     {leftSlotContent}
                                 </StickyContainer>
                             ) : (
@@ -174,9 +174,9 @@ export default function TwoColumnMediaLayout({
                         </div>
                     )}
                     {rightSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`}>
                             {isRightSticky ? (
-                                <StickyContainer endTriggerRef={leftColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForRightSticky}>
                                     {rightSlotContent}
                                 </StickyContainer>
                             ) : (

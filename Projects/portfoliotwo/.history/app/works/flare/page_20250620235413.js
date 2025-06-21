@@ -96,10 +96,24 @@ export default function Flare({}) {
         { 
             header: "How Flare Makes a Difference", 
             paragraph: "Flare provides users with a quick and accessible answer..." 
+        },
+                { 
+            header: "How Flare Makes a Difference", 
+            paragraph: "Flare provides users with a quick and accessible answer..." 
         }
+        
     ]}
 
     mediaColumnItems={[ // This content goes to the LEFT column
+                {
+            type: 'text',
+            items: [
+                { 
+                    header: "Your New Title", 
+                    paragraph: "This text will appear above the buttons and will also be sticky." 
+                }
+            ]
+        },
         {
             type: 'buttons', 
             items: [

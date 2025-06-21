@@ -178,7 +178,7 @@ export default function Flare({}) {
     ]}
 
     // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left'}}
+stickyConfig={{ column: 'left'}}
     
     textColour="var(--black)"
 />

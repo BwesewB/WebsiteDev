@@ -100,6 +100,15 @@ export default function Flare({}) {
     ]}
 
     mediaColumnItems={[ // This content goes to the LEFT column
+                {
+            type: 'text',
+            items: [
+                { 
+                    header: "Your New Title", 
+                    paragraph: "This text will appear above the buttons and will also be sticky." 
+                }
+            ]
+        },
         {
             type: 'buttons', 
             items: [

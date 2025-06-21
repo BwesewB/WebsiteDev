@@ -46,7 +46,7 @@ export default function StickyContainer({
                         return `+=${endTriggerHeight - triggerHeight}`;
                     },
                     pinSpacing: true, 
-                    markers: true, 
+                    // markers: true, 
                 });
             }, containerRef);
 
@@ -57,7 +57,7 @@ export default function StickyContainer({
             if (ctx) ctx.revert();
         };
 
-    }, [endTriggerRef]);
+    }, [endTriggerRef]); // The dependency is now the ref object
 
     return (
         <div ref={containerRef} className={className}>

@@ -8,24 +8,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function StickyContainer({
     children,
-    // THE FIX #1: We now accept a direct ref object, not a string selector
-    endTriggerRef, 
+    endTrigger,
     className
 }) {
     const containerRef = useRef(null);
 
     useLayoutEffect(() => {
         let ctx; 
-        // We use a timeout to ensure all child elements (like images) have rendered
-        // and have their final dimensions, which is crucial for the height calculation.
         const timeout = setTimeout(() => {
+            if (!endTrigger) {
+                console.warn("StickyContainer requires an 'endTrigger' prop.");
+                return;
+            }
+
             const triggerElement = containerRef.current;
-            // THE FIX #2: We get the element directly from the ref's .current property
-            const endTriggerElement = endTriggerRef ? endTriggerRef.current : null;
+            const endTriggerElement = document.querySelector(endTrigger);
             
             if (!triggerElement || !endTriggerElement) {
-                // This check is now much more reliable
-                console.warn(`StickyContainer: A trigger or endTrigger element ref is missing.`);
+                console.warn(`StickyContainer: Trigger or endTrigger element ("${endTrigger}") not found.`);
                 return;
             }
 
@@ -35,18 +35,26 @@ export default function StickyContainer({
                     pin: true,
                     start: "top var(--sideSpacing)",
                     endTrigger: endTriggerElement,
-                    // The robust calculation that handles all height scenarios
+                    
+                    // THE DEFINITIVE FIX:
+                    // This function now handles BOTH height scenarios correctly.
                     end: () => {
                         const triggerHeight = triggerElement.offsetHeight;
                         const endTriggerHeight = endTriggerElement.offsetHeight;
                         
+                        // If the sticky element is TALLER than the scrolling content,
+                        // we un-pin it when the bottom of the CONTENT column leaves.
                         if (triggerHeight > endTriggerHeight) {
                             return `bottom bottom-=${triggerHeight - endTriggerHeight}`;
                         }
+                        
+                        // Otherwise (the content is taller), we pin for the difference in height,
+                        // which makes their bottoms align perfectly.
                         return `+=${endTriggerHeight - triggerHeight}`;
                     },
+
                     pinSpacing: true, 
-                    markers: true, 
+                    markers: true, // You can uncomment this to confirm it's working
                 });
             }, containerRef);
 
@@ -54,10 +62,11 @@ export default function StickyContainer({
 
         return () => {
             clearTimeout(timeout);
-            if (ctx) ctx.revert();
+            if (ctx) {
+                ctx.revert();
+            }
         };
-
-    }, [endTriggerRef]);
+    }, [endTrigger]);
 
     return (
         <div ref={containerRef} className={className}>

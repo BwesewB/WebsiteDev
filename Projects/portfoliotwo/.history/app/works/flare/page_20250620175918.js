@@ -84,37 +84,47 @@ export default function Flare({}) {
             <SectionOne 
                 paragraphTitleText="Your BC wildfire safety app with weather updates, fire alerts, and related news all into one intuitive app."
             />
-<TwoColumnMediaLayout
-    textSide="right" // Main textBlocks (Wildfire info) will be on the RIGHT.
-                     // mediaColumnItems (the 3 buttons) will be on the LEFT.
-    
-    textBlocks={[ // This content goes to the RIGHT column
-        { 
-            header: "The Rising Danger of Wildfires", 
-            paragraph: "British Columbia is facing increasingly severe wildfire seasons..." 
-        },
-        { 
-            header: "How Flare Makes a Difference", 
-            paragraph: "Flare provides users with a quick and accessible answer..." 
-        }
-    ]}
+            <TwoColumnMediaLayout
+                // Tell the layout to make the LEFT column sticky
+                stickyColumn="left"
+                
+                // Define the content for the LEFT column right here
+                leftContent={
+                    <div className={styles.buttonColumn}>
+                        {[
+                            {
+                                text: "VISIT",
+                                icon: "arrow",
+                                externalLink: "https://www.flare-bc.com/"
+                            },
+                            {
+                                text: "SOURCE CODE",
+                                icon: "github",
+                                externalLink: "https://github.com/BCITKevin/Flare_IDSP"
+                            },
+                            {
+                                text: "WIREFRAME",
+                                icon: "figma",
+                                externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                            }
+                        ].map((button, index) => <UnifiedButton key={index} {...button} />)}
+                    </div>
+                }
 
-    mediaColumnItems={[ // This content goes to the LEFT column
-        {
-            type: 'buttons', 
-            items: [
-                { text: "VISIT", icon: "arrow", externalLink: "..." },
-                { text: "SOURCE CODE", icon: "github", externalLink: "..." },
-                { text: "WIREFRAME", icon: "figma", externalLink: "..." }
-            ]
-        }
-    ]}
-    
-    // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left' }} 
-    
-    textColour="var(--black)"
-/>
+                // Define the content for the RIGHT column
+                rightContent={
+                    <div className={styles.textColumn}>
+                        <AnimatedText
+                            header="The Rising Danger of Wildfires"
+                            paragraph="British Columbia is facing increasingly severe wildfire seasons..."
+                        />
+                        <AnimatedText
+                            header="How Flare Makes a Difference"
+                            paragraph="Flare provides users with a quick and accessible answer..."
+                        />
+                    </div>
+                }
+            />
             <ControllableLottie
                 ref={triggerRef}
                 lottieRef={lottieRef}
@@ -153,35 +163,30 @@ export default function Flare({}) {
                 imageSrc="/media/flare/FlareStyleguide.png"
                 mediaWidth="60vw"
             />
-<TwoColumnMediaLayout
-    textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
-                    // mediaColumnItems (the 3 images) will be on the RIGHT.
+            <TwoColumnMediaLayout
+                stickyText={true}
 
-    textBlocks={[ // This content goes to the LEFT column
-        { 
-            header: "Design Process", 
-            paragraph: "A team of four designers was responsible..." 
-        }
-    ]}
-    buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
-        {
-            text: "WIREFRAME",
-            icon: "figma",
-            externalLink: "..." // Please fill in the actual link
-        }
-    ]}
+                textBlocks={[
+                    { 
+                        header: "Design Process", 
+                        paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
+                    }
+                ]}
 
-    mediaColumnItems={[ // This content (the 3 images) goes to the RIGHT column
-        { imageSrc: "/media/flare/MockupPhoneMap.png" },
-        { imageSrc: "/media/flare/MockupPhoneNews.png" },
-        { imageSrc: "/media/flare/MockupPhoneSafety.png" }
-    ]}
+                buttons={[
+                    {
+                        text: "WIREFRAME",
+                        icon: "figma",
+                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                    }
+                ]}
 
-    // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left'}}
-    
-    textColour="var(--black)"
-/>
+                mediaItems={[
+                    { imageSrc: "/media/flare/MockupPhoneMap.png" },
+                    { imageSrc: "/media/flare/MockupPhoneNews.png" },
+                    { imageSrc: "/media/flare/MockupPhoneSafety.png" }
+                ]}
+            />
             <SectionSeven
                 challengeHeader = "User Testing"
                 challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."

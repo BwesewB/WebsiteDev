@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } // Added useRef
+from 'react';
 import styles from "./TwoColumnMediaLayout.module.css";
 import SectionTwo from "../SectionTwo/page";
 import UnifiedButton from "@/components/atoms/unifiedButton/page";
@@ -8,6 +9,7 @@ import StickyContainer from "@/components/atoms/stickyContainer/page";
 import TextContainer from "@/components/atoms/textContainer/page";
 import MediaCarousel from "@/components/organisms/MediaCarousel/page";
 
+// ... useMediaQuery and TextCentricColumnContent are the same ...
 const useMediaQuery = (query) => {
     const [matches, setMatches] = useState(false);
     useEffect(() => {
@@ -42,26 +44,35 @@ const TextCentricColumnContent = ({ textBlocks, buttons, inlineMedia, textColour
     );
 };
 
+
 export default function TwoColumnMediaLayout({
     textBlocks = [],
     buttons = [],
     inlineMedia = null,
     mediaColumnItems = [],
-    textSide = 'left', // Which side 'textBlocks' content appears on: 'left' or 'right'
-    
-    // stickyConfig: { column: 'left' | 'right' | 'none', endTriggerSelf?: boolean }
-    // 'left': The physical left column will be sticky.
-    // 'right': The physical right column will be sticky.
-    // 'none': No stickiness.
-    // 'endTriggerSelf': if true, sticky column ends based on its own height, else based on other column's height.
-    stickyConfig = { column: 'none', endTriggerSelf: false }, 
-                                                           
+    textSide = 'left',
+    stickyConfig = { column: 'none', endTriggerSelf: false },
     textColour = "var(--black)",
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
 
-    const leftColumnRef = useRef(null);
-    const rightColumnRef = useRef(null);
+    // Refs for the column content that might become sticky or be an end trigger
+    const leftContentRef = useRef(null);
+    const rightContentRef = useRef(null);
+
+    const [leftContentHeight, setLeftContentHeight] = useState(0);
+    // const [rightContentHeight, setRightContentHeight] = useState(0); // Not strictly needed for this solution
+
+    useLayoutEffect(() => {
+        if (leftContentRef.current) {
+            setLeftContentHeight(leftContentRef.current.offsetHeight);
+        }
+        // if (rightContentRef.current) {
+        //     setRightContentHeight(rightContentRef.current.offsetHeight);
+        // }
+      // Rerun if content changes that might affect height
+    }, [textBlocks, buttons, inlineMedia, mediaColumnItems, isMobile]);
+
 
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent
@@ -75,6 +86,7 @@ export default function TwoColumnMediaLayout({
     const mediaCentricRenderedContent = mediaColumnItems && mediaColumnItems.length > 0 ? (
         <div className={styles.mediaCentricContentWrapper}>
             {mediaColumnItems.map((item, index) => {
+                // ... (item rendering logic is the same)
                 if (item.type === 'buttons') {
                     return (
                         <div key={`mc-buttons-${index}`} className={`${styles.buttonContainer} ${styles.mediaColumnButtonContainer}`}>
@@ -95,34 +107,35 @@ export default function TwoColumnMediaLayout({
         </div>
     ) : null;
 
-    // Determine which content goes to which physical side
     const leftSlotContent = textSide === 'left' ? textCentricRenderedContent : mediaCentricRenderedContent;
     const rightSlotContent = textSide === 'left' ? mediaCentricRenderedContent : textCentricRenderedContent;
-    
-    // Determine stickiness based on the physical column specified in stickyConfig
+
     const isLeftSticky = !isMobile && stickyConfig.column === 'left' && leftSlotContent;
     const isRightSticky = !isMobile && stickyConfig.column === 'right' && rightSlotContent;
 
     let endTriggerForLeftSticky;
+    let leftStickyRequiresHeightAdjustment = false;
     if (isLeftSticky) {
-        // If left is sticky, it ends when the right column (if it exists) ends, or itself if endTriggerSelf is true or no right content
         if (stickyConfig.endTriggerSelf || !rightSlotContent) {
             endTriggerForLeftSticky = `.${styles.leftGridColumn}`;
         } else {
             endTriggerForLeftSticky = `.${styles.rightGridColumn}`;
+            leftStickyRequiresHeightAdjustment = true; // Mark that right column needs to consider left's height
         }
     }
 
     let endTriggerForRightSticky;
+    // let rightStickyRequiresHeightAdjustment = false; // Not implementing this side for now for brevity
     if (isRightSticky) {
-        // If right is sticky, it ends when the left column (if it exists) ends, or itself if endTriggerSelf is true or no left content
         if (stickyConfig.endTriggerSelf || !leftSlotContent) {
             endTriggerForRightSticky = `.${styles.rightGridColumn}`;
         } else {
             endTriggerForRightSticky = `.${styles.leftGridColumn}`;
+            // rightStickyRequiresHeightAdjustment = true; // Mark that left column needs to consider right's height
         }
     }
 
+    // Mobile rendering ... (same as before)
     const mobileRenderOrder = [];
     if (isMobile) {
         const carouselAbleMediaItems = mediaColumnItems.filter(item => !item.type && (item.imageSrc || item.videoSrc));
@@ -150,11 +163,10 @@ export default function TwoColumnMediaLayout({
             );
         }
     }
-    
+
+
     const hasAnyContent = textCentricRenderedContent || mediaCentricRenderedContent;
-    if (!hasAnyContent) {
-        return null; 
-    }
+    if (!hasAnyContent) return null;
 
     return (
         <section className={styles.container}>
@@ -163,9 +175,10 @@ export default function TwoColumnMediaLayout({
             ) : (
                 <>
                     {leftSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftColumnRef}>
+                        // Assign ref to the actual content block that might be measured
+                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftContentRef}>
                             {isLeftSticky ? (
-                                <StickyContainer endTriggerRef={rightColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForLeftSticky}>
                                     {leftSlotContent}
                                 </StickyContainer>
                             ) : (
@@ -174,13 +187,11 @@ export default function TwoColumnMediaLayout({
                         </div>
                     )}
                     {rightSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightColumnRef}>
-                            {isRightSticky ? (
-                                <StickyContainer endTriggerRef={leftColumnRef}>
-                                    {rightSlotContent}
-                                </StickyContainer>
-                            ) : (
-                                rightSlotContent
+                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightContentRef}>
+                            {rightSlotContent}
+                            {/* If left is sticky and uses right as endTrigger, add a spacer to right to account for left's height */}
+                            {leftStickyRequiresHeightAdjustment && leftContentHeight > 0 && (
+                                <div style={{ height: `${leftContentHeight}px`, pointerEvents: 'none', opacity: 0 }} aria-hidden="true" className="scroll-spacer-for-sticky"></div>
                             )}
                         </div>
                     )}

@@ -17,7 +17,7 @@
     position: relative; /* For positioning context of sticky/absolute children */
     display: flex; /* To allow content within to align/stack easily if needed */
     flex-direction: column; /* Stack multiple items within this column */
-    /* border: 1px dashed blue; */
+    border: 1px dashed blue;
 }
 
 /* Specific identifiers for left and right grid columns, mainly for endTrigger */

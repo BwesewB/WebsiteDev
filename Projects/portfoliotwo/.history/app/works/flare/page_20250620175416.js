@@ -84,37 +84,48 @@ export default function Flare({}) {
             <SectionOne 
                 paragraphTitleText="Your BC wildfire safety app with weather updates, fire alerts, and related news all into one intuitive app."
             />
-<TwoColumnMediaLayout
-    textSide="right" // Main textBlocks (Wildfire info) will be on the RIGHT.
-                     // mediaColumnItems (the 3 buttons) will be on the LEFT.
-    
-    textBlocks={[ // This content goes to the RIGHT column
-        { 
-            header: "The Rising Danger of Wildfires", 
-            paragraph: "British Columbia is facing increasingly severe wildfire seasons..." 
-        },
-        { 
-            header: "How Flare Makes a Difference", 
-            paragraph: "Flare provides users with a quick and accessible answer..." 
-        }
-    ]}
+            <TwoColumnMediaLayout
+                // This moves the text column to the right side
+                textSide="right"
+                
+                // Set to false so the text column scrolls normally
+                stickyText={false}
+                
+                // Pass the headers and paragraphs as an array of objects
+                textBlocks={[
+                    { 
+                        header: "The Rising Danger of Wildfires", 
+                        paragraph: "British Columbia is facing increasingly severe wildfire seasons due to climate change and prolonged droughts, not only affecting outdoor enthusiasts, but more importantly rural communities with limited access to timely information. " 
+                    },
+                    { 
+                        header: "How Flare Makes a Difference", 
+                        paragraph: "Flare provides users with a quick and accessible answer to address concerns about wildfires. Wildfires can have devastating impacts on remote areas, cutting off access to critical information and emergency services. Flare bridges this gap by providing real-time, reliable wildfire alerts, even for those living in isolated regions with limited access to traditional media or wildfire updates." 
+                    }
+                ]}
 
-    mediaColumnItems={[ // This content goes to the LEFT column
-        {
-            type: 'buttons', 
-            items: [
-                { text: "VISIT", icon: "arrow", externalLink: "..." },
-                { text: "SOURCE CODE", icon: "github", externalLink: "..." },
-                { text: "WIREFRAME", icon: "figma", externalLink: "..." }
-            ]
-        }
-    ]}
-    
-    // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left' }} 
-    
-    textColour="var(--black)"
-/>
+                // The buttons array is passed directly
+                buttons={[
+                    {
+                        text: "VISIT",
+                        icon: "arrow",
+                        externalLink: "https://www.flare-bc.com/"
+                    },
+                    {
+                        text: "SOURCE CODE",
+                        icon: "github",
+                        externalLink: "https://github.com/BCITKevin/Flare_IDSP"
+                    },
+                    {
+                        text: "WIREFRAME",
+                        icon: "figma",
+                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                    }
+                ]}
+
+                // Since there are no large media items in this section,
+                // we pass an empty array to mediaItems.
+                mediaItems={[]}
+            />
             <ControllableLottie
                 ref={triggerRef}
                 lottieRef={lottieRef}
@@ -153,35 +164,30 @@ export default function Flare({}) {
                 imageSrc="/media/flare/FlareStyleguide.png"
                 mediaWidth="60vw"
             />
-<TwoColumnMediaLayout
-    textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
-                    // mediaColumnItems (the 3 images) will be on the RIGHT.
+            <TwoColumnMediaLayout
+                stickyText={true}
 
-    textBlocks={[ // This content goes to the LEFT column
-        { 
-            header: "Design Process", 
-            paragraph: "A team of four designers was responsible..." 
-        }
-    ]}
-    buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
-        {
-            text: "WIREFRAME",
-            icon: "figma",
-            externalLink: "..." // Please fill in the actual link
-        }
-    ]}
+                textBlocks={[
+                    { 
+                        header: "Design Process", 
+                        paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
+                    }
+                ]}
 
-    mediaColumnItems={[ // This content (the 3 images) goes to the RIGHT column
-        { imageSrc: "/media/flare/MockupPhoneMap.png" },
-        { imageSrc: "/media/flare/MockupPhoneNews.png" },
-        { imageSrc: "/media/flare/MockupPhoneSafety.png" }
-    ]}
+                buttons={[
+                    {
+                        text: "WIREFRAME",
+                        icon: "figma",
+                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                    }
+                ]}
 
-    // NOW, to make the physical LEFT side sticky:
-    stickyConfig={{ column: 'left'}}
-    
-    textColour="var(--black)"
-/>
+                mediaItems={[
+                    { imageSrc: "/media/flare/MockupPhoneMap.png" },
+                    { imageSrc: "/media/flare/MockupPhoneNews.png" },
+                    { imageSrc: "/media/flare/MockupPhoneSafety.png" }
+                ]}
+            />
             <SectionSeven
                 challengeHeader = "User Testing"
                 challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."

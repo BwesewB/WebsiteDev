@@ -1,20 +1,22 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import styles from "./TwoColumnMediaLayout.module.css";
-import SectionTwo from "../SectionTwo/page";
+import SectionTwo from "../SectionTwo/page"; // Handles individual image/video
 import UnifiedButton from "@/components/atoms/unifiedButton/page";
 import StickyContainer from "@/components/atoms/stickyContainer/page";
-import TextContainer from "@/components/atoms/textContainer/page";
-import MediaCarousel from "@/components/organisms/MediaCarousel/page";
+import TextContainer from "@/components/atoms/textContainer/page"; // Already has animation
+import MediaCarousel from "@/components/organisms/MediaCarousel/page"; // For mobile media
+// GSAP and ScrollTrigger are used by StickyContainer and TextContainer, not directly here for animation
 
+// Custom Hook to check for media queries
 const useMediaQuery = (query) => {
     const [matches, setMatches] = useState(false);
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const media = window.matchMedia(query);
             const updateMatches = () => setMatches(media.matches);
-            updateMatches();
+            updateMatches(); // Initial check
             media.addEventListener("change", updateMatches);
             return () => media.removeEventListener("change", updateMatches);
         }
@@ -22,7 +24,10 @@ const useMediaQuery = (query) => {
     return matches;
 };
 
+// Sub-component for rendering content in the "text-centric" parts (handles text, buttons, inline media)
+// Animation is now handled by TextContainer itself.
 const TextCentricColumnContent = ({ textBlocks, buttons, inlineMedia, textColour }) => {
+    // textColour is applied to the wrapper, TextContainer will inherit if its own textColour prop is not set
     return (
         <div className={styles.textContentWrapper} style={{ color: textColour }}>
             {textBlocks.map((block, index) => (
@@ -30,6 +35,8 @@ const TextCentricColumnContent = ({ textBlocks, buttons, inlineMedia, textColour
                     key={`text-${index}`}
                     header={block.header}
                     paragraph={block.paragraph}
+                    // TextContainer has its own startTrigger prop, let it manage it or pass per-block if needed
+                    // textColour={textColour} // TextContainer inherits from wrapper unless specified
                 />
             ))}
             {buttons && buttons.length > 0 && (
@@ -43,26 +50,27 @@ const TextCentricColumnContent = ({ textBlocks, buttons, inlineMedia, textColour
 };
 
 export default function TwoColumnMediaLayout({
+    // Content primarily for the "text" side
     textBlocks = [],
-    buttons = [],
-    inlineMedia = null,
+    buttons = [],      // Buttons associated with textBlocks
+    inlineMedia = null, // Single media item associated with textBlocks
+
+    // Content primarily for the "media" side
+    // Can be:
+    // 1. Standard media item(s) for SectionTwo: { imageSrc, videoSrc, initialMute, ... }
+    // 2. Buttons list: { type: 'buttons', items: [{...buttonProps}] }
+    // 3. Text list: { type: 'text', items: [{header, paragraph}] } (will use TextContainer, so animated)
     mediaColumnItems = [],
-    textSide = 'left', // Which side 'textBlocks' content appears on: 'left' or 'right'
+
+    textSide = 'left', // Which side the main 'textBlocks' content appears on ('left' or 'right')
     
-    // stickyConfig: { column: 'left' | 'right' | 'none', endTriggerSelf?: boolean }
-    // 'left': The physical left column will be sticky.
-    // 'right': The physical right column will be sticky.
-    // 'none': No stickiness.
-    // 'endTriggerSelf': if true, sticky column ends based on its own height, else based on other column's height.
     stickyConfig = { column: 'none', endTriggerSelf: false }, 
                                                            
-    textColour = "var(--black)",
+    textColour = "var(--black)", // Default text colour for text content
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
 
-    const leftColumnRef = useRef(null);
-    const rightColumnRef = useRef(null);
-
+    // 1. Prepare the content for the "text-centric" block
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent
             textBlocks={textBlocks}
@@ -72,8 +80,9 @@ export default function TwoColumnMediaLayout({
         />
     ) : null;
 
+    // 2. Prepare the content for the "media-centric" block
     const mediaCentricRenderedContent = mediaColumnItems && mediaColumnItems.length > 0 ? (
-        <div className={styles.mediaCentricContentWrapper}>
+        <div className={styles.mediaCentricContentWrapper}> {/* Wrapper for potential gap styling */}
             {mediaColumnItems.map((item, index) => {
                 if (item.type === 'buttons') {
                     return (
@@ -82,56 +91,59 @@ export default function TwoColumnMediaLayout({
                         </div>
                     );
                 } else if (item.type === 'text') {
+                    // Using TextCentricColumnContent ensures TextContainers are used, thus animated
                     return (
                         <TextCentricColumnContent
                             key={`mc-text-${index}`}
-                            textBlocks={item.items}
-                            textColour={item.textColour || textColour}
+                            textBlocks={item.items} // items should be an array of {header, paragraph}
+                            textColour={item.textColour || textColour} // Allow override or use main
                         />
                     );
                 }
+                // Default: item is a standard media object for SectionTwo
                 return <SectionTwo key={`mc-media-${index}`} {...item} />;
             })}
         </div>
     ) : null;
 
-    // Determine which content goes to which physical side
+    // 3. Determine which content goes to which side for desktop
     const leftSlotContent = textSide === 'left' ? textCentricRenderedContent : mediaCentricRenderedContent;
     const rightSlotContent = textSide === 'left' ? mediaCentricRenderedContent : textCentricRenderedContent;
     
-    // Determine stickiness based on the physical column specified in stickyConfig
-    const isLeftSticky = !isMobile && stickyConfig.column === 'left' && leftSlotContent;
-    const isRightSticky = !isMobile && stickyConfig.column === 'right' && rightSlotContent;
+    const isLeftSticky = !isMobile && stickyConfig.column === (textSide === 'left' ? 'text' : 'media') && leftSlotContent;
+    const isRightSticky = !isMobile && stickyConfig.column === (textSide === 'right' ? 'text' : 'media') && rightSlotContent;
 
     let endTriggerForLeftSticky;
     if (isLeftSticky) {
-        // If left is sticky, it ends when the right column (if it exists) ends, or itself if endTriggerSelf is true or no right content
-        if (stickyConfig.endTriggerSelf || !rightSlotContent) {
-            endTriggerForLeftSticky = `.${styles.leftGridColumn}`;
-        } else {
-            endTriggerForLeftSticky = `.${styles.rightGridColumn}`;
-        }
+        if (stickyConfig.endTriggerSelf) endTriggerForLeftSticky = `.${styles.leftGridColumn}`;
+        else if (rightSlotContent) endTriggerForLeftSticky = `.${styles.rightGridColumn}`;
     }
 
     let endTriggerForRightSticky;
     if (isRightSticky) {
-        // If right is sticky, it ends when the left column (if it exists) ends, or itself if endTriggerSelf is true or no left content
-        if (stickyConfig.endTriggerSelf || !leftSlotContent) {
-            endTriggerForRightSticky = `.${styles.rightGridColumn}`;
-        } else {
-            endTriggerForRightSticky = `.${styles.leftGridColumn}`;
-        }
+        if (stickyConfig.endTriggerSelf) endTriggerForRightSticky = `.${styles.rightGridColumn}`;
+        else if (leftSlotContent) endTriggerForRightSticky = `.${styles.leftGridColumn}`;
     }
 
+    // Mobile rendering order
     const mobileRenderOrder = [];
     if (isMobile) {
+        // Media carousel from mediaColumnItems (if any actual media)
         const carouselAbleMediaItems = mediaColumnItems.filter(item => !item.type && (item.imageSrc || item.videoSrc));
         if (carouselAbleMediaItems.length > 0) {
             mobileRenderOrder.push(<MediaCarousel key="mobile-carousel" mediaItems={carouselAbleMediaItems} />);
         }
+
+        // Main text-centric content (textBlocks, its buttons, its inlineMedia)
         if (textCentricRenderedContent) {
-            mobileRenderOrder.push(<div key="mobile-text-centric" className={styles.mobileTextCentricWrapper}>{textCentricRenderedContent}</div>);
+            mobileRenderOrder.push(
+                <div key="mobile-text-centric" className={styles.mobileTextCentricWrapper}>
+                    {textCentricRenderedContent}
+                </div>
+            );
         }
+        
+        // Other content from mediaColumnItems (e.g. 'buttons' or 'text' types)
         const otherMediaColumnParts = mediaColumnItems.filter(item => item.type === 'buttons' || item.type === 'text');
         if (otherMediaColumnParts.length > 0) {
             mobileRenderOrder.push(
@@ -162,10 +174,11 @@ export default function TwoColumnMediaLayout({
                 mobileRenderOrder
             ) : (
                 <>
+                    {/* Left Grid Column (Desktop) */}
                     {leftSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`}>
                             {isLeftSticky ? (
-                                <StickyContainer endTriggerRef={rightColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForLeftSticky}>
                                     {leftSlotContent}
                                 </StickyContainer>
                             ) : (
@@ -173,10 +186,12 @@ export default function TwoColumnMediaLayout({
                             )}
                         </div>
                     )}
+
+                    {/* Right Grid Column (Desktop) */}
                     {rightSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightColumnRef}>
+                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`}>
                             {isRightSticky ? (
-                                <StickyContainer endTriggerRef={leftColumnRef}>
+                                <StickyContainer endTrigger={endTriggerForRightSticky}>
                                     {rightSlotContent}
                                 </StickyContainer>
                             ) : (

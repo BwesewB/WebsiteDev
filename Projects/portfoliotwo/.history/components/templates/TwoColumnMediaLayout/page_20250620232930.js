@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'; // Added useLayoutEffect back
 import styles from "./TwoColumnMediaLayout.module.css";
 import SectionTwo from "../SectionTwo/page";
 import UnifiedButton from "@/components/atoms/unifiedButton/page";
@@ -47,21 +47,54 @@ export default function TwoColumnMediaLayout({
     buttons = [],
     inlineMedia = null,
     mediaColumnItems = [],
-    textSide = 'left', // Which side 'textBlocks' content appears on: 'left' or 'right'
-    
-    // stickyConfig: { column: 'left' | 'right' | 'none', endTriggerSelf?: boolean }
-    // 'left': The physical left column will be sticky.
-    // 'right': The physical right column will be sticky.
-    // 'none': No stickiness.
-    // 'endTriggerSelf': if true, sticky column ends based on its own height, else based on other column's height.
-    stickyConfig = { column: 'none', endTriggerSelf: false }, 
-                                                           
+    textSide = 'left',
+    stickyConfig = { column: 'none', endTriggerSelf: false },
     textColour = "var(--black)",
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
 
-    const leftColumnRef = useRef(null);
-    const rightColumnRef = useRef(null);
+    const leftContentRef = useRef(null); 
+    // We don't necessarily need a ref for rightContentRef unless we want to measure it too.
+    // The spacer's height is based on the left content.
+
+    const [leftContentHeight, setLeftContentHeight] = useState(0);
+
+    // This effect measures the height of the leftSlotContent when it's rendered
+    // and its constituent parts (textBlocks, buttons, inlineMedia, or mediaColumnItems if textSide='right') change.
+    useLayoutEffect(() => {
+        let currentRefValue = null;
+        if (textSide === 'left' && leftContentRef.current) {
+            currentRefValue = leftContentRef.current.querySelector(`.${styles.textContentWrapper}`) || leftContentRef.current.querySelector(`.${styles.mediaCentricContentWrapper}`);
+        } else if (textSide === 'right' && leftContentRef.current) { // if textSide is 'right', leftSlotContent is mediaCentricRenderedContent
+             currentRefValue = leftContentRef.current.querySelector(`.${styles.mediaCentricContentWrapper}`);
+        }
+        // Fallback to the direct ref if no specific wrapper found (shouldn't happen with current structure)
+        if (!currentRefValue && leftContentRef.current) {
+            currentRefValue = leftContentRef.current.firstChild; // Assuming the actual content is the first child of gridColumn
+        }
+
+
+        if (currentRefValue) {
+            const newHeight = currentRefValue.offsetHeight;
+            // Only update state if the height has actually changed to prevent unnecessary re-renders
+            // This check might still cause issues if other things cause slight pixel shifts.
+            // A more robust way is to ensure dependencies are very specific.
+            setLeftContentHeight(prevHeight => {
+                if (newHeight !== prevHeight) {
+                    return newHeight;
+                }
+                return prevHeight;
+            });
+        } else if (leftContentRef.current && !leftSlotContent) { // If there's no left content, height is 0
+             setLeftContentHeight(0);
+        }
+
+    // Dependencies:
+    // - leftSlotContent itself isn't stable for dependency array if it's JSX.
+    // - We depend on the props that *generate* leftSlotContent.
+    // - And `textSide` because it determines *what* goes into leftSlotContent.
+    // - And `isMobile` because rendering changes.
+    }, [textBlocks, buttons, inlineMedia, mediaColumnItems, textSide, isMobile, leftSlotContent]); // Added leftSlotContent as a dependency cautiously
 
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent
@@ -95,28 +128,31 @@ export default function TwoColumnMediaLayout({
         </div>
     ) : null;
 
-    // Determine which content goes to which physical side
-    const leftSlotContent = textSide === 'left' ? textCentricRenderedContent : mediaCentricRenderedContent;
-    const rightSlotContent = textSide === 'left' ? mediaCentricRenderedContent : textCentricRenderedContent;
+    const actualLeftSlotContent = textSide === 'left' ? textCentricRenderedContent : mediaCentricRenderedContent;
+    const actualRightSlotContent = textSide === 'left' ? mediaCentricRenderedContent : textCentricRenderedContent;
     
-    // Determine stickiness based on the physical column specified in stickyConfig
-    const isLeftSticky = !isMobile && stickyConfig.column === 'left' && leftSlotContent;
-    const isRightSticky = !isMobile && stickyConfig.column === 'right' && rightSlotContent;
+    // Pass actualLeftSlotContent to the dependency array of the useLayoutEffect above,
+    // as its structure directly influences the height we're measuring.
+    // This needs careful handling because JSX elements are new objects on every render.
+    // A better way is to rely on the source props as dependencies.
+
+    const isLeftSticky = !isMobile && stickyConfig.column === 'left' && actualLeftSlotContent;
+    const isRightSticky = !isMobile && stickyConfig.column === 'right' && actualRightSlotContent;
 
     let endTriggerForLeftSticky;
+    let leftStickyRequiresHeightAdjustment = false;
     if (isLeftSticky) {
-        // If left is sticky, it ends when the right column (if it exists) ends, or itself if endTriggerSelf is true or no right content
-        if (stickyConfig.endTriggerSelf || !rightSlotContent) {
+        if (stickyConfig.endTriggerSelf || !actualRightSlotContent) {
             endTriggerForLeftSticky = `.${styles.leftGridColumn}`;
         } else {
             endTriggerForLeftSticky = `.${styles.rightGridColumn}`;
+            leftStickyRequiresHeightAdjustment = true;
         }
     }
 
     let endTriggerForRightSticky;
     if (isRightSticky) {
-        // If right is sticky, it ends when the left column (if it exists) ends, or itself if endTriggerSelf is true or no left content
-        if (stickyConfig.endTriggerSelf || !leftSlotContent) {
+        if (stickyConfig.endTriggerSelf || !actualLeftSlotContent) {
             endTriggerForRightSticky = `.${styles.rightGridColumn}`;
         } else {
             endTriggerForRightSticky = `.${styles.leftGridColumn}`;
@@ -129,7 +165,7 @@ export default function TwoColumnMediaLayout({
         if (carouselAbleMediaItems.length > 0) {
             mobileRenderOrder.push(<MediaCarousel key="mobile-carousel" mediaItems={carouselAbleMediaItems} />);
         }
-        if (textCentricRenderedContent) {
+        if (textCentricRenderedContent) { // Use the initially prepared content
             mobileRenderOrder.push(<div key="mobile-text-centric" className={styles.mobileTextCentricWrapper}>{textCentricRenderedContent}</div>);
         }
         const otherMediaColumnParts = mediaColumnItems.filter(item => item.type === 'buttons' || item.type === 'text');
@@ -151,10 +187,8 @@ export default function TwoColumnMediaLayout({
         }
     }
     
-    const hasAnyContent = textCentricRenderedContent || mediaCentricRenderedContent;
-    if (!hasAnyContent) {
-        return null; 
-    }
+    const hasAnyContent = textCentricRenderedContent || mediaCentricRendered.Content; // Typo here, should be mediaCentricRenderedContent
+    if (!hasAnyContent) return null;
 
     return (
         <section className={styles.container}>
@@ -162,25 +196,29 @@ export default function TwoColumnMediaLayout({
                 mobileRenderOrder
             ) : (
                 <>
-                    {leftSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftColumnRef}>
+                    {actualLeftSlotContent && (
+                        // The ref is on the grid column div itself.
+                        // The useLayoutEffect above will try to find the actual content wrapper inside it.
+                        <div className={`${styles.gridColumn} ${styles.leftGridColumn}`} ref={leftContentRef}>
                             {isLeftSticky ? (
-                                <StickyContainer endTriggerRef={rightColumnRef}>
-                                    {leftSlotContent}
+                                <StickyContainer endTrigger={endTriggerForLeftSticky}>
+                                    {actualLeftSlotContent}
                                 </StickyContainer>
                             ) : (
-                                leftSlotContent
+                                actualLeftSlotContent
                             )}
                         </div>
                     )}
-                    {rightSlotContent && (
-                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`} ref={rightColumnRef}>
-                            {isRightSticky ? (
-                                <StickyContainer endTriggerRef={leftColumnRef}>
-                                    {rightSlotContent}
-                                </StickyContainer>
-                            ) : (
-                                rightSlotContent
+                    {actualRightSlotContent && (
+                        // No ref needed on rightGridColumn for this specific spacer logic
+                        <div className={`${styles.gridColumn} ${styles.rightGridColumn}`}>
+                            {actualRightSlotContent}
+                            {leftStickyRequiresHeightAdjustment && leftContentHeight > 0 && (
+                                <div 
+                                    style={{ height: `${leftContentHeight}px`, width: '1px', pointerEvents: 'none', opacity: 0, marginTop: 'auto' }} 
+                                    aria-hidden="true" 
+                                    className="scroll-spacer-for-sticky"
+                                ></div>
                             )}
                         </div>
                     )}
