@@ -64,23 +64,26 @@ export default function TwoColumnMediaLayout({
     const rightColumnRef = useRef(null);
 
     const isSimpleHeaderParaStack = 
-    // Only apply on mobile
-    isMobile &&
-    // Check that the main text content is just a single header
-    textBlocks.length === 1 && 
-    textBlocks[0].header && 
-    !textBlocks[0].paragraph &&
-    // Check that the media column is just a single paragraph
-    mediaColumnItems.length === 1 &&
-    mediaColumnItems[0].type === 'text' &&
-    mediaColumnItems[0].items.length === 1 &&
-    mediaColumnItems[0].items[0].paragraph &&
-    !mediaColumnItems[0].items[0].header &&
-    // And there are no extra buttons or media
-    buttons.length === 0 &&
-    !inlineMedia;
-    
-    const containerClasses = `${styles.container} ${isSimpleHeaderParaStack ? styles.tightGapMobile : ''}`;
+        isMobile &&
+        textBlocks.length === 1 && textBlocks[0].header && !textBlocks[0].paragraph &&
+        mediaColumnItems.length === 1 && mediaColumnItems[0].type === 'text' &&
+        mediaColumnItems[0].items.length === 1 && mediaColumnItems[0].items[0].paragraph &&
+        !mediaColumnItems[0].items[0].header &&
+        buttons.length === 0 &&
+        !inlineMedia;
+
+    // Condition 2: Check for a single-column layout on desktop
+    const textContentProvided = textBlocks.length > 0 || buttons.length > 0 || inlineMedia;
+    const mediaContentProvided = mediaColumnItems.length > 0;
+    const isSingleColumnOnDesktop = !isMobile && (!textContentProvided || !mediaContentProvided);
+
+    // THE FIX: Build an array of classes and then join them.
+    // This allows multiple conditional classes to be applied.
+    const containerClasses = [
+        styles.container,
+        isSimpleHeaderParaStack ? styles.tightGapMobile : '',
+        isSingleColumnOnDesktop ? styles.singleColumnLayout : ''
+    ].filter(Boolean).join(' ');
 
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent

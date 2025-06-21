@@ -1,6 +1,6 @@
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
+import SectionThree from "@/components/templates/SectionThree/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 
 export default function blackHole() {
@@ -17,9 +17,10 @@ export default function blackHole() {
                 paragraphTitleText="Black hole is an interactive project that merges custom-designed After Effects assets with a 12-page interactive coded experience."
             />
             <TwoColumnMediaLayout
-                textSide="right"
+                textSide="right" // Main textBlocks (Wildfire info) will be on the RIGHT.
+                                // mediaColumnItems (the 3 buttons) will be on the LEFT.
                 
-                textBlocks={[ 
+                textBlocks={[ // This content goes to the RIGHT column
                     { 
                         header: "Motion Graphics", 
                         paragraph: "Time management was crucial for this project. Within ten weeks, ideation, storyboarding, and production were completed. The old film aesthetic was achieved by applying grain, glow, and frame rate reduction through adjustment layers. Minimal graphics were used to maintain focus on animation and transitions, while the absence of color enhanced both the vintage feel and minimalist approach. Design principles such as patterns and scale were emphasized instead of color to demonstrate thoughtful design choices and strong communication throughout the process." 
@@ -30,7 +31,7 @@ export default function blackHole() {
                     }
                 ]}
 
-                mediaColumnItems={[ 
+                mediaColumnItems={[ // This content goes to the LEFT column
                     {
                         type: 'buttons', 
                         items: [

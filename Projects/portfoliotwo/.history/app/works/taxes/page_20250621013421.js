@@ -1,4 +1,5 @@
 import ProjectHero from "@/components/templates/projectHero/page"
+import SectionThree from "@/components/templates/SectionThree/page"
 import styles from "./taxes.module.css"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 

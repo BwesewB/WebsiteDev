@@ -192,7 +192,7 @@ export default function Flare({}) {
                 textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
                                 // mediaColumnItems (the 3 images) will be on the RIGHT.
 
-                textBlocks={[ 
+                textBlocks={[ // This content goes to the LEFT column
                     { 
                         header: "Design Process", 
                         paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
@@ -212,6 +212,7 @@ export default function Flare({}) {
                     { imageSrc: "/media/flare/MockupPhoneSafety.png" }
                 ]}
 
+                // NOW, to make the physical LEFT side sticky:
                 stickyConfig={{ column: 'left'}}
                 
                 textColour="var(--black)"

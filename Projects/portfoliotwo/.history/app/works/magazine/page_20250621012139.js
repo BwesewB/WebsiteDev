@@ -2,7 +2,7 @@ import styles from "./magazine.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
 import SectionTwo from "@/components/templates/SectionTwo/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
+import SectionThree from "@/components/templates/SectionThree/page"
 
 export default function MagazinePage({}) {
     const mediaWidth = "90%"
@@ -40,6 +40,13 @@ export default function MagazinePage({}) {
                 stickyConfig={{ column: 'left' }} 
                 
                 textColour="var(--black)"
+            />
+            <SectionThree 
+                externalLinkVisit = "/media/magazine/ReimaginingSpaces.pdf"
+                visit = "Web PDF"
+            
+                challengeHeader = "Reimagining Spaces: A Japanese Perspective"
+                challengeParagraph = "Spaces are not just containers for life—they shape behaviors, perceptions, and the way people connect with their surroundings. Japanese design, with its emphasis on adaptability, materiality, and spatial flow, offers a unique perspective on how environments can be structured and experienced. This printed magazine considers how contemporary Japanese spaces respond to limitations, integrate practicality with aesthetic intent, and challenge conventional spatial boundaries."
             />
             <section className="sectionContainer">
                 <SectionTwo

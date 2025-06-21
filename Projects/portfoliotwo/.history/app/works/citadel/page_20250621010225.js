@@ -2,6 +2,9 @@
 
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
+import SectionThree from "@/components/templates/SectionThree/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
+import SectionSix from "@/components/templates/SectionSix/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -59,7 +62,8 @@ export default function Citadel({}) {
                 />
             </section>
             <TwoColumnMediaLayout
-                textSide="left"
+                textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
+                                // mediaColumnItems (the 3 images) will be on the RIGHT.
 
                 textBlocks={[ 
                     { 
@@ -68,9 +72,11 @@ export default function Citadel({}) {
                     }
                 ]}
 
-                mediaColumnItems={[ 
+                mediaColumnItems={[ // This content (the 3 images) goes to the RIGHT column
                     { imageSrc: "/media/citadel/shaprImport.png" },
                 ]}
+
+                // stickyConfig={{ column: 'left'}}
                 
                 textColour="var(--black)"
             />
@@ -101,21 +107,14 @@ export default function Citadel({}) {
                     imageFour="/media/citadel/shadingCloseup.png"
                 />
             </section>
-            <TwoColumnMediaLayout
-                textSide="left"
 
-                textBlocks={[ 
-                    { 
-                        header: "Rendered Animation", 
-                        paragraph: "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece." 
-                    }
-                ]}
+            <SectionSix 
+                challengeHeader = "Rendered Animation"
+                challengeParagraph = "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece."
+                sticky = {false}
 
-                mediaColumnItems={[ 
-                    { videoSrc: "/media/citadel/citadelVideo.mp4" , initialMute: false },
-                ]}
-                
-                textColour="var(--black)"
+                videoOne = "/media/citadel/citadelVideo.mp4"
+                initialMute={false}
             />
         </div>
     )

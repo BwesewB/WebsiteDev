@@ -4,6 +4,8 @@ import styles from "./decked.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
 import SectionTwo from "@/components/templates/SectionTwo/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
+import SectionSix from "@/components/templates/SectionSix/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import ViewCanvas from "./cans/page"
@@ -67,6 +69,14 @@ export default function DeckedBeer({}) {
                 stickyConfig={{ column: 'left'}}
                 
                 textColour="var(--black)"
+            />
+            <SectionSix 
+                challengeHeader = "Labels"
+                challengeParagraph = "Decked Lager is a premium brew designed with fishermen in mind, featuring three distinct label variations—Seaweed, Crab, and Fish. Each design draws from maritime elements, reinforcing the brand’s connection to the fishing community. With a focus on quality and craftsmanship, Decked delivers a refined lager experience while embracing the culture of those who spend their days on the water."
+
+                imageOne = "/media/cans/labels/Fish@2x.png"
+                imageTwo = "/media/cans/labels/Crab@2x.png"
+                imageThree = "/media/cans/labels/Seaweed@2x.png"
             />
             <SectionTwo 
                 videoSrc="/media/cans/fishCanVideo.mp4"

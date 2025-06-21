@@ -2,6 +2,7 @@ import styles from "./magazine.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
 import SectionTwo from "@/components/templates/SectionTwo/page"
+import SectionThree from "@/components/templates/SectionThree/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
 export default function MagazinePage({}) {

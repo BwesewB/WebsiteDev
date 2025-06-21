@@ -63,24 +63,23 @@ export default function TwoColumnMediaLayout({
     const leftColumnRef = useRef(null);
     const rightColumnRef = useRef(null);
 
+    const textContentProvided = textBlocks.length > 0 || buttons.length > 0 || inlineMedia;
+    const mediaContentProvided = mediaColumnItems.length > 0;
+
     const isSimpleHeaderParaStack = 
-    // Only apply on mobile
-    isMobile &&
-    // Check that the main text content is just a single header
-    textBlocks.length === 1 && 
-    textBlocks[0].header && 
-    !textBlocks[0].paragraph &&
-    // Check that the media column is just a single paragraph
-    mediaColumnItems.length === 1 &&
-    mediaColumnItems[0].type === 'text' &&
-    mediaColumnItems[0].items.length === 1 &&
-    mediaColumnItems[0].items[0].paragraph &&
-    !mediaColumnItems[0].items[0].header &&
-    // And there are no extra buttons or media
-    buttons.length === 0 &&
-    !inlineMedia;
-    
-    const containerClasses = `${styles.container} ${isSimpleHeaderParaStack ? styles.tightGapMobile : ''}`;
+        isMobile &&
+        textContentProvided && mediaContentProvided &&
+        textBlocks.length === 1 && textBlocks[0].header && !textBlocks[0].paragraph &&
+        mediaColumnItems.length === 1 && mediaColumnItems[0].type === 'text' &&
+        buttons.length === 0 && !inlineMedia;
+
+    const isSingleColumnOnDesktop = !isMobile && (!textContentProvided || !mediaContentProvided);
+
+    const containerClasses = [
+        styles.container,
+        isSimpleHeaderParaStack ? styles.tightGapMobile : '',
+        isSingleColumnOnDesktop ? styles.singleColumnLayout : ''
+    ].filter(Boolean).join(' ');
 
     const textCentricRenderedContent = (textBlocks.length > 0 || buttons.length > 0 || inlineMedia) ? (
         <TextCentricColumnContent
@@ -179,6 +178,11 @@ export default function TwoColumnMediaLayout({
         <section className={containerClasses}>
             {isMobile ? (
                 mobileRenderOrder
+            ) : isSingleColumnOnDesktop ? (
+                // THE FIX: If it's a single column, render a simplified structure
+                <div className={`${styles.gridColumn}`}>
+                    {leftSlotContent || rightSlotContent}
+                </div>
             ) : (
                 <>
                     {leftSlotContent && (

@@ -28,7 +28,7 @@ export default function Taxes ({
                 ]}
 
                 // Provide an EMPTY array for the LEFT column
-                mediaColumnItems={[]}
+                // mediaColumnItems={[]}
             />
         </div>
     )

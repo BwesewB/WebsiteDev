@@ -2,6 +2,7 @@ import styles from "./logo.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
 import SectionTwo from "@/components/templates/SectionTwo/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
 export default function LogoPage({}) {
@@ -26,7 +27,7 @@ export default function LogoPage({}) {
             </div>
             <TwoColumnMediaLayout
                 textSide="left"
-                textBlocks={[
+                textBlocks={[ // This content goes to the LEFT column
                     { 
                         header: "The Logo", 
                     }

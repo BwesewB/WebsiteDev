@@ -2,6 +2,9 @@
 
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
+import SectionThree from "@/components/templates/SectionThree/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
+import SectionSix from "@/components/templates/SectionSix/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -59,20 +62,37 @@ export default function Citadel({}) {
                 />
             </section>
             <TwoColumnMediaLayout
-                textSide="left"
+                textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
+                                // mediaColumnItems (the 3 images) will be on the RIGHT.
 
                 textBlocks={[ 
                     { 
-                        header: "Import to Blender", 
-                        paragraph: "After creating the building in Shapr3D, the model was imported into Blender, where additional elements like lighting and a landscape were incorporated. As seen in the image, a cube was added around the project, and volumetric fog was applied to further enhance the atmosphere, adding both realism and a sense of mystery to the scene." 
+                        header: "Design Process", 
+                        paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
+                    }
+                ]}
+                buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
+                    {
+                        text: "WIREFRAME",
+                        icon: "figma",
+                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
                     }
                 ]}
 
-                mediaColumnItems={[ 
+                mediaColumnItems={[ // This content (the 3 images) goes to the RIGHT column
                     { imageSrc: "/media/citadel/shaprImport.png" },
                 ]}
+
+                // stickyConfig={{ column: 'left'}}
                 
                 textColour="var(--black)"
+            />
+            <SectionSix 
+                challengeHeader = "Import to Blender"
+                challengeParagraph = "After creating the building in Shapr3D, the model was imported into Blender, where additional elements like lighting and a landscape were incorporated. As seen in the image, a cube was added around the project, and volumetric fog was applied to further enhance the atmosphere, adding both realism and a sense of mystery to the scene."
+                sticky = {false}
+
+                imageOne = "/media/citadel/shaprImport.png"
             />
             <section className="sectionContainer">
                 <TwoColumnMediaLayout
@@ -101,21 +121,14 @@ export default function Citadel({}) {
                     imageFour="/media/citadel/shadingCloseup.png"
                 />
             </section>
-            <TwoColumnMediaLayout
-                textSide="left"
 
-                textBlocks={[ 
-                    { 
-                        header: "Rendered Animation", 
-                        paragraph: "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece." 
-                    }
-                ]}
+            <SectionSix 
+                challengeHeader = "Rendered Animation"
+                challengeParagraph = "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece."
+                sticky = {false}
 
-                mediaColumnItems={[ 
-                    { videoSrc: "/media/citadel/citadelVideo.mp4" , initialMute: false },
-                ]}
-                
-                textColour="var(--black)"
+                videoOne = "/media/citadel/citadelVideo.mp4"
+                initialMute={false}
             />
         </div>
     )

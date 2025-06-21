@@ -2,6 +2,9 @@
 
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
+import SectionThree from "@/components/templates/SectionThree/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
+import SectionSix from "@/components/templates/SectionSix/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 

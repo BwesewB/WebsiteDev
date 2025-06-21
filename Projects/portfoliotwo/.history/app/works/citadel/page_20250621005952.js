@@ -2,6 +2,9 @@
 
 import ProjectHero from "@/components/templates/projectHero/page"
 import SectionOne from "@/components/templates/SectionOne/page"
+import SectionThree from "@/components/templates/SectionThree/page"
+import SectionFive from "@/components/organisms/SectionFive/page"
+import SectionSix from "@/components/templates/SectionSix/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -58,41 +61,17 @@ export default function Citadel({}) {
                     imageTwo="/media/citadel/Shapr3DModel2.webp"
                 />
             </section>
-            <TwoColumnMediaLayout
-                textSide="left"
+            <SectionSix 
+                challengeHeader = "Import to Blender"
+                challengeParagraph = "After creating the building in Shapr3D, the model was imported into Blender, where additional elements like lighting and a landscape were incorporated. As seen in the image, a cube was added around the project, and volumetric fog was applied to further enhance the atmosphere, adding both realism and a sense of mystery to the scene."
+                sticky = {false}
 
-                textBlocks={[ 
-                    { 
-                        header: "Import to Blender", 
-                        paragraph: "After creating the building in Shapr3D, the model was imported into Blender, where additional elements like lighting and a landscape were incorporated. As seen in the image, a cube was added around the project, and volumetric fog was applied to further enhance the atmosphere, adding both realism and a sense of mystery to the scene." 
-                    }
-                ]}
-
-                mediaColumnItems={[ 
-                    { imageSrc: "/media/citadel/shaprImport.png" },
-                ]}
-                
-                textColour="var(--black)"
+                imageOne = "/media/citadel/shaprImport.png"
             />
             <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Shading", 
-                        }
-                    ]}
-
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "The next step was creating the textures. The building is covered in a rusty texture, giving it an aged, weathered appearance that complements the surreal, dystopian theme. In contrast, the ground features a metallic and rough texture, adding a sense of harshness and weight to the environment. These textural choices help to create a dynamic contrast between the structure and its surroundings, further enhancing the overall atmosphere of the piece."
-                                }
-                            ]
-                        },
-                    ]}
+                <SectionFive 
+                    challengeHeader = "Shading"
+                    challengeParagraph = "The next step was creating the textures. The building is covered in a rusty texture, giving it an aged, weathered appearance that complements the surreal, dystopian theme. In contrast, the ground features a metallic and rough texture, adding a sense of harshness and weight to the environment. These textural choices help to create a dynamic contrast between the structure and its surroundings, further enhancing the overall atmosphere of the piece."
                 />
                 <SectionEight
                     imageOne="/media/citadel/shadingBuilding.png"
@@ -101,21 +80,14 @@ export default function Citadel({}) {
                     imageFour="/media/citadel/shadingCloseup.png"
                 />
             </section>
-            <TwoColumnMediaLayout
-                textSide="left"
 
-                textBlocks={[ 
-                    { 
-                        header: "Rendered Animation", 
-                        paragraph: "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece." 
-                    }
-                ]}
+            <SectionSix 
+                challengeHeader = "Rendered Animation"
+                challengeParagraph = "The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece."
+                sticky = {false}
 
-                mediaColumnItems={[ 
-                    { videoSrc: "/media/citadel/citadelVideo.mp4" , initialMute: false },
-                ]}
-                
-                textColour="var(--black)"
+                videoOne = "/media/citadel/citadelVideo.mp4"
+                initialMute={false}
             />
         </div>
     )
