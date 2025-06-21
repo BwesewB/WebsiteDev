@@ -121,14 +121,9 @@ export default function Flare({}) {
                 animationData={logoAnimation}
                 className={styles.fullWidth} 
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "Competitive Analysis", 
-                        paragraph: "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
-                    }
-                ]}
+            <SectionSeven
+                challengeHeader = "Competitive Analysis"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
             />
             <section className="sectionContainer">
                 <TwoColumnMediaLayout

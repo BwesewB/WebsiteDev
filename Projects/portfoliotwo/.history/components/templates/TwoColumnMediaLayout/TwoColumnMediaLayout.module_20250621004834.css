@@ -11,9 +11,9 @@
 }
 
 .tightGapMobile {
-    gap: var(--textGap) !important;
+    /* gap: var(--textGap); */
     
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 .gridColumn {
@@ -65,7 +65,7 @@
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr; /* Single column layout */
-        gap: var(--relatedComponentGap); 
+        /* gap: var(--relatedComponentGap);  */
     }
 
     /* Your .textContentWrapper style for mobile */

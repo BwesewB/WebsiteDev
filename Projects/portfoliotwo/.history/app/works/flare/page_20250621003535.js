@@ -130,6 +130,10 @@ export default function Flare({}) {
                     }
                 ]}
             />
+            <SectionSeven
+                challengeHeader = "Competitive Analysis"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
+            />
             <section className="sectionContainer">
                 <TwoColumnMediaLayout
                     textSide="left"

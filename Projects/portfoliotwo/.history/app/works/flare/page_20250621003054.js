@@ -121,14 +121,9 @@ export default function Flare({}) {
                 animationData={logoAnimation}
                 className={styles.fullWidth} 
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "Competitive Analysis", 
-                        paragraph: "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
-                    }
-                ]}
+            <SectionSeven
+                challengeHeader = "Competitive Analysis"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
             />
             <section className="sectionContainer">
                 <TwoColumnMediaLayout
@@ -160,24 +155,9 @@ export default function Flare({}) {
                 imageSrc="/media/flare/userStoryMap.png"
             />
             <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Flare Sitemap", 
-                        }
-                    ]}
-
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
-                                }
-                            ]
-                        },
-                    ]}
+                <SectionFive 
+                    challengeHeader = "Flare Sitemap"
+                    challengeParagraph = "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
                 />
                 <SectionTwo 
                     imageSrc="/media/flare/flareSitemap.png"
@@ -217,26 +197,11 @@ export default function Flare({}) {
                 
                 textColour="var(--black)"
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "User Testing", 
-                        paragraph: "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."
-                    }
-                ]}
-
-                mediaColumnItems={[
-                    {
-                        type: 'text',
-                        items: [
-                            {
-                                header: "Navigation Architecture",
-                                paragraph: "Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of the three features, ensuring ease of use when they need it most."
-                            }
-                        ]
-                    },
-                ]}
+            <SectionSeven
+                challengeHeader = "User Testing"
+                challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."
+                solutionHeader="Navigation Architecture"
+                solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of the three features, ensuring ease of use when they need it most."
             />
             <SectionOne 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."

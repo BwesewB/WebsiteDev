@@ -55,10 +55,7 @@ export default function TextContainer({
                 });
             }, containerRef);
             
-            return () => {
-                clearTimeout(timeout);
-                if (ctx) ctx.revert();
-            };
+            timeout.ctx = ctx; // Store context for cleanup
 
         }, 100); // A small delay for safety
 

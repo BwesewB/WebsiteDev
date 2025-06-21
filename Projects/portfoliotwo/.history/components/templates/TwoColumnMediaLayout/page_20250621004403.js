@@ -63,22 +63,22 @@ export default function TwoColumnMediaLayout({
     const leftColumnRef = useRef(null);
     const rightColumnRef = useRef(null);
 
-    const isSimpleHeaderParaStack = 
-    // Only apply on mobile
-    isMobile &&
-    // Check that the main text content is just a single header
-    textBlocks.length === 1 && 
-    textBlocks[0].header && 
-    !textBlocks[0].paragraph &&
-    // Check that the media column is just a single paragraph
-    mediaColumnItems.length === 1 &&
-    mediaColumnItems[0].type === 'text' &&
-    mediaColumnItems[0].items.length === 1 &&
-    mediaColumnItems[0].items[0].paragraph &&
-    !mediaColumnItems[0].items[0].header &&
-    // And there are no extra buttons or media
-    buttons.length === 0 &&
-    !inlineMedia;
+        const isSimpleHeaderParaStack = 
+        // Only apply on mobile
+        isMobile &&
+        // Check that the main text content is just a single header
+        textBlocks.length === 1 && 
+        textBlocks[0].header && 
+        !textBlocks[0].paragraph &&
+        // Check that the media column is just a single paragraph
+        mediaColumnItems.length === 1 &&
+        mediaColumnItems[0].type === 'text' &&
+        mediaColumnItems[0].items.length === 1 &&
+        mediaColumnItems[0].items[0].paragraph &&
+        !mediaColumnItems[0].items[0].header &&
+        // And there are no extra buttons or media
+        buttons.length === 0 &&
+        !inlineMedia;
     
     // 2. Conditionally apply a special CSS class if the condition is met.
     const containerClasses = `${styles.container} ${isSimpleHeaderParaStack ? styles.tightGapMobile : ''}`;

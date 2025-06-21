@@ -11,9 +11,9 @@
 }
 
 .tightGapMobile {
-    gap: var(--textGap) !important;
+    /* gap: var(--textGap); */
     
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 .gridColumn {

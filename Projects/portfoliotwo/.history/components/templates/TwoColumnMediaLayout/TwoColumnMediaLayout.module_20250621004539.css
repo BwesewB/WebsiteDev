@@ -1,6 +1,7 @@
 
 .container {
     display: grid;
+
     grid-template-columns: 1fr 1fr; 
     width: 100%;
     height: auto;
@@ -11,9 +12,7 @@
 }
 
 .tightGapMobile {
-    gap: var(--textGap) !important;
-    
-    /* border: 1px solid red; */
+    gap: var(--textGap); /* Adjust gap for mobile if needed */
 }
 
 .gridColumn {
@@ -49,14 +48,14 @@
 }
 
 .inlineMediaWrapper {
-    /* margin-top: var(--spacing-small, 10px); */
+    margin-top: var(--spacing-small, 10px);
 }
 
 
 .mediaCentricContentWrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--relatedComponentGap); 
+    gap: var(--relatedComponentGap, 30px); 
     width: 100%;
     position: relative;
 }
@@ -65,7 +64,7 @@
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr; /* Single column layout */
-        gap: var(--relatedComponentGap); 
+        gap: var(--relatedComponentGap, 20px); /* Adjust gap for mobile if needed */
     }
 
     /* Your .textContentWrapper style for mobile */

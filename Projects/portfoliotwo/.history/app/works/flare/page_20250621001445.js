@@ -103,9 +103,9 @@ export default function Flare({}) {
                     {
                         type: 'buttons', 
                         items: [
-                            { text: "VISIT", icon: "arrow", externalLink: "https://www.flare-bc.com/" },
-                            { text: "SOURCE CODE", icon: "github", externalLink: "https://github.com/BCITKevin/Flare_IDSP" },
-                            { text: "WIREFRAME", icon: "figma", externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1" }
+                            { text: "VISIT", icon: "arrow", externalLink: "..." },
+                            { text: "SOURCE CODE", icon: "github", externalLink: "..." },
+                            { text: "WIREFRAME", icon: "figma", externalLink: "..." }
                         ]
                     }
                 ]}
@@ -121,34 +121,14 @@ export default function Flare({}) {
                 animationData={logoAnimation}
                 className={styles.fullWidth} 
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "Competitive Analysis", 
-                        paragraph: "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
-                    }
-                ]}
+            <SectionSeven
+                challengeHeader = "Competitive Analysis"
+                challengeParagraph = "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
             />
             <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Our Users", 
-                        }
-                    ]}
-
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
-                                }
-                            ]
-                        },
-                    ]}
+                <SectionFive 
+                    challengeHeader = "Our Users"
+                    challengeParagraph = "User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
                 />
                 <SectionEight
                     imageOne="/media/flare/flarePersona1.webp"
@@ -160,24 +140,9 @@ export default function Flare({}) {
                 imageSrc="/media/flare/userStoryMap.png"
             />
             <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Flare Sitemap", 
-                        }
-                    ]}
-
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
-                                }
-                            ]
-                        },
-                    ]}
+                <SectionFive 
+                    challengeHeader = "Flare Sitemap"
+                    challengeParagraph = "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
                 />
                 <SectionTwo 
                     imageSrc="/media/flare/flareSitemap.png"
@@ -195,14 +160,14 @@ export default function Flare({}) {
                 textBlocks={[ // This content goes to the LEFT column
                     { 
                         header: "Design Process", 
-                        paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
+                        paragraph: "A team of four designers was responsible..." 
                     }
                 ]}
                 buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
                     {
                         text: "WIREFRAME",
                         icon: "figma",
-                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
+                        externalLink: "..." // Please fill in the actual link
                     }
                 ]}
 
@@ -217,26 +182,11 @@ export default function Flare({}) {
                 
                 textColour="var(--black)"
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "User Testing", 
-                        paragraph: "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."
-                    }
-                ]}
-
-                mediaColumnItems={[
-                    {
-                        type: 'text',
-                        items: [
-                            {
-                                header: "Navigation Architecture",
-                                paragraph: "Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of the three features, ensuring ease of use when they need it most."
-                            }
-                        ]
-                    },
-                ]}
+            <SectionSeven
+                challengeHeader = "User Testing"
+                challengeParagraph = "User tests were conducted during the HiFi and LoFi mockup stages, as well as throughout the coding process. Weekly sprints and user testing for all five website pages ensured continuous refinement and improvement. These one-week sprints enabled rapid iteration based on feedback, aligning the designs with project goals while enhancing usability and functionality with each cycle."
+                solutionHeader="Navigation Architecture"
+                solutionParagraph="Structuring the site content in a clear and logical way was crucial to improving the user experience. The result is a carefully designed navigation system that enables users to quickly access any of the three features, ensuring ease of use when they need it most."
             />
             <SectionOne 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."

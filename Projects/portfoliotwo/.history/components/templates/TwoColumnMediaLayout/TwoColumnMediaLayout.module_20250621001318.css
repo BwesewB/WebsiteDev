@@ -1,0 +1,85 @@
+/* Your base container style - using Grid */
+.container {
+    display: grid;
+    /* Default to two columns for desktop, will be overridden for mobile */
+    grid-template-columns: 1fr 1fr; 
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition: 0.5s ease-in-out; /* Your transition */
+    gap: var(--relatedComponentGap); /* Your gap, added a default fallback */
+    /* border: 1px solid red; */ /* Your debug border */
+}
+
+/* Common style for direct children of the grid container (desktop columns) */
+.gridColumn {
+    width: 100%; /* Take full width of the grid cell */
+    position: relative; /* For positioning context of sticky/absolute children */
+    display: flex; /* To allow content within to align/stack easily if needed */
+    flex-direction: column; /* Stack multiple items within this column */
+    /* border: 1px dashed blue; */
+}
+
+/* Specific identifiers for left and right grid columns, mainly for endTrigger */
+.leftGridColumn {}
+.rightGridColumn {}
+
+/* Wrapper for main text content (text blocks, buttons, inline media) */
+.textContentWrapper {
+    position: relative; /* Your original style */
+    display: flex;
+    flex-direction: column;
+    gap: var(--textGap);
+}
+
+/* Your button container style */
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+/* Styles for buttons when they are part of the 'mediaColumnItems' */
+.mediaColumnButtonContainer {
+    /* Can inherit from .buttonContainer or have specific overrides */
+    /* e.g., if they need to be centered or full-width in that column */
+}
+
+.inlineMediaWrapper {
+    margin-top: var(--spacing-small, 10px); /* Adjust as needed */
+}
+
+/* Wrapper for content in the "media-centric" column (multiple SectionTwo, or other types) */
+.mediaCentricContentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--relatedComponentGap, 30px); /* Gap between multiple media items / content blocks */
+    width: 100%;
+    position: relative; /* From your original .mediaColumn */
+}
+
+/* Mobile Layout Adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: var(--relatedComponentGap, 20px); /* Adjust gap for mobile if needed */
+    }
+
+    /* Your .textContentWrapper style for mobile */
+    .textContentWrapper {
+        padding: 0; 
+        width: 100%;
+    }
+    
+    /* Wrappers for content blocks on mobile, if specific styling is needed */
+    .mobileTextCentricWrapper,
+    .mobileOtherMediaWrapper {
+        width: 100%;
+    }
+}
+
+/*
+  Note: The .splitLine class for GSAP text animation is defined in
+  TextContainer.module.css and will be applied by the TextContainer component itself.
+*/
