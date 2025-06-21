@@ -1,0 +1,126 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw; /* Match viewport width initially */
+    max-width: 100%;
+    padding: var(--sideSpacing);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-primary);
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 1.6px;
+    color: var(--blue);
+    text-decoration: none;
+    flex-shrink: 0;
+    z-index: 1000;
+    transition: padding 0.5s ease-in-out;
+    user-select: none;   
+}
+
+.logoContainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100px) rotate(-45deg);
+}
+
+.navPages{
+    display: flex;
+    justify-content: space-between;
+    gap: var(--textGap);
+    user-select: none;
+    overflow: hidden;
+    width: 0;
+    /* transform: translateX(-100px); */
+}
+
+.menuWord {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    overflow: hidden;
+}
+
+.linkContainer{
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.hoverMenu{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    cursor: pointer;
+    overflow: hidden;
+    transform: translateX(100px);
+}
+
+.textNav {
+    text-transform: none;
+    height: 100%;
+    padding-left: var(--sideSpacing);
+    padding-right: var(--sideSpacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    overflow: hidden;
+    transform: translateX(60px) scale(0.3);
+    width: 0;
+}
+
+.arrowDivOne, .arrowDivTwo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    /* border: 2px solid yellow; */
+}
+
+.arrowDivOne {
+    width: 60px;
+    height: 60px;
+    transform: scale(0.1);
+}
+
+.arrowDivTwo {
+    width: 0;
+    height: 0;
+}
+
+.arrowContainerOne, .arrowContainerTwo{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.arrowContainerOne {
+    transform: translateX(50px) rotate(-135deg);
+}
+
+.arrowContainerTwo {
+    transform: rotate(45deg);
+}
+
+/* Media Queries */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: calc(2 * var(--sideSpacing));
+    }
+}
