@@ -1,0 +1,21 @@
+.inkBleedContainer {
+  position: relative; /* Crucial for stacking */
+  display: inline-block; /* Or block, depending on your layout */
+  padding: 10px;
+  cursor: pointer;
+}
+
+.inkBleedCanvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sits on top of the background, but below text */
+}
+
+.contentOnTop {
+  position: relative;
+  z-index: 2; /* Ensures the text is on top of the canvas */
+  pointer-events: none; /* Allows mouse events to pass through to the container */
+}
