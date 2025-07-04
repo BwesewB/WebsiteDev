@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 import { useState, useEffect } from "react";
 import MobileNavbar from "../mobileNav/page";
+import BleedText from "@/components/atoms/inkBleedFilter/bleedText";
 
 // A simple SVG logo component for demonstration
 // const Logo = ({ color }) => (
@@ -43,12 +44,17 @@ export default function Navbar({
                     <MobileNavbar />
                 ) : (
                     <h5 className={styles.desktopNav}>
-                        <Link href="/">Home</Link>
+                        <BleedText>
+                            <Link href="/">Home</Link>
+                        </BleedText>
                         <Link href="/about">About</Link>
                         <Link href="/works">Works</Link>
                         <Link href="/gallery">Gallery</Link>
                     </h5>
                 )}
+                                        <BleedText>
+                            <h1 href="/">Home</h1>
+                        </BleedText>
             </nav>
         </>
 

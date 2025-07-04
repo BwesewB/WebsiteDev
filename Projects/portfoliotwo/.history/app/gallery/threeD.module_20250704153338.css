@@ -1,0 +1,50 @@
+
+
+.torusScene{
+    width: 100vw;
+    height: var(--heroHeight);
+    cursor: move;
+    /* position: fixed; */
+}
+
+.torusFloat {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    mix-blend-mode: lighten;
+    z-index: 1;
+}
+
+.threeDProjectDisplay {
+    width: 100%;
+    height: auto;
+    /* background-color: var(--blue); */
+    z-index: -1000;
+    user-select: none;
+}
+.masonryGrid {
+    display: flex;
+    width: 100%;
+    gap: var(--relatedComponentGap);
+}
+
+/* Ensures each column takes full width */
+.masonryColumn {
+    background-clip: padding-box;
+}
+
+.imageContainer {
+    width: 100%;
+    padding-bottom:  var(--relatedComponentGap);
+}
+
+.imageContainer img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* transform: scale(0.8); */
+}
+
+.wideImage {
+    width: 100%;
+}

@@ -20,6 +20,7 @@ export default function TextContainer({
     useLayoutEffect(() => {
         if (!header && !paragraph) return;
 
+        // We use a timeout to ensure all DOM elements are ready, especially in Next.js
         const timeout = setTimeout(() => {
             const elementsToSplit = [
                 containerRef.current.querySelector("h4"),
@@ -29,50 +30,43 @@ export default function TextContainer({
             if (elementsToSplit.length === 0) return;
 
             const ctx = gsap.context(() => {
-                // We wrap each line in a parent div to create a mask.
-                // The outer div gets the `split-line-parent` class from GSAP.
-                // The inner div (the actual text line) gets the styles.splitLine class.
                 const split = new SplitText(elementsToSplit, {
                     type: "lines",
-                    linesClass: styles.splitLine // The actual line of text
+                    linesClass: styles.splitLine
                 });
 
-                // NEW: Wrap each line in a div that will act as the mask
-                split.lines.forEach((line) => {
-                    const wrapper = document.createElement("div");
-                    wrapper.style.overflow = "hidden";
-                    line.parentNode.appendChild(wrapper);
-                    wrapper.appendChild(line);
-                });
-
+                // The animation itself remains the same...
                 gsap.from(split.lines, {
                     yPercent: 100,
-                    duration: 0.8,
+                    duration: 0.6,
                     ease: "power4.out",
-                    stagger: 0.07,
+                    stagger: 0.2,
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: startTrigger,
                         toggleActions: "play none none none",
                     },
+                    // THE FIX: When the animation is complete, revert the split.
                     onComplete: () => {
-                        // Revert the split to clean up the DOM
                         if (split.isSplit) {
                             split.revert();
                         }
                     }
                 });
             }, containerRef);
-
+            
             return () => {
                 clearTimeout(timeout);
                 if (ctx) ctx.revert();
             };
 
-        }, 100);
+        }, 100); // A small delay for safety
 
         return () => {
             clearTimeout(timeout);
+            if (timeout.ctx) {
+                timeout.ctx.revert();
+            }
         };
 
     }, [header, paragraph, startTrigger]);

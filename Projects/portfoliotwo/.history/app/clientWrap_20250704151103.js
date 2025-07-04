@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import InkBleedFilter from "@/components/atoms/inkBleedFilter/page";
 // import Footer from "./components/uiComponents/footer/page";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -103,6 +104,7 @@ export default function ClientWrap({ children }) {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="page-container">
+            
             <main>
               {children}  
             </main>

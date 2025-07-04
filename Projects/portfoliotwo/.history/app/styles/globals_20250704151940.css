@@ -1,0 +1,279 @@
+:root{
+  --white: #edf2f5; /* FAFDFF */
+  --grey: #B4B7B6;
+  --black: #0D0F11;
+
+  --lightBlue: #B0CADF;
+  --blue: #0051AC;
+  --sand: #EBE3D5;
+  --brown: #452B1D;
+
+  --font-primary: "TWK Lausanne", sans-serif;
+  --font-weight-button: 600;
+
+  --paddingleftRight: 10px; /*could be renamed as not just padding left and right*/
+  --sideSpacing: 30px;
+  --itemSpacing: 180px;
+  --imgBorderRadius:10px;
+  --relatedComponentGap:40px;
+  --textGap:20px;
+  --heroHeight: 90vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  box-sizing: border-box !important;
+}
+
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, p{
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3,  h5 {
+  text-transform: uppercase;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Font Face Declaration */
+@font-face {
+  font-family: "KosugiMaru";
+  src: url("/fonts/japanese/MPLUS1Code-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-200.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-400.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-500.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-600.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-700.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/Lausanne/TWKLausanne-800.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Headings */
+h1 {
+  font-family: var(--font-primary);
+  font-size: clamp(96px, 10vw, 130px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 70.4px */
+  margin-top: -24px;
+  /* margin-left: -10px; */
+}
+
+h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(72px, 8vw, 96px);
+  /* font-size: 48px; */
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  margin-top: -14px;
+  margin-left: -8px;
+}
+
+h3 {
+  font-family: var(--font-primary);
+  font-size: clamp(56px, 6vw, 72px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 32px */
+}
+
+h4 {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h5 {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.h5stretched {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 2px;
+}
+
+/* Paragraph Styles */
+p {
+  font-family: var(--font-primary);
+  font-size: clamp(14px, 1vw, 18px);
+  /* font-size: 1.1vw; */
+  font-style: normal;
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+/* Page Styles */
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: var(--itemSpacing);
+  /* border: 3px solid green; */
+}
+
+.pinContainer {
+  position: relative;
+  width: 100vw;
+  padding-left: calc(-1 * var(--paddingleftRight));
+  padding-right: calc(-1 * var(--paddingleftRight));
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--relatedComponentGap);
+}
+
+.hero {
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+}
+
+.page-container {
+  position: relative;
+  padding-left: calc(2 * var(--paddingleftRight));
+  padding-right: calc(2 * var(--paddingleftRight));
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+.ink-bleed-filter {
+  /* This is the magic line that applies the SVG filter */
+  filter: url(#ink-bleed-filter);
+
+  /* Making it inline-block ensures the filter applies correctly */
+  display: inline-block;
+  padding: 0.2em; /* Add a little padding so the bleed has room */
+  margin: -0.2em;
+  cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  :root {
+    --itemSpacing: 90px;
+  }
+
+  body {
+    padding-left: var(--paddingleftRight);
+    padding-right: var(--paddingleftRight);
+  }
+
+  h1 {
+    font-size: 96px;
+  }
+
+  h2 {
+    font-size: 72px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  h3 {
+    font-size: 56px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --sideSpacing: 10px;
+    --relatedComponentGap:40px;
+    --textGap: 5px;
+  }
+
+  h1 {
+    font-size: 72px;
+  }
+
+  h2 {
+    font-size: 56px;
+  }
+
+  h3 {
+    font-size: 42px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+
+
+}

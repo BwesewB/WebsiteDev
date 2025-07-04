@@ -49,7 +49,7 @@ export default function TextContainer({
                     yPercent: 100,
                     duration: 0.8,
                     ease: "power4.out",
-                    stagger: 0.07,
+                    stagger: 0.05,
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: startTrigger,

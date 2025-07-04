@@ -1,0 +1,10 @@
+.bleedText {
+  /* This is the magic line that applies the SVG filter */
+  filter: url(#ink-bleed-filter);
+
+  /* Making it inline-block ensures the filter applies correctly */
+  display: inline-block;
+  padding: 0.2em; /* Add a little padding so the bleed has room */
+  margin: -0.2em;
+  cursor: pointer;
+}
