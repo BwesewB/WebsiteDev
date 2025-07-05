@@ -1,0 +1,40 @@
+/* components/Name.module.css */
+
+/* --- Container Logic --- */
+
+.nameContainer {
+  /* Common properties for the container */
+  z-index: 100; /* Ensure it's above most content */
+}
+
+/* 1. STATE FOR OTHER PAGES (Already in Navbar) */
+.navLayout {
+  position: fixed;
+  top: var(--sideSpacing, 2rem);   /* Use CSS variables for consistency */
+  left: var(--sideSpacing, 2rem);
+}
+
+/* 2. STATE FOR HOMEPAGE (Starts in page, then sticks) */
+.homeLayout {
+  /* On the homepage, this container is just a regular block in the layout */
+  /* The child link inside will be the sticky element */
+  padding-left: var(--sideSpacing, 2rem);
+  padding-bottom: 2rem;
+}
+
+/* --- Link Styling (The actual sticky element) --- */
+
+.nameLink {
+  display: inline-block; /* Necessary for sticky to work correctly */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+}
+
+/* This is the magic for the homepage */
+.homeLayout .nameLink {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: var(--sideSpacing, 2rem); /* Sticks 2rem from the top */
+}

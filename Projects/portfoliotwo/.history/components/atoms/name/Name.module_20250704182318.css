@@ -1,0 +1,56 @@
+/* components/atoms/name/name.module.css */
+
+/* --- Shared Styles --- */
+.nameContainer {
+  border: 1px solid blue;
+  width: 100%;
+}
+.nameContainer h1 {
+  margin: 0;
+  padding: 1rem 2rem;
+  /* Starting font size for the homepage */
+  font-size: 4rem; /* Or whatever your large size is */
+
+  /* CRITICAL: This allows us to move the spans around */
+  display: flex;
+  white-space: nowrap; /* Prevent letters from wrapping */
+}
+
+/* 
+  Style for each individual letter span.
+  Making them inline-block is key for GSAP transforms to work.
+*/
+.nameContainer h1 span {
+  display: inline-block;
+  min-width: 0.2ch; /* Give the space a tiny bit of width */
+}
+
+
+/* --- Styles for HOMEPAGE --- (Unchanged) */
+.nameOuterHome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid red;
+  pointer-events: none;
+}
+
+.nameOuterHome > div {
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+  pointer-events: auto;
+}
+
+
+/* --- Styles for OTHER PAGES --- (Unchanged) */
+.nameOuterOther {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100; 
+  width: 100%;
+  border: 1px solid green;
+}

@@ -1,0 +1,21 @@
+
+.nameOuter {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end;  */
+    /* padding-top: 80vh;  */
+    width: 100%;
+    top:0;
+    border: 1px solid red;
+    position: absolute;
+}
+
+.nameContainer {
+       
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.nameContainer h1 {
+    margin: 0;
+}

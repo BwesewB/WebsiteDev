@@ -1,0 +1,14 @@
+.nameOuter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    border: 1px solid green;
+    width: 100%;
+    position:absolute;
+}
+
+.nameContainer{
+    padding-bottom: 2rem;
+    border: 1px solid blue;
+    position:sticky;
+}

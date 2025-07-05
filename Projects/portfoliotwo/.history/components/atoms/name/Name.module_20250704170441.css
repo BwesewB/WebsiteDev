@@ -1,0 +1,21 @@
+
+.nameOuter {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end;  */
+    height: 100vh;
+    width: 100%;
+    top:0;
+    border: 1px solid red;
+}
+
+.nameContainer {
+  margin-top: 90vh;
+    border: 1px solid blue;
+    width: 100%;
+    background-color: var(--white); /* Or your page's background color */
+}
+
+.nameContainer h1 {
+    margin: 0;
+}

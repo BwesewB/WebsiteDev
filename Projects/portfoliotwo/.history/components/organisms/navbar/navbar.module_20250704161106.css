@@ -1,0 +1,47 @@
+.navbar {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.logoContainer {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+
+}
+
+.desktopNav {
+    display: flex;
+    gap: 2rem;
+}
+
+.desktopNav a {
+    color: var(--black); /* You can change this to use the textColor prop */
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.desktopNav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--black);
+    transition: width 0.3s ease-out;
+}
+
+.desktopNav a:hover::after {
+    width: 100%;
+}

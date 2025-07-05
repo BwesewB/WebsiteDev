@@ -1,0 +1,47 @@
+/* --- Shared Styles --- */
+.nameContainer {
+  /* This is the blue box with the h1 inside */
+  border: 1px solid blue;
+  width: 100%;
+}
+.nameContainer h1 {
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+
+/* --- 1. Styles for the HOMEPAGE --- */
+.nameOuterHome {
+  /* 
+    This is the red box (the trigger area).
+    It starts as a regular div in the layout flow.
+    Its height will be set dynamically by JavaScript.
+    We use position relative so the absolute child is positioned correctly.
+  */
+  position: relative;
+  width: 100%;
+  border: 1px solid red;
+}
+
+/* On the homepage, the StickyContainer will have its child absolutely positioned */
+.nameOuterHome > div {
+  position: absolute;
+  bottom: 0; /* Position it at the bottom of the red box */
+  left: 0;
+  width: 100%;
+}
+
+
+/* --- 2. Styles for OTHER PAGES --- */
+.nameOuterOther {
+  /*
+    On other pages, the name is just fixed at the top left.
+    Simple and clean. No JS height calculation needed.
+  */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100; /* Make sure it's on top */
+  width: 100%;
+  border: 1px solid green; /* A different color for debugging */
+}
