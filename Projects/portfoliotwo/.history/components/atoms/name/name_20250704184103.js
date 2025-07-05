@@ -25,44 +25,41 @@ export default function Name({ isHomePage, homePageHeight }) {
         const h1 = h1Ref.current;
         if (!h1) return;
 
-        const pinnedElement = h1.parentElement;
+        const pinnedElement = h1.parentElement; 
         const lettersToHide = gsap.utils.toArray('.letter-hide', h1);
+        const lettersToMove = gsap.utils.toArray('.letter-move', h1);
+
         if (lettersToHide.length === 0) return;
+
+        // 1. DYNAMICALLY CALCULATE THE GAP WIDTH
+        let gapWidth = 0;
+        const letterBoxes = lettersToHide.map(el => el.getBoundingClientRect());
+        letterBoxes.forEach(box => gapWidth += box.width);
         
         const tl = gsap.timeline({ paused: true });
 
-        // THE "BRUTE FORCE" ANIMATION - We target every possible spacing property
-        const hideAnimation = {
-            opacity: 0,
-            width: 0,
-            minWidth: 0, // Also animate min-width
-            padding: 0,  // Animate all padding
-            margin: 0,   // Animate all margin
-            duration: 0.4,
-            stagger: 0.02,
-            ease: "power2.in",
-        };
-
         tl
-          .to(h1, { 
-            fontSize: "1rem", 
-            duration: 0.6, 
-            ease: "power2.inOut" 
+          .to(h1, { fontSize: "1rem", duration: 0.6, ease: "power2.inOut" }, 0)
+          .to(lettersToHide, {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.02,
+            ease: "power2.in"
           }, 0)
-          
-          .to(lettersToHide, hideAnimation, 0)
-          
-          // --- THE GUARANTEED COLLAPSE FIX ---
-          // After the hide animation finishes, instantly set display to none.
-          // This removes any final residual space. GSAP will reverse this on `tl.reverse()`.
-          .set(lettersToHide, { display: 'none' });
+          .to(lettersToMove, {
+            x: -gapWidth, // Use the precise pixel value
+            duration: 0.6,
+            ease: "power2.inOut"
+          }, 0);
 
+        // 2. USE MORE ROBUST SCROLLTRIGGER SETTINGS
         ScrollTrigger.create({
           trigger: pinnedElement,
           start: "top top",
-          end: "top top-=15px",
-          onEnter: () => tl.play(),
-          onLeaveBack: () => tl.reverse(),
+          end: "top top-=10", // Create a 10px active zone
+          toggleActions: "play none reverse reset", // "reset" is our failsafe
+          animation: tl,
           // markers: true,
         });
 
@@ -71,6 +68,7 @@ export default function Name({ isHomePage, homePageHeight }) {
       return () => animationContext.revert();
     }
   }, [isHomePage]);
+
   // --- JSX (No changes needed here) ---
   const nameContent = (
     <div className={styles.nameContainer}>

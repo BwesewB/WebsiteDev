@@ -19,58 +19,73 @@ export default function Name({ isHomePage, homePageHeight }) {
 
   useLayoutEffect(() => {
     if (isHomePage) {
+      // --- Part 1: Make StickyContainer work ---
+      // We must set its endTrigger ref. This makes it sticky.
       endTriggerForSticky.current = nameOuterRef.current;
       
+      // --- Part 2: Set up the "play once" animation ---
       const animationContext = gsap.context(() => {
         const h1 = h1Ref.current;
         if (!h1) return;
 
-        const pinnedElement = h1.parentElement;
+        // The element that will be pinned by StickyContainer
+        const pinnedElement = h1.parentElement; 
+
         const lettersToHide = gsap.utils.toArray('.letter-hide', h1);
+        const lettersToMove = gsap.utils.toArray('.letter-move', h1);
+
         if (lettersToHide.length === 0) return;
-        
+
+        // --- Create a timeline, but keep it PAUSED initially ---
         const tl = gsap.timeline({ paused: true });
 
-        // THE "BRUTE FORCE" ANIMATION - We target every possible spacing property
-        const hideAnimation = {
-            opacity: 0,
-            width: 0,
-            minWidth: 0, // Also animate min-width
-            padding: 0,  // Animate all padding
-            margin: 0,   // Animate all margin
-            duration: 0.4,
-            stagger: 0.02,
-            ease: "power2.in",
-        };
-
+        // Define the animation steps (what it should animate TO)
         tl
-          .to(h1, { 
-            fontSize: "1rem", 
-            duration: 0.6, 
-            ease: "power2.inOut" 
+          .to(h1, { fontSize: "1rem", duration: 0.6, ease: "power2.inOut" }, 0)
+          .to(lettersToHide, {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.02,
+            ease: "power2.in"
+            
           }, 0)
-          
-          .to(lettersToHide, hideAnimation, 0)
-          
-          // --- THE GUARANTEED COLLAPSE FIX ---
-          // After the hide animation finishes, instantly set display to none.
-          // This removes any final residual space. GSAP will reverse this on `tl.reverse()`.
-          .set(lettersToHide, { display: 'none' });
+          .to(lettersToMove, {
+            xPercent: -65, // Adjust this value if spacing is off
+            duration: 0.6,
+            ease: "power2.inOut"
+          }, 0);
 
+        // --- Create the ScrollTrigger to control the timeline ---
         ScrollTrigger.create({
+          // The trigger is the pinned element itself!
           trigger: pinnedElement,
-          start: "top top",
-          end: "top top-=15px",
+          
+          // Animate when the top of the pinned element hits the top of the viewport
+          start: "top top", 
+          
+          // No "end" needed for this type of trigger
+          
+          // This is the magic for a "play once" animation
+          // onEnter: play forward
+          // onLeave: do nothing
+          // onEnterBack: play in reverse
+          // onLeaveBack: do nothing
+          toggleActions: "play none reverse none",
+          
+          // We link it to our timeline by calling .play() and .reverse()
           onEnter: () => tl.play(),
-          onLeaveBack: () => tl.reverse(),
-          // markers: true,
+          onEnterBack: () => tl.reverse(),
+          
+          // markers: true, // Crucial for debugging the trigger point!
         });
 
       }, nameOuterRef);
 
       return () => animationContext.revert();
     }
-  }, [isHomePage]);
+  }, [isHomePage]); // Dependency array is correct
+
   // --- JSX (No changes needed here) ---
   const nameContent = (
     <div className={styles.nameContainer}>

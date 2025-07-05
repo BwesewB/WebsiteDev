@@ -29,19 +29,8 @@ export default function Name({ isHomePage, homePageHeight }) {
         const lettersToHide = gsap.utils.toArray('.letter-hide', h1);
         if (lettersToHide.length === 0) return;
         
+        // --- THE NEW, SIMPLER TIMELINE ---
         const tl = gsap.timeline({ paused: true });
-
-        // THE "BRUTE FORCE" ANIMATION - We target every possible spacing property
-        const hideAnimation = {
-            opacity: 0,
-            width: 0,
-            minWidth: 0, // Also animate min-width
-            padding: 0,  // Animate all padding
-            margin: 0,   // Animate all margin
-            duration: 0.4,
-            stagger: 0.02,
-            ease: "power2.in",
-        };
 
         tl
           .to(h1, { 
@@ -50,20 +39,33 @@ export default function Name({ isHomePage, homePageHeight }) {
             ease: "power2.inOut" 
           }, 0)
           
-          .to(lettersToHide, hideAnimation, 0)
+          // THE FIX for the disappearing "fok":
+          // We animate the width and padding of the hidden letters to 0.
+          // This makes them TRULY collapse, allowing flexbox to pull "fok" into place.
+          .to(lettersToHide, {
+            width: 0,
+            paddingRight: 0, // Ensure no extra space remains
+            opacity: 0, // Still fade them out
+            duration: 0.4,
+            stagger: 0.02,
+            ease: "power2.in"
+          }, 0);
           
-          // --- THE GUARANTEED COLLAPSE FIX ---
-          // After the hide animation finishes, instantly set display to none.
-          // This removes any final residual space. GSAP will reverse this on `tl.reverse()`.
-          .set(lettersToHide, { display: 'none' });
+          // We NO LONGER need to animate ".letter-move". Flexbox does the work!
 
+        // --- THE FIX for the jumpy animation ---
+        // We go back to explicit callbacks, which are more reliable than toggleActions for this.
         ScrollTrigger.create({
           trigger: pinnedElement,
+          // The trigger zone is when the top of the element is between the top of the
+          // viewport and 15px below it. This makes it less likely to be missed.
           start: "top top",
           end: "top top-=15px",
+          
           onEnter: () => tl.play(),
           onLeaveBack: () => tl.reverse(),
-          // markers: true,
+          
+          // markers: true, // Keep for debugging!
         });
 
       }, nameOuterRef);
