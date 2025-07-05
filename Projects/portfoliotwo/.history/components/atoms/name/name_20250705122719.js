@@ -82,24 +82,17 @@ export default function Name({ isHomePage, homePageHeight }) {
                 width: '100%',
             }, 0)
             tl.to(lettersToHide, {
+                opacity: 1,
                 xPercent: 0,
                 width: 'auto', 
                 minWidth: '', 
-                padding: '',
+                paddingLeft: '',
+                paddingRight: '',
                 margin: '',
                 stagger: 0.03,
-                duration: 0.1, 
-                ease: "power4.out",
-                onComplete: () => {
-                    gsap.to(lettersToHide, {
-                        // delay: 0.2,
-                        xPercent: 0,
-                        duration: 0.5, 
-                        stagger: 0.02,
-                        ease: "power2.inOut",
-                        opacity: 1,
-                    });
-                }
+                duration: 0.8, 
+                ease: "power2.out",
+                clearProps: "all" 
             }, 0.2);
         };
 

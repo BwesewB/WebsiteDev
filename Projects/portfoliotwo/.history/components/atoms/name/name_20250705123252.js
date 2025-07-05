@@ -88,17 +88,17 @@ export default function Name({ isHomePage, homePageHeight }) {
                 padding: '',
                 margin: '',
                 stagger: 0.03,
-                duration: 0.1, 
+                duration: 0.2, 
                 ease: "power4.out",
                 onComplete: () => {
                     gsap.to(lettersToHide, {
                         // delay: 0.2,
                         xPercent: 0,
-                        duration: 0.5, 
-                        stagger: 0.02,
+                        duration: 0.2, 
+                        stagger: 0.01,
                         ease: "power2.inOut",
                         opacity: 1,
-                    });
+                    }, 0.2);
                 }
             }, 0.2);
         };

@@ -17,7 +17,7 @@
 .nameContainer h1 span {
   display: inline-block;
   min-width: 0.2ch;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
 }
 
 .nameOuterHome {

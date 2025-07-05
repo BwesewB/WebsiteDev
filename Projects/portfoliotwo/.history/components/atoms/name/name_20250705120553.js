@@ -64,7 +64,7 @@ export default function Name({ isHomePage, homePageHeight }) {
                     ease: "power2.inOut",
                     onComplete: () => {
                         gsap.to(lettersToHide, {
-                            xPercent: -50,
+                            yPercent: 100,
                         });
                     }
                 }, 0);
@@ -73,34 +73,30 @@ export default function Name({ isHomePage, homePageHeight }) {
         const playBackward = () => {
             setIsSmall(false);
             const tl = gsap.timeline();
-            tl.to(h1, { 
-                fontSize: originalFontSize, 
-                duration: 0.5, 
-                ease: "power2.inOut" 
-            });
-            tl.to(nameContainer, {
-                width: '100%',
-            }, 0)
-            tl.to(lettersToHide, {
-                xPercent: 0,
-                width: 'auto', 
-                minWidth: '', 
-                padding: '',
-                margin: '',
-                stagger: 0.03,
-                duration: 0.1, 
-                ease: "power4.out",
-                onComplete: () => {
-                    gsap.to(lettersToHide, {
-                        // delay: 0.2,
-                        xPercent: 0,
-                        duration: 0.5, 
-                        stagger: 0.02,
-                        ease: "power2.inOut",
-                        opacity: 1,
-                    });
-                }
-            }, 0.2);
+            tl.to(h1, { fontSize: originalFontSize, duration: 0.5, ease: "power2.inOut" });
+                tl.to(nameContainer, {
+                    width: '100%',
+                }, 0)
+            tl.add(() => {
+                gsap.set(lettersToHide, {
+                    delay: 0.2,
+                    width: 'auto',
+                    minWidth: '',
+                    padding: '',
+                    margin: '',
+                    stagger: 0.02,
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                });
+                gsap.to(lettersToHide, {
+                    delay: 0.2,
+                    opacity: 1,
+                    duration: 0.3,
+                    stagger: 0.02,
+                    yPercent: 0,
+                    ease: "power2.in"
+                });
+            }, "<");
         };
 
       ScrollTrigger.create({
