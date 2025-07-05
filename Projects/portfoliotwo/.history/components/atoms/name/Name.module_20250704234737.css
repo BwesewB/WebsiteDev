@@ -1,0 +1,45 @@
+
+.nameContainer {
+  border: 1px solid blue;
+  width: auto;
+  margin: calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight));
+  cursor: pointer;
+  z-index: 1000 !important; 
+}
+.nameContainer h1 {
+  margin: 0;
+  display: flex;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+.nameContainer h1 span {
+  display: inline-block;
+  min-width: 0.2ch;
+}
+
+.nameOuterHome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  border: 1px solid red;
+}
+
+.nameOuterHome > div {
+  position: absolute;
+  margin-top: 80vh;
+  left: 0;
+  width: 100%;
+}
+
+.nameOuterOther {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  width: 100%;
+  border: 1px solid green;
+  padding: 1.5rem 2rem;
+}

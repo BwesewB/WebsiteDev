@@ -1,0 +1,40 @@
+
+.nameContainer {
+  border: 1px solid blue;
+  width: auto;
+  margin: calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight));
+  cursor: pointer;
+}
+.nameContainer h1 {
+  margin: 0;
+  display: flex;
+  white-space: nowrap;
+  text-transform: lowercase;
+  user-select: none;
+}
+
+.nameContainer h1 span {
+  display: inline-block;
+  min-width: 0.2ch;
+}
+
+.nameOuterHome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  width: auto;
+  /* border: 1px solid red; */
+  z-index: 1000 !important; 
+}
+
+.nameOuterHome > div {
+  position: absolute;
+  margin-top: 80vh;
+  left: 0;
+  width: auto;
+}
+
+.isLarge {
+  pointer-events: none;
+}
