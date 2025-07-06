@@ -28,9 +28,7 @@ export default function Home() {
   return (
     <>
         <div className={styles.topContainer}>
-          <div className={styles.topContainerImage}>
 
-          </div>
         </div>
         <div className="container">
           <GridLayout>

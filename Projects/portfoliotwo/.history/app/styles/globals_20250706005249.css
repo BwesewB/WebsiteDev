@@ -179,10 +179,13 @@ p {
 
 .page-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding-left: calc(2 * var(--paddingleftRight));
   padding-right: calc(2 * var(--paddingleftRight));
   margin: 0 auto;
   max-width: 1920px;
+  gap: var(--itemSpacing);
 }
 
 /* Responsive */

@@ -12,6 +12,7 @@
 
 .topContainerImage{
     height: 80vh;
-    width: 100%;
-    border: 1px solid blue;
+    border: 1px solid red;
+    margin-left: calc(-2 * var(--paddingleftRight));
+    margin-right: calc(-2 * var(--paddingleftRight));
 }

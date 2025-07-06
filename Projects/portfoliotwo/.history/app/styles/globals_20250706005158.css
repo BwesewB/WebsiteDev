@@ -183,6 +183,7 @@ p {
   padding-right: calc(2 * var(--paddingleftRight));
   margin: 0 auto;
   max-width: 1920px;
+  gap: var(--itemSpacing);
 }
 
 /* Responsive */

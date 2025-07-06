@@ -28,9 +28,7 @@ export default function Home() {
   return (
     <>
         <div className={styles.topContainer}>
-          <div className={styles.topContainerImage}>
 
-          </div>
         </div>
         <div className="container">
           <GridLayout>
@@ -59,6 +57,14 @@ export default function Home() {
 
             </GridLayout.Item>
             <GridLayout.Item 
+              colStart={2} 
+              colEnd={3} 
+              rowStart={3} 
+              rowEnd={4}
+            >
+
+            </GridLayout.Item>
+            <GridLayout.Item 
               colStart={3} 
               colEnd={5} 
               rowStart={1} 
@@ -74,11 +80,11 @@ export default function Home() {
               rowStart={4} 
               rowEnd={5}
             >
-              <h5 className={styles.headerFive}>selected</h5>
+              <h5 className={styles.headerFive}>ABOUT ME</h5>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
-              colEnd={4} 
+              colEnd={3} 
               rowStart={1} 
               rowEnd={3}
             >
@@ -93,18 +99,18 @@ export default function Home() {
 
             </GridLayout.Item>
             <GridLayout.Item 
-              colStart={4} 
-              colEnd={5} 
-              rowStart={1} 
+              colStart={2} 
+              colEnd={3} 
+              rowStart={3} 
               rowEnd={4}
             >
 
             </GridLayout.Item>
             <GridLayout.Item 
-              colStart={4} 
+              colStart={3} 
               colEnd={5} 
-              rowStart={4} 
-              rowEnd={5}
+              rowStart={1} 
+              rowEnd={4}
             >
 
             </GridLayout.Item>

@@ -28,9 +28,7 @@ export default function Home() {
   return (
     <>
         <div className={styles.topContainer}>
-          <div className={styles.topContainerImage}>
 
-          </div>
         </div>
         <div className="container">
           <GridLayout>
@@ -97,14 +95,6 @@ export default function Home() {
               colEnd={5} 
               rowStart={1} 
               rowEnd={4}
-            >
-
-            </GridLayout.Item>
-            <GridLayout.Item 
-              colStart={4} 
-              colEnd={5} 
-              rowStart={4} 
-              rowEnd={5}
             >
 
             </GridLayout.Item>

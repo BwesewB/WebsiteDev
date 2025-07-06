@@ -179,6 +179,9 @@ p {
 
 .page-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--itemSpacing);
   padding-left: calc(2 * var(--paddingleftRight));
   padding-right: calc(2 * var(--paddingleftRight));
   margin: 0 auto;
