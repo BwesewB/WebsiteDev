@@ -98,35 +98,34 @@ useLayoutEffect(() => {
             gsap.set(lettersToHide, { xPercent: 0 });
 
             tl
-              .to(h1, { 
-                  fontSize: originalFontSize, 
-                  duration: 0.5, 
-                  ease: "power2.inOut" 
-              })
-              .to(nameContainer, {
-                  width: '100%',
-              }, 0)
-              .to(lettersToHide, {
-                  xPercent: 0,
-                  width: 'auto', 
-                  minWidth: '', 
-                  padding: '',
-                  margin: '',
-                  stagger: 0.03,
-                  duration: 0.1, 
-                  ease: "power4.out",
-                  onComplete: () => {
-                      gsap.to(lettersToHide, {
-                          // delay: 0.2,
-                          xPercent: 0,
-                          duration: 0.5, 
-                          stagger: 0.02,
-                          ease: "power2.inOut",
-                          opacity: 1,
-                      });
-                  }
-              }, 0.2);
+                .to(h1, {
+                    fontSize: originalFontSize,
+                    duration: 0.5,
+                    ease: "power2.inOut"
+                })
+                .to(nameContainer, {
+                    width: '100%',
+                    duration: 0.5,
+                    ease: "power2.inOut"
+                }, "<") // Start at the same time as the h1 animation
+                .to(lettersToHide, {
+                    opacity: 1,
+                    width: 'auto',
+                    minWidth: 'auto',
+                    padding: '',
+                    margin: '',
+                    duration: 0.4,
+                    ease: "power2.out",
+                    // --- THE KEY CHANGE ---
+                    // By passing an object to stagger, we can specify `from: "end"`.
+                    // This makes the stagger run from the last element to the first.
+                    stagger: {
+                        each: 0.03,
+                        from: "end"
+                    }
+                }, "<+=0.1"); // Start this slightly after the other animations begin
 
+            // Store this new timeline as the active one.
             activeTimeline = tl;
         };
 

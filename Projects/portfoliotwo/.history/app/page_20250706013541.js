@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { gsap } from "gsap";
 import styles from './styles/page.module.css';
 import GridLayout from "@/components/atoms/gridLayout/gridLayout";
+import { Canvas } from '@react-three/fiber';
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
-import TextContainer from '@/components/atoms/textContainer/page';
+
 
 export default function Home() {
 
@@ -80,7 +83,9 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-              <InteractiveCanScene/>
+              <div className={styles.canStyle}>
+                <InteractiveCanScene/>
+              </div>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={4} 

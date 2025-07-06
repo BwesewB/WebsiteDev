@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { gsap } from "gsap";
 import styles from './styles/page.module.css';
 import GridLayout from "@/components/atoms/gridLayout/gridLayout";
-import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
-import TextContainer from '@/components/atoms/textContainer/page';
+import { Canvas } from '@react-three/fiber';
+import { InteractiveCan } from "@/components/molecules/InteractiveCan/InteractiveCan";
+
 
 export default function Home() {
 
@@ -80,7 +83,20 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-              <InteractiveCanScene/>
+              <div className={styles.canStyle}>
+                <Canvas className={styles.canvas}>
+                  {/* Add some lighting to make the can look good */}
+                  <ambientLight intensity={0.8} />
+                  <directionalLight position={[10, 10, 5]} intensity={1.5} />
+                  
+                  {/* 
+                    Place the InteractiveCan component inside the Canvas.
+                    The `useFrame` hook inside the component will automatically
+                    get the pointer data from this parent Canvas.
+                  */}
+                  <InteractiveCan flavor="fish" />
+                </Canvas>
+              </div>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={4} 
