@@ -1,7 +1,7 @@
 
 .nameContainer {
   border: 1px solid blue;
-  margin: calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight));
+  margin: calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing));
 }
 .nameContainer h1 {
   margin: 0;

@@ -3,11 +3,11 @@
     align-content: space-between;
     flex-direction: column;
     /* gap: var(--relatedComponentGap); */
-    /* width: calc(100vw - calc(var(--paddingleftRight) * 4)); */
+    /* width: calc(100vw - calc(var(--masterSpacing) * 4)); */
     height: 80vh;
     border: 1px solid red;
-    padding-left: calc(-4 * var(--paddingleftRight));
-    padding-right: calc(-4 * var(--paddingleftRight));
+    padding-left: calc(-4 * var(--masterSpacing));
+    padding-right: calc(-4 * var(--masterSpacing));
 }
 
 .letter {
@@ -26,15 +26,15 @@
     width: 100vw;
     height: fit-content;
     position: relative;
-    padding-left: calc(-1 * var(--paddingleftRight));
-    padding-right: calc(-1 * var(--paddingleftRight));
+    padding-left: calc(-1 * var(--masterSpacing));
+    padding-right: calc(-1 * var(--masterSpacing));
 }
 
 .containerContent1 {
     width: 100%;
     height: calc(100vh - var(--itemSpacing));
-    padding-left: calc(2 * var(--paddingleftRight));
-    padding-right: calc(2 * var(--paddingleftRight));
+    padding-left: calc(2 * var(--masterSpacing));
+    padding-right: calc(2 * var(--masterSpacing));
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -62,8 +62,8 @@
 .containerContent3 {
     width: 100%;
     height: fit-content;
-    padding-left: calc(2 * var(--paddingleftRight));
-    padding-right: calc(2 * var(--paddingleftRight));
+    padding-left: calc(2 * var(--masterSpacing));
+    padding-right: calc(2 * var(--masterSpacing));
     display: flex;
     flex-direction: column;
     position: relative;
@@ -89,8 +89,8 @@
     width: 100vw;
     box-sizing: border-box;
 
-    padding-left: calc(2 * var(--paddingleftRight));
-    padding-right: calc(2 * var(--paddingleftRight));
+    padding-left: calc(2 * var(--masterSpacing));
+    padding-right: calc(2 * var(--masterSpacing));
 
     height: clamp(100px, 6vw, 140px);
     display: flex; 
@@ -103,7 +103,7 @@
 
 .navDescription {
     color: var(--white);
-    padding-right: calc(3 * var(--paddingleftRight));
+    padding-right: calc(3 * var(--masterSpacing));
 }
 
 @media (max-width: 768px) {

@@ -121,7 +121,7 @@ export default function Name({ isHomePage, homePageHeight }) {
             .to(h1, { fontSize: originalFontSize, duration: 0.5, ease: "power2.inOut" }, 0)
             .to(nameContainer, {
                 width: "auto", // Or back to its original width if needed
-                margin: "calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight))",
+                margin: "calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing))",
                 padding: "", // Let CSS handle it
                 duration: 0.5,
                 ease: "power2.inOut"

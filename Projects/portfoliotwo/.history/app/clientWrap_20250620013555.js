@@ -100,8 +100,8 @@ export default function ClientWrap({ children }) {
       <div id="smooth-content"
         style={{ 
             position: "relative",
-            paddingLeft: "calc(2 * var(--paddingleftRight))",
-            paddingRight: "calc(2 * var(--paddingleftRight))",
+            paddingLeft: "calc(2 * var(--masterSpacing))",
+            paddingRight: "calc(2 * var(--masterSpacing))",
             // border:"1px solid red",
             overflowX: "hidden",
             margin:"0 auto",

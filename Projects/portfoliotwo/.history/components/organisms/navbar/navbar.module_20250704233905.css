@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    padding: calc(2 * var(--paddingleftRight)) calc(2 * var(--paddingleftRight));
+    padding: calc(2 * var(--masterSpacing)) calc(2 * var(--masterSpacing));
     display: flex;
     justify-content: space-between;
     align-items: center;

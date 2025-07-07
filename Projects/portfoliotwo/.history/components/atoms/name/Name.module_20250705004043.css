@@ -2,7 +2,7 @@
 .nameContainer {
   border: 1px solid blue;
   width: auto;
-  margin: calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight));
+  margin: calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing));
   cursor: pointer;
 }
 .nameContainer h1 {
@@ -42,7 +42,7 @@
   width: auto;
   border: 1px solid green;
   padding-bottom:0.2rem;
-    margin: calc(3 * var(--paddingleftRight)) calc(4 * var(--paddingleftRight));
+    margin: calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing));
   cursor: pointer;
 }
 

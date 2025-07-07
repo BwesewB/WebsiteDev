@@ -11,7 +11,7 @@
   --font-primary: "TWK Lausanne", sans-serif;
   --font-weight-button: 600;
 
-  --paddingleftRight: 60px; /*could be renamed as not just padding left and right*/
+  --masterSpacing: 60px; /*could be renamed as not just padding left and right*/
   --sideSpacing: 30px;
   --itemSpacing: 180px;
   --imgBorderRadius:10px;
@@ -38,8 +38,8 @@ html, body {
 
 body {
   position: relative;
-  /* padding-left: calc(2 * var(--paddingleftRight));
-  padding-right: calc(2 * var(--paddingleftRight)); */
+  /* padding-left: calc(2 * var(--masterSpacing));
+  padding-right: calc(2 * var(--masterSpacing)); */
   border:1px solid red;
   overflow-x: hidden;
   /* flex-direction: column; */
@@ -190,8 +190,8 @@ p {
 .pinContainer {
   position: relative;
   width: 100vw;
-  padding-left: calc(-1 * var(--paddingleftRight));
-  padding-right: calc(-1 * var(--paddingleftRight));
+  padding-left: calc(-1 * var(--masterSpacing));
+  padding-right: calc(-1 * var(--masterSpacing));
 }
 
 .sectionContainer {
@@ -214,12 +214,12 @@ p {
 @media (max-width: 768px) {
   :root {
     --itemSpacing: 90px;
-    --paddingleftRight: 30px;
+    --masterSpacing: 30px;
   }
 
   body {
-    padding-left: var(--paddingleftRight);
-    padding-right: var(--paddingleftRight);
+    padding-left: var(--masterSpacing);
+    padding-right: var(--masterSpacing);
   }
 
   h1 {
@@ -248,7 +248,7 @@ p {
 
 @media (max-width: 480px) {
   :root {
-    --paddingleftRight: 10px;
+    --masterSpacing: 10px;
     --sideSpacing: 10px;
     --relatedComponentGap:40px;
     --textGap: 5px;

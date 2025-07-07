@@ -1,0 +1,31 @@
+.topContainer{
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    /* gap: var(--relatedComponentGap); */
+    /* width: calc(100vw - calc(var(--masterSpacing) * 4)); */
+    height: 100vh;
+    border: 1px solid red;
+    margin-left: calc(-2 * var(--masterSpacing));
+    margin-right: calc(-2 * var(--masterSpacing));
+}
+
+.topContainerImage{
+    height: 80vh;
+    width: 100%;
+    border: 1px solid blue;
+}
+
+.imageHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--masterSpacing);
+    width: 100%;
+    height: 100%;
+}
+
+.mediaWrapper {
+    /* flex-grow: 1;
+    min-height: 0; */
+    height: 80%;
+}

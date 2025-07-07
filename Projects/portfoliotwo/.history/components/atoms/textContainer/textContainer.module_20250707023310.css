@@ -1,0 +1,20 @@
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap:var(--textGap);
+    width: 90%;
+    position: relative;
+    border: 40px solid red;
+    z-index: 10;
+}
+
+.textContainer h4 {
+    width: 100%;
+    height: auto;
+}
+
+/* This is the crucial part for the mask animation */
+.splitLine {
+    overflow: hidden;
+    display: block;
+}

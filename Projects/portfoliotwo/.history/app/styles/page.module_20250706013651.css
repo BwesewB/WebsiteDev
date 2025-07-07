@@ -3,11 +3,11 @@
     align-content: space-between;
     flex-direction: column;
     /* gap: var(--relatedComponentGap); */
-    /* width: calc(100vw - calc(var(--paddingleftRight) * 4)); */
+    /* width: calc(100vw - calc(var(--masterSpacing) * 4)); */
     height: 100vh;
     border: 1px solid red;
-    margin-left: calc(-2 * var(--paddingleftRight));
-    margin-right: calc(-2 * var(--paddingleftRight));
+    margin-left: calc(-2 * var(--masterSpacing));
+    margin-right: calc(-2 * var(--masterSpacing));
 }
 
 .topContainerImage{

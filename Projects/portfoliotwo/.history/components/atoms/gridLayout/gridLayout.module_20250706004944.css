@@ -7,7 +7,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     border: 1px solid red;
-    gap: calc(1 * var(--paddingleftRight))
+    gap: calc(1 * var(--masterSpacing))
 }
 
 /* This is the new class for our Item component */
