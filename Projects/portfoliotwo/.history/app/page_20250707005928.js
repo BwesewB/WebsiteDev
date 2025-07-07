@@ -5,7 +5,6 @@ import GridLayout from "@/components/atoms/gridLayout/gridLayout";
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
 import TextContainer from '@/components/atoms/textContainer/page';
 import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
-import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 
 export default function Home() {
 
@@ -32,10 +31,7 @@ export default function Home() {
               rowStart={1} 
               rowEnd={3}
             >
-              <DynamicHover>
-                {/* <MediaBlock imageSrc=""/> */}
-                <img src="/media/flare/flarePersona1.webp"/>
-              </DynamicHover>
+
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
@@ -69,12 +65,9 @@ export default function Home() {
               rowStart={1} 
               rowEnd={3}
             >
-              <DynamicHover
-                link="/works/blackHole"
-              >
-                <MediaBlock imageSrc=""/>
+              <DynamicHover>
+                <img src="/media/cans/3cans1.png"/>
               </DynamicHover>
-              
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
@@ -91,8 +84,7 @@ export default function Home() {
               rowEnd={4}
             >
               <DynamicHover
-                scale={1}
-                movementFactor={0}
+                className={styles.canvasContainer}
               >
                 <InteractiveCanScene/>
               </DynamicHover>

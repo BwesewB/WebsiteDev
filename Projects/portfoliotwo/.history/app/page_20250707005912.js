@@ -5,10 +5,11 @@ import GridLayout from "@/components/atoms/gridLayout/gridLayout";
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
 import TextContainer from '@/components/atoms/textContainer/page';
 import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
-import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
+import { useRef } from 'react';
 
 export default function Home() {
-
+  const hoverStartFunc = useRef(null);
+  const hoverEndFunc = useRef(null);
   return (
     <>
         <div className={styles.topContainer}>
@@ -32,10 +33,7 @@ export default function Home() {
               rowStart={1} 
               rowEnd={3}
             >
-              <DynamicHover>
-                {/* <MediaBlock imageSrc=""/> */}
-                <img src="/media/flare/flarePersona1.webp"/>
-              </DynamicHover>
+
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
@@ -69,12 +67,9 @@ export default function Home() {
               rowStart={1} 
               rowEnd={3}
             >
-              <DynamicHover
-                link="/works/blackHole"
-              >
-                <MediaBlock imageSrc=""/>
-              </DynamicHover>
-              
+              {/* <DynamicHover>
+                <img src="/media/cans/3cans1.png"/>
+              </DynamicHover> */}
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
@@ -90,12 +85,18 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-              <DynamicHover
-                scale={1}
-                movementFactor={0}
-              >
-                <InteractiveCanScene/>
-              </DynamicHover>
+    <DynamicHover
+      className={styles.canvasContainer}
+      // Pass the functions to be called by DynamicHover
+      onMouseEnter={() => hoverStartFunc.current && hoverStartFunc.current()}
+      onMouseLeave={() => hoverEndFunc.current && hoverEndFunc.current()}
+    >
+      <InteractiveCanScene 
+        // These refs allow the scene to "register" its functions with the parent
+        onHoverStart={hoverStartFunc}
+        onHoverEnd={hoverEndFunc}
+      />
+    </DynamicHover>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={4} 

@@ -1,0 +1,17 @@
+.dynamicHoverContainer {
+  /* This is the key part for the cropping effect! */
+  overflow: hidden;
+
+  /* Ensures the container takes up space and is positioned correctly */
+  position: relative;
+  display: inline-block; /* Or block, depending on your layout */
+}
+
+
+.dynamicHoverChild {
+    will-change: transform;
+
+  /* Ensure the child fills the container initially */
+  width: 100%;
+  height: 100%;
+}

@@ -171,8 +171,7 @@ useLayoutEffect(() => {
       <div
         ref={nameOuterRef}
         className={styles.nameOuterHome}
-        // style={{ height: homePageHeight > 0 ? `${homePageHeight}px` : "100vh" }}
-        // style={{ height: "1000vh" }}
+        style={{ height: "1000vh"}}
       >
         <StickyContainer endTriggerRef={endTriggerForSticky}>
           {nameContent}

@@ -33,8 +33,7 @@ export default function Home() {
               rowEnd={3}
             >
               <DynamicHover>
-                {/* <MediaBlock imageSrc=""/> */}
-                <img src="/media/flare/flarePersona1.webp"/>
+                hi
               </DynamicHover>
             </GridLayout.Item>
             <GridLayout.Item 

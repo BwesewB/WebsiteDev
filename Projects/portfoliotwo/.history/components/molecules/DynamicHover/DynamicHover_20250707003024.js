@@ -1,0 +1,106 @@
+// components/molecules/DynamicHover.js
+
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import styles from './DynamicHover.module.css';
+import Link from 'next/link';
+
+const DynamicHover = ({ 
+  children, 
+  className = '', 
+  scale = 1.15, 
+  movementFactor = 20,
+  link,
+}) => {
+  const containerRef = useRef(null);
+  const childRef = useRef(null);
+
+  // We use useEffect to add our event listeners and clean them up
+  useEffect(() => {
+    const container = containerRef.current;
+    const child = childRef.current;
+
+    if (!container || !child) return;
+
+    // --- Animation Logic ---
+
+    // 1. Hover On: Scale up the child
+    const onMouseEnter = () => {
+      gsap.to(child, {
+        scale: scale,
+        duration: 0.5,
+        ease: 'power3.out',
+      });
+    };
+
+    // 2. Hover Off: Revert child to original state
+    const onMouseLeave = () => {
+      // KILL any active tweens on the child (especially the x/y from mousemove)
+      gsap.killTweensOf(child); 
+
+      // Now, start the animation to return to the resting state.
+      gsap.to(child, {
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: 'power3.out',
+      });
+    };
+
+    // 3. Cursor Move: Move the child slightly towards the cursor
+    const onMouseMove = (e) => {
+      // Get the bounding box of the container
+      const { left, top, width, height } = container.getBoundingClientRect();
+
+      // Calculate the mouse position relative to the container center
+      // A value from -0.5 to 0.5
+      const x = (e.clientX - left) / width - 0.5;
+      const y = (e.clientY - top) / height - 0.5;
+
+      // Move the child element. The movementFactor determines how much it moves.
+      gsap.to(child, {
+        x: x * movementFactor,
+        y: y * movementFactor,
+        duration: 0.8, // A slightly longer duration makes the "follow" feel smoother
+        ease: 'power3.out',
+      });
+    };
+
+    // --- Event Listener Setup ---
+    container.addEventListener('mouseenter', onMouseEnter);
+    container.addEventListener('mouseleave', onMouseLeave);
+    container.addEventListener('mousemove', onMouseMove);
+
+    // --- Cleanup ---
+    // This is crucial for performance and to prevent memory leaks
+    return () => {
+      container.removeEventListener('mouseenter', onMouseEnter);
+      container.removeEventListener('mouseleave', onMouseLeave);
+      container.removeEventListener('mousemove', onMouseMove);
+    };
+  }, [scale, movementFactor]); // Rerun effect if these props change
+
+  const HoverableContent = (
+    <div 
+      ref={containerRef} 
+      className={`${styles.dynamicHoverContainer} ${className}`}
+    >
+      <div ref={childRef} className={styles.dynamicHoverChild}>
+        {children}
+      </div>
+    </div>
+  );
+
+  if (link) {
+    return (
+      <Link href={link} passHref>
+        <a>{HoverableContent}</a>
+      </Link>
+    );
+  }
+
+  return HoverableContent;
+};
+
+export default DynamicHover;

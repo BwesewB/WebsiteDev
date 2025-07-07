@@ -73,6 +73,7 @@ export default function InteractiveCanScene() {
       dpr={[1, 1.5]}
       gl={{ antialias: true }}
       camera={{ fov: 30 }}
+      // This style ensures the canvas itself fills the parent
       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
     >
       <CanModel scale={canScale} />

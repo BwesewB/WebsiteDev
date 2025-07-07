@@ -1,0 +1,21 @@
+/* ... keep the other styles ... */
+
+.dynamicHoverContainer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red
+}
+
+/* This new rule will apply a pointer cursor ONLY when it's clickable */
+.dynamicHoverContainer[role="button"] {
+  cursor: pointer;
+}
+
+.dynamicHoverChild {
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  border: 6px solid red
+}
