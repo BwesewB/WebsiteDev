@@ -93,7 +93,6 @@ export default function Home() {
               <DynamicHover
                 scale={1}
                 movementFactor={0}
-                link="/works/deckedBeer"
               >
                 <InteractiveCanScene/>
               </DynamicHover>

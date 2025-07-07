@@ -1,0 +1,40 @@
+
+.CanvasContainer {
+    width: 100%;
+    height: 100%;
+      background-image: url('/images/sunsetBeach.jpg');
+  background-size: cover;
+  background-position: center;
+    transform: scale(1.05);
+      filter: blur(4px);
+      z-index: -1;
+}
+
+.canvasContainer::before {
+  content: ''; /* This is required for pseudo-elements to render */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Apply the background image */
+  background-image: url('/images/sunsetBeach.jpg');
+  background-size: cover;
+  background-position: center;
+
+  /* Apply the blur filter. Adjust the pixel value to your liking. */
+  filter: blur(4px);
+
+  /* This is a trick to prevent jagged edges on some browsers from the blur */
+  transform: scale(1.05);
+
+  /* Place this background layer behind the actual canvas content */
+  z-index: -1;
+}
+
+@media (max-width: 1350px) {
+    .CanvasContainer {
+        position: relative;
+    }
+}

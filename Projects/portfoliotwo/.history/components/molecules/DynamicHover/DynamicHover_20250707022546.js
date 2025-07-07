@@ -8,7 +8,7 @@ import Link from 'next/link';
 const DynamicHover = ({ 
   children, 
   className = '', 
-  scale = 1.05, 
+  scale = 1.15, 
   movementFactor = 20,
   link,
 }) => {
@@ -81,17 +81,6 @@ const DynamicHover = ({
       gsap.killTweensOf(child);
     };
   }, [scale, movementFactor]); // Rerun effect if these props change
-
-  const HoverableContent = (
-    <div 
-      ref={containerRef} 
-      className={`${styles.dynamicHoverContainer} ${className}`}
-    >
-      <div ref={childRef} className={styles.dynamicHoverChild}>
-        {children}
-      </div>
-    </div>
-  );
 
   if (link) {
     return (

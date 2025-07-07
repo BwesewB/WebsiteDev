@@ -8,7 +8,7 @@ import Link from 'next/link';
 const DynamicHover = ({ 
   children, 
   className = '', 
-  scale = 1.05, 
+  scale = 1.15, 
   movementFactor = 20,
   link,
 }) => {

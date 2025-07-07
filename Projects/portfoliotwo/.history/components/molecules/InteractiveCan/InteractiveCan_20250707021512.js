@@ -61,7 +61,7 @@ const CanModel = ({ baseScale, isHovered }) => {
       speed={1}
       rotationIntensity={1}
       floatIntensity={1}
-      floatingRange={[0, 0.1]}
+      floatingRange={[-0.1, 0.1]}
     >
       <group 
         ref={groupRef} 

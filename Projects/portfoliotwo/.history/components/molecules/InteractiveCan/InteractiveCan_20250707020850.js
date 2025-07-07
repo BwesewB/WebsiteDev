@@ -61,7 +61,7 @@ const CanModel = ({ baseScale, isHovered }) => {
       speed={1}
       rotationIntensity={1}
       floatIntensity={1}
-      floatingRange={[0, 0.1]}
+      floatingRange={[-0.1, 0.1]}
     >
       <group 
         ref={groupRef} 
@@ -103,24 +103,23 @@ export default function InteractiveCanScene() {
   }, []);
 
   return (
-    <div className={styles.CanvasContainer}>
-      <Canvas
-        onPointerEnter={() => setIsHovered(true)}
-        onPointerLeave={() => setIsHovered(false)}
-        shadows
-        dpr={[1, 1.5]}
-        gl={{ antialias: true }}
-        camera={{ fov: 30 }}
-        // style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: "/images/sunsetBeach.jpg" }}
-      >
-        <CanModel 
-          baseScale={canScale} 
-          isHovered={isHovered} 
-        />
-        <Environment files="/hdr/beach.hdr" environmentIntensity={1.2} />
-      </Canvas>
-    </div>
-
+    <Canvas
+      // --- NEW: Event handlers on the Canvas to set the hover state ---
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
+      shadows
+      dpr={[1, 1.5]}
+      gl={{ antialias: true }}
+      camera={{ fov: 30 }}
+      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: "var(--sand)" }}
+    >
+      <CanModel 
+        // Pass the base scale and the hover state down to the model
+        baseScale={canScale} 
+        isHovered={isHovered} 
+      />
+      <Environment files="/hdr/beach.hdr" environmentIntensity={1.2} />
+    </Canvas>
   );
 }
 
