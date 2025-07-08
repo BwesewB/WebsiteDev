@@ -13,7 +13,9 @@ export default function TextContainer({
     paragraph,
     textColour,
     startTrigger = "top 85%",
-    className = ""
+    className = "",
+    width = "90%",
+    textAlign = "left",
 }) {
     const containerRef = useRef(null);
 
@@ -82,9 +84,9 @@ export default function TextContainer({
     }
 
     return (
-        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ color: textColour }}>
-            {header && <h4>{header}</h4>}
-            {paragraph && <p>{paragraph}</p>}
+        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ color: textColour, width: width }}>
+            {header && <h4 style={{ textAlign:textAlign }}>{header}</h4>}
+            {paragraph && <p style={{ textAlign:textAlign }}>{paragraph}</p>}
         </div>
     );
 }

@@ -24,6 +24,12 @@
     height: 100%;
 }
 
+.headerz {
+    width: 100%;
+    text-align: right;
+    color: var(--grey);
+}
+
 .mediaWrapper {
     flex-grow: 1;
     min-height: 0;
