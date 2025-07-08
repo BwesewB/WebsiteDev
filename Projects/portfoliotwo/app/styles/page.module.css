@@ -27,5 +27,6 @@
 .mediaWrapper {
     flex-grow: 1;
     min-height: 0;
-    border: 4px solid green;
+    width: 100%;
+    /* border: 4px solid green; */
 }

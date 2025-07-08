@@ -86,18 +86,22 @@ const CanModel = ({ baseScale, isHovered }) => {
 
 
 export default function InteractiveCanScene() {
-  const [canScale, setCanScale] = useState(0.7);
+
   const [isHovered, setIsHovered] = useState(false);
+const [canScale, setCanScale] = useState(() =>
+  typeof window !== "undefined" && window.innerWidth < 1350 ? 0.45 : 0.7
+);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setCanScale(window.innerWidth < 1350 ? 0.45 : 0.7);
-    };
+useEffect(() => {
+  const handleResize = () => {
+    setCanScale(window.innerWidth < 1350 ? 0.45 : 0.7);
+  };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  window.addEventListener("resize", handleResize);
+  handleResize(); // ✅ set initial on mount
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   return (
     <div className={styles.CanvasContainer}>

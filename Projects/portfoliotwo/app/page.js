@@ -95,7 +95,7 @@ export default function Home() {
                   link="/works/deckedBeer"
                   className={styles.mediaWrapper} 
                 >
-                  {/* <InteractiveCanScene/> */}
+                  <InteractiveCanScene/>
                 </DynamicHover>
                   <TextContainer
                     header="Decked Beer" 
