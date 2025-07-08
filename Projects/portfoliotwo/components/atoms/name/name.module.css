@@ -1,10 +1,12 @@
 
 .nameContainer {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: auto;
+  min-width: 5rem;
   margin: calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing));
   cursor: pointer;
   overflow: hidden;
+  pointer-events: all;
 }
 .nameContainer h1 {
   margin: 0;
@@ -41,4 +43,5 @@
 
 .isLarge {
   pointer-events: none;
+  min-width: 20rem;
 }
