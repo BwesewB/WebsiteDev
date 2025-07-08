@@ -1,4 +1,5 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/organisms/navbar/page";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -13,10 +14,16 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export default function ClientWrap({ children }) {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const [contentHeight, setContentHeight] = useState(0);
-  const mainContentRef = useRef(null);
+  const mainRef = useRef(null);
+  const smootherRef = useRef(null);
   
   const hasLogged = useRef(false);
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
 
   useEffect(() => {
     if (!hasLogged.current) {
@@ -56,40 +63,41 @@ export default function ClientWrap({ children }) {
     }
   }, []);
 
-  // GSAP Smooth Scrolling
   useLayoutEffect(() => {
-    const smoother = ScrollSmoother.create({
+    smootherRef.current = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 0.7,
-      ease: "power3.out", 
+      ease: "power3.out",
       smoothTouch: 0,
       effects: true,
-      normalizeScroll: true, 
+      normalizeScroll: true,
     });
 
     return () => {
-      // Kill the smoother instance when the component unmounts
-      if (smoother) smoother.kill();
+      if (smootherRef.current) smootherRef.current.kill();
     };
   }, []);
 
   useLayoutEffect(() => {
-    // This effect runs whenever the children (page content) change
-    if (isHomePage && mainContentRef.current) {
-        
-        const timer = setTimeout(() => {
-            const height = mainContentRef.current.offsetHeight;
-            console.log(`[ClientWrap] Measured content height: ${height}px`);
-            setContentHeight(height);
-        }, 100); // Small delay to ensure layout is final
-
-        return () => clearTimeout(timer);
+    // We get a direct reference to the smoother instance from GSAP's utility function
+    const smoother = ScrollSmoother.get(); 
+    if (smoother) {
+        smoother.scrollTo(0, false);
     } else {
-        // Reset height on other pages
-        setContentHeight(0);
+        window.scrollTo(0, 0);
     }
-  }, [children, isHomePage]);
+    
+    // After scrolling to top, wait a moment for the DOM to update, then refresh.
+    // This is the simplest, most reliable way.
+    const timer = setTimeout(() => {
+      console.log(`[ClientWrap] Refreshing triggers for path: ${pathname}`);
+      ScrollTrigger.refresh();
+    }, 150); // A small delay is still helpful.
+
+    return () => clearTimeout(timer);
+
+  }, [pathname]);
 
   return (
     <>
@@ -97,8 +105,8 @@ export default function ClientWrap({ children }) {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="page-container">
-            <Name isHomePage={isHomePage} homePageHeight={contentHeight} />
-            <main ref={mainContentRef}>
+            <Name isHomePage={isHomePage} />
+            <main ref={mainRef}>
               {children}  
             </main>
           </div>

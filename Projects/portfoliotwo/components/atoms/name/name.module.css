@@ -45,3 +45,7 @@
   pointer-events: none;
   min-width: 20rem;
 }
+
+.nameOuterHidden {
+  display: none; /* Or visibility: hidden; position: absolute; */
+}
