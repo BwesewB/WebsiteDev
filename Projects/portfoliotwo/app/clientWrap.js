@@ -80,21 +80,16 @@ export default function ClientWrap({ children }) {
   }, []);
 
   useLayoutEffect(() => {
-    // We get a direct reference to the smoother instance from GSAP's utility function
     const smoother = ScrollSmoother.get();
     if (smoother) {
         smoother.scrollTo(0, false);
     } else {
         window.scrollTo(0, 0);
     }
-    // smoother.paused(true);
-    // After scrolling to top, wait a moment for the DOM to update, then refresh.
-    // This is the simplest, most reliable way.
     const timer = setTimeout(() => {
       console.log(`[ClientWrap] Refreshing triggers for path: ${pathname}`);
-      // smoother.paused(false);
       ScrollTrigger.refresh();
-    }, 150); // A small delay is still helpful.
+    }, 150);
 
     return () => clearTimeout(timer);
 
@@ -106,7 +101,7 @@ export default function ClientWrap({ children }) {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="page-container">
-            <Name isHomePage={isHomePage}  key={pathname} />
+            <Name isHomePage={isHomePage} key={pathname} />
             <main ref={mainRef}>
               {children}  
             </main>

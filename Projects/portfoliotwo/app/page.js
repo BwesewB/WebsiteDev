@@ -6,8 +6,7 @@ import InteractiveCanScene from "@/components/molecules/InteractiveCan/Interacti
 import TextContainer from '@/components/atoms/textContainer/page';
 import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
-import UnifiedButton from '@/components/atoms/unifiedButton/page';
-import Link from 'next/link';
+import ProjectCard from '@/components/templates/projectCard/projectCard';
 
 export default function Home() {
 
@@ -56,7 +55,6 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-
             </GridLayout.Item>
           </GridLayout>
           <GridLayout>
@@ -66,7 +64,7 @@ export default function Home() {
               rowStart={4} 
               rowEnd={5}
             >
-              <h2 className={styles.headerz}>selected</h2>
+              <h2>selected</h2>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
@@ -74,17 +72,11 @@ export default function Home() {
               rowStart={1} 
               rowEnd={3}
             >
-              <div className={styles.imageHeaderContainer}>
-                <DynamicHover
-                  link="/works/blackHole"
-                  className={styles.mediaWrapper} 
-                >
-                  <MediaBlock videoSrc="/media/blackHole/Clip1.mp4"/>
-                </DynamicHover>
-                  <TextContainer
-                    header="Black Hole" 
-                  />
-              </div>
+              <ProjectCard
+                link="/works/blackHole"
+                header="Black Hole"
+                videoSrc="/media/blackHole/Clip1.mp4"
+              />
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={4} 
@@ -92,19 +84,14 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-              <div className={styles.imageHeaderContainer}>
-                <DynamicHover
-                  scale={1}
-                  movementFactor={0}
-                  link="/works/deckedBeer"
-                  className={styles.mediaWrapper} 
-                >
-                  <InteractiveCanScene/>
-                </DynamicHover>
-                  <TextContainer
-                    header="Decked Beer" 
-                  />
-              </div>
+              <ProjectCard
+                scale={1}
+                movementFactor={0}
+                link="/works/deckedBeer"
+                header="Decked Beer"
+              >
+                <InteractiveCanScene/>
+              </ProjectCard>
             </GridLayout.Item>
           </GridLayout>
         </div>
