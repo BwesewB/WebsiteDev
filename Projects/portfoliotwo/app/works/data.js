@@ -4,6 +4,7 @@ import InteractiveCanScene from "@/components/molecules/InteractiveCan/Interacti
 export const cardData = [
     {
         title: "Decked Beer",
+        // customComponent: <ProjectCard><InteractiveCanScene/></ProjectCard>, 
         customComponent: <InteractiveCanScene/>, 
         categories: ["motion", "3D", "branding"],
         projectLink: "/works/deckedBeer/",

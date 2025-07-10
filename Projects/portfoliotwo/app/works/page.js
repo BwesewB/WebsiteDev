@@ -7,7 +7,9 @@ import ProjectCard from '@/components/templates/projectCard/projectCard';
 export default function WorksPage() {
   return (
     <>
-      <h1>Works</h1>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.headerBig}>Works</h1>
+      </div>
       <div className={styles.gridContainer}>
         {cardData.map((project) => {
           const isVideo = project.src && project.src.endsWith('.mp4');

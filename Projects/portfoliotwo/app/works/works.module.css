@@ -1,3 +1,15 @@
+.headerContainer {
+    padding-top: 15rem;
+    padding-bottom: 5rem;
+    width: 100%;
+    border: 1px solid green
+}
+
+.headerBig {
+    font-size: 15vw;
+    font-weight: 400;
+}
+
 .gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,9 +18,12 @@
     min-width: 0;
 }
 
-/* Make the grid a single column on smaller screens */
 @media (max-width: 768px) {
+    .headerBig {
+        font-size: 20vw;
+    }
     .gridContainer {
         grid-template-columns: 1fr;
+        row-gap: calc(2 * var(--relatedComponentGap));
     }
 }

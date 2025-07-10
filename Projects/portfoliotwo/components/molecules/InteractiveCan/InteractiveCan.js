@@ -9,8 +9,6 @@ import styles from './InteractiveCan.module.css';
 const fishTexturePath = '/media/cans/labels/Fish@2x.png';
 const canModelPath = '/media/cans/beerCan/CansWeb.gltf';
 
-// --- UPDATED CanModel Component ---
-// It now accepts the baseScale and an isHovered boolean to control its own scale animation.
 const CanModel = ({ baseScale, isHovered }) => {
   const { nodes, materials } = useGLTF(canModelPath);
   const labelTexture = useTexture(fishTexturePath);
@@ -86,21 +84,35 @@ const CanModel = ({ baseScale, isHovered }) => {
 
 
 export default function InteractiveCanScene() {
+  const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [canScale, setCanScale] = useState(() =>
-  typeof window !== "undefined" && window.innerWidth < 1350 ? 0.45 : 0.7
-);
+  const [canScale, setCanScale] = useState(0.7);
 
-useEffect(() => {
-  const handleResize = () => {
-    setCanScale(window.innerWidth < 1350 ? 0.45 : 0.7);
-  };
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
 
-  window.addEventListener("resize", handleResize);
-  handleResize(); // ✅ set initial on mount
+    const observer = new ResizeObserver(entries => {
+      const entry = entries[0];
+      if (entry) {
+        const { width } = entry.contentRect;
 
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+        // --- THE CORE LOGIC ---
+        // Create a scale factor. You can tweak the multiplier (0.0014) to make
+        // the can larger or smaller relative to the container width.
+        const newScale = width * 0.0014;
+
+        // Optional but recommended: Clamp the scale to prevent the can from
+        // getting too big or too small.
+        const clampedScale = Math.max(0.3, Math.min(newScale, 0.8)); // Clamps between 0.3 and 0.8
+
+        setCanScale(clampedScale);
+      }
+    });
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className={styles.CanvasContainer}>
