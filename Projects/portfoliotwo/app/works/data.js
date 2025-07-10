@@ -1,12 +1,10 @@
-import ProjectCard from "@/components/templates/projectCard/projectCard";
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
 
 export const cardData = [
     {
         title: "Decked Beer",
-        // customComponent: <ProjectCard><InteractiveCanScene/></ProjectCard>, 
         customComponent: <InteractiveCanScene/>, 
-        categories: ["motion", "3D", "branding"],
+        categories: ["Blender", "Illustrator", "Photoshop", "Three.js", "GSAP"],
         projectLink: "/works/deckedBeer/",
         scale: 1,
         movementFactor: 0,
@@ -14,19 +12,19 @@ export const cardData = [
     {
         title: "Black Hole",
         src: "/media/blackHole/Clip1.mp4",
-        categories: [""],
+        categories: ["After Effects", "Illustrator", "GSAP", "Figma"],
         projectLink: "/works/blackHole/"
     },
     {
         title: "Flare",
         src: "/media/flare/FlareLogoAnime.mp4",
-        categories: [""],
+        categories: ["Illustrator", "InDesign", "After Effects", "Figma", "Lottie"],
         projectLink: "/works/flare/"
     },
     {
         title: "Citadel",
         src: "/media/citadel/gate.webp",
-        categories: ["3D"],
+        categories: ["After Effects", "Shapr 3D", "Blender", "Photoshop"],
         projectLink: "/works/citadel/"
     },
     {
@@ -34,5 +32,11 @@ export const cardData = [
         src: "/media/magazine/Toilet1.webp",
         categories: ["InDesign", "Photoshop"],
         projectLink: "/works/magazine/"
+    },
+    {
+        title: "Taxes",
+        src: "/media/taxes/GOTTEM.mp4",
+        categories: ["After Effects"],
+        projectLink: "/works/taxes/"
     },
 ];

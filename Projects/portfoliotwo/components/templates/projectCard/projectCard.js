@@ -7,6 +7,7 @@ import styles from './projectCard.module.css';
 export default function ProjectCard({
     link,
     header,
+    paragraph,
     children,
     videoSrc,
     imageSrc,
@@ -31,8 +32,10 @@ export default function ProjectCard({
                 />
             )}
         </DynamicHover>
+        {paragraph && <p className={styles.paragraph}>{paragraph}</p>}
         <TextContainer
             header={header}
+            width="100%"
         />
     </div>
   );

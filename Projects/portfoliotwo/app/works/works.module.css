@@ -18,6 +18,11 @@
     min-width: 0;
 }
 
+.separator {
+  margin-left: 0.5em; /* 1em is equal to the font-size */
+  margin-right: 0.5em;
+}
+
 @media (max-width: 768px) {
     .headerBig {
         font-size: 20vw;
