@@ -124,7 +124,7 @@ export default function Name({ isHomePage }) {
         end: "top top-=15px",
         onEnter: playForward,
         onLeaveBack: playBackward,
-        markers: true,
+        // markers: true,
       });
 
     }); 

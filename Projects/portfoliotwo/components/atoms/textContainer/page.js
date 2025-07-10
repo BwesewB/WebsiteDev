@@ -12,7 +12,7 @@ export default function TextContainer({
     header,
     paragraph,
     textColour,
-    startTrigger = "top 85%",
+    startTrigger = "top 90%",
     className = "",
     width = "90%",
     textAlign = "left",
@@ -55,6 +55,7 @@ export default function TextContainer({
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: startTrigger,
+                        // markers: true,
                         toggleActions: "play none none none",
                     },
                     onComplete: () => {

@@ -9,9 +9,8 @@
 .dynamicHoverChild {
   width: 100%;
   height: 100%;
-  will-change: transform;
-  position: relative;
-  z-index: 1;
+  will-change: transform, clip-path;
+  opacity: 0;
 }
 
 .dynamicHoverChild > * {

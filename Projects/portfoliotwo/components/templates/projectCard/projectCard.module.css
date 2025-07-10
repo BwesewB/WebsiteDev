@@ -49,3 +49,9 @@
     text-transform: uppercase;
     color: var(--grey);
 }
+
+.separator {
+    position:relative;
+    margin-left: 0.5em; /* 1em is equal to the font-size */
+    margin-right: 0.5em;
+}

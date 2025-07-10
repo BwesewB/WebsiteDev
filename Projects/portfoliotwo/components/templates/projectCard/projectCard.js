@@ -6,25 +6,56 @@ import ArrowRight from '@/components/atoms/arrowRight';
 import styles from './projectCard.module.css';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectCard({
     link,
     header,
-    paragraph,
+    categories,
     children,
     videoSrc,
     imageSrc,
     scale,
+    startingScale,
     movementFactor,
+    startTrigger,
 }) {
 
     const arrowRef = useRef(null);
     const arrowContainerRef = useRef(null); 
     const projectCardRef = useRef(null);
     const textContainerRef = useRef(null);
+    const paragraphRef = useRef(null)
 
     useGSAP(() => {
+        const paragraphContainer = paragraphRef.current;
+        if (!paragraphContainer) return;
 
+        const tagsToAnimate = gsap.utils.toArray(paragraphContainer.querySelectorAll('span'));
+
+        if (tagsToAnimate.length === 0) return;
+
+        gsap.from(tagsToAnimate, {
+            opacity: 0,
+            y: 15,
+            stagger: 0.07,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: paragraphContainer,
+                start: "top 90%",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+        });
+
+    }, { scope: projectCardRef, dependencies: [categories] });
+
+
+    useGSAP(() => {
         const textElement = textContainerRef.current;
         const arrowContainerElement = arrowContainerRef.current;
         const arrowElement = arrowRef.current;
@@ -72,6 +103,7 @@ export default function ProjectCard({
     <div className={styles.projectCardWrap} ref={projectCardRef}>
         <DynamicHover
             scale={scale}
+            startingScale={startingScale}
             movementFactor={movementFactor}
             link={link}
             className={styles.mediaWrapper} 
@@ -82,10 +114,22 @@ export default function ProjectCard({
                 <MediaBlock
                     videoSrc={videoSrc}
                     imageSrc={imageSrc}
+                    enableRevealAnimation={false}
                 />
             )}
         </DynamicHover>
-        {paragraph && <p className={styles.paragraph}>{paragraph}</p>}
+        {categories && categories.length > 0 && (
+                <p className={styles.paragraph} ref={paragraphRef}>
+                    {[...categories].sort().map((cat, index, arr) => (
+                        <React.Fragment key={cat}>
+                            <span className={styles.categoryTag}>{cat}</span>
+                            {index < arr.length - 1 && (
+                                <span className={styles.separator}>•</span>
+                            )}
+                        </React.Fragment>
+                    ))}
+                </p>
+            )}
         <div className={styles.textContainer}>
             <div className={styles.arrowDiv} ref={arrowContainerRef}>
                 <div className={styles.arrowContainer} ref={arrowRef}>
@@ -96,11 +140,10 @@ export default function ProjectCard({
                 <TextContainer
                     header={header}
                     width="100%"
+                    startTrigger={startTrigger}
                 />
             </div>
-
         </div>
-
     </div>
   );
 }

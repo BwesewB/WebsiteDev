@@ -96,15 +96,8 @@ export default function InteractiveCanScene() {
       const entry = entries[0];
       if (entry) {
         const { width } = entry.contentRect;
-
-        // --- THE CORE LOGIC ---
-        // Create a scale factor. You can tweak the multiplier (0.0014) to make
-        // the can larger or smaller relative to the container width.
         const newScale = width * 0.0014;
-
-        // Optional but recommended: Clamp the scale to prevent the can from
-        // getting too big or too small.
-        const clampedScale = Math.max(0.3, Math.min(newScale, 0.8)); // Clamps between 0.3 and 0.8
+        const clampedScale = Math.max(0.3, Math.min(newScale, 0.8));
 
         setCanScale(clampedScale);
       }

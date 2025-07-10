@@ -1,13 +1,15 @@
 .headerContainer {
     padding-top: 15rem;
-    padding-bottom: 5rem;
+    margin-bottom: 5rem;
     width: 100%;
-    border: 1px solid green
+    overflow: hidden;
+    /* border: 1px solid green */
 }
 
 .headerBig {
     font-size: 15vw;
     font-weight: 400;
+    margin-bottom: -2.5vw;
 }
 
 .gridContainer {
@@ -16,12 +18,6 @@
     gap: calc(2 * var(--masterSpacing)); 
     row-gap: calc(4 * var(--relatedComponentGap));
     min-width: 0;
-}
-
-.separator {
-    position:relative;
-    margin-left: 0.5em; /* 1em is equal to the font-size */
-    margin-right: 0.5em;
 }
 
 @media (max-width: 768px) {

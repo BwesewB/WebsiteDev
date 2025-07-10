@@ -7,6 +7,7 @@ export const cardData = [
         categories: ["Blender", "Illustrator", "Photoshop", "Three.js", "GSAP"],
         projectLink: "/works/deckedBeer/",
         scale: 1,
+        startingScale: 1,
         movementFactor: 0,
     },
     {

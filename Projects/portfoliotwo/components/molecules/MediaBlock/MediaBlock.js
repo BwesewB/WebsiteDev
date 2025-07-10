@@ -3,6 +3,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './MediaBlock.module.css';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // You can create SVG icon components for a better look
 const MuteIcon = () => <svg>...</svg>;
@@ -14,54 +19,99 @@ const MediaBlock = ({
   initialMute = true,
   sectionHeading,
   mediaWidth = '100%',
+  enableRevealAnimation = true,
 }) => {
-  const isVideo = !!videoSrc; // A boolean to easily check if we're rendering a video
-
-  // Refs for the video element and its container
+  const isVideo = !!videoSrc; 
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-
-  // State to manage the video's mute status
   const [isMuted, setIsMuted] = useState(initialMute);
 
-  // Effect for viewport detection to play/pause the video
+  useGSAP(() => {
+    if (!enableRevealAnimation) return;
+
+    const container = containerRef.current;
+    if (!container) return;
+    const media = container.querySelector(`.${styles.media}`);
+    if (!media) return;
+
+    const createAnimation = () => {
+      console.log('Media is ready, creating animation for:', imageSrc || videoSrc);
+      
+      gsap.fromTo(container,
+        {
+          clipPath: "inset(0% 0% 100% 0%)",
+        },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "power3.out",
+          duration: 1.4,
+          scrollTrigger: {
+            trigger: container,
+            start: "top 90%",
+            toggleActions: "play none none none",
+            markers: true,
+          }
+        }
+      );
+      
+      gsap.fromTo(media, 
+        { scale: 1.5 },
+        { 
+          scale: 1,
+          ease: "power3.out",
+          duration: 1.4,
+          scrollTrigger: {
+            trigger: container,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          }
+        }
+      );
+    };
+
+    // --- The Logic to Wait ---
+    if (isVideo) {
+      // For videos, wait for the 'loadedmetadata' event.
+      media.addEventListener('loadedmetadata', createAnimation, { once: true });
+    } else {
+      // For images, check if it's already loaded (from cache).
+      if (media.complete && media.naturalHeight > 0) {
+        createAnimation();
+      } else {
+        // Otherwise, wait for the 'load' event.
+        media.addEventListener('load', createAnimation, { once: true });
+      }
+    }
+  }, { scope: containerRef, dependencies: [enableRevealAnimation] });
+
   useEffect(() => {
-    // Only run this effect if it's a video
     if (!isVideo || !containerRef.current) return;
 
     const videoElement = videoRef.current;
     if (!videoElement) return;
-
-    // The Intersection Observer will call this function when the element's visibility changes
     const observerCallback = (entries) => {
       const [entry] = entries;
       if (entry.isIntersecting) {
-        // Play the video when it enters the viewport
         videoElement.play().catch(error => {
-          // Autoplay was prevented by the browser. This is a common policy.
-          // The video will only play if muted or after user interaction.
           console.warn("Video autoplay was prevented. Ensure video is muted.", error);
         });
       } else {
-        // Pause the video when it leaves the viewport
         videoElement.pause();
       }
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      // Trigger when 50% of the element is visible
       threshold: 0.5,
     });
 
     observer.observe(containerRef.current);
 
-    // Cleanup: Disconnect the observer when the component unmounts
     return () => {
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
       }
     };
-  }, [isVideo]); // Dependency array ensures this runs only once for a video
+  }, [isVideo]); 
 
   const toggleMute = () => {
     setIsMuted(prev => !prev);
@@ -82,28 +132,28 @@ const MediaBlock = ({
       className={styles.container}
       style={{ width: mediaWidth }}
     >
-      {isVideo ? (
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          className={styles.media}
-          loop
-          muted={isMuted}
-          playsInline // VERY IMPORTANT for preventing fullscreen on mobile
-          autoPlay // Hint for browsers, but Intersection Observer is the real controller
-        />
-      ) : (
-        // Using Next.js Image for optimization (lazy loading, resizing, etc.)
-        <Image
-          src={imageSrc}
-          alt={sectionHeading || 'Portfolio media showcase'}
-          layout="fill"
-          objectFit="cover"
-          className={styles.media}
-          priority // Consider adding `priority` if the image is above the fold
-        />
-      )}
-
+      {/* <div ref={mediaRef}> */}
+        {isVideo ? (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            className={styles.media}
+            loop
+            muted={isMuted}
+            playsInline // VERY IMPORTANT for preventing fullscreen on mobile
+            autoPlay // Hint for browsers, but Intersection Observer is the real controller
+          />
+        ) : (
+            <Image
+              src={imageSrc}
+              alt={sectionHeading || 'Portfolio media showcase'}
+              layout="fill"
+              objectFit="cover"
+              className={styles.media}
+              priority // Consider adding `priority` if the image is above the fold
+            />
+        )}
+      {/* </div> */}
       {/* Overlays */}
       <div className={styles.overlay}>
         {sectionHeading && (

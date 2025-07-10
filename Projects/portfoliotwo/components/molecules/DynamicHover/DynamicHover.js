@@ -2,8 +2,12 @@
 
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import styles from './DynamicHover.module.css';
 import Link from 'next/link';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const DynamicHover = ({ 
   children, 
@@ -11,9 +15,38 @@ const DynamicHover = ({
   scale = 1.05, 
   movementFactor = 20,
   link,
+  startingScale = 1.5,
+
 }) => {
   const containerRef = useRef(null);
   const childRef = useRef(null);
+
+  useGSAP(() => {
+    const childElement = childRef.current;
+    const containerElement = containerRef.current;
+
+    gsap.fromTo(childElement,
+      {
+        opacity:0,
+        scale: startingScale,
+        clipPath: "inset(0% 0% 100% 0%)",
+      },
+      {
+        opacity:1,
+        scale: 1,
+        clipPath: "inset(0% 0% 0% 0%)",
+        ease: "power3.out",
+        duration: 1.4,
+        scrollTrigger: {
+          trigger: containerElement,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          // markers: true,
+        },
+      }
+    );
+
+  }, { scope: containerRef });
 
   useEffect(() => {
     const container = containerRef.current;
@@ -64,20 +97,36 @@ const DynamicHover = ({
   }, [scale, movementFactor]);
 
   const HoverableContent = (
-      <div ref={childRef} className={styles.dynamicHoverChild}>
-        {children}
-      </div>
+    <div ref={childRef} className={styles.dynamicHoverChild}>
+      {children}
+    </div>
   );
 
   if (link) {
+    // If a link exists, wrap the content in a Next.js Link
+    // and apply the container ref and styles to it.
     return (
-      <Link href={link} passHref ref={containerRef} 
-      className={`${styles.dynamicHoverContainer} ${className}`}>
+      <Link 
+        href={link} 
+        passHref 
+        ref={containerRef} 
+        className={`${styles.dynamicHoverContainer} ${className}`}
+      >
         {HoverableContent}
       </Link>
     );
   }
-  return HoverableContent;
+  
+  // If NO link exists, wrap the content in a standard <div>
+  // and apply the exact same container ref and styles.
+  return (
+    <div 
+      ref={containerRef} 
+      className={`${styles.dynamicHoverContainer} ${className}`}
+    >
+      {HoverableContent}
+    </div>
+  );
 };
 
 export default DynamicHover;
