@@ -4,10 +4,11 @@
     gap: var(--masterSpacing);
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .mediaWrapper {
     flex-grow: 1;
-    min-height: 0;
     width: 100%;
+    overflow: hidden;
 }

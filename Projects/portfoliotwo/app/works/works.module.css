@@ -1,0 +1,14 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(2 * var(--masterSpacing)); 
+    row-gap: calc(4 * var(--relatedComponentGap));
+    min-width: 0;
+}
+
+/* Make the grid a single column on smaller screens */
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: 1fr;
+    }
+}
