@@ -1,6 +1,6 @@
 import GridLayout from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
-import MediaBlock from "@/components/molecules/MediaBlock/MediaBlock"
+import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
 export default function LayoutSeven({}) {
     return (
