@@ -28,32 +28,32 @@ export default function Home() {
               <h2 className={styles.headerz}>ABOUT ME</h2>
             </GridLayout.Item>
             <GridLayout.Item 
-              colStart={2} 
-              colEnd={3} 
+              colStart={3} 
+              colEnd={4} 
               rowStart={1} 
-              rowEnd={3}
+              rowEnd={4}
             >
               <MediaBlock imageSrc="/images/knivesout.jpg"/>
             </GridLayout.Item>
             <GridLayout.Item 
               colStart={2} 
               colEnd={3} 
-              rowStart={3} 
-              rowEnd={4}
+              rowStart={1} 
+              rowEnd={2}
             >
               <TextContainer
-                paragraph="I’m a 19-year-old multidisciplinary designer from Vancouver. I do motion graphics, websites, 3D and everything else in digital design. On the side as a hobby, I cut lots of fish."
+                paragraph="I’m a 19-year-old multidisciplinary designer from Vancouver. I do marketing, websites, 3D, and everything else in digital design. On the side as a hobby, I cut lots of fish."
                 width="100%"
               />
             </GridLayout.Item>
-            <GridLayout.Item 
+            {/* <GridLayout.Item 
               colStart={3} 
               colEnd={5} 
               rowStart={1} 
               rowEnd={4}
             >
               <MediaBlock imageSrc="/images/kissyfish.jpg"/>
-            </GridLayout.Item>
+            </GridLayout.Item> */}
           </GridLayout>
           <GridLayout>
             <GridLayout.Item 
@@ -84,6 +84,7 @@ export default function Home() {
             >
               <ProjectCard
                 scale={1}
+                startingScale={1}
                 movementFactor={0}
                 link="/works/deckedBeer"
                 header="Decked Beer"

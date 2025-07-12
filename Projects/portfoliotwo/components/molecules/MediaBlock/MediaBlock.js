@@ -49,7 +49,7 @@ const MediaBlock = ({
             trigger: container,
             start: "top 90%",
             toggleActions: "play none none none",
-            markers: true,
+            // markers: true,
           }
         }
       );
