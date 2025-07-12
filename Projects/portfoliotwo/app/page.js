@@ -93,16 +93,63 @@ export default function Home() {
               </ProjectCard>
             </GridLayout.Item>
           </GridLayout>
-          <LayoutOne>
-            {/* <InteractiveCanScene/> */}
+          <LayoutOne
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
           </LayoutOne>
-          <LayoutTwo/>
-          <LayoutThree/>
-          <LayoutFour/>
-          <LayoutFive/>
-          <LayoutSix/>
-          <LayoutSeven/>
-          <LayoutEight/>
+          <LayoutTwo
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph1="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a."
+            paragraph2="Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutTwo>
+          <LayoutThree
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutThree>
+          <LayoutFour
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutFour>
+          <LayoutFive
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutFive>
+          <LayoutSix
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutSix>
+          <LayoutSeven
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutSeven>
+          <LayoutEight
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+          >
+            <InteractiveCanScene/>
+          </LayoutEight>
         </div>
     </>
   );
