@@ -7,6 +7,14 @@ import TextContainer from '@/components/atoms/textContainer/page';
 import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import ProjectCard from '@/components/templates/projectCard/projectCard';
+import LayoutOne from '@/components/templates/Layout-1/layoutOne';
+import LayoutTwo from '@/components/templates/Layout-2/layoutTwo';
+import LayoutThree from '@/components/templates/Layout-3/layoutThree';
+import LayoutFour from '@/components/templates/Layout-4/layoutFour';
+import LayoutFive from '@/components/templates/Layout-5/layoutFive';
+import LayoutSix from '@/components/templates/Layout-6/layoutSix';
+import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
+import LayoutEight from '@/components/templates/Layout-8/layoutEight';
 
 export default function Home() {
 
@@ -46,14 +54,6 @@ export default function Home() {
                 width="100%"
               />
             </GridLayout.Item>
-            {/* <GridLayout.Item 
-              colStart={3} 
-              colEnd={5} 
-              rowStart={1} 
-              rowEnd={4}
-            >
-              <MediaBlock imageSrc="/images/kissyfish.jpg"/>
-            </GridLayout.Item> */}
           </GridLayout>
           <GridLayout>
             <GridLayout.Item 
@@ -93,6 +93,16 @@ export default function Home() {
               </ProjectCard>
             </GridLayout.Item>
           </GridLayout>
+          <LayoutOne>
+            {/* <InteractiveCanScene/> */}
+          </LayoutOne>
+          <LayoutTwo/>
+          <LayoutThree/>
+          <LayoutFour/>
+          <LayoutFive/>
+          <LayoutSix/>
+          <LayoutSeven/>
+          <LayoutEight/>
         </div>
     </>
   );
