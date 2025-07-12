@@ -28,9 +28,8 @@ export default function LayoutThree({
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
                         videoSrc={videoSrc1}
-                    >
-                        {mediaSlotOne} 
-                    </MediaBlockOrChild>
+                        children={mediaSlotOne}
+                    />
                 </GridLayout.Item>
                 <GridLayout.Item 
                     colStart={3} 
@@ -51,9 +50,8 @@ export default function LayoutThree({
                     <MediaBlockOrChild 
                         imageSrc={imageSrc2} 
                         videoSrc={videoSrc2}
-                    >
-                        {mediaSlotTwo}
-                    </MediaBlockOrChild>
+                        children={mediaSlotTwo}
+                    />
                 </GridLayout.Item>
                 <GridLayout.Item 
                     colStart={4} 

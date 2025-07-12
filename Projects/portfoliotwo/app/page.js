@@ -120,7 +120,9 @@ export default function Home() {
           </LayoutThree>
           <LayoutFour
             header="Lorem Ipsum Dolor Siet Ameit"
-            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            paragraph1="Lorem ipsum dolor sit amet consectetur."
+            paragraph2="Elementum varius tristique aliquet at sed vestibulum adipiscing a."
+            paragraph3=" Cursus nunc tempus dictum tempus nisl varius cursus."
             imageSrc="/images/kissyfish.jpg"
           >
             <InteractiveCanScene/>

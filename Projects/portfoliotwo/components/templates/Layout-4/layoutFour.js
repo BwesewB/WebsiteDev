@@ -2,16 +2,72 @@ import GridLayout from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
-export default function LayoutFour({}) {
+export default function LayoutFour({
+    header,
+    paragraph1,
+    paragraph2,
+    paragraph3,
+
+    imageSrc,
+    videoSrc,
+    mediaWidth,
+    children
+}) {
     return (
         <>
             <GridLayout>
                 <GridLayout.Item 
                     colStart={1} 
-                    colEnd={2} 
+                    colEnd={3} 
                     rowStart={1} 
                     rowEnd={2}
                 >
+                    <TextContainer
+                        header={header}
+                    />
+                </GridLayout.Item>
+                <GridLayout.Item 
+                    colStart={1} 
+                    colEnd={2} 
+                    rowStart={2} 
+                    rowEnd={3}
+                >
+                    <TextContainer 
+                        paragraph={paragraph1}
+                    />
+                </GridLayout.Item>
+                <GridLayout.Item 
+                    colStart={2} 
+                    colEnd={5} 
+                    rowStart={2} 
+                    rowEnd={5}
+                >
+                    <MediaBlockOrChild 
+                        imageSrc={imageSrc}
+                        videoSrc={videoSrc}
+                        mediaWidth={mediaWidth}
+                        children={children}
+                    />
+                </GridLayout.Item>
+                <GridLayout.Item 
+                    colStart={3} 
+                    colEnd={4} 
+                    rowStart={1} 
+                    rowEnd={2}
+                >
+                    <TextContainer 
+                        paragraph={paragraph2}
+                    />
+                </GridLayout.Item>
+                <GridLayout.Item 
+                    colStart={4} 
+                    colEnd={5} 
+                    rowStart={1} 
+                    rowEnd={2}
+                >
+                    <TextContainer 
+                        paragraph={paragraph3}
+                    />
                 </GridLayout.Item>
             </GridLayout>
         </>
