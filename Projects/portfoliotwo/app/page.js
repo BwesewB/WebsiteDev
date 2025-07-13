@@ -15,6 +15,7 @@ import LayoutFive from '@/components/templates/Layout-5/layoutFive';
 import LayoutSix from '@/components/templates/Layout-6/layoutSix';
 import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
 import LayoutEight from '@/components/templates/Layout-8/layoutEight';
+import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
 
 export default function Home() {
 
@@ -93,6 +94,32 @@ export default function Home() {
               </ProjectCard>
             </GridLayout.Item>
           </GridLayout>
+          
+          <LayoutHero 
+            children={<InteractiveCanScene/>}
+            imageSrc="/images/kissyfish.jpg"
+            height='75vh'
+            title="Suh"
+            buttons={[
+                { 
+                    text: "Live Site", 
+                    externalLink: "https://example.com/live-demo",
+                    icon: "arrow" 
+                },
+                { 
+                    text: "GitHub", 
+                    externalLink: "https://github.com/my-repo",
+                    icon: "github" 
+                },
+                { 
+                    text: "Figma File", 
+                    externalLink: "https://figma.com/file/...",
+                    icon: "figma" 
+                },
+            ]}
+            subHeader="the greatest"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+          />
           <LayoutOne
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."

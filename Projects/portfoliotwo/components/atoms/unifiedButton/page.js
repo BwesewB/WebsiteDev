@@ -7,8 +7,8 @@ import ArrowRight from "../arrowRight"
 
 export default function UnifiedButton({
   externalLink = "",
-  backgroundColor = "var(--blue)",
-  buttonContentColour = "var(--sand)",
+  backgroundColor = "var(--black)",
+  buttonContentColour = "var(--white)",
   text = "CLICK",
   icon = null,        // "figma" | "github" | "arrow" | null
 }) {

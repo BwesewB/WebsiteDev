@@ -1,5 +1,3 @@
-/* components/GridLayout/gridLayout.module.css */
-
 .gridContainer {
     display: grid;
     width: 100%;
@@ -7,17 +5,15 @@
     max-height: 100vh;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     gap: calc(1 * var(--masterSpacing))
 }
 
-/* This is the new class for our Item component */
 .gridItem {
-    /* Set some sane defaults for content inside a grid cell */
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 
