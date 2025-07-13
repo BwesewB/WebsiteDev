@@ -2,6 +2,7 @@ import UnifiedButton from "@/components/atoms/unifiedButton/page";
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild";
 import TextContainer from "@/components/atoms/textContainer/page";
 import styles from "./layoutHero.module.css"
+import TitleLetterUp from "@/components/animations/Text/TitleLetterUp/titleLetterUp";
 
 export default function LayoutHero({
     imageSrc,
@@ -14,6 +15,9 @@ export default function LayoutHero({
     subHeader,
     paragraph,
 }) {
+
+    const hasButtons = buttons && buttons.length > 0;
+
     return(
         <>
             <section className={styles.mainContainer}>
@@ -26,20 +30,22 @@ export default function LayoutHero({
                 </div>
                 <div className={styles.bottomSection}>
                     <div className={styles.bottomLeft}>
-                        {title && <h1>{title}</h1>}
+                        <TitleLetterUp>
+                            {title}
+                        </TitleLetterUp>
                     </div>
                     <div className={styles.bottomRight}>
-                        <div className={styles.rightTop}>
-                            {buttons && buttons.length > 0 && (
+                        {hasButtons && (
+                            <div className={styles.rightTop}>
                                 <div className={styles.buttonContainer}>
                                     {buttons.map((button, index) => (
                                         <UnifiedButton key={`btn-${index}`} {...button} />
                                     ))}
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        )}
                         <div className={styles.rightBottom}>
-                            {subHeader && <h2>{subHeader}</h2>}
+                            {subHeader && <TextContainer paragraph={subHeader} textColour="var(--grey)"/>}
                             <TextContainer paragraph={paragraph} />
                         </div>
                     </div>

@@ -3,15 +3,26 @@ import LargeTextSection from "@/components/templates/LargeTextSection/largeTextS
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 
+import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
+
 export default function blackHole() {
     return (
+        <>
+            
         <div className="container">
-            <ProjectHero 
-                projectName="Black Hole"
-                date="2023-2024"
+            <LayoutHero 
                 videoSrc="/media/blackHole/RevisedFinal.mp4"
-                toolsUsed="Adobe After Effects / Adobe Illustrator / GSAP / Next.js / Figma"
-                initialMute={false}
+                height='95vh'
+                title="BLACK HOLE"
+                buttons={[
+                    { 
+                        text: "Launch Project", 
+                        externalLink: "https://black-hole-design-3.vercel.app/",
+                        icon: "arrow" 
+                    }
+                ]}
+                subHeader="Web & Motion Design"
+                paragraph="This project combined a vintage-style motion graphic video with a custom-built interactive website. The animation used grain, glow, and minimal graphics to emphasize rhythm, scale, and a focused visual narrative. The accompanying website, developed with Next.js and GSAP, used a structured system of transition and still clips to ensure seamless playback and intuitive interaction."
             />
             <LargeTextSection 
                 paragraphTitleText="Black hole is an interactive project that merges custom-designed After Effects assets with a 12-page interactive coded experience."
@@ -53,5 +64,7 @@ export default function blackHole() {
                 videoFour="/media/blackHole/scaleVisualizer.mp4"
             />
         </div>
+        </>
+        
     );
 }

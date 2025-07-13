@@ -4,9 +4,9 @@ import styles from './styles/page.module.css';
 import GridLayout from "@/components/atoms/gridLayout/gridLayout";
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
 import TextContainer from '@/components/atoms/textContainer/page';
-import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import ProjectCard from '@/components/templates/projectCard/projectCard';
+import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
 import LayoutOne from '@/components/templates/Layout-1/layoutOne';
 import LayoutTwo from '@/components/templates/Layout-2/layoutTwo';
 import LayoutThree from '@/components/templates/Layout-3/layoutThree';
@@ -14,8 +14,7 @@ import LayoutFour from '@/components/templates/Layout-4/layoutFour';
 import LayoutFive from '@/components/templates/Layout-5/layoutFive';
 import LayoutSix from '@/components/templates/Layout-6/layoutSix';
 import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
-import LayoutEight from '@/components/templates/Layout-8/layoutEight';
-import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
+
 
 export default function Home() {
 
