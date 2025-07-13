@@ -71,7 +71,7 @@ export default function SectionThree({
                      className={styles.buttonSticky}
                      style={{
                          position: sticky ? "sticky" : "relative",
-                         top: sticky ? "var(--sideSpacing)" : "auto"
+                         top: sticky ? "var(--imageTextSpacing)" : "auto"
                      }}
                  >
                      {buttons

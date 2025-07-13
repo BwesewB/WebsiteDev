@@ -8,11 +8,11 @@ export default function LayoutThree({
 
     imageSrc1,
     videoSrc1,
-    mediaSlotOne,
+    childrenSlotOne,
 
     imageSrc2,
     videoSrc2,
-    mediaSlotTwo,
+    childrenSlotTwo,
 
 
 }) {
@@ -28,7 +28,7 @@ export default function LayoutThree({
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
                         videoSrc={videoSrc1}
-                        children={mediaSlotOne}
+                        children={childrenSlotOne}
                     />
                 </GridLayout.Item>
                 <GridLayout.Item 
@@ -50,7 +50,7 @@ export default function LayoutThree({
                     <MediaBlockOrChild 
                         imageSrc={imageSrc2} 
                         videoSrc={videoSrc2}
-                        children={mediaSlotTwo}
+                        children={childrenSlotTwo}
                     />
                 </GridLayout.Item>
                 <GridLayout.Item 

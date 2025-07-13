@@ -7,7 +7,7 @@ import ControllableLottie from "@/components/atoms/ControllableLottie/page";
 
 import styles from "./flare.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionTwo from "@/components/templates/SectionTwo/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page";
 import SectionEight from "@/components/templates/SectionEight/page"
@@ -77,7 +77,7 @@ export default function Flare({}) {
                 textColour="var(--black)"
                 mediaWidth="80%"
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="Your BC wildfire safety app with weather updates, fire alerts, and related news all into one intuitive app."
             />
             <TwoColumnMediaLayout
@@ -233,7 +233,7 @@ export default function Flare({}) {
                     },
                 ]}
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."
             />
             <SectionTwo 

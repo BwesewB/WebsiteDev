@@ -1,5 +1,5 @@
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 
@@ -13,7 +13,7 @@ export default function blackHole() {
                 toolsUsed="Adobe After Effects / Adobe Illustrator / GSAP / Next.js / Figma"
                 initialMute={false}
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="Black hole is an interactive project that merges custom-designed After Effects assets with a 12-page interactive coded experience."
             />
             <TwoColumnMediaLayout

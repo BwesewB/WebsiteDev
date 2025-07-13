@@ -1,26 +1,37 @@
 .carouselContainer {
-    width: 100vw; /* Take up full screen width */
+    width: 100%; 
     overflow: hidden;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-cursor: grab; 
+    cursor: grab; 
+    height: 100%;
+    /* border: 1px solid green; */
+    box-sizing: border-box;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .carouselContainer:active {
-    cursor: grabbing; /* Change cursor while dragging */
+    cursor: grabbing;
 }
 
 .carouselTrack {
     display: flex;
     width: max-content;
     will-change: transform;
-    gap: var(--relatedComponentGap);
+    gap: var(--masterSpacing);
+    /* border: 5px solid red; */
+    height: 100%;
 }
 
 .carouselItem {
     flex-shrink: 0;
-    width: 70vw;
-    max-width: 350px;
-    margin: 0 1rem;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
+    /* max-width: 350px; */
+    /* border: 1px solid blue; */
 }

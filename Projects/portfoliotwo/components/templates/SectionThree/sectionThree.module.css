@@ -35,7 +35,7 @@
 
 .buttonSticky {
     /* position: sticky; */
-    /* top: var(--sideSpacing); */
+    /* top: var(--imageTextSpacing); */
     display: flex;
     gap:var(--textGap);
     flex-wrap: wrap;

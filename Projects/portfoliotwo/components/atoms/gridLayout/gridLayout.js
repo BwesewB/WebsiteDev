@@ -27,7 +27,7 @@ export default function GridLayout({ children }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
 
     return (
-        <div className={styles.gridContainer}>
+        <section className={styles.gridContainer}>
             {Children.map(children, (child) => {
                 if (!React.isValidElement(child)) {
                     return child;
@@ -47,7 +47,7 @@ export default function GridLayout({ children }) {
 
                 return cloneElement(child, { style });
             })}
-        </div>
+        </section>
     );
 }
 

@@ -2,7 +2,7 @@
 
 import styles from "./decked.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionTwo from "@/components/templates/SectionTwo/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
@@ -19,7 +19,7 @@ export default function DeckedBeer({}) {
                 />
                 <ViewCanvas />
             </div>
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="Decked is a premium lager crafted for fishermen, delivering a refined and refreshing taste."
             />
             <section className="sectionContainer">
@@ -71,7 +71,7 @@ export default function DeckedBeer({}) {
             <SectionTwo 
                 videoSrc="/media/cans/fishCanVideo.mp4"
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="Blender was used to bring Decked to life, creating realistic product visuals that showcased the custom label designs and branding."
             />
             <SectionEight

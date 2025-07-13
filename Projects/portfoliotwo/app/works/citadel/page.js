@@ -1,7 +1,7 @@
 "use client"
 
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -30,7 +30,7 @@ export default function Citadel({}) {
                     }
                 ]}
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="A surreal architectural landscape inspired by Zdzisław Beksiński's 1983 painting in Shapr3D and blender"
             />
             <section className="sectionContainer">

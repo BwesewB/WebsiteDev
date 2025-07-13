@@ -17,9 +17,9 @@
     grid-template-rows: auto auto;
     gap: var(--relatedComponentGap);
     padding-top: var(--masterSpacing);
-    padding-left: var(--sideSpacing);
-    padding-right: var(--sideSpacing);
-    padding-bottom: var(--sideSpacing);
+    padding-left: var(--imageTextSpacing);
+    padding-right: var(--imageTextSpacing);
+    padding-bottom: var(--imageTextSpacing);
 }
 
 .sectionTop {

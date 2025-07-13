@@ -12,7 +12,7 @@
   --font-weight-button: 600;
 
   --masterSpacing: 10px; /*could be renamed as not just padding left and right*/
-  --sideSpacing: 30px;
+  --imageTextSpacing: 30px;
   --itemSpacing: 180px;
   --imgBorderRadius:10px;
   --relatedComponentGap:40px;
@@ -232,7 +232,7 @@ p {
 
 @media (max-width: 480px) {
   :root {
-    --sideSpacing: 10px;
+    --imageTextSpacing: 10px;
     --relatedComponentGap:40px;
     --textGap: 5px;
   }

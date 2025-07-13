@@ -1,6 +1,6 @@
 import styles from "./magazine.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionTwo from "@/components/templates/SectionTwo/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -14,7 +14,7 @@ export default function MagazinePage({}) {
                 imageSrc="/media/magazine/Toilet1.webp"
                 toolsUsed="Adobe Photoshop / Adobe InDesign"
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="A Casa Brutus and Popeyes-insipired magazine that explores the interaction between Japanese design and its environment"
             />
             <TwoColumnMediaLayout

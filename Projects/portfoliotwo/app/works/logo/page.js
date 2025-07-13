@@ -1,6 +1,6 @@
 import styles from "./logo.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
-import SectionOne from "@/components/templates/SectionOne/page"
+import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionTwo from "@/components/templates/SectionTwo/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 
@@ -14,7 +14,7 @@ export default function LogoPage({}) {
                 mediaWidth="30%"
                 toolsUsed="Adobe Illustrator"
             />
-            <SectionOne 
+            <LargeTextSection 
                 paragraphTitleText="Preparing fugu requires precision and mastery, with chefs undergoing years of specialized training to safely practice this art"
             />
             <div className={styles.fullWidth}>

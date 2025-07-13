@@ -97,24 +97,22 @@ export default function Home() {
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
             imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutOne>
+            children={<InteractiveCanScene/>}
+          />
           <LayoutTwo
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph1="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a."
             paragraph2="Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id."
             imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutTwo>
+            children={<InteractiveCanScene/>}
+          />
           <LayoutThree
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
             imageSrc1="/images/kissyfish.jpg"
             imageSrc2="/images/kissyfish.jpg"
-            mediaSlotOne={<InteractiveCanScene/>}
-            mediaSlotTwo={<InteractiveCanScene/>}
+            childrenSlotOne={<InteractiveCanScene/>}
+            childrenSlotTwo={<InteractiveCanScene/>}
           >
             <InteractiveCanScene/>
           </LayoutThree>
@@ -124,37 +122,32 @@ export default function Home() {
             paragraph2="Elementum varius tristique aliquet at sed vestibulum adipiscing a."
             paragraph3=" Cursus nunc tempus dictum tempus nisl varius cursus."
             imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutFour>
+            children={<InteractiveCanScene/>}
+          />
           <LayoutFive
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
             imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutFive>
+            children={<InteractiveCanScene/>}
+          />
           <LayoutSix
             header="Lorem Ipsum Dolor Siet Ameit"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
             imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutSix>
+            children={<InteractiveCanScene/>}
+          />
+          
           <LayoutSeven
-            header="Lorem Ipsum Dolor Siet Ameit"
-            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
-            imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutSeven>
-          <LayoutEight
-            header="Lorem Ipsum Dolor Siet Ameit"
-            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
-            imageSrc="/images/kissyfish.jpg"
-          >
-            <InteractiveCanScene/>
-          </LayoutEight>
+            header= "Lorem Ipsum Dolor Siet Ameit"
+            paragraph= "Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            mediaItems={[
+                { imageSrc: "/images/kissyfish.jpg" },
+                { imageSrc: "/images/kissyfish.jpg" },
+                { imageSrc: "/images/kissyfish.jpg" }
+            ]}
+            mediaCarouselWidth="90vw"
+          />
+          {/* <div style={{height: "100vh", border: "1px solid red"}}></div> */}
         </div>
     </>
   );

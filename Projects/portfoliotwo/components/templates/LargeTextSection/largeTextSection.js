@@ -1,15 +1,14 @@
 "use client"
 
-import styles from "./sectionOne.module.css";
+import styles from "./LargeTextSection.module.css";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function SectionOne({
+export default function LargeTextSection({
     paragraphTitleText = "Lorem Ipsum",
-    textColour = "var(--black)",
 }) {
 
     const headerRef = useRef(null);
@@ -56,7 +55,7 @@ export default function SectionOne({
 
     return (
         <section ref={headerRef} className={styles.largeTextContainer}>
-            <h3 style={{ color: textColour }}>
+            <h3>
                 {splitTextToSpans(paragraphTitleText)}
             </h3>
         </section>
