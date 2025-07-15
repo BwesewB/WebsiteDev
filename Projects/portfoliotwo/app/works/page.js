@@ -8,6 +8,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
 import { SplitText } from "gsap/SplitText";
+import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLetterUp';
 
 gsap.registerPlugin(SplitText);
 
@@ -37,7 +38,10 @@ export default function WorksPage() {
   return (
     <>
       <div className={styles.headerContainer}>
-        <h1 className={styles.headerBig} ref={headerRef}>Works</h1>
+        <TitleLetterUp className={styles.headerBig}>
+          Works
+        </TitleLetterUp>
+        {/* <h1  ref={headerRef}>Works</h1> */}
       </div>
       <div className={styles.gridContainer}>
         {cardData.map((project) => {

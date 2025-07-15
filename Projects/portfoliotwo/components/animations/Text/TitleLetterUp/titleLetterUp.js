@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { useRef } from 'react';
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./titleLetterUp.module.css"
 
 gsap.registerPlugin(SplitText, ScrollTrigger); 
 
@@ -21,7 +22,11 @@ export default function TitleLetterUp({
         const containerElement = containerRef.current;
         if (!titleElement || !children || !containerElement) return;
 
-        let split = new SplitText(titleElement, { type: 'chars', charsClass: "char" });
+        let split = new SplitText(titleElement, { 
+            type: 'words,chars', 
+            wordsClass: styles.word, // Use the CSS module class
+            charsClass: styles.char,  // Use the CSS module class
+        });
 
         // --- 3. Create a configuration object for the animation ---
         const animationConfig = {
@@ -42,10 +47,8 @@ export default function TitleLetterUp({
             };
         }
 
-        // Animate the characters in using the final config
         gsap.from(split.chars, animationConfig);
         
-        // The cleanup function remains the same
         return () => {
             if (split.revert) {
                 split.revert();
@@ -54,7 +57,7 @@ export default function TitleLetterUp({
 
     }, { 
         scope: containerRef, 
-        dependencies: [children, useScrollTrigger] // Add the new prop to dependencies
+        dependencies: [children, useScrollTrigger]
     });
 
     return (
@@ -62,8 +65,8 @@ export default function TitleLetterUp({
             <div ref={containerRef} style={{ overflow: "hidden", display: "inline-block" }}>
                 <h1 
                     ref={titleRef} 
-                    className={className} 
-                    style={{ height: "100%" }}
+                    className={`${styles.headerContainer} ${className}`}
+                    style={{ height: "100%"}}
                 >
                     {children}
                 </h1>
