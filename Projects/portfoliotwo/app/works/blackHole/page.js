@@ -16,16 +16,21 @@ export default function blackHole() {
                 title="BLACK HOLE"
                 buttons={[
                     { 
-                        text: "Launch Project", 
+                        text: "Launch Website", 
                         externalLink: "https://black-hole-design-3.vercel.app/",
                         icon: "arrow" 
+                    },
+                    { 
+                        text: "View Video", 
+                        externalLink: "https://youtu.be/1ME1z9_jFwc",
+                        icon: "" 
                     }
                 ]}
                 subHeader="Web & Motion Design"
-                paragraph="This project combined a vintage-style motion graphic video with a custom-built interactive website. The animation used grain, glow, and minimal graphics to emphasize rhythm, scale, and a focused visual narrative. The accompanying website, developed with Next.js and GSAP, used a structured system of transition and still clips to ensure seamless playback and intuitive interaction."
+                paragraph="This project combined a vintage-style motion graphic video with a custom-built interactive website. The animation used grain, glow, and minimal graphics to emphasize rhythm, scale, and a focused visual narrative. The accompanying website, developed with Next.js and GSAP is a visual narrative using a structured system of transition and still clips to ensure a smooth and continuous flow."
             />
             <LargeTextSection 
-                paragraphTitleText="Black hole is an interactive project that merges custom-designed After Effects assets with a 12-page interactive coded experience."
+                paragraphTitleText="An interactive project merging custom-designed After Effects assets with a 12-page coded experience."
             />
             <TwoColumnMediaLayout
                 textSide="right"

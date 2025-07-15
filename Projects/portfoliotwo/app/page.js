@@ -14,6 +14,7 @@ import LayoutFour from '@/components/templates/Layout-4/layoutFour';
 import LayoutFive from '@/components/templates/Layout-5/layoutFive';
 import LayoutSix from '@/components/templates/Layout-6/layoutSix';
 import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
+import LayoutEight from '@/components/templates/Layout-8/layoutEight';
 
 
 export default function Home() {
@@ -162,7 +163,6 @@ export default function Home() {
             imageSrc="/images/kissyfish.jpg"
             children={<InteractiveCanScene/>}
           />
-          
           <LayoutSeven
             header= "Lorem Ipsum Dolor Siet Ameit"
             paragraph= "Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
@@ -172,6 +172,12 @@ export default function Home() {
                 { imageSrc: "/images/kissyfish.jpg" }
             ]}
             mediaCarouselWidth="90vw"
+          />
+          <LayoutEight 
+            header="Lorem Ipsum Dolor Siet Ameit"
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+            imageSrc="/images/kissyfish.jpg"
+            children={<InteractiveCanScene/>}
           />
           {/* <div style={{height: "100vh", border: "1px solid red"}}></div> */}
         </div>
