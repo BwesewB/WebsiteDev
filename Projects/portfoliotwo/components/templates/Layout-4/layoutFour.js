@@ -24,23 +24,14 @@ export default function LayoutFour({
                 >
                     <TextContainer
                         header={header}
-                    />
-                </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={2} 
-                    rowStart={2} 
-                    rowEnd={3}
-                >
-                    <TextContainer 
                         paragraph={paragraph1}
                     />
                 </GridLayoutItem >
                 <GridLayoutItem 
                     colStart={2} 
                     colEnd={5} 
-                    rowStart={2} 
-                    rowEnd={5}
+                    rowStart={1} 
+                    rowEnd={4}
                 >
                     <MediaBlockOrChild 
                         imageSrc={imageSrc}
@@ -52,8 +43,8 @@ export default function LayoutFour({
                 <GridLayoutItem 
                     colStart={3} 
                     colEnd={4} 
-                    rowStart={1} 
-                    rowEnd={2}
+                    rowStart={4} 
+                    rowEnd={5}
                 >
                     <TextContainer 
                         paragraph={paragraph2}
@@ -62,8 +53,8 @@ export default function LayoutFour({
                 <GridLayoutItem 
                     colStart={4} 
                     colEnd={5} 
-                    rowStart={1} 
-                    rowEnd={2}
+                    rowStart={4} 
+                    rowEnd={5}
                 >
                     <TextContainer 
                         paragraph={paragraph3}
