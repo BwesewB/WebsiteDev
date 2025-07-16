@@ -22,6 +22,8 @@ export default function TitleLetterUp({
         const containerElement = containerRef.current;
         if (!titleElement || !children || !containerElement) return;
 
+        gsap.set(titleElement, { autoAlpha: 1 });
+        
         let split = new SplitText(titleElement, { 
             type: 'words,chars', 
             wordsClass: styles.word, // Use the CSS module class
@@ -45,7 +47,7 @@ export default function TitleLetterUp({
                 toggleActions: 'play none none none', // Play once on enter
                 // markers: true,
             };
-        }
+        } 
 
         gsap.from(split.chars, animationConfig);
         
@@ -57,7 +59,7 @@ export default function TitleLetterUp({
 
     }, { 
         scope: containerRef, 
-        dependencies: [children, useScrollTrigger]
+        dependencies: [children, useScrollTrigger ]
     });
 
     return (
@@ -66,7 +68,7 @@ export default function TitleLetterUp({
                 <h1 
                     ref={titleRef} 
                     className={`${styles.headerContainer} ${className}`}
-                    style={{ height: "100%"}}
+                    style={{ visibility: 'hidden' }}
                 >
                     {children}
                 </h1>

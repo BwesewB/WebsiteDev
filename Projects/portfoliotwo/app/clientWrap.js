@@ -74,25 +74,24 @@ export default function ClientWrap({ children }) {
       normalizeScroll: true,
     });
 
+    const refreshTimeout = setTimeout(() => {
+      console.log("Forcing final ScrollTrigger refresh after initial load.");
+      ScrollTrigger.refresh(true);
+    }, 500); 
+
     return () => {
-      if (smootherRef.current) smootherRef.current.kill();
+      smoother.kill();
+      clearTimeout(refreshTimeout);
     };
   }, []);
 
   useLayoutEffect(() => {
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-        smoother.scrollTo(0, false);
-    } else {
-        window.scrollTo(0, 0);
-    }
-    const timer = setTimeout(() => {
-      console.log(`[ClientWrap] Refreshing triggers for path: ${pathname}`);
-      ScrollTrigger.refresh();
-    }, 150);
+    // When the user navigates to a new page, it's also good to trigger a refresh.
+    const navRefreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 300);
 
-    return () => clearTimeout(timer);
-
+    return () => clearTimeout(navRefreshTimeout);
   }, [pathname]);
 
   return (

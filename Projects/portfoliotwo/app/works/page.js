@@ -7,41 +7,40 @@ import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
-import { SplitText } from "gsap/SplitText";
 import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLetterUp';
-
-gsap.registerPlugin(SplitText);
 
 export default function WorksPage() {
 
-  const headerRef = useRef(null);
+  const containerRef = useRef(null)
+  const headerRef = useRef(null)
 
   useGSAP(() => {
+      const container = containerRef.current;
       const header = headerRef.current;
-      if (!header) return;
 
-      // Let SplitText handle all the complex splitting logic
-      let split = new SplitText(header, { type: 'chars' });
-      
-      gsap.set(header, { visibility: 'visible' });
+      // gsap.to(container, {
+      //   height:"60vh",
+      //   duration: 0.8,
+      //   delay: 1,
+      //   ease: 'power3.out',
+      // });
 
-      gsap.from(split.chars, { // Animate the characters it created
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.05,
+      gsap.to(header, {
         duration: 0.8,
+        delay: 1,
         ease: 'power3.out',
       });
-      
   }, []);
 
   return (
     <>
-      <div className={styles.headerContainer}>
-        <TitleLetterUp className={styles.headerBig}>
-          Works
-        </TitleLetterUp>
-        {/* <h1  ref={headerRef}>Works</h1> */}
+      <div className={styles.headerContainer} ref={containerRef}>
+        <div ref={headerRef}>
+          <TitleLetterUp className={styles.headerBig}>
+            Works
+          </TitleLetterUp>
+        </div>
+        
       </div>
       <div className={styles.gridContainer}>
         {cardData.map((project) => {
