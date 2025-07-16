@@ -1,4 +1,4 @@
-import GridLayout from "@/components/atoms/gridLayout/gridLayout"
+import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
@@ -14,7 +14,7 @@ export default function LayoutTwo({
     return (
         <>
             <GridLayout>
-                <GridLayout.Item 
+                <GridLayoutItem 
                     colStart={1} 
                     colEnd={3} 
                     rowStart={4} 
@@ -23,8 +23,8 @@ export default function LayoutTwo({
                     <TextContainer 
                         header={header}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem>
+                <GridLayoutItem 
                     colStart={3} 
                     colEnd={4} 
                     rowStart={4} 
@@ -33,8 +33,8 @@ export default function LayoutTwo({
                     <TextContainer 
                         paragraph={paragraph1}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem>
+                <GridLayoutItem 
                     colStart={4} 
                     colEnd={5} 
                     rowStart={4} 
@@ -43,8 +43,8 @@ export default function LayoutTwo({
                     <TextContainer 
                         paragraph={paragraph2}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem>
+                <GridLayoutItem 
                     colStart={3} 
                     colEnd={5} 
                     rowStart={1} 
@@ -56,7 +56,7 @@ export default function LayoutTwo({
                         mediaWidth={mediaWidth}
                         children={children}
                     />
-                </GridLayout.Item>
+                </GridLayoutItem>
             </GridLayout>
         </>
     )

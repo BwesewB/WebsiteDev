@@ -1,4 +1,4 @@
-import GridLayout from "@/components/atoms/gridLayout/gridLayout"
+import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
@@ -19,7 +19,7 @@ export default function LayoutThree({
     return (
         <>
             <GridLayout>
-                <GridLayout.Item 
+                <GridLayoutItem 
                     colStart={1} 
                     colEnd={3} 
                     rowStart={1} 
@@ -30,8 +30,8 @@ export default function LayoutThree({
                         videoSrc={videoSrc1}
                         children={childrenSlotOne}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={3} 
                     colEnd={4} 
                     rowStart={2} 
@@ -40,8 +40,8 @@ export default function LayoutThree({
                     <TextContainer 
                         header={header}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={3} 
                     colEnd={4} 
                     rowStart={3} 
@@ -52,8 +52,8 @@ export default function LayoutThree({
                         videoSrc={videoSrc2}
                         children={childrenSlotTwo}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={4} 
                     colEnd={5} 
                     rowStart={3} 
@@ -62,7 +62,7 @@ export default function LayoutThree({
                     <TextContainer 
                         paragraph={paragraph}
                     />
-                </GridLayout.Item>
+                </GridLayoutItem >
             </GridLayout>
         </>
     )

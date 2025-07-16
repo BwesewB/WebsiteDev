@@ -15,7 +15,7 @@ const useMediaQuery = (query) => {
     return matches;
 };
 
-const Item = ({ children, className = '', style }) => {
+export const Item = ({ children, className = '', style }) => {
     return (
         <div className={`${styles.gridItem} ${className}`} style={style}>
             {children}
@@ -50,5 +50,3 @@ export default function GridLayout({ children }) {
         </section>
     );
 }
-
-GridLayout.Item = Item;

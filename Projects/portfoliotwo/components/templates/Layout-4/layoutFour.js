@@ -1,4 +1,4 @@
-import GridLayout from "@/components/atoms/gridLayout/gridLayout"
+import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
@@ -16,7 +16,7 @@ export default function LayoutFour({
     return (
         <>
             <GridLayout>
-                <GridLayout.Item 
+                <GridLayoutItem 
                     colStart={1} 
                     colEnd={3} 
                     rowStart={1} 
@@ -25,8 +25,8 @@ export default function LayoutFour({
                     <TextContainer
                         header={header}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={1} 
                     colEnd={2} 
                     rowStart={2} 
@@ -35,8 +35,8 @@ export default function LayoutFour({
                     <TextContainer 
                         paragraph={paragraph1}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={2} 
                     colEnd={5} 
                     rowStart={2} 
@@ -48,8 +48,8 @@ export default function LayoutFour({
                         mediaWidth={mediaWidth}
                         children={children}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={3} 
                     colEnd={4} 
                     rowStart={1} 
@@ -58,8 +58,8 @@ export default function LayoutFour({
                     <TextContainer 
                         paragraph={paragraph2}
                     />
-                </GridLayout.Item>
-                <GridLayout.Item 
+                </GridLayoutItem >
+                <GridLayoutItem 
                     colStart={4} 
                     colEnd={5} 
                     rowStart={1} 
@@ -68,7 +68,7 @@ export default function LayoutFour({
                     <TextContainer 
                         paragraph={paragraph3}
                     />
-                </GridLayout.Item>
+                </GridLayoutItem >
             </GridLayout>
         </>
     )

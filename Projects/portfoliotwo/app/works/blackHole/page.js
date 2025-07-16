@@ -2,8 +2,11 @@ import ProjectHero from "@/components/templates/projectHero/page"
 import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import SectionEight from "@/components/templates/SectionEight/page"
+import LayoutEight from '@/components/templates/Layout-8/layoutEight';
+import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout";
 
 import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
+import LayoutOne from "@/components/templates/Layout-1/layoutOne";
 
 export default function blackHole() {
     return (
@@ -29,6 +32,16 @@ export default function blackHole() {
                 subHeader="Web & Motion Design"
                 paragraph="This project combined a vintage-style motion graphic video with a custom-built interactive website. The animation used grain, glow, and minimal graphics to emphasize rhythm, scale, and a focused visual narrative. The accompanying website, developed with Next.js and GSAP is a visual narrative using a structured system of transition and still clips to ensure a smooth and continuous flow."
             />
+                      <LayoutOne 
+                        header="Lorem Ipsum Dolor Siet Ameit"
+                        paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
+                        imageSrc="/images/kissyfish.jpg"
+                      />
+            {/* <LayoutEight 
+                header="Concept and Style Development"
+                paragraph="The project began by defining the scope of both the video and the interactive website, grounded in research on black hole life cycles, astrophysics concepts, and practical animation workflows. Early sketches and storyboards were used to plan the narrative flow while staying within the 12-week production window and personal technical constraints. A grainy, black-and-white aesthetic was chosen to reinforce themes of scale, distortion, and time. Low-frequency sound effects sourced from FILM RUX were layered to create a continuous, immersive soundscape, giving the black hole a sense of dominance without relying on literal visuals. The minimal design, both visual and auditory, allowed for a more abstract, evocative portrayal of cosmic scale and gravitational intensity."
+                videoSrc="/media/blackHole/Clip1.mp4"
+            /> */}
             <LargeTextSection 
                 paragraphTitleText="An interactive project merging custom-designed After Effects assets with a 12-page coded experience."
             />
