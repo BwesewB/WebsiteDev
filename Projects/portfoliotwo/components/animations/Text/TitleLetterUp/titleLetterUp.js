@@ -43,7 +43,7 @@ export default function TitleLetterUp({
                 trigger: containerElement, // Use the container as the trigger
                 start: 'top 85%', // Start animation when top of container is 85% from top of viewport
                 toggleActions: 'play none none none', // Play once on enter
-                markers: true,
+                // markers: true,
             };
         }
 

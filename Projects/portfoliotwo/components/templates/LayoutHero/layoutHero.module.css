@@ -5,7 +5,7 @@
     gap: var(--masterSpacing);
     margin-left: calc(-2 * var(--masterSpacing));
     margin-right: calc(-2 * var(--masterSpacing));
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .topMediaWrapper {

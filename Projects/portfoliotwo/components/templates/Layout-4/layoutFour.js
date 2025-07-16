@@ -18,9 +18,9 @@ export default function LayoutFour({
             <GridLayout>
                 <GridLayoutItem 
                     colStart={1} 
-                    colEnd={3} 
+                    colEnd={2} 
                     rowStart={1} 
-                    rowEnd={2}
+                    rowEnd={3}
                 >
                     <TextContainer
                         header={header}

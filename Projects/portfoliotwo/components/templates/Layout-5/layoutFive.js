@@ -7,6 +7,7 @@ export default function LayoutFive({
     videoSrc,
     mediaWidth,
     children,
+    header,
     paragraph,
 }) {
     return (
@@ -32,6 +33,7 @@ export default function LayoutFive({
                     rowEnd={3}
                 >
                     <TextContainer
+                        header={header}
                         paragraph={paragraph}
                     />
                 </GridLayoutItem >
