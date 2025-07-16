@@ -45,7 +45,8 @@ const MediaBlock = ({
         trigger: container,
         start: "top 90%",
         toggleActions: "play none none none",
-        markers: process.env.NODE_ENV === "development", // Only show markers in dev
+        
+        // markers: process.env.NODE_ENV === "development", // Only show markers in dev
       }
     });
 
@@ -56,7 +57,7 @@ const MediaBlock = ({
       {
         clipPath: "inset(0% 0% 0% 0%)",
         ease: "power3.out",
-        duration: 1.4,
+        duration: 2,
       }
     ).fromTo(media,
       {
@@ -67,7 +68,7 @@ const MediaBlock = ({
         ease: "power3.out",
         duration: 1.4,
       },
-      "<" // The "<" starts this animation at the same time as the previous one
+      "<" 
     );
 
   }, { scope: containerRef, dependencies: [enableRevealAnimation, imageSrc, videoSrc] });
