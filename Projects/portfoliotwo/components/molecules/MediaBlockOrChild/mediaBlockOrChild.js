@@ -20,7 +20,6 @@ export default function MediaBlockOrChild({
                             imageSrc={imageSrc}
                             videoSrc={videoSrc}
                             mediaWidth={mediaWidth}
-                            enableRevealAnimation={false}
                         />
                     )}
                 </div>
