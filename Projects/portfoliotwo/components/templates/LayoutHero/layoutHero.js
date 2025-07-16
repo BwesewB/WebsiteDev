@@ -46,7 +46,7 @@ export default function LayoutHero({
                             </div>
                         )}
                         <div className={styles.rightBottom}>
-                            {subHeader && <TextContainer paragraph={subHeader} textColour="var(--grey)"/>}
+                            {subHeader && <TextContainer paragraph={subHeader} textColour="var(--grey)" enablePaddingTop={true}/>}
                             <TextContainer paragraph={paragraph} />
                         </div>
                     </div>

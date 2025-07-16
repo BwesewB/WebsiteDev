@@ -16,8 +16,10 @@ export default function TextContainer({
     className = "",
     width = "90%",
     textAlign = "left",
+    enablePaddingTop = false, 
 }) {
     const containerRef = useRef(null);
+    const paddingTopValue = enablePaddingTop ? '3vw' : '0';
 
     useLayoutEffect(() => {
         if (!header && !paragraph) return;
@@ -85,7 +87,7 @@ export default function TextContainer({
     }
 
     return (
-        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ color: textColour, width: width }}>
+        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ color: textColour, width: width, paddingTop: paddingTopValue }}>
             {header && <h4 style={{ textAlign:textAlign }}>{header}</h4>}
             {paragraph && <p style={{ textAlign:textAlign }}>{paragraph}</p>}
         </div>

@@ -1,6 +1,7 @@
 import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout"
 import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
+import styles from './layoutFive.module.css'
 
 export default function LayoutFive({
     imageSrc,
@@ -27,15 +28,18 @@ export default function LayoutFive({
                     />
                 </GridLayoutItem >
                 <GridLayoutItem 
-                    colStart={4} 
+                    colStart={3} 
                     colEnd={5} 
                     rowStart={1} 
                     rowEnd={3}
                 >
-                    <TextContainer
-                        header={header}
-                        paragraph={paragraph}
-                    />
+                    <div className={styles.textContainer}>
+                        <TextContainer
+                            header={header}
+                            paragraph={paragraph}
+                        />
+                    </div>
+                    
                 </GridLayoutItem >
             </GridLayout>
         </>

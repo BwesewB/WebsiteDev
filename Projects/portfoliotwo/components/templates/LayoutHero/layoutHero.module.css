@@ -16,7 +16,9 @@
 .bottomSection {
     display: flex;
     gap: var(--masterSpacing);
-    height: 50vh;
+    padding-left: var(--masterSpacing);
+    padding-right: var(--masterSpacing);
+    /* height: 40vh; */
     /* border: 1px solid red; */
 }
 
@@ -35,7 +37,7 @@
 }
 
 .bottomLeft {
-    align-items: flex-end; 
+    /* align-items: flex-end;  */
     justify-content: flex-start;
     box-sizing: border-box;
 }
@@ -71,9 +73,5 @@
     .bottomSection {
         flex-direction: column;
         height: auto;
-    }
-
-    .bottomLeft, .bottomRight {
-        min-height: 25vh; 
     }
 }

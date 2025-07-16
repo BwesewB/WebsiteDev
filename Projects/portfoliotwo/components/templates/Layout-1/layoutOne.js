@@ -41,12 +41,14 @@ export default function LayoutOne({
                 <GridLayoutItem {...headerItemProps}>
                     <TextContainer 
                         header={header}
+                        enablePaddingTop={true}
                     />
                 </GridLayoutItem>
                 
                 <GridLayoutItem {...paragraphItemProps}>
                     <TextContainer 
                         paragraph={paragraph}
+                        enablePaddingTop={true}
                     />
                 </GridLayoutItem>
             </GridLayout>

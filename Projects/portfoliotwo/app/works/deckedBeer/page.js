@@ -7,10 +7,20 @@ import SectionTwo from "@/components/templates/SectionTwo/page"
 import SectionEight from "@/components/templates/SectionEight/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import ViewCanvas from "./cans/page"
+import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
 
 export default function DeckedBeer({}) {
     return (
         <div className="container">
+            <LayoutHero 
+                height='80vh'
+                title="Decked Beer"
+                subHeader="Product Design"
+                paragraph="Decked is a premium lager crafted for fishermen, delivering a refined and refreshing taste."
+                children={<ViewCanvas />}
+            />
+
+
             <div className={styles.canvasArea}>
                 <ProjectHero 
                     projectName="Decked Beer"

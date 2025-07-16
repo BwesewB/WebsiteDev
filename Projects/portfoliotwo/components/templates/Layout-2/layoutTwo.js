@@ -22,6 +22,7 @@ export default function LayoutTwo({
                 >
                     <TextContainer 
                         header={header}
+                        enablePaddingTop={true}
                     />
                 </GridLayoutItem>
                 <GridLayoutItem 
@@ -32,6 +33,7 @@ export default function LayoutTwo({
                 >
                     <TextContainer 
                         paragraph={paragraph1}
+                        enablePaddingTop={true}
                     />
                 </GridLayoutItem>
                 <GridLayoutItem 
