@@ -30,59 +30,47 @@ const MediaBlock = ({
     if (!enableRevealAnimation) return;
 
     const container = containerRef.current;
-    if (!container) return;
     const media = container.querySelector(`.${styles.media}`);
-    if (!media) return;
 
-    const createAnimation = () => {
-      console.log('Media is ready, creating animation for:', imageSrc || videoSrc);
-      
-      gsap.fromTo(container,
-        {
-          clipPath: "inset(0% 0% 100% 0%)",
-        },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          ease: "power3.out",
-          duration: 1.4,
-          scrollTrigger: {
-            trigger: container,
-            start: "top 90%",
-            toggleActions: "play none none none",
-            // markers: true,
-          }
-        }
-      );
-      
-      gsap.fromTo(media, 
-        { scale: 1.5 },
-        { 
-          scale: 1,
-          ease: "power3.out",
-          duration: 1.4,
-          scrollTrigger: {
-            trigger: container,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          }
-        }
-      );
-    };
+    // Simple guard clause
+    if (!container || !media) return;
 
-    // --- The Logic to Wait ---
-    if (isVideo) {
-      // For videos, wait for the 'loadedmetadata' event.
-      media.addEventListener('loadedmetadata', createAnimation, { once: true });
-    } else {
-      // For images, check if it's already loaded (from cache).
-      if (media.complete && media.naturalHeight > 0) {
-        createAnimation();
-      } else {
-        // Otherwise, wait for the 'load' event.
-        media.addEventListener('load', createAnimation, { once: true });
+    // By the time useGSAP runs, the elements are in the DOM.
+    // We can create the animation directly.
+    // useGSAP's cleanup function will automatically kill this ScrollTrigger on unmount/refresh.
+
+    // For better performance, create one timeline controlled by one ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 90%",
+        toggleActions: "play none none none",
+        markers: process.env.NODE_ENV === "development", // Only show markers in dev
       }
-    }
-  }, { scope: containerRef, dependencies: [enableRevealAnimation] });
+    });
+
+    tl.fromTo(container,
+      {
+        clipPath: "inset(0% 0% 100% 0%)",
+      },
+      {
+        clipPath: "inset(0% 0% 0% 0%)",
+        ease: "power3.out",
+        duration: 1.4,
+      }
+    ).fromTo(media,
+      {
+        scale: 1.5
+      },
+      {
+        scale: 1,
+        ease: "power3.out",
+        duration: 1.4,
+      },
+      "<" // The "<" starts this animation at the same time as the previous one
+    );
+
+  }, { scope: containerRef, dependencies: [enableRevealAnimation, imageSrc, videoSrc] });
 
   useEffect(() => {
     if (!isVideo || !containerRef.current) return;
