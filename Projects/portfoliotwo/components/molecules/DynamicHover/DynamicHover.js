@@ -1,6 +1,6 @@
 // components/molecules/DynamicHover.js
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './DynamicHover.module.css';
@@ -20,6 +20,7 @@ const DynamicHover = ({
 }) => {
   const containerRef = useRef(null);
   const childRef = useRef(null);
+  const [isRevealed, setIsRevealed] = useState(false);
 
   useGSAP(() => {
     const childElement = childRef.current;
@@ -43,12 +44,18 @@ const DynamicHover = ({
           toggleActions: "play none none none",
           // markers: true,
         },
+        onComplete: () => {
+          setIsRevealed(true);
+        },
       }
     );
 
   }, { scope: containerRef });
 
   useEffect(() => {
+
+    if (!isRevealed) return;
+
     const container = containerRef.current;
     const child = childRef.current;
 
@@ -94,7 +101,7 @@ const DynamicHover = ({
       container.removeEventListener('mousemove', onMouseMove);
       gsap.killTweensOf(child);
     };
-  }, [scale, movementFactor]);
+  }, [isRevealed, scale, movementFactor]);
 
   const HoverableContent = (
     <div ref={childRef} className={styles.dynamicHoverChild}>
