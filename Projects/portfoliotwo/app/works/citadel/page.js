@@ -1,4 +1,4 @@
-"use client"
+import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
 
 import ProjectHero from "@/components/templates/projectHero/page"
 import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
@@ -8,12 +8,14 @@ import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/pa
 export default function Citadel({}) {
     return (
         <div className="container">
-            <ProjectHero 
-                projectName="Citadel"
-                date="2022-2025"
-                toolsUsed="Shapr3D / Blender / Adobe Photoshop / Adobe After Effects"
+            <LayoutHero 
                 imageSrc="/media/citadel/gate.webp"
+                height='90vh'
+                title="Citadel"
+                subHeader="Blender and Shapr3D"
+                paragraph="This project explores surreal architectural scale through 3D modeling and atmospheric composition. Built and rendered using Shapr3D and Blender, it presents an imagined structure designed to evoke isolation, ambiguity, and the overwhelming nature of monolithic forms."
             />
+            
             <TwoColumnMediaLayout
                 textSide="right"
                 stickyConfig={{ column: 'none' }}

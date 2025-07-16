@@ -8,18 +8,28 @@ export default function LayoutOne({
     imageSrc,
     videoSrc,
     mediaWidth,
-    children
+    children,
+    switch: switchLayout = true, 
 }) {
+
+    const mediaItemProps = switchLayout
+    ? { colStart: 1, colEnd: 5, rowStart: 2, rowEnd: 5 } // Layout when switch is TRUE
+    : { colStart: 1, colEnd: 5, rowStart: 1, rowEnd: 4 }; // Default layout
+
+    // Props for the header text
+    const headerItemProps = switchLayout
+        ? { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
+        : { colStart: 1, colEnd: 3, rowStart: 4, rowEnd: 5 }; // Default layout
+
+    // Props for the paragraph text
+    const paragraphItemProps = switchLayout
+        ? { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
+        : { colStart: 3, colEnd: 5, rowStart: 4, rowEnd: 5 };
 
     return (
         <>
             <GridLayout>
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={5} 
-                    rowStart={1} 
-                    rowEnd={4}
-                >
+                <GridLayoutItem {...mediaItemProps}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc}
                         videoSrc={videoSrc}
@@ -27,22 +37,14 @@ export default function LayoutOne({
                         children={children}
                     />
                 </GridLayoutItem>
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={3} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
+
+                <GridLayoutItem {...headerItemProps}>
                     <TextContainer 
                         header={header}
                     />
                 </GridLayoutItem>
-                <GridLayoutItem 
-                    colStart={3} 
-                    colEnd={5} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
+                
+                <GridLayoutItem {...paragraphItemProps}>
                     <TextContainer 
                         paragraph={paragraph}
                     />

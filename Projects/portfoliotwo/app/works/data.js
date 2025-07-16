@@ -36,7 +36,7 @@ export const cardData = [
     },
     {
         title: "Taxes",
-        src: "/media/taxes/GOTTEM.mp4",
+        src: "/media/taxes/AvoidTaxesClip.mp4",
         categories: ["After Effects"],
         projectLink: "/works/taxes/"
     },

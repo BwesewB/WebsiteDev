@@ -4,7 +4,7 @@ export default function MediaBlockOrChild({
     imageSrc,
     videoSrc,
     mediaWidth,
-    children
+    children,
 }){
 
     const hasMediaContent = children || imageSrc || videoSrc;
@@ -20,6 +20,7 @@ export default function MediaBlockOrChild({
                             imageSrc={imageSrc}
                             videoSrc={videoSrc}
                             mediaWidth={mediaWidth}
+                            enableRevealAnimation={false}
                         />
                     )}
                 </div>

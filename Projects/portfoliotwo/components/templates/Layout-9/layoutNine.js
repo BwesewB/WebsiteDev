@@ -22,8 +22,8 @@ export default function LayoutNine({
                 <GridLayoutItem 
                     colStart={1} 
                     colEnd={3} 
-                    rowStart={1} 
-                    rowEnd={3}
+                    rowStart={2} 
+                    rowEnd={5}
                 >
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
@@ -34,12 +34,23 @@ export default function LayoutNine({
                 <GridLayoutItem 
                     colStart={1} 
                     colEnd={3} 
-                    rowStart={4} 
-                    rowEnd={5}
+                    rowStart={1} 
+                    rowEnd={2}
                 >
                     <TextContainer 
                         header={header}
-                        paragraph={paragraph}
+                    />
+                </GridLayoutItem >
+                <GridLayoutItem 
+                    colStart={3} 
+                    colEnd={5} 
+                    rowStart={2} 
+                    rowEnd={5}
+                >
+                    <MediaBlockOrChild 
+                        imageSrc={imageSrc2} 
+                        videoSrc={videoSrc2}
+                        children={childrenSlotTwo}
                     />
                 </GridLayoutItem >
                 <GridLayoutItem 
@@ -48,10 +59,8 @@ export default function LayoutNine({
                     rowStart={1} 
                     rowEnd={3}
                 >
-                    <MediaBlockOrChild 
-                        imageSrc={imageSrc2} 
-                        videoSrc={videoSrc2}
-                        children={childrenSlotTwo}
+                    <TextContainer 
+                        paragraph={paragraph}
                     />
                 </GridLayoutItem >
             </GridLayout>
