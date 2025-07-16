@@ -13,6 +13,9 @@ export default function LayoutFour({
     mediaWidth,
     children
 }) {
+
+    const hasBottomRowContent = paragraph2 || paragraph3;
+
     return (
         <>
             <GridLayout>
@@ -31,7 +34,7 @@ export default function LayoutFour({
                     colStart={2} 
                     colEnd={5} 
                     rowStart={1} 
-                    rowEnd={4}
+                    rowEnd={hasBottomRowContent ? 4 : 5} 
                 >
                     <MediaBlockOrChild 
                         imageSrc={imageSrc}
@@ -40,26 +43,29 @@ export default function LayoutFour({
                         children={children}
                     />
                 </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={3} 
-                    colEnd={4} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
-                    <TextContainer 
-                        paragraph={paragraph2}
-                    />
-                </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={4} 
-                    colEnd={5} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
-                    <TextContainer 
-                        paragraph={paragraph3}
-                    />
-                </GridLayoutItem >
+                {hasBottomRowContent && (
+                    <>
+                        <GridLayoutItem 
+                            colStart={3} 
+                            colEnd={4} 
+                            rowStart={4} 
+                            rowEnd={5}
+                        >
+                            {/* Only render the TextContainer if paragraph2 exists */}
+                            {paragraph2 && <TextContainer paragraph={paragraph2} />}
+                        </GridLayoutItem>
+
+                        <GridLayoutItem 
+                            colStart={4} 
+                            colEnd={5} 
+                            rowStart={4} 
+                            rowEnd={5}
+                        >
+                            {/* Only render the TextContainer if paragraph3 exists */}
+                            {paragraph3 && <TextContainer paragraph={paragraph3} />}
+                        </GridLayoutItem>
+                    </>
+                )}
             </GridLayout>
         </>
     )
