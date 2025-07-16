@@ -68,7 +68,7 @@ export default function TitleLetterUp({
                 <h1 
                     ref={titleRef} 
                     className={`${styles.headerContainer} ${className}`}
-                    style={{ visibility: 'hidden' }}
+                    style={{ visibility: 'hidden', userSelect: "none" }}
                 >
                     {children}
                 </h1>

@@ -12,7 +12,7 @@
   --font-weight-button: 600;
 
   --masterSpacing: 10px; /*could be renamed as not just padding left and right*/
-  --imageTextSpacing: 30px;
+  --imageTextSpacing: 3vw;
   --itemSpacing: 180px;
   --imgBorderRadius:10px;
   --relatedComponentGap:40px;

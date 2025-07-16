@@ -10,6 +10,7 @@ export default function LayoutHero({
     children,
     height = '75vh',
     buttons = [],
+    enablePaddingTop,
 
     title,
     subHeader,
@@ -46,7 +47,7 @@ export default function LayoutHero({
                             </div>
                         )}
                         <div className={styles.rightBottom}>
-                            {subHeader && <TextContainer paragraph={subHeader} textColour="var(--grey)" enablePaddingTop={true}/>}
+                            {subHeader && <TextContainer paragraph={subHeader} textColour="var(--grey)" enablePaddingTop={enablePaddingTop}/>}
                             <TextContainer paragraph={paragraph} />
                         </div>
                     </div>

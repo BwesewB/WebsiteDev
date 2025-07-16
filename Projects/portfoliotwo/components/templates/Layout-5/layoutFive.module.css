@@ -1,5 +1,5 @@
 .textContainer {
-    padding-left: 3vw;
+    padding-left: var(--imageTextSpacing);
 }
 
 @media (max-width: 768px) {

@@ -17,9 +17,10 @@ const MediaBlock = ({
   videoSrc,
   initialMute = true,
   sectionHeading,
-  mediaWidth = '100%',
+  scale = '100%',
   enableRevealAnimation = true,
   enableParallax = false, 
+  useObjectFitCover = true, 
 }) => {
 
   const isVideo = !!videoSrc; 
@@ -27,6 +28,7 @@ const MediaBlock = ({
   const mediaWrapperRef = useRef(null); 
   const mediaRef = useRef(null); 
   const [isMuted, setIsMuted] = useState(initialMute);
+  const objectFitValue = enableParallax ? 'fill' : (useObjectFitCover ? 'cover' : 'contain');
 
   useGSAP(() => {
       const container = containerRef.current;
@@ -95,7 +97,7 @@ const MediaBlock = ({
               start: "top bottom",
               end: "bottom top",
               scrub: true,
-              markers: true, // Keep markers on for debugging
+              // markers: true,
             }
           }
         );
@@ -153,7 +155,7 @@ const MediaBlock = ({
     <div
       ref={containerRef}
       className={styles.container}
-      style={{ width: mediaWidth, overflow: enableParallax ? 'hidden' : 'visible' }}
+      style={{ overflow: enableParallax ? 'hidden' : 'visible' }}
     >
       <div ref={mediaWrapperRef} style={{ width: '100%', height: '100%', position: 'relative' }} >
         {isVideo ? (
@@ -161,6 +163,7 @@ const MediaBlock = ({
             ref={mediaRef}
             src={videoSrc}
             className={styles.media}
+            style={{scale: scale, objectFit: objectFitValue}}
             loop
             muted={isMuted}
             playsInline // VERY IMPORTANT for preventing fullscreen on mobile
@@ -172,7 +175,7 @@ const MediaBlock = ({
               src={imageSrc}
               alt={sectionHeading || 'Portfolio media showcase'}
               layout="fill"
-              objectFit="cover"
+              style={{scale: scale, objectFit: objectFitValue}}
               className={styles.media}
               priority // Consider adding `priority` if the image is above the fold
             />

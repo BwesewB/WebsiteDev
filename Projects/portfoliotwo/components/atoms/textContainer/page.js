@@ -19,7 +19,7 @@ export default function TextContainer({
     enablePaddingTop = false, 
 }) {
     const containerRef = useRef(null);
-    const paddingTopValue = enablePaddingTop ? '3vw' : '0';
+    const paddingTopValue = enablePaddingTop ? 'var(--imageTextSpacing)' : '0';
 
     useLayoutEffect(() => {
         if (!header && !paragraph) return;
