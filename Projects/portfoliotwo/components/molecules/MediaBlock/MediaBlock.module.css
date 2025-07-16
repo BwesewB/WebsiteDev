@@ -12,6 +12,7 @@
   height: 100%;
   object-fit: cover; /* Ensures media covers the area without distortion */
   display: block;
+  position: relative;
 }
 
 .overlay {

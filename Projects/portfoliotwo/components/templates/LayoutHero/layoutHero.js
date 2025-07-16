@@ -26,6 +26,7 @@ export default function LayoutHero({
                         imageSrc={imageSrc} 
                         videoSrc={videoSrc}
                         children={children}
+                        enableParallax={true}
                     />
                 </div>
                 <div className={styles.bottomSection}>

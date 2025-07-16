@@ -9,7 +9,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// You can create SVG icon components for a better look
 const MuteIcon = () => <svg>...</svg>;
 const UnmuteIcon = () => <svg>...</svg>;
 
@@ -20,64 +19,103 @@ const MediaBlock = ({
   sectionHeading,
   mediaWidth = '100%',
   enableRevealAnimation = true,
+  enableParallax = false, 
 }) => {
+
   const isVideo = !!videoSrc; 
-  const videoRef = useRef(null);
   const containerRef = useRef(null);
+  const mediaWrapperRef = useRef(null); 
+  const mediaRef = useRef(null); 
   const [isMuted, setIsMuted] = useState(initialMute);
 
   useGSAP(() => {
-    if (!enableRevealAnimation) return;
+      const container = containerRef.current;
+      const mediaWrapper = mediaWrapperRef.current;
+      const media = mediaRef.current;
 
-    const container = containerRef.current;
-    const media = container.querySelector(`.${styles.media}`);
+      if (!container || !mediaWrapper || !media) return;
 
-    // Simple guard clause
-    if (!container || !media) return;
+      // --- REVEAL ANIMATION (UNCHANGED) ---
+      if (enableRevealAnimation) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          }
+        });
+        tl.fromTo(container,
+          { clipPath: "inset(0% 0% 100% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.out", duration: 2 }
+        ).fromTo(media, // Note: this still targets the media element itself for the scale effect
+          { scale: 1.5 },
+          { scale: 1, ease: "power3.out", duration: 1.4 },
+          "<"
+        );
+      }
 
-    // By the time useGSAP runs, the elements are in the DOM.
-    // We can create the animation directly.
-    // useGSAP's cleanup function will automatically kill this ScrollTrigger on unmount/refresh.
+      // --- PARALLAX ANIMATION (NEW) ---
+      if (enableParallax) {
+      const setupParallax = () => {
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
 
-    // For better performance, create one timeline controlled by one ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: "top 90%",
-        toggleActions: "play none none none",
+        // --- THIS IS THE NEW LOGIC ---
+        let mediaHeight;
+
+        if (media.tagName === 'IMG') {
+          // For images, calculate the aspect-ratio-correct height
+          const { naturalWidth, naturalHeight } = media;
+          const aspectRatio = naturalHeight / naturalWidth;
+          mediaHeight = containerWidth * aspectRatio;
+        } else {
+          // For videos, offsetHeight is usually reliable once metadata loads
+          mediaHeight = media.offsetHeight;
+        }
+
+        // Now we compare the calculated/measured height with the container
+        if (mediaHeight <= containerHeight) {
+          console.log('Parallax skipped: Media is not taller than the container.');
+          return;
+        }
         
-        // markers: process.env.NODE_ENV === "development", // Only show markers in dev
-      }
-    });
+        console.log('Setting up parallax...');
 
-    tl.fromTo(container,
-      {
-        clipPath: "inset(0% 0% 100% 0%)",
-      },
-      {
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "power3.out",
-        duration: 2,
-      }
-    ).fromTo(media,
-      {
-        scale: 1.5
-      },
-      {
-        scale: 1,
-        ease: "power3.out",
-        duration: 1.4,
-      },
-      "<" 
-    );
+        const distanceToMove = mediaHeight - containerHeight;
+        
+        gsap.set(mediaWrapper, { height: mediaHeight });
 
-  }, { scope: containerRef, dependencies: [enableRevealAnimation, imageSrc, videoSrc] });
+        gsap.fromTo(mediaWrapper, 
+          { y: 0 }, 
+          {
+            y: -distanceToMove,
+            ease: "none",
+            scrollTrigger: {
+              trigger: container,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              markers: true, // Keep markers on for debugging
+            }
+          }
+        );
+      };
+
+      // The rest of the logic to wait for load is correct
+      if (media.tagName === 'IMG') {
+        if (media.complete) setupParallax();
+        else media.addEventListener('load', setupParallax, { once: true });
+      } else if (media.tagName === 'VIDEO') {
+        if (media.readyState > 0) setupParallax();
+        else media.addEventListener('loadedmetadata', setupParallax, { once: true });
+      }
+    }
+  }, { dependencies: [enableRevealAnimation, enableParallax, imageSrc, videoSrc] });
 
   useEffect(() => {
-    if (!isVideo || !containerRef.current) return;
-
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
+    const videoElement = mediaRef.current;
+    if (!isVideo || !videoElement) return;
+    
     const observerCallback = (entries) => {
       const [entry] = entries;
       if (entry.isIntersecting) {
@@ -93,13 +131,9 @@ const MediaBlock = ({
       threshold: 0.5,
     });
 
-    observer.observe(containerRef.current);
+    observer.observe(videoElement);
 
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
+    return () => { observer.unobserve(videoElement) };
   }, [isVideo]); 
 
   const toggleMute = () => {
@@ -119,12 +153,12 @@ const MediaBlock = ({
     <div
       ref={containerRef}
       className={styles.container}
-      style={{ width: mediaWidth }}
+      style={{ width: mediaWidth, overflow: enableParallax ? 'hidden' : 'visible' }}
     >
-      {/* <div ref={mediaRef}> */}
+      <div ref={mediaWrapperRef} style={{ width: '100%', height: '100%', position: 'relative' }} >
         {isVideo ? (
           <video
-            ref={videoRef}
+            ref={mediaRef}
             src={videoSrc}
             className={styles.media}
             loop
@@ -134,6 +168,7 @@ const MediaBlock = ({
           />
         ) : (
             <Image
+              ref={mediaRef}
               src={imageSrc}
               alt={sectionHeading || 'Portfolio media showcase'}
               layout="fill"
@@ -142,7 +177,7 @@ const MediaBlock = ({
               priority // Consider adding `priority` if the image is above the fold
             />
         )}
-      {/* </div> */}
+      </div>
       {/* Overlays */}
       <div className={styles.overlay}>
         {sectionHeading && (
