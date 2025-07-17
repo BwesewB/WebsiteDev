@@ -8,7 +8,7 @@ import styles from './mediaChild.module.css'
 export default function MediaBlockOrChild({ 
     children, 
     fullWidth = true,
-    height = "auto",
+    height = "100%",
     ...props 
 }){
     const isMobile = useMediaQuery('(max-width: 768px)');
@@ -24,7 +24,7 @@ export default function MediaBlockOrChild({
     if (children) {
 
         return (
-            <div className={isFullWidthActive ? styles.fullWidthWrapper : ''} style={{height: height}}>
+            <div style={{height: height}}>
                 {children}
             </div>
         );
