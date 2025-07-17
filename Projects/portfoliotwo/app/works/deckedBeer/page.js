@@ -28,6 +28,7 @@ export default function DeckedBeer({}) {
                 imageSrc1="/media/cans/noFeedFish.svg"
                 imageSrc2="/media/cans/hookInstructions.svg"
                 useObjectFitCover={false}
+                // scale="50%"
             />
             <LayoutSeven 
                 header= "Labels"

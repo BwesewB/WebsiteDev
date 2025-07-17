@@ -19,15 +19,31 @@ export default function LayoutNine({
 
 
 }) {
+
+    const mediaItem1Props = switchLayout
+        ? { colStart: 1, colEnd: 3, rowStart: 2, rowEnd: 5 } 
+        : { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 4 }; 
+
+    const mediaItem2Props = switchLayout
+        ? { colStart: 3, colEnd: 5, rowStart: 2, rowEnd: 5 } 
+        : { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 4 }; 
+
+    // Props for the header text
+    const headerItemProps = switchLayout
+        ? { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
+        : { colStart: 1, colEnd: 3, rowStart: 4, rowEnd: 5 }; // Default layout
+
+    // Props for the paragraph text
+    const paragraphItemProps = switchLayout
+        ? { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
+        : { colStart: 3, colEnd: 5, rowStart: 4, rowEnd: 5 };
+
+    const enablePaddingTop = !switchLayout ? true : false;
+
     return (
         <>
             <GridLayout>
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={3} 
-                    rowStart={1} 
-                    rowEnd={4}
-                >
+                <GridLayoutItem {...mediaItem1Props}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
                         videoSrc={videoSrc1}
@@ -36,22 +52,13 @@ export default function LayoutNine({
                         useObjectFitCover={useObjectFitCover}
                     />
                 </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={3} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
+                <GridLayoutItem {...headerItemProps}>
                     <TextContainer 
                         header={header}
+                        enablePaddingTop={enablePaddingTop}
                     />
                 </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={3} 
-                    colEnd={5} 
-                    rowStart={1} 
-                    rowEnd={4}
-                >
+                <GridLayoutItem {...mediaItem2Props}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc2} 
                         videoSrc={videoSrc2}
@@ -60,14 +67,10 @@ export default function LayoutNine({
                         useObjectFitCover={useObjectFitCover}
                     />
                 </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={3} 
-                    colEnd={5} 
-                    rowStart={4} 
-                    rowEnd={5}
-                >
+                <GridLayoutItem {...paragraphItemProps}>
                     <TextContainer 
                         paragraph={paragraph}
+                        enablePaddingTop={enablePaddingTop}
                     />
                 </GridLayoutItem >
             </GridLayout>
