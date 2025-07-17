@@ -26,6 +26,8 @@ export default function LayoutOne({
         ? { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
         : { colStart: 3, colEnd: 5, rowStart: 4, rowEnd: 5 };
 
+    const enablePaddingTop = !switchLayout ? true : false;
+
     return (
         <>
             <GridLayout>
@@ -41,14 +43,14 @@ export default function LayoutOne({
                 <GridLayoutItem {...headerItemProps}>
                     <TextContainer 
                         header={header}
-                        enablePaddingTop={true}
+                        enablePaddingTop={enablePaddingTop}
                     />
                 </GridLayoutItem>
                 
                 <GridLayoutItem {...paragraphItemProps}>
                     <TextContainer 
                         paragraph={paragraph}
-                        enablePaddingTop={true}
+                        enablePaddingTop={enablePaddingTop}
                     />
                 </GridLayoutItem>
             </GridLayout>
