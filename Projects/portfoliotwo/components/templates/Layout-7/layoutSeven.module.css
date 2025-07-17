@@ -54,9 +54,10 @@
 
 .mediaItemWrapper {
     width: 100%;
-    height: 80vh; /* Example: 80% of the viewport height. ADJUST AS NEEDED. */
+    /* height: 80vh; */
     position: relative;
 }
+
 /* Mobile Layout Adjustments */
 @media (max-width: 768px) {
     .container {

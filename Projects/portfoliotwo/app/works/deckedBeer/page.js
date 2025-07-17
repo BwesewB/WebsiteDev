@@ -39,7 +39,8 @@ export default function DeckedBeer({}) {
                     { imageSrc: "/media/cans/labels/Crab@2x.png" },
                     { imageSrc: "/media/cans/labels/Seaweed@2x.png" }
                 ]}
-                mediaCarouselWidth="90vw"
+                mediaCarouselWidth="120vw"
+                mediaCarouselHeight="50vh"
             />
 
             <SectionTwo 

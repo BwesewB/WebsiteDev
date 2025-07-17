@@ -174,11 +174,11 @@ const MediaBlock = ({
             autoPlay // Hint for browsers, but Intersection Observer is the real controller
           />
         ) : (
-            <Image
+            <img
               ref={mediaRef}
               src={imageSrc}
               alt={sectionHeading || 'Portfolio media showcase'}
-              layout="fill"
+              // layout="fill"
               style={mediaStyle}
               className={styles.media}
               priority // Consider adding `priority` if the image is above the fold

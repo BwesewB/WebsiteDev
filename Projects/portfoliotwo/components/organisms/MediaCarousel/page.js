@@ -12,6 +12,7 @@ gsap.registerPlugin(Draggable);
 export default function MediaCarousel({ 
     mediaItems = [],
     mediaCarouselWidth = "75vw",
+    mediaCarouselHeight = "100%"
 }) {
     const trackRef = useRef(null);
     const containerRef = useRef(null);
@@ -76,11 +77,10 @@ export default function MediaCarousel({
         <div className={styles.carouselContainer} ref={containerRef}>
             <div className={styles.carouselTrack} ref={trackRef}>
                 {mediaItems.map((media, index) => (
-                    <div key={index} className={styles.carouselItem} style={{width: mediaCarouselWidth}}>
+                    <div key={index} className={styles.carouselItem} style={{width: mediaCarouselWidth, height: mediaCarouselHeight}}>
                         <MediaBlock
                             imageSrc={media.imageSrc}
                             videoSrc={media.videoSrc}
-                            // enableRevealAnimation={false} 
                         />
                     </div>
                 ))}

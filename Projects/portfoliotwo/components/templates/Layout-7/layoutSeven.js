@@ -26,7 +26,7 @@ export default function LayoutSeven({
     paragraph,
     mediaItems = [],
     mediaCarouselWidth,
-    
+    mediaCarouselHeight,
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
     const leftColumnRef = useRef(null);
@@ -50,6 +50,7 @@ export default function LayoutSeven({
                     <MediaBlock
                         imageSrc={item.imageSrc}
                         videoSrc={item.videoSrc}
+                        useObjectFitCover={false}
                     />
                 </div>
             ))}
@@ -64,7 +65,7 @@ export default function LayoutSeven({
             {isMobile ? (
                 // --- MOBILE VIEW ---
                 <>
-                    {mediaItems.length > 0 && <MediaCarousel mediaItems={mediaItems} mediaCarouselWidth={mediaCarouselWidth} />}
+                    {mediaItems.length > 0 && <MediaCarousel mediaItems={mediaItems} mediaCarouselWidth={mediaCarouselWidth} mediaCarouselHeight={mediaCarouselHeight}/>}
                     {textContent && <div className={styles.mobileTextWrapper}>{textContent}</div>}
                 </>
             ) : (
