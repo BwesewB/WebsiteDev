@@ -1,12 +1,7 @@
-import ProjectHero from "@/components/templates/projectHero/page"
-import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
-import SectionTwo from "@/components/templates/SectionTwo/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
 import LayoutSeven from "@/components/templates/Layout-7/layoutSeven"
 
 export default function MagazinePage({}) {
-    const mediaWidth = "90%"
     return(
         <div className="container">
             <LayoutHero 

@@ -1,16 +1,12 @@
 import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
-
-import ProjectHero from "@/components/templates/projectHero/page"
 import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
-import SectionEight from "@/components/templates/SectionEight/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import LayoutFive from "@/components/templates/Layout-5/layoutFive"
 import LayoutNine from "@/components/templates/Layout-9/layoutNine"
 import LayoutSeven from "@/components/templates/Layout-7/layoutSeven"
 import LayoutTwo from "@/components/templates/Layout-2/layoutTwo"
 import LayoutOne from "@/components/templates/Layout-1/layoutOne"
 
-export default function Citadel({}) {
+export default function Citadel() {
     return (
         <div className="container">
             <LayoutHero 

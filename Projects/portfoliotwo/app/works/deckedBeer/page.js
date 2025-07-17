@@ -1,11 +1,3 @@
-"use client"
-
-import styles from "./decked.module.css"
-import ProjectHero from "@/components/templates/projectHero/page"
-import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
-import SectionTwo from "@/components/templates/SectionTwo/page"
-import SectionEight from "@/components/templates/SectionEight/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
 import ViewCanvas from "./cans/page"
 import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
 import LayoutNine from "@/components/templates/Layout-9/layoutNine"
