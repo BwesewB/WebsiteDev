@@ -43,7 +43,7 @@ export default function DeckedBeer({}) {
                 mediaCarouselHeight="50vh"
             />
 
-            <SectionTwo 
+            {/* <SectionTwo 
                 videoSrc="/media/cans/fishCanVideo.mp4"
             />
             <LargeTextSection 
@@ -52,7 +52,7 @@ export default function DeckedBeer({}) {
             <SectionEight
                 imageOne="/media/cans/3cans1.png"
                 imageTwo="/media/cans/3cans2.png"
-            />
+            /> */}
         </div>
     )
 }

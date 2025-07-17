@@ -12,7 +12,7 @@ export default function blackHole() {
             <div className="container">
                 <LayoutHero 
                     videoSrc="/media/blackHole/RevisedFinal.mp4"
-                    height='95vh'
+                    height='min(55vw, 90vh)'
                     title="BLACK HOLE"
                     buttons={[
                         { 

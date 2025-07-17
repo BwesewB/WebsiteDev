@@ -8,13 +8,16 @@ export default function LayoutHero({
     imageSrc,
     videoSrc,
     children,
-    height = '75vh',
+    height = "100%",
     buttons = [],
     enablePaddingTop,
 
     title,
     subHeader,
     paragraph,
+    // enableParallax,
+    // useObjectFitCover,
+    fullWidth, 
 }) {
 
     const hasButtons = buttons && buttons.length > 0;
@@ -22,12 +25,15 @@ export default function LayoutHero({
     return(
         <>
             <section className={styles.mainContainer}>
-                <div className={styles.topMediaWrapper} style={{height: height}}>
+                <div className={styles.topMediaWrapper}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc} 
                         videoSrc={videoSrc}
                         children={children}
-                        enableParallax={true}
+                        // enableParallax={enableParallax}
+                        // useObjectFitCover={useObjectFitCover}
+                        height={height}
+                        fullWidth={fullWidth}
                     />
                 </div>
                 <div className={styles.bottomSection}>

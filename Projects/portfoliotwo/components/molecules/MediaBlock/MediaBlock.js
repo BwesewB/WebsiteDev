@@ -28,7 +28,7 @@ const MediaBlock = ({
   const mediaWrapperRef = useRef(null); 
   const mediaRef = useRef(null); 
   const [isMuted, setIsMuted] = useState(initialMute);
-  const objectFitValue = enableParallax ? 'fill' : (useObjectFitCover ? 'cover' : 'contain');
+  const objectFitValue = useObjectFitCover ? 'cover' : 'initial';
 
   useGSAP(() => {
       const container = containerRef.current;
@@ -181,7 +181,7 @@ const MediaBlock = ({
               // layout="fill"
               style={mediaStyle}
               className={styles.media}
-              priority // Consider adding `priority` if the image is above the fold
+              // priority
             />
         )}
       </div>
