@@ -17,7 +17,7 @@ const MediaBlock = ({
   videoSrc,
   initialMute = true,
   sectionHeading,
-  scale = '100%',
+  scale = 1,
   enableRevealAnimation = true,
   enableParallax = false, 
   useObjectFitCover = true, 
@@ -51,7 +51,7 @@ const MediaBlock = ({
           { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.out", duration: 2 }
         ).fromTo(media, // Note: this still targets the media element itself for the scale effect
           { scale: 1.5 },
-          { scale: 1, ease: "power3.out", duration: 1.4 },
+          { scale: scale, ease: "power3.out", duration: 1.4 },
           "<"
         );
       }
@@ -141,6 +141,10 @@ const MediaBlock = ({
   const toggleMute = () => {
     setIsMuted(prev => !prev);
   };
+
+  const mediaStyle = {
+    objectFit: objectFitValue,
+  };
   
   // --- Error Handling ---
   if (!videoSrc && !imageSrc) {
@@ -163,7 +167,7 @@ const MediaBlock = ({
             ref={mediaRef}
             src={videoSrc}
             className={styles.media}
-            style={{scale: scale, objectFit: objectFitValue}}
+            style={mediaStyle}
             loop
             muted={isMuted}
             playsInline // VERY IMPORTANT for preventing fullscreen on mobile
@@ -175,7 +179,7 @@ const MediaBlock = ({
               src={imageSrc}
               alt={sectionHeading || 'Portfolio media showcase'}
               layout="fill"
-              style={{scale: scale, objectFit: objectFitValue}}
+              style={mediaStyle}
               className={styles.media}
               priority // Consider adding `priority` if the image is above the fold
             />

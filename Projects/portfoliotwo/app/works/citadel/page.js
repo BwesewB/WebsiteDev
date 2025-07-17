@@ -55,7 +55,7 @@ export default function Citadel({}) {
                 header="Rendered Animation"
                 paragraph="The final render was made using the Cycles render engine in Blender. An astronaut model, created by Albin on CGTrader, was added to emphasize the massive scale of the building. The animation is complemented by the track 'What Do You Offer' by Akuma Kira from the game Lost in Vivo. The game itself is a psychological horror that explores themes of isolation, and the song's eerie, ambient tones perfectly align with the surreal and haunting atmosphere in this piece."
                 videoSrc="/media/citadel/citadelVideo.mp4"
-                switch={false}
+                switchLayout={false}
             />
         </div>
     )

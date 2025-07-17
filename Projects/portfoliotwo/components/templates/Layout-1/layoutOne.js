@@ -9,7 +9,7 @@ export default function LayoutOne({
     videoSrc,
     mediaWidth,
     children,
-    switch: switchLayout = true, 
+    switchLayout: switchLayout = true, 
 }) {
 
     const mediaItemProps = switchLayout

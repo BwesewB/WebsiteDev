@@ -7,7 +7,7 @@ export default function LayoutNine({
     paragraph,
     scale,
     useObjectFitCover,
-    switch: switchLayout = true, 
+    switchLayout: switchLayout = true, 
 
     imageSrc1,
     videoSrc1,
