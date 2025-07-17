@@ -25,8 +25,6 @@ export default function LayoutSeven({
     header,
     paragraph,
     mediaItems = [],
-    mediaCarouselWidth,
-    mediaCarouselHeight,
 }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
     const leftColumnRef = useRef(null);
@@ -65,7 +63,7 @@ export default function LayoutSeven({
             {isMobile ? (
                 // --- MOBILE VIEW ---
                 <>
-                    {mediaItems.length > 0 && <MediaCarousel mediaItems={mediaItems} mediaCarouselWidth={mediaCarouselWidth} mediaCarouselHeight={mediaCarouselHeight}/>}
+                    {mediaItems.length > 0 && <MediaCarousel mediaItems={mediaItems}/>}
                     {textContent && <div className={styles.mobileTextWrapper}>{textContent}</div>}
                 </>
             ) : (

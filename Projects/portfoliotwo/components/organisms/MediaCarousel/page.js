@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import SectionTwo from '@/components/templates/SectionTwo/page';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
+import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
 import styles from './mediaCarousel.module.css';
 
 gsap.registerPlugin(Draggable);
@@ -12,7 +13,6 @@ gsap.registerPlugin(Draggable);
 export default function MediaCarousel({ 
     mediaItems = [],
     mediaCarouselWidth = "75vw",
-    mediaCarouselHeight = "100%"
 }) {
     const trackRef = useRef(null);
     const containerRef = useRef(null);
@@ -77,8 +77,8 @@ export default function MediaCarousel({
         <div className={styles.carouselContainer} ref={containerRef}>
             <div className={styles.carouselTrack} ref={trackRef}>
                 {mediaItems.map((media, index) => (
-                    <div key={index} className={styles.carouselItem} style={{width: mediaCarouselWidth, height: mediaCarouselHeight}}>
-                        <MediaBlock
+                    <div key={index} className={styles.carouselItem} style={{width: mediaCarouselWidth}}>
+                        <MediaBlockOrChild
                             imageSrc={media.imageSrc}
                             videoSrc={media.videoSrc}
                         />

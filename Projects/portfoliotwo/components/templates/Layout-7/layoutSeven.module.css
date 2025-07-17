@@ -13,7 +13,7 @@
 
 .textContainerWrap {
     /* border: 1px solid red; */
-    height: 100vh;
+    height: auto;
     display: flex;
     align-items: flex-end;
     padding-bottom: var(--masterSpacing);
@@ -42,19 +42,20 @@
     position: relative;
 }
 
-.textContentWrapper {
+.textContainerWrap {
     position: relative;
     display: flex;
-    justify-content:flex-end ;
+    justify-content:flex-end;
+    align-items: flex-start;
     flex-direction: column;
     gap: var(--masterSpacing);
     height: 100vh;
+    /* border: 1px dashed blue; */
 }
 
 
 .mediaItemWrapper {
     width: 100%;
-    /* height: 80vh; */
     position: relative;
 }
 
@@ -65,7 +66,7 @@
         grid-template-rows: 75% 25%;
         gap: var(--imageTextSpacing); 
         width: 100%;
-        height: 100vh;
+        /* height: 100vh; */
     }
 
     /* Your .textContentWrapper style for mobile */

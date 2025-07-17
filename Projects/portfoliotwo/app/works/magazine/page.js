@@ -1,98 +1,43 @@
-import styles from "./magazine.module.css"
 import ProjectHero from "@/components/templates/projectHero/page"
 import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
 import SectionTwo from "@/components/templates/SectionTwo/page"
 import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page"
+import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
+import LayoutSeven from "@/components/templates/Layout-7/layoutSeven"
 
 export default function MagazinePage({}) {
     const mediaWidth = "90%"
     return(
         <div className="container">
-            <ProjectHero 
-                projectName="Reimagining Spaces"
-                date="2024"
+            <LayoutHero 
+                title="Reimagining Spaces"
+                subHeader="Magazine Layout Design"
+                paragraph="Spaces are not just containers for life—they shape behaviors, perceptions, and the way people connect with their surroundings. Japanese design, with its emphasis on adaptability, materiality, and spatial flow, offers a unique perspective on how environments can be structured and experienced. This printed magazine considers how contemporary Japanese spaces respond to limitations, integrate practicality with aesthetic intent, and challenge conventional spatial boundaries."
+                // enablePaddingTop={true}
                 imageSrc="/media/magazine/Toilet1.webp"
-                toolsUsed="Adobe Photoshop / Adobe InDesign"
-            />
-            <LargeTextSection 
-                paragraphTitleText="A Casa Brutus and Popeyes-insipired magazine that explores the interaction between Japanese design and its environment"
-            />
-            <TwoColumnMediaLayout
-                textSide="right"
-                
-                textBlocks={[ 
+                buttons={[
                     { 
-                        header: "Reimagining Spaces: A Japanese Perspective", 
-                        paragraph: "Spaces are not just containers for life—they shape behaviors, perceptions, and the way people connect with their surroundings. Japanese design, with its emphasis on adaptability, materiality, and spatial flow, offers a unique perspective on how environments can be structured and experienced. This printed magazine considers how contemporary Japanese spaces respond to limitations, integrate practicality with aesthetic intent, and challenge conventional spatial boundaries." 
-                    }
+                        text: "Web PDF", 
+                        externalLink: "/media/magazine/ReimaginingSpaces.pdf",
+                        icon: "arrow" 
+                    },
                 ]}
-
-                mediaColumnItems={[ // This content goes to the LEFT column
-                    {
-                        type: 'buttons', 
-                        items: [
-                            { text: "Web PDF", icon: "arrow", externalLink: "/media/magazine/ReimaginingSpaces.pdf" },
-                        ]
-                    }
+            />
+            <LayoutSeven
+                header= "A Casa Brutus and Popeyes-insipired magazine that explores the interaction between Japanese design and its environment"
+                paragraph= ""
+                mediaItems={[
+                    { imageSrc: "/media/magazine/MockupMagazine1.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine2.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine3.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine4.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine5.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine6.webp" },
+                    { imageSrc: "/media/magazine/MockupMagazine7.webp" },
                 ]}
-                
-                // NOW, to make the physical LEFT side sticky:
-                stickyConfig={{ column: 'left' }} 
-                
-                textColour="var(--black)"
+                mediaCarouselWidth="110vw"
             />
-            <section className="sectionContainer">
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine1.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine2.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine3.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine4.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine5.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine6.webp"
-                    mediaWidth={mediaWidth}
-                />
-                <SectionTwo
-                    imageSrc="/media/magazine/MockupMagazine7.webp"
-                    mediaWidth={mediaWidth}
-                />
-            </section>
 
-            {/* <div className={styles.fullWidth}>
-                <div style={{width:"60%"}}>
-                    <SectionTwo
-                        imageSrc="/media/logo/LogoDiameter.png"
-                    />
-                </div>
-            </div>
-            <SectionFive 
-                challengeHeader="The Logo"
-                challengeParagraph="The logo depicts a fugu, or pufferfish, chosen for its connection to craft and precision. Drawing inspiration from a passion for Japanese fish cutting, the design reflects the same focus and care required to handle this delicacy, representing a thoughtful and careful approach to creating work with attention to detail."
-            />
-            <div className={styles.fullWidth}>
-                <div style={{width:"50%"}}>
-                    <SectionTwo
-                        imageSrc="/media/logo/LogoMeasurement.png"
-                    />
-                </div>
-            </div>
-            <SectionTwo
-                imageSrc="/media/logo/LogoCreation.png"
-            /> */}
         </div>
     )
 }

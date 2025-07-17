@@ -19,8 +19,6 @@ export default function Citadel({}) {
                 subHeader="Blender and Shapr3D"
                 paragraph="This project explores surreal architectural scale through 3D modeling and atmospheric composition. Built and rendered using Shapr3D and Blender, it presents an imagined structure designed to evoke isolation, ambiguity, and the overwhelming nature of monolithic forms."
                 enablePaddingTop={true}
-                fullWidth={true}
-                // height="80vh"
             />
             <LayoutFive
                 header="Inspiration"

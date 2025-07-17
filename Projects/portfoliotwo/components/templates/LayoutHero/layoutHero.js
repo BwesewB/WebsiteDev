@@ -8,7 +8,7 @@ export default function LayoutHero({
     imageSrc,
     videoSrc,
     children,
-    height = "100%",
+    height = "min(60vw, 85vh)",
     buttons = [],
     enablePaddingTop,
 
