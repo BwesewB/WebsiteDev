@@ -1,26 +1,34 @@
 .gridContainer {
     display: grid;
     width: 100%;
-    height: min(55vw, 100vh);
-    max-height: 100vh;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    /* border: 1px solid blue; */
-    gap: calc(1 * var(--masterSpacing))
+    /* height: auto; */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* grid-template-rows: repeat(4, 1fr); */
+    border: 1px solid blue;
+    gap: calc(1 * var(--masterSpacing));
+    overflow: hidden;
 }
 
 .gridItem {
+    position: relative;
     width: 100%;
-    height: 100%;
-    /* overflow: hidden; */
+    height: auto; /* This tells the item to fill its assigned grid cell */
+}
+
+.gridItem > * {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    display: block;
 }
 
 
 @media (max-width: 768px) {
     .gridContainer {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
         height: auto;
-        min-height: 100vh;
+        max-height: 100vh;
     }
 }

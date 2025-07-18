@@ -17,17 +17,21 @@ const useMediaQuery = (query) => {
 
 export const Item = ({ children, className = '', style }) => {
     return (
-        <div className={`${styles.gridItem} ${className}`} style={style}>
+        <div className={`${styles.gridItem} ${className}`} style={style} >
             {children}
         </div>
     );
 };
 
-export default function GridLayout({ children }) {
+export default function GridLayout({ children, viewHeight = true }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
+    const dynamicStyles = {
+        height: viewHeight ? '100vh' : 'auto',
+        gridTemplateRows: viewHeight ? 'repeat(4, 1fr)' : 'none'
+    };
 
     return (
-        <section className={styles.gridContainer}>
+        <section className={styles.gridContainer} style={dynamicStyles}>
             {Children.map(children, (child) => {
                 if (!React.isValidElement(child)) {
                     return child;

@@ -3,11 +3,12 @@ import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
 export default function LayoutOne({
+    viewHeight,
     header,
     paragraph,
     imageSrc,
     videoSrc,
-    mediaWidth,
+    mediaHeight,
     children,
     switchLayout: switchLayout = true, 
 }) {
@@ -30,12 +31,12 @@ export default function LayoutOne({
 
     return (
         <>
-            <GridLayout>
+            <GridLayout viewHeight={viewHeight}>
                 <GridLayoutItem {...mediaItemProps}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc}
                         videoSrc={videoSrc}
-                        mediaWidth={mediaWidth}
+                        mediaHeight={mediaHeight}
                         children={children}
                     />
                 </GridLayoutItem>

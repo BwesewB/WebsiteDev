@@ -5,9 +5,10 @@ import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlo
 export default function LayoutNine({
     header,
     paragraph,
+    mediaHeight,
     scale,
-    useObjectFitCover,
     switchLayout: switchLayout = true, 
+    viewHeight,
 
     imageSrc1,
     videoSrc1,
@@ -42,14 +43,14 @@ export default function LayoutNine({
 
     return (
         <>
-            <GridLayout>
+            <GridLayout viewHeight={viewHeight}>
                 <GridLayoutItem {...mediaItem1Props}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
                         videoSrc={videoSrc1}
                         children={childrenSlotOne}
+                        mediaHeight={mediaHeight}
                         scale={scale}
-                        useObjectFitCover={useObjectFitCover}
                     />
                 </GridLayoutItem >
                 <GridLayoutItem {...headerItemProps}>
@@ -63,8 +64,8 @@ export default function LayoutNine({
                         imageSrc={imageSrc2} 
                         videoSrc={videoSrc2}
                         children={childrenSlotTwo}
+                        mediaHeight={mediaHeight}
                         scale={scale}
-                        useObjectFitCover={useObjectFitCover}
                     />
                 </GridLayoutItem >
                 <GridLayoutItem {...paragraphItemProps}>

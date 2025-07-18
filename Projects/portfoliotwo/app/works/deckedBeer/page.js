@@ -19,8 +19,9 @@ export default function DeckedBeer({}) {
                 paragraph='The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
                 imageSrc1="/media/cans/noFeedFish.svg"
                 imageSrc2="/media/cans/hookInstructions.svg"
-                useObjectFitCover={false}
-                scale={0.5}
+                mediaHeight="auto"
+                viewHeight={false}
+                scale={0.7}
                 switchLayout={false}
             />
             <LayoutSeven 

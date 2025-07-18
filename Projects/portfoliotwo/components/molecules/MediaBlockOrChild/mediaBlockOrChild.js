@@ -7,13 +7,13 @@ import styles from './mediaChild.module.css'
 
 export default function MediaBlockOrChild({ 
     children, 
-    fullWidth = true,
+    // fullWidth = true,
     height = "100%",
     ...props 
 }){
-    const isMobile = useMediaQuery('(max-width: 768px)');
+    // const isMobile = useMediaQuery('(max-width: 768px)');
 
-    const isFullWidthActive = fullWidth || isMobile;
+    // const isFullWidthActive = fullWidth || isMobile;
 
     // const mediaBlockProps = {
     //     ...props,
@@ -21,18 +21,23 @@ export default function MediaBlockOrChild({
     //     useObjectFitCover: !isFullWidthActive,
     // };
 
-    if (children) {
-
-        return (
-            <div style={{height: height}}>
-                {children}
-            </div>
-        );
-    }
-
     return (
-        <div className={isFullWidthActive ? styles.fullWidthWrapper : ''} style={{height: height}}>
-            <MediaBlock {...props} />
+        <div 
+            // className={isFullWidthActive ? styles.fullWidthWrapper : ''} 
+            style={{ 
+                height: height, 
+                width: '100%', 
+                position: 'relative' // Important for child positioning
+            }}
+        >
+            {children ? (
+                // If children exist, render them.
+                // They will now be inside the consistently styled div.
+                children 
+            ) : (
+                // Otherwise, render the MediaBlock with the calculated props.
+                <MediaBlock {...props} />
+            )}
         </div>
     );
 }
