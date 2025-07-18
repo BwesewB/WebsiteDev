@@ -101,8 +101,8 @@ export default function Home() {
               </ProjectCard>
             </GridLayoutItem >
           </GridLayout>
-{/*           
-          <LayoutHero 
+          
+          {/* <LayoutHero 
             children={<InteractiveCanScene/>}
             imageSrc="/images/kissyfish.jpg"
             height='75vh'
