@@ -113,7 +113,7 @@ const MediaBlock = ({
         else media.addEventListener('loadedmetadata', setupParallax, { once: true });
       }
     }
-  }, { dependencies: [enableRevealAnimation, enableParallax, imageSrc, videoSrc] });
+  }, { scope: containerRef, dependencies: [enableRevealAnimation, enableParallax, imageSrc, videoSrc] });
 
   useEffect(() => {
     const videoElement = mediaRef.current;

@@ -5,7 +5,9 @@ import styles from "./threeD.module.css";
 import dynamic from 'next/dynamic';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useState, useRef, useEffect } from "react";
+
+import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild";
+import LayoutHero from "@/components/templates/LayoutHero/layoutHero";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +17,7 @@ const Scene = dynamic(() => import('./torus/Scene'), {
     //tells next js only render on client side
 })
 
-const images = [
+const mediaSources = [
     { src: "/media/3dWorks/3shilo-minFlip.webp" },
     { src: "/media/3dWorks/Shilo1.webp" },
     { src: "/media/3dWorks/Shilo2.webp" },
@@ -40,67 +42,57 @@ const images = [
 ];
 
 export default function ThreeD() {
-    const imageRefs = useRef([])
-
-    useEffect(() => {
-        if (window.innerWidth <= 768) return;
-
-        imageRefs.current.forEach((image, index) => {
-            if (!image || index < 3) return;
-
-            gsap.fromTo(
-                image,
-                { y: -50, opacity: 0, scale:0.6, },
-                {
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.6,
-                    ease: "power1.in",
-                    scrollTrigger: {
-                        trigger: image,
-                        start: "top-=100px 90%",
-                        end: "top-=100px 85%",
-                        scrub: 1, 
-                        once: true,
-                        // markers:true,
-                    }
-                }
-            );
-        });
-    }, []);
 
     const breakpointColumnsObj = {
-        default: 3,
+        default: 4,
         768: 2,
         480: 1,
     };
 
     return (
-        <div className="page-container">
+        <div  className={styles.pageContainer}>
             {/* <div className={styles.torusScene}>
                 <div className={styles.torusFloat}>
                     <Scene />
                 </div>
             </div> */}
+            <div className={styles.PageHero}>
+                <MediaBlockOrChild
+                    videoSrc="/media/3dWorks/MovingMechanicalSphere.mp4"
+                />
+            </div>
+            
             <div className={styles.threeDProjectDisplay}>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
                     className={styles.masonryGrid}
                     columnClassName={styles.masonryColumn}
                 >
-                    {images.map(({ src }, index) => (
-                        <div 
-                            key={index} 
-                            className={styles.imageContainer} 
-                        >
-                            <img 
-                                src={src} 
-                                alt={`3D Work ${index}`} 
-                                ref={(el) => (imageRefs.current[index] = el)}
-                            />
-                        </div>
-                    ))}
+                    {mediaSources.map(({ src }, index) => {
+                        // --- THIS IS THE NEW LOGIC ---
+                        // Check if the src string ends with a video extension.
+                        const isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.mov');
+
+                        return (
+                            <div 
+                                key={index} 
+                                className={styles.imageContainer} 
+                            >
+                                <MediaBlockOrChild 
+                                    // If it's a video, set videoSrc, otherwise set imageSrc.
+                                    // Setting the other to 'undefined' is clean and explicit.
+                                    videoSrc={isVideo ? src : undefined}
+                                    imageSrc={!isVideo ? src : undefined}
+                                    
+                                    height="auto" 
+                                    enableRevealAnimation={index >= 4}
+                                    useObjectFitCover={false}
+                                    // For videos in a gallery, it's good practice to have them muted by default.
+                                    initialMute={true}
+                                />
+                            </div>
+                        );
+                    })}
                 </Masonry>
             </div>
         </div>

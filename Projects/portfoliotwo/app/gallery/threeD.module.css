@@ -1,4 +1,10 @@
-
+.PageHero {
+    width: 100vw;
+    height: min(80vw, 90vh);
+    margin-left: calc(-1 * var(--masterSpacingDouble));
+    margin-right: calc(-1 * var(--masterSpacingDouble));
+    padding-bottom: var(--masterSpacing);
+}
 
 .torusScene{
     width: 100vw;
@@ -25,7 +31,7 @@
 .masonryGrid {
     display: flex;
     width: 100%;
-    gap: var(--relatedComponentGap);
+    gap: var(--masterSpacing);
 }
 
 /* Ensures each column takes full width */
@@ -35,7 +41,7 @@
 
 .imageContainer {
     width: 100%;
-    padding-bottom:  var(--relatedComponentGap);
+    padding-bottom: var(--masterSpacing);
 }
 
 .imageContainer img {
