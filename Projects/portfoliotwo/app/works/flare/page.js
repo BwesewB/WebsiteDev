@@ -14,6 +14,12 @@ import SectionEight from "@/components/templates/SectionEight/page"
 import dynamic from "next/dynamic";
 import logoAnimation from "/public/media/flare/LogoAnimation.json";
 
+import LayoutHero from "@/components/templates/LayoutHero/layoutHero";
+import LayoutOne from "@/components/templates/Layout-1/layoutOne";
+import LayoutNine from "@/components/templates/Layout-9/layoutNine";
+import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild";
+import LayoutSeven from "@/components/templates/Layout-7/layoutSeven";
+
 
 gsap.registerPlugin(ScrollTrigger);
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -68,151 +74,90 @@ export default function Flare({}) {
 
     return (
         <div className="container">
-            <ProjectHero 
-                projectName="Flare"
-                projectRole="Marketing & Animation"
-                date="2024"
+            <LayoutHero 
+                height='min(55vw, 90vh)'
+                title="Flare"
+                subHeader="Marketing & Animation"
+                paragraph="Flare provides users with a quick and accessible answer to address concerns about wildfires. Wildfires can have devastating impacts on remote areas, cutting off access to critical information and emergency services. Flare bridges this gap by providing real-time, reliable wildfire alerts, even for those living in isolated regions with limited access to traditional media or wildfire updates."
                 imageSrc="/media/flare/MockupPhoneFlareCropped.webp"
-                toolsUsed="Adobe Illustrator / Adobe InDesign / After Effects / Figma / React.js"
-                textColour="var(--black)"
-                mediaWidth="80%"
+                buttons={[
+                        { 
+                            text: "Launch Website", 
+                            externalLink: "https://www.flare-bc.com/",
+                            icon: "arrow" 
+                        },
+                        { 
+                            text: "Source Code", 
+                            externalLink: "https://github.com/BCITKevin/Flare_IDSP",
+                            icon: "github" 
+                        },
+                        { 
+                            text: "Wireframe", 
+                            externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1",
+                            icon: "figma" 
+                        }
+                    ]}
             />
             <LargeTextSection 
                 paragraphTitleText="Your BC wildfire safety app with weather updates, fire alerts, and related news all into one intuitive app."
             />
-            <TwoColumnMediaLayout
-                textSide="right" // Main textBlocks (Wildfire info) will be on the RIGHT.
-                                // mediaColumnItems (the 3 buttons) will be on the LEFT.
-                
-                textBlocks={[ // This content goes to the RIGHT column
-                    { 
-                        header: "The Rising Danger of Wildfires", 
-                        paragraph: "British Columbia is facing increasingly severe wildfire seasons due to climate change and prolonged droughts, not only affecting outdoor enthusiasts, but more importantly rural communities with limited access to timely information." 
-                    },
-                    { 
-                        header: "How Flare Makes a Difference", 
-                        paragraph: "Flare provides users with a quick and accessible answer to address concerns about wildfires. Wildfires can have devastating impacts on remote areas, cutting off access to critical information and emergency services. Flare bridges this gap by providing real-time, reliable wildfire alerts, even for those living in isolated regions with limited access to traditional media or wildfire updates." 
-                    }
-                ]}
-
-                mediaColumnItems={[ // This content goes to the LEFT column
-                    {
-                        type: 'buttons', 
-                        items: [
-                            { text: "VISIT", icon: "arrow", externalLink: "https://www.flare-bc.com/" },
-                            { text: "SOURCE CODE", icon: "github", externalLink: "https://github.com/BCITKevin/Flare_IDSP" },
-                            { text: "WIREFRAME", icon: "figma", externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1" }
-                        ]
-                    }
-                ]}
-                
-                // NOW, to make the physical LEFT side sticky:
-                stickyConfig={{ column: 'left' }} 
-                
-                textColour="var(--black)"
+            <LayoutOne 
+                header="Competitive Analysis"
+                paragraph="Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
+                switch={true}
+                children={
+                    <ControllableLottie
+                        ref={triggerRef}
+                        lottieRef={lottieRef}
+                        animationData={logoAnimation}
+                        className={styles.fullWidth} 
+                    />
+                }
+                viewHeight={false}
             />
-            <ControllableLottie
-                ref={triggerRef}
-                lottieRef={lottieRef}
-                animationData={logoAnimation}
-                className={styles.fullWidth} 
+            <LayoutNine
+                header="Our Users"
+                paragraph="User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
+                imageSrc1="/media/flare/flarePersona1.webp"
+                imageSrc2="/media/flare/flarePersona2.webp"
+                mediaHeight="auto"
+                viewHeight={false}
             />
-            <TwoColumnMediaLayout
-                textSide="left"
-                textBlocks={[ // This content goes to the LEFT column
-                    { 
-                        header: "Competitive Analysis", 
-                        paragraph: "Before starting any design work, an in-depth Competitive Analysis Matrix was created to strategically position the app in the disaster prevention and mitigation market. Competitors were evaluated across five key factors: user experience, design and layout, features, technical implementation, and marketing platforms, guiding a more informed and differentiated approach."
-                    }
-                ]}
-            />
-            <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Our Users", 
-                        }
-                    ]}
-
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
-                                }
-                            ]
-                        },
-                    ]}
-                />
-                <SectionEight
-                    imageOne="/media/flare/flarePersona1.webp"
-                    imageTwo="/media/flare/flarePersona2.webp"
-                />
-            </section>
-            <SectionTwo 
-                sectionHeading="User Flow"
+            
+            <LayoutOne 
                 imageSrc="/media/flare/userStoryMap.png"
+                header="User Flow"
+                viewHeight={false}
             />
-            <section className="sectionContainer">
-                <TwoColumnMediaLayout
-                    textSide="left"
-                    textBlocks={[ // This content goes to the LEFT column
-                        { 
-                            header: "Flare Sitemap", 
-                        }
-                    ]}
 
-                    mediaColumnItems={[
-                        {
-                            type: 'text',
-                            items: [
-                                {
-                                    paragraph: "The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
-                                }
-                            ]
-                        },
-                    ]}
-                />
-                <SectionTwo 
-                    imageSrc="/media/flare/flareSitemap.png"
-                />
-            </section>
-            <SectionTwo
-                sectionHeading = "Styleguide"
+            <LayoutOne 
+                imageSrc="/media/flare/flareSitemap.png"
+                header="Flare Sitemap"
+                paragraph="The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
+                viewHeight={false}
+            />
+
+            <LayoutOne 
                 imageSrc="/media/flare/FlareStyleguide.png"
-                mediaWidth="60vw"
+                header="Styleguide"
+                height="auto"
+                viewHeight={false}
+                scale={0.7}
             />
-            <TwoColumnMediaLayout
-                textSide="left" // Main textBlocks (Design Process) and its 'buttons' prop will be on the LEFT.
-                                // mediaColumnItems (the 3 images) will be on the RIGHT.
 
-                textBlocks={[ 
-                    { 
-                        header: "Design Process", 
-                        paragraph: "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app." 
-                    }
-                ]}
-                buttons={[ // This 'buttons' prop is part of text-centric content, so it also goes to the LEFT column
-                    {
-                        text: "WIREFRAME",
-                        icon: "figma",
-                        externalLink: "https://www.figma.com/design/gPHPwANNCgyHX811XBko9g/Flare-Mockup?node-id=1291-5525&t=GMtl9kkT22wD2mLD-1"
-                    }
-                ]}
-
-                mediaColumnItems={[ // This content (the 3 images) goes to the RIGHT column
+            <LayoutSeven 
+                header= "Design Process"
+                paragraph= "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
+                mediaItems={[
                     { imageSrc: "/media/flare/MockupPhoneMap.png" },
                     { imageSrc: "/media/flare/MockupPhoneNews.png" },
                     { imageSrc: "/media/flare/MockupPhoneSafety.png" }
                 ]}
-
-                stickyConfig={{ column: 'left'}}
-                
-                textColour="var(--black)"
+                mediaCarouselWidth="120vw"
+                mediaCarouselHeight="50vh"
             />
-            <TwoColumnMediaLayout
+
+            {/* <TwoColumnMediaLayout
                 textSide="left"
                 textBlocks={[ // This content goes to the LEFT column
                     { 
@@ -232,32 +177,37 @@ export default function Flare({}) {
                         ]
                     },
                 ]}
-            />
+            /> */}
             <LargeTextSection 
                 paragraphTitleText="To highlight the final product, a range of marketing materials was produced."
             />
-            <SectionTwo 
-                sectionHeading="Promotional Video"
-                videoSrc="/media/flare/FlarePromoVideo.mp4"
-                initialMute={false}
-                mediaWidth="60vw"
-            />
-            <section className="sectionContainer">
-                <SectionEight 
-                    sectionHeading="Brochure & Business Card"
-                    imageOne="/media/flare/FlareTriFold.png"
-                    imageTwo="/media/flare/FlareTriFold2.png"
-                />
-                <SectionTwo
-                    imageSrc="/media/flare/MockupBusinessCardCropped.png"
-                    mediaWidth="80vw"
-                />
-            </section>
 
-            <SectionEight 
-                sectionHeading="Team"
-                videoOne="/media/flare/FlareTechDemo.mp4"
-                imageTwo="/media/flare/FlareTeam.png"
+            <LayoutOne 
+                videoSrc="/media/flare/FlarePromoVideo.mp4"
+                header="Promotional Video"
+                mediaHeight="auto"
+                viewHeight={false}
+                scale={0.5}
+            />
+
+            <LayoutSeven 
+                header= "Brochure & Business Card"
+                paragraph= "The business cards and brochures were designed as part of the marketing collateral for a wildfire disaster response app. They featured a clean, informative layout that communicated the app’s purpose and key functions at a glance, making them effective tools for outreach and stakeholder presentations. Both materials were designed to maintain brand consistency and enhance professional credibility."
+                mediaItems={[
+                    { imageSrc: "/media/flare/FlareTriFold.png" },
+                    { imageSrc: "/media/flare/FlareTriFold2.png" },
+                    { imageSrc: "/media/flare/MockupBusinessCardCropped.png" }
+                ]}
+                mediaCarouselWidth="120vw"
+                mediaCarouselHeight="50vh"
+            />
+
+            <LayoutNine
+                header="Team"
+                videoSrc1="/media/flare/FlareTechDemo.mp4"
+                imageSrc2="/media/flare/FlareTeam.png"
+                mediaHeight="auto"
+                viewHeight={false}
             />
         </div>
     )

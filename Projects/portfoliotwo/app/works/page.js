@@ -63,6 +63,7 @@ export default function WorksPage() {
           );
         })}
       </div>
+      <div className={styles.spacer}></div>
     </>
   );
 }

@@ -6,6 +6,8 @@ import InteractiveCanScene from "@/components/molecules/InteractiveCan/Interacti
 import TextContainer from '@/components/atoms/textContainer/page';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import ProjectCard from '@/components/templates/projectCard/projectCard';
+import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLetterUp';
+
 import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
 import LayoutOne from '@/components/templates/Layout-1/layoutOne';
 import LayoutTwo from '@/components/templates/Layout-2/layoutTwo';
@@ -31,11 +33,13 @@ export default function Home() {
           <GridLayout>
             <GridLayoutItem 
               colStart={1} 
-              colEnd={2} 
+              colEnd={4} 
               rowStart={4} 
               rowEnd={5}
             >
-              <h2 className={styles.headerz}>ABOUT ME</h2>
+              <TitleLetterUp className={styles.headerz}>
+                About Me
+              </TitleLetterUp>
             </GridLayoutItem >
             <GridLayoutItem 
               colStart={3} 
@@ -60,11 +64,13 @@ export default function Home() {
           <GridLayout>
             <GridLayoutItem 
               colStart={1} 
-              colEnd={2} 
+              colEnd={4} 
               rowStart={4} 
               rowEnd={5}
             >
-              <h2>selected</h2>
+              <TitleLetterUp className={styles.headerz}>
+                Selected
+              </TitleLetterUp>
             </GridLayoutItem >
             <GridLayoutItem 
               colStart={2} 
@@ -95,7 +101,7 @@ export default function Home() {
               </ProjectCard>
             </GridLayoutItem >
           </GridLayout>
-          
+{/*           
           <LayoutHero 
             children={<InteractiveCanScene/>}
             imageSrc="/images/kissyfish.jpg"
@@ -188,7 +194,8 @@ export default function Home() {
             imageSrc2="/images/kissyfish.jpg"
             childrenSlotOne={<InteractiveCanScene/>}
             childrenSlotTwo={<InteractiveCanScene/>}
-          />
+          /> */}
+
           {/* <div style={{height: "100vh", border: "1px solid red"}}></div> */}
         </div>
     </>

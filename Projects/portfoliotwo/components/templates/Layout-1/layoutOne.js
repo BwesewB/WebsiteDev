@@ -8,9 +8,12 @@ export default function LayoutOne({
     paragraph,
     imageSrc,
     videoSrc,
+    height,
     mediaHeight,
+    scale,
     children,
     switchLayout: switchLayout = true, 
+    initialMute,
 }) {
 
     const mediaItemProps = switchLayout
@@ -32,12 +35,15 @@ export default function LayoutOne({
     return (
         <>
             <GridLayout viewHeight={viewHeight}>
-                <GridLayoutItem {...mediaItemProps}>
+                <GridLayoutItem {...mediaItemProps} >
                     <MediaBlockOrChild 
                         imageSrc={imageSrc}
                         videoSrc={videoSrc}
                         mediaHeight={mediaHeight}
                         children={children}
+                        scale={scale}
+                        height={height}
+                        initialMute={initialMute}
                     />
                 </GridLayoutItem>
 

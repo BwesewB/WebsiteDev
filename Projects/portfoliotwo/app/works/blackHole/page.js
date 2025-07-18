@@ -67,6 +67,7 @@ export default function blackHole() {
                     header="Interaction Timing"
                     paragraph1="GSAP was used to synchronize interface elements such as text, buttons, and subtle hover states with the timing of each video segment. Motion was designed to be minimal and precise, only revealing elements when the background was fully in place. This careful orchestration of animation preserved the immersive tone while making each section feel intentional and controlled."
                     videoSrc="/media/blackHole/WebsiteIntro.mp4"
+                    viewHeight={false}
                 />
             </div>
         </>

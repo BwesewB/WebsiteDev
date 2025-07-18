@@ -52,7 +52,7 @@ const MediaBlock = ({
           { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.out", duration: 2 }
         ).fromTo(media, // Note: this still targets the media element itself for the scale effect
           { scale: 1.5 },
-          { scale: scale, ease: "power3.out", duration: 1.4 },
+          { scale: 1, ease: "power3.out", duration: 1.4 },
           "<"
         );
       }
@@ -160,7 +160,7 @@ const MediaBlock = ({
     <div
       ref={containerRef}
       className={styles.container}
-      style={{ height: mediaHeight }}
+      style={{ height: mediaHeight, width: `${scale * 100}%`}}
     >
       <div ref={mediaWrapperRef} style={{ width: '100%', height: mediaHeight, position: 'relative' }} >
         {isVideo ? (

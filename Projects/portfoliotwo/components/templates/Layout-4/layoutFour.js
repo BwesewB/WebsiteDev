@@ -3,6 +3,8 @@ import TextContainer from "@/components/atoms/textContainer/page"
 import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
 
 export default function LayoutFour({
+    viewHeight,
+
     header,
     paragraph1,
     paragraph2,
@@ -18,7 +20,7 @@ export default function LayoutFour({
 
     return (
         <>
-            <GridLayout>
+            <GridLayout viewHeight={viewHeight}>
                 <GridLayoutItem 
                     colStart={1} 
                     colEnd={2} 

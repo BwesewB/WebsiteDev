@@ -23,6 +23,10 @@
     /* border: 1px solid green */
 }
 
+.spacer {
+    height: 20vh;
+}
+
 @media (max-width: 768px) {
     .headerBig {
         font-size: 20vw;

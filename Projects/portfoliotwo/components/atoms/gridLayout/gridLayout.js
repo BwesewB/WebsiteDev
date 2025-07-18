@@ -26,7 +26,7 @@ export const Item = ({ children, className = '', style }) => {
 export default function GridLayout({ children, viewHeight = true }) {
     const isMobile = useMediaQuery('(max-width: 768px)');
     const dynamicStyles = {
-        height: viewHeight ? '100vh' : 'auto',
+        height: viewHeight ? 'min(70vw, 100vh)' : 'auto',
         gridTemplateRows: viewHeight ? 'repeat(4, 1fr)' : 'none'
     };
 

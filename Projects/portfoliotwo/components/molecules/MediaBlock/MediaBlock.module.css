@@ -5,7 +5,7 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  border: 1px solid red;
+  /* border: 1px solid green; */
 }
 
 .media {
@@ -14,7 +14,7 @@
   /* object-fit: cover; */
   display: block;
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .overlay {

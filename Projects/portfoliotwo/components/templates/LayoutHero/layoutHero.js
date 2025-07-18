@@ -15,8 +15,7 @@ export default function LayoutHero({
     title,
     subHeader,
     paragraph,
-    // enableParallax,
-    // useObjectFitCover,
+    initialMute = false,
     fullWidth, 
 }) {
 
@@ -30,8 +29,7 @@ export default function LayoutHero({
                         imageSrc={imageSrc} 
                         videoSrc={videoSrc}
                         children={children}
-                        // enableParallax={enableParallax}
-                        // useObjectFitCover={useObjectFitCover}
+                        initialMute={initialMute}
                         height={height}
                         fullWidth={fullWidth}
                     />

@@ -27,7 +27,10 @@ export default function MediaBlockOrChild({
             style={{ 
                 height: height, 
                 width: '100%', 
-                position: 'relative' // Important for child positioning
+                position: 'relative', // Important for child positioning
+                // border: "1px solid blue",
+                display: "flex",
+                justifyContent: "center"
             }}
         >
             {children ? (

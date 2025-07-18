@@ -1,10 +1,10 @@
 .gridContainer {
     display: grid;
     width: 100%;
-    /* height: auto; */
+    /* height: min(60vw, 100vh); */
     grid-template-columns: repeat(4, minmax(0, 1fr));
     /* grid-template-rows: repeat(4, 1fr); */
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     gap: calc(1 * var(--masterSpacing));
     overflow: hidden;
 }
