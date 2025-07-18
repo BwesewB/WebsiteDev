@@ -13,4 +13,4 @@ choose framework preset next.js
 Build command: It should automatically become npx @cloudflare/next-on-pages
 
 ## loading.js 
-adds loader automatically
+adds loader automatically 
