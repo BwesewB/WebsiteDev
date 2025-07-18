@@ -3,8 +3,6 @@
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
-import SectionTwo from '@/components/templates/SectionTwo/page';
-import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
 import styles from './mediaCarousel.module.css';
 

@@ -1,6 +1,6 @@
 "use client"
 
-import SectionTwo from "../../templates/SectionTwo/page"
+// import SectionTwo from "../../templates/SectionTwo/page"
 import styles from "./footer.module.css"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react";
@@ -130,7 +130,7 @@ export default function Footer({}) {
                 <div className={styles.sectionBottom}>
                     <div className={styles.logoContainer}>
                         <Link href="/">
-                            <SectionTwo imageSrc="/media/logo/LogoBlue.png" />
+                            {/* <SectionTwo imageSrc="/media/logo/LogoBlue.png" /> */}
                         </Link>
                     </div>
                     <div className={styles.textLowest}>

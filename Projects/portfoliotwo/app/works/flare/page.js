@@ -6,18 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ControllableLottie from "@/components/atoms/ControllableLottie/page";
 
 import styles from "./flare.module.css"
-import ProjectHero from "@/components/templates/projectHero/page"
 import LargeTextSection from "@/components/templates/LargeTextSection/largeTextSection"
-import SectionTwo from "@/components/templates/SectionTwo/page"
-import TwoColumnMediaLayout from "@/components/templates/TwoColumnMediaLayout/page";
-import SectionEight from "@/components/templates/SectionEight/page"
 import dynamic from "next/dynamic";
 import logoAnimation from "/public/media/flare/LogoAnimation.json";
 
 import LayoutHero from "@/components/templates/LayoutHero/layoutHero";
 import LayoutOne from "@/components/templates/Layout-1/layoutOne";
 import LayoutNine from "@/components/templates/Layout-9/layoutNine";
-import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild";
 import LayoutSeven from "@/components/templates/Layout-7/layoutSeven";
 
 
