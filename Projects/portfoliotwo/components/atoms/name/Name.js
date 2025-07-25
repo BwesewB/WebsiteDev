@@ -10,10 +10,9 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Name({ isHomePage }) {
-  const nameOuterRef = useRef(null);
+export default function Name({ isHomePage, nameOuterRef }) {
   const h1Ref = useRef(null);
-  const nameContainerRef = useRef(null);
+  const nameContainerRef = useRef(null); 
   const [isSmall, setIsSmall] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: undefined });
 
@@ -98,7 +97,6 @@ export default function Name({ isHomePage }) {
                 width: '100%',
               }, 0)
               .to(lettersToHide, {
-                xPercent: 0,
                 width: 'auto', 
                 padding: '',
                 margin: '',

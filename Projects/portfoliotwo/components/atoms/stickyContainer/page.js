@@ -28,7 +28,7 @@ export default function StickyContainer({
                 ScrollTrigger.create({
                     trigger: triggerElement,
                     pin: true,
-                    start: "top var(--imageTextSpacing)",
+                    start: "top top",
                     endTrigger: endTriggerElement,
                     end: () => {
                         const triggerHeight = triggerElement.offsetHeight;

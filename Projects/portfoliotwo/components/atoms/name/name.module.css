@@ -1,13 +1,19 @@
 
 .nameContainer {
-  /* border: 1px solid blue; */
   width: auto;
   min-width: 5rem;
-  margin: calc(3 * var(--masterSpacing)) calc(4 * var(--masterSpacing));
+  
+  /* margin: calc(3 * var(--masterSpacing)) calc(2 * var(--masterSpacingDouble)); */
+  margin-left: calc(2 * var(--masterSpacingDouble));
+  padding-top: calc(3 * var(--masterSpacing));
+  /* position: absolute; 
+  top: calc(3 * var(--masterSpacing));
+  left: calc(2 * var(--masterSpacingDouble)); */
   cursor: pointer;
   overflow: hidden;
   pointer-events: all;
 }
+
 .nameContainer h1 {
   margin: 0;
   display: flex;
@@ -28,14 +34,14 @@
   left: 0;
   
   width: auto;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   z-index: 1000 !important; 
 }
 
 .nameOuterHome > div {
   position: absolute;
   margin-top: 80vh;
-  height: 1000vh;
+  /* height: 1000vh; */
   left: 0;
   width: auto;
   pointer-events: none;

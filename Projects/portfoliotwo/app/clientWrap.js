@@ -47,12 +47,17 @@ export default function ClientWrap({ children }) {
     if (!wrapper || !lenisRef.current) return;
     
     lenisRef.current.scrollTo(0, { immediate: true });
-    gsap.delayedCall(0.1, () => {
-      ScrollTrigger.refresh();
-      gsap.fromTo(wrapper, 
-        { autoAlpha: 0 }, 
-        { autoAlpha: 1, duration: 0.5 }
-      );
+    gsap.to(wrapper, {
+      autoAlpha: 1, // Fades from `visibility: 'hidden'` to `visibility: 'visible'`
+      duration: 0.5,
+      delay: 0.1, // A small delay before starting the fade
+      
+      // C. THE CRITICAL FIX: Refresh ScrollTrigger AFTER the animation is complete.
+      onComplete: () => {
+        // By now, the page is fully visible and the browser has calculated its true height.
+        ScrollTrigger.refresh();
+        console.log("Page transition complete. ScrollTrigger refreshed with correct height.");
+      }
     });
     
   }, [pathname]);
@@ -60,10 +65,8 @@ export default function ClientWrap({ children }) {
   return (
     <>
       <Navbar />
-      <div className="page-container" key={pathname}
-      ref={contentWrapperRef}
-      style={{ visibility: 'hidden' }}>
-        <Name isHomePage={isHomePage} key={pathname + "-name"} />
+      <div className="page-container" key={pathname} ref={contentWrapperRef} style={{ visibility: 'hidden' }}>
+        {/* <Name isHomePage={isHomePage} key={pathname} /> */}
         <main>
           {children}  
         </main>

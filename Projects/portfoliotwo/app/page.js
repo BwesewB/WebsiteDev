@@ -1,12 +1,14 @@
 "use client";
 
 import styles from './styles/page.module.css';
+import { useRef, useLayoutEffect } from 'react';
 import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout";
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
 import TextContainer from '@/components/atoms/textContainer/page';
 import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import ProjectCard from '@/components/templates/projectCard/projectCard';
 import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLetterUp';
+import Name from '@/components/atoms/name/Name';
 
 import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
 import LayoutOne from '@/components/templates/Layout-1/layoutOne';
@@ -21,6 +23,38 @@ import LayoutNine from '@/components/templates/Layout-9/layoutNine';
 
 
 export default function Home() {
+  const nameOuterRef = useRef(null);
+  const homepageContentRef = useRef(null);
+
+  // --- THIS IS THE NEW LOGIC THAT WILL WORK ---
+  useLayoutEffect(() => {
+    // Make sure both refs are attached before proceeding
+    if (!nameOuterRef.current || !homepageContentRef.current) return;
+
+    const setContainerHeight = () => {
+      // 1. GET THE DAMN HEIGHT of the homepage content.
+      const contentHeight = homepageContentRef.current.offsetHeight;
+
+      // --- THIS CONSOLE LOG WILL NOW FIRE ---
+      console.log(`[HomePage] Measured content height: ${contentHeight}px. Applying this to Name's container.`);
+
+      // 2. PUT THAT VALUE AS THE HEIGHT of the outer div.
+      nameOuterRef.current.style.height = `${contentHeight}px`;
+
+      // 3. IMPORTANT: Refresh ScrollTrigger after the layout has changed.
+      // ScrollTrigger.refresh();
+    };
+
+    // Use a timeout to ensure all content (especially images) has loaded and rendered
+    const timeoutId = setTimeout(setContainerHeight, 200);
+
+    window.addEventListener('resize', setContainerHeight);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', setContainerHeight);
+    };
+  }, []);
 
   return (
     <>
@@ -29,7 +63,8 @@ export default function Home() {
 
           </div>
         </div>
-        <div className="container">
+        <Name isHomePage={true} nameOuterRef={nameOuterRef} />
+        <div className="container" ref={homepageContentRef}>
           <GridLayout>
             <GridLayoutItem 
               colStart={1} 
