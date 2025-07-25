@@ -7,16 +7,14 @@ import styles from "./name.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
-import CustomEase from "gsap/CustomEase";
 
-gsap.registerPlugin(ScrollTrigger, CustomEase);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Name({ isHomePage, nameOuterRef }) {
   const h1Ref = useRef(null);
   const nameContainerRef = useRef(null); 
   const [isSmall, setIsSmall] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: undefined });
-  const customEase = CustomEase.create("custom", ".8,0,.2,1")
 
   useLayoutEffect(() => {
     function handleResize() {
@@ -70,7 +68,7 @@ export default function Name({ isHomePage, nameOuterRef }) {
         xPercent: 0,
         width: '',
         duration: 1,
-        ease: customEase,
+        ease: "custom.default",
         delay: 0.5, 
       })
 

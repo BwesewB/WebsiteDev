@@ -5,10 +5,11 @@ import Navbar from "@/components/organisms/navbar/page";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Lenis from "@studio-freight/lenis"
-import Name from "@/components/atoms/name/Name";
+import { setupGsap } from "./utils/gsap-setup";
 // import Footer from "./components/uiComponents/footer/page";
+
+setupGsap();
 
 gsap.registerPlugin(ScrollTrigger);
 
