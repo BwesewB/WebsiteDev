@@ -11,36 +11,12 @@ import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLette
 
 export default function WorksPage() {
 
-  const containerRef = useRef(null)
-  const headerRef = useRef(null)
-
-  useGSAP(() => {
-      const container = containerRef.current;
-      const header = headerRef.current;
-
-      // gsap.to(container, {
-      //   height:"60vh",
-      //   duration: 0.8,
-      //   delay: 1,
-      //   ease: 'power3.out',
-      // });
-
-      gsap.to(header, {
-        duration: 0.8,
-        delay: 1,
-        ease: 'power3.out',
-      });
-  }, []);
-
   return (
     <>
-      <div className={styles.headerContainer} ref={containerRef}>
-        <div ref={headerRef}>
-          <TitleLetterUp className={styles.headerBig}>
-            Works
-          </TitleLetterUp>
-        </div>
-        
+      <div className={styles.headerContainer}>
+        <TitleLetterUp className={styles.headerBig}>
+          Works
+        </TitleLetterUp>
       </div>
       <div className={styles.gridContainer}>
         {cardData.map((project) => {
