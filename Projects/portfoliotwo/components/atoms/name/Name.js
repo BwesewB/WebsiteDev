@@ -7,14 +7,16 @@ import styles from "./name.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
+import CustomEase from "gsap/CustomEase";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 export default function Name({ isHomePage, nameOuterRef }) {
   const h1Ref = useRef(null);
   const nameContainerRef = useRef(null); 
   const [isSmall, setIsSmall] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: undefined });
+  const customEase = CustomEase.create("custom", ".8,0,.2,1")
 
   useLayoutEffect(() => {
     function handleResize() {
@@ -44,16 +46,33 @@ export default function Name({ isHomePage, nameOuterRef }) {
         const text = h1.textContent;
         h1.innerHTML = text.split("").map((char, i) => {
           const safeChar = char === " " ? "&nbsp;" : char;
-          if (i <= 2) return `<span class='letter-keep'>${safeChar}</span>`;
-          if (i <= 9) return `<span class='letter-hide'>${safeChar}</span>`;
-          return `<span class='letter-move'>${safeChar}</span>`;
+          return `<span class='letter'>${safeChar}</span>`;
         }).join("");
-        const lettersToHide = gsap.utils.toArray('.letter-hide', h1);
-        if (lettersToHide.length === 0) return;
+        const allLetters = gsap.utils.toArray('.letter', h1);
+        const lettersToHide = allLetters.slice(3, 10);
 
         const originalFontSize = window.getComputedStyle(h1).fontSize;
 
-        // let activeTimeline;
+        gsap.from(allLetters, {
+          yPercent: -50,      // Start off-screen to the right
+          autoAlpha: 0,   // Start invisible
+          stagger: 0.02,  // "Wave" effect
+          duration: 0.3,
+          ease: 'power2.out',
+          delay: 0.5,     // A small delay after page loads
+      });
+
+      gsap.fromTo(nameContainer, {
+        xPercent:50,
+        width: '100%'
+      }, 
+      {
+        xPercent: 0,
+        width: '',
+        duration: 1,
+        ease: customEase,
+        delay: 0.5, 
+      })
 
       const playForward = () => {
         setIsSmall(true);
@@ -65,7 +84,7 @@ export default function Name({ isHomePage, nameOuterRef }) {
               ease: "power2.inOut",
             }, 0)
             .to(nameContainer, {
-              delay: 0.2, // This delay is relative to the start of the timeline
+              delay: 0.2,
               width: '8%',
               ease: "power2.out",
             }, 0)
@@ -79,7 +98,7 @@ export default function Name({ isHomePage, nameOuterRef }) {
               duration: 0.3,
               ease: "power2.inOut",
               onComplete: () => {
-                  gsap.set(lettersToHide, { xPercent: -50 });
+                  gsap.set(lettersToHide, { yPercent: 50 });
               }
             }, 0);
         };
@@ -87,33 +106,31 @@ export default function Name({ isHomePage, nameOuterRef }) {
       const playBackward = () => {
         setIsSmall(false);
         gsap.timeline({ defaults: { overwrite: 'auto' } })
-            .set(lettersToHide, { xPercent: 0 })
-              .to(h1, { 
-                fontSize: originalFontSize, 
+          .to(h1, { 
+            fontSize: originalFontSize, 
+            duration: 0.5, 
+            ease: "power2.inOut",
+          })
+          .to(nameContainer, {
+            width: '100%',
+          }, 0)
+          .to(lettersToHide, {
+            width: 'auto', 
+            padding: '',
+            margin: '',
+            stagger: 0.03,
+            duration: 0.1, 
+            ease: "power4.out",
+            onComplete: () => {
+              gsap.to(lettersToHide, {
+                yPercent: 0,
                 duration: 0.5, 
+                stagger: 0.02,
                 ease: "power2.inOut",
-              })
-              .to(nameContainer, {
-                width: '100%',
-              }, 0)
-              .to(lettersToHide, {
-                width: 'auto', 
-                padding: '',
-                margin: '',
-                stagger: 0.03,
-                duration: 0.1, 
-                ease: "power4.out",
-                onComplete: () => {
-                  gsap.to(lettersToHide, {
-                    // delay: 0.2,
-                    xPercent: 0,
-                    duration: 0.5, 
-                    stagger: 0.02,
-                    ease: "power2.inOut",
-                    opacity: 1,
-                  });
-                },
-              }, 0.2);
+                opacity: 1,
+              });
+            },
+          }, -0.1);
       };
 
       ScrollTrigger.create({
