@@ -36,7 +36,7 @@ export default function TitleLetterUp({
             opacity: 0,
             stagger: 0.05,
             duration: 0.8,
-            ease: "power2.out",
+            ease: "power2.out", 
         };
 
         // --- 4. Conditionally add the ScrollTrigger object ---

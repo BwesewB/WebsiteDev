@@ -26,30 +26,16 @@ export default function Home() {
   const nameOuterRef = useRef(null);
   const homepageContentRef = useRef(null);
 
-  // --- THIS IS THE NEW LOGIC THAT WILL WORK ---
   useLayoutEffect(() => {
-    // Make sure both refs are attached before proceeding
     if (!nameOuterRef.current || !homepageContentRef.current) return;
 
     const setContainerHeight = () => {
-      // 1. GET THE DAMN HEIGHT of the homepage content.
       const contentHeight = homepageContentRef.current.offsetHeight;
-
-      // --- THIS CONSOLE LOG WILL NOW FIRE ---
       console.log(`[HomePage] Measured content height: ${contentHeight}px. Applying this to Name's container.`);
-
-      // 2. PUT THAT VALUE AS THE HEIGHT of the outer div.
       nameOuterRef.current.style.height = `${contentHeight}px`;
-
-      // 3. IMPORTANT: Refresh ScrollTrigger after the layout has changed.
-      // ScrollTrigger.refresh();
     };
-
-    // Use a timeout to ensure all content (especially images) has loaded and rendered
     const timeoutId = setTimeout(setContainerHeight, 200);
-
     window.addEventListener('resize', setContainerHeight);
-
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener('resize', setContainerHeight);

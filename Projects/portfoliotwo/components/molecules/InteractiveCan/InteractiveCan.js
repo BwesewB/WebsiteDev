@@ -5,6 +5,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Float, Environment } from '@react-three/drei';
 import gsap from 'gsap';
 import styles from './InteractiveCan.module.css';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const fishTexturePath = '/media/cans/labels/Fish@2x.png';
 const canModelPath = '/media/cans/beerCan/CansWeb.gltf';
@@ -108,7 +109,7 @@ export default function InteractiveCanScene() {
   }, []);
 
   return (
-    <div className={styles.CanvasContainer}>
+    <div ref={containerRef} className={styles.CanvasContainer}>
       <Canvas
         onPointerEnter={() => setIsHovered(true)}
         onPointerLeave={() => setIsHovered(false)}

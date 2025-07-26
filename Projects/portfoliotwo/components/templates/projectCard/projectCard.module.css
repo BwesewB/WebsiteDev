@@ -10,9 +10,15 @@
 
 .mediaWrapper {
     flex-grow: 1;
-    object-fit: cover;
+    position: relative; 
+    display: flex;
     overflow: hidden;
 }
+
+.mediaWrapper > * {
+  flex-grow: 1;
+}
+
 
 .arrowDiv {
     position: absolute;
