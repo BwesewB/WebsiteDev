@@ -111,7 +111,7 @@ const DynamicHover = ({
 
   if (link) {
     // If a link exists, wrap the content in a Next.js Link
-    // and apply the container ref and styles to it.
+    // and apply the container ref and styles to it
     return (
       <Link 
         href={link} 

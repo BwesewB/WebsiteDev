@@ -16,12 +16,11 @@ export default function ProjectCard({
     header,
     categories,
     children,
-    videoSrc,
-    imageSrc,
     scale,
     startingScale,
     movementFactor,
     startTrigger,
+    ...props
 }) {
 
     const arrowRef = useRef(null);
@@ -112,9 +111,7 @@ export default function ProjectCard({
                 children 
             ) : (
                 <MediaBlock
-                    videoSrc={videoSrc}
-                    imageSrc={imageSrc}
-                    enableRevealAnimation={false}
+                    {...props}
                 />
             )}
         </DynamicHover>

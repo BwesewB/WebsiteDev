@@ -12,17 +12,8 @@
 .gridItem {
     position: relative;
     width: 100%;
-    height: auto; /* This tells the item to fill its assigned grid cell */
+    height: 100%; /* This tells the item to fill its assigned grid cell */
 }
-
-.gridItem > * {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
-    display: block;
-}
-
 
 @media (max-width: 768px) {
     .gridContainer {

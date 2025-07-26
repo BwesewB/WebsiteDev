@@ -7,7 +7,6 @@ import styles from './mediaChild.module.css'
 
 export default function MediaBlockOrChild({ 
     children, 
-    // fullWidth = true,
     height = "100%",
     ...props 
 }){
