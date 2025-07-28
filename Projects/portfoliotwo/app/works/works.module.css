@@ -35,6 +35,6 @@
     }
     .gridContainer {
         grid-template-columns: 1fr;
-        row-gap: calc(2 * var(--relatedComponentGap));
+        /* row-gap: calc(2 * var(--relatedComponentGap)); */
     }
 }
