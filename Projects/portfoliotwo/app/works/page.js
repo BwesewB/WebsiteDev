@@ -23,19 +23,19 @@ export default function WorksPage() {
           const isVideo = project.src && project.src.endsWith('.mp4');
 
           return (
-            <ProjectCard
-              key={project.projectLink}
-              link={project.projectLink}
-              header={project.title}
-              categories={project.categories}
-              scale={project.scale} 
-              startingScale={project.startingScale} 
-              movementFactor={project.movementFactor}
-              videoSrc={isVideo ? project.src : null}
-              imageSrc={!isVideo ? project.src : null}
-            >
-              {project.customComponent}
-            </ProjectCard>
+              <ProjectCard
+                key={project.projectLink}
+                link={project.projectLink}
+                header={project.title}
+                categories={project.categories}
+                scale={project.scale} 
+                startingScale={project.startingScale} 
+                movementFactor={project.movementFactor}
+                videoSrc={isVideo ? project.src : null}
+                imageSrc={!isVideo ? project.src : null}
+              >
+                {project.customComponent}
+              </ProjectCard>
           );
         })}
       </div>

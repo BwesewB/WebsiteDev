@@ -34,6 +34,8 @@ export default function MediaBlockOrChild({
                 justifyContent: "center",
                 maxHeight: maxMediaHeight,
                 minHeight: minMediaHeight,
+                borderRadius: 'var(--borderRadiusInner)',
+                overflow: "hidden"
             }}
         >
             {children ? (

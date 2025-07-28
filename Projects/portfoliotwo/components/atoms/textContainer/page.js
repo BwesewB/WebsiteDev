@@ -87,9 +87,9 @@ export default function TextContainer({
     }
 
     return (
-        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ color: textColour, width: width, paddingTop: paddingTopValue }}>
-            {header && <h4 style={{ textAlign:textAlign }}>{header}</h4>}
-            {paragraph && <p style={{ textAlign:textAlign }}>{paragraph}</p>}
+        <div ref={containerRef} className={`${styles.textContainer} ${className}`} style={{ width: width, paddingTop: paddingTopValue }}>
+            {header && <h4 style={{ textAlign:textAlign, color: textColour }}>{header}</h4>}
+            {paragraph && <p style={{ textAlign:textAlign, color: textColour }}>{paragraph}</p>}
         </div>
     );
 }

@@ -5,6 +5,7 @@
   flex-direction: column; /* <-- ADD */
   width: 100%;
   height: 100%;
+  border-radius: var(--borderRadiusInner);
 }
 
 .dynamicHoverChild {

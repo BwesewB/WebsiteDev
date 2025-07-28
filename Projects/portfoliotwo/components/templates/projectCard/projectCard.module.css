@@ -9,6 +9,9 @@
     /* border: 1px solid red; */
     position: relative;
     flex-grow: 1;
+    background-color: var(--black);
+    padding: var(--masterSpacingDouble);
+    border-radius: var(--borderRadiusOuter);
 }
 
 .mediaWrapper {
@@ -31,7 +34,7 @@
     /* border: 1px solid green; */
     width: 100%;
     height: 100%;
-    transform: translateX(-40px);
+    transform: translateX(-60px);
     /* overflow: hidden; */
 }
 

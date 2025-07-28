@@ -20,6 +20,7 @@ export default function ProjectCard({
     startingScale,
     movementFactor,
     startTrigger,
+    textColour = "var(--white)",
     ...props
 }) {
 
@@ -111,6 +112,7 @@ export default function ProjectCard({
                 {children}
             </MediaBlockOrChild>
         </DynamicHover>
+        
         {categories && categories.length > 0 && (
                 <p className={styles.paragraph} ref={paragraphRef}>
                     {[...categories].sort().map((cat, index, arr) => (
@@ -126,7 +128,7 @@ export default function ProjectCard({
         <div className={styles.textContainer}>
             <div className={styles.arrowDiv} ref={arrowContainerRef}>
                 <div className={styles.arrowContainer} ref={arrowRef}>
-                    <ArrowRight color="var(--black)" width="100%" height="100%"/>
+                    <ArrowRight color="var(--white)" width="100%" height="100%"/>
                 </div>
             </div>
             <div ref={textContainerRef}>
@@ -134,6 +136,7 @@ export default function ProjectCard({
                     header={header}
                     width="100%"
                     startTrigger={startTrigger}
+                    textColour={textColour}
                 />
             </div>
         </div>

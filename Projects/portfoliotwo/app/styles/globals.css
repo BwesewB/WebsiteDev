@@ -15,7 +15,8 @@
   --masterSpacingDouble: 20px;
   --imageTextSpacing: 3vw;
   --itemSpacing: 180px;
-  --imgBorderRadius:10px;
+  --borderRadiusOuter:30px;
+  --borderRadiusInner:15px;
   --relatedComponentGap:40px;
   --textGap:20px;
   --heroHeight: 90vh;
@@ -29,6 +30,7 @@
 
 html, body{
   box-sizing: border-box !important;
+  background-color: var(--white);
 }
 
 
@@ -39,6 +41,7 @@ body::-webkit-scrollbar {
 h1, h2, h3, h4, h5, p{
   margin: 0;
   padding: 0;
+  color: var(--black);
 }
 
 h1, h2, h3,  h5 {

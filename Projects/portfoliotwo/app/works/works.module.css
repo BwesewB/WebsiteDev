@@ -17,10 +17,12 @@
 .gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: calc(2 * var(--masterSpacing)); 
-    row-gap: calc(4 * var(--relatedComponentGap));
+    gap: var(--masterSpacingDouble); 
+    /* row-gap: calc(4 * var(--relatedComponentGap)); */
     min-width: 0;
-    /* border: 1px solid green */
+    /* border: 1px solid green; */
+    /* background-color: var(--black); */
+    
 }
 
 .spacer {
