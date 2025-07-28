@@ -1,6 +1,10 @@
-import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout"
-import TextContainer from "@/components/atoms/textContainer/page"
-import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild"
+'use client'
+
+import GridLayout, { Item as GridLayoutItem } from "@/components/atoms/gridLayout/gridLayout";
+import TextContainer from "@/components/atoms/textContainer/page";
+import MediaBlockOrChild from "@/components/molecules/MediaBlockOrChild/mediaBlockOrChild";
+import { useMediaQuery } from "@/components/atoms/useMediaQuery/useMediaQuery";
+import React from "react";
 
 export default function LayoutEight({
     header,
@@ -10,43 +14,46 @@ export default function LayoutEight({
     mediaWidth,
     children
 }) {
+
+    const isMobile = useMediaQuery('(max-width: 768px)');
+    const mediaItemProps = isMobile
+        ? { colStart: 1, colEnd: 2, rowStart: 2, rowEnd: 3 } 
+        : { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 4 }; 
+
+    let textElements;
+
+    if (isMobile) {
+        textElements = (
+            <GridLayoutItem key="text-mobile" colStart={1} colEnd={2} rowStart={1} rowEnd={2}>
+                <div style={{ marginBottom: 'var(--imageTextSpacing)' }}>
+                    <TextContainer header={header} paragraph={paragraph} />
+                </div>
+            </GridLayoutItem>
+        );
+    } else {
+        textElements = [
+            <GridLayoutItem key="text-header" colStart={1} colEnd={2} rowStart={1} rowEnd={2}>
+                <TextContainer header={header} />
+            </GridLayoutItem>,
+            <GridLayoutItem key="text-paragraph" colStart={2} colEnd={3} rowStart={1} rowEnd={3}>
+                <TextContainer paragraph={paragraph} />
+            </GridLayoutItem>
+        ];
+    }
+
     return (
         <>
             <GridLayout>
-                <GridLayoutItem 
-                    colStart={1} 
-                    colEnd={2} 
-                    rowStart={1} 
-                    rowEnd={2} 
-                >
-                    <TextContainer 
-                        header={header}
-                    />
-                </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={2} 
-                    colEnd={3} 
-                    rowStart={1} 
-                    rowEnd={3} 
-                >
-                    <TextContainer 
-                        paragraph={paragraph}
-                    />
-                </GridLayoutItem >
-                <GridLayoutItem 
-                    colStart={3} 
-                    colEnd={5} 
-                    rowStart={1} 
-                    rowEnd={4} 
-                >
-                    <MediaBlockOrChild 
+                {textElements}
+                <GridLayoutItem key="media" {...mediaItemProps}>
+                    <MediaBlockOrChild
                         imageSrc={imageSrc}
                         videoSrc={videoSrc}
                         mediaWidth={mediaWidth}
                         children={children}
                     />
-                </GridLayoutItem >
+                </GridLayoutItem>
             </GridLayout>
         </>
-    )
+    );
 }
