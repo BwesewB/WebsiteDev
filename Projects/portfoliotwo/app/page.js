@@ -125,7 +125,7 @@ export default function Home() {
             </GridLayoutItem >
           </GridLayout>
           
-          <LayoutHero 
+          {/* <LayoutHero 
             children={<InteractiveCanScene/>}
             imageSrc="/images/kissyfish.jpg"
             height='75vh'
@@ -215,7 +215,7 @@ export default function Home() {
             imageSrc2="/images/kissyfish.jpg"
             childrenSlotOne={<InteractiveCanScene/>}
             childrenSlotTwo={<InteractiveCanScene/>}
-          />
+          /> */}
 
           {/* <div style={{height: "100vh", border: "1px solid red"}}></div> */}
         </div>
