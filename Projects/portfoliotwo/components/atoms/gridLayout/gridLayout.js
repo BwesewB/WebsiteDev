@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Children, cloneElement } from 'react';
+import React, { useState, useEffect, Children, cloneElement, } from 'react';
 import styles from './gridLayout.module.css';
 
 const useMediaQuery = (query) => {
@@ -23,11 +23,11 @@ export const Item = ({ children, className = '', style }) => {
     );
 };
 
-export default function GridLayout({ children, viewHeight = true }) {
+export default function GridLayout({ children, viewHeight=false, rowLayout = 'repeat(4, 1fr)'}) {
     const isMobile = useMediaQuery('(max-width: 768px)');
     const dynamicStyles = {
         height: viewHeight ? 'min(70vw, 100vh)' : 'auto',
-        gridTemplateRows: viewHeight ? 'repeat(4, 1fr)' : 'none'
+        gridTemplateRows: viewHeight ? rowLayout : 'none',
     };
 
     return (

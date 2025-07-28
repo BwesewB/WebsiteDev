@@ -30,7 +30,9 @@ export default function LayoutOne({
         ? { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
         : { colStart: 3, colEnd: 5, rowStart: 4, rowEnd: 5 };
 
-    const enablePaddingTop = !switchLayout ? true : false;
+    const textWrapperStyle = switchLayout
+        ? { marginBottom: 'var(--imageTextSpacing)' } // If true, create an object with marginBottom
+        : { marginTop: 'var(--imageTextSpacing)' };
 
     return (
         <>
@@ -48,17 +50,15 @@ export default function LayoutOne({
                 </GridLayoutItem>
 
                 <GridLayoutItem {...headerItemProps}>
-                    <TextContainer 
-                        header={header}
-                        enablePaddingTop={enablePaddingTop}
-                    />
+                    <div style={textWrapperStyle}>
+                        <TextContainer header={header} />
+                    </div>
                 </GridLayoutItem>
                 
                 <GridLayoutItem {...paragraphItemProps}>
-                    <TextContainer 
-                        paragraph={paragraph}
-                        enablePaddingTop={enablePaddingTop}
-                    />
+                    <div style={textWrapperStyle}>
+                        <TextContainer paragraph={paragraph} />
+                    </div>
                 </GridLayoutItem>
             </GridLayout>
         </>

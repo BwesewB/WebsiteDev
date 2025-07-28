@@ -8,7 +8,6 @@ export default function LayoutNine({
     mediaHeight,
     scale,
     switchLayout: switchLayout = true, 
-    viewHeight,
 
     imageSrc1,
     videoSrc1,
@@ -39,11 +38,17 @@ export default function LayoutNine({
         ? { colStart: 3, colEnd: 5, rowStart: 1, rowEnd: 2 } // Layout when switch is TRUE
         : { colStart: 3, colEnd: 5, rowStart: 4, rowEnd: 5 };
 
-    const enablePaddingTop = !switchLayout ? true : false;
+    const textWrapperStyle = switchLayout
+        ? { marginBottom: 'var(--imageTextSpacing)' } // If true, create an object with marginBottom
+        : { marginTop: 'var(--imageTextSpacing)' };
+
+    // const gridRowSetup = switchLayout
+    //     ? "1fr auto auto auto"
+    //     : "auto auto auto 1fr";
 
     return (
         <>
-            <GridLayout viewHeight={viewHeight}>
+            <GridLayout  > {/*viewHeight={viewHeight} rowLayout={gridRowSetup}*/}
                 <GridLayoutItem {...mediaItem1Props}>
                     <MediaBlockOrChild 
                         imageSrc={imageSrc1} 
@@ -54,10 +59,9 @@ export default function LayoutNine({
                     />
                 </GridLayoutItem >
                 <GridLayoutItem {...headerItemProps}>
-                    <TextContainer 
-                        header={header}
-                        enablePaddingTop={enablePaddingTop}
-                    />
+                    <div style={textWrapperStyle}>
+                        <TextContainer header={header} />
+                    </div>
                 </GridLayoutItem >
                 <GridLayoutItem {...mediaItem2Props}>
                     <MediaBlockOrChild 
@@ -69,10 +73,9 @@ export default function LayoutNine({
                     />
                 </GridLayoutItem >
                 <GridLayoutItem {...paragraphItemProps}>
-                    <TextContainer 
-                        paragraph={paragraph}
-                        enablePaddingTop={enablePaddingTop}
-                    />
+                    <div style={textWrapperStyle}>
+                        <TextContainer paragraph={paragraph} />
+                    </div>
                 </GridLayoutItem >
             </GridLayout>
         </>

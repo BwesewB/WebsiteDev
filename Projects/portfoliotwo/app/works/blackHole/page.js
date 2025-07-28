@@ -52,22 +52,17 @@ export default function blackHole() {
                     header="Interactive Website Development"
                     paragraph="The interactive site was developed using Next.js and GSAP to extend the visual tone and rhythm of the original video. The goal was to carry forward the controlled pacing and scale of the motion graphic, not just through design but through how each section moved and responded to user input. Assets from the video were adapted as still frames, and new compositions were created to support looping structure, maintaining visual consistency across all 12 pages. The favicon was created by Aleksa Radaković to match the websites' visual identity."
                     videoSrc="/media/blackHole/blackholewebsite.mp4"
-                    mediaHeight="auto"
-                    viewHeight={false}
                 />
                 <LayoutNine
                     header="Frame Transition System"
                     paragraph="To preserve a cinematic flow, a custom system was designed to separate page transitions into two layers: transition clips followed by looping still animations. This prevented visual interruptions and ensured animations never cut mid-motion when the user navigates. Only after the transition completed would the looping segment begin, followed by a delayed GSAP text reveal and the appearance of a navigation button. This sequence allowed transitions to breathe and reinforced the project’s emphasis on smooth transitions and a seamless flow."
                     videoSrc1="/media/blackHole/Clip8_Reversed_Low_optimized.mp4"
                     videoSrc2="/media/blackHole/Clip12andReverse.mp4"
-                    mediaHeight="auto"
-                    viewHeight={false}
                 />
                 <LayoutFour
                     header="Interaction Timing"
                     paragraph1="GSAP was used to synchronize interface elements such as text, buttons, and subtle hover states with the timing of each video segment. Motion was designed to be minimal and precise, only revealing elements when the background was fully in place. This careful orchestration of animation preserved the immersive tone while making each section feel intentional and controlled."
                     videoSrc="/media/blackHole/WebsiteIntro.mp4"
-                    viewHeight={false}
                 />
             </div>
         </>

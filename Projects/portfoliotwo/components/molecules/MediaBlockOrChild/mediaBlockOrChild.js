@@ -8,6 +8,8 @@ import styles from './mediaChild.module.css'
 export default function MediaBlockOrChild({ 
     children, 
     height = "100%",
+    maxMediaHeight,
+    minMediaHeight,
     ...props 
 }){
     // const isMobile = useMediaQuery('(max-width: 768px)');
@@ -26,18 +28,17 @@ export default function MediaBlockOrChild({
             style={{ 
                 height: height, 
                 width: '100%', 
-                position: 'relative', // Important for child positioning
+                position: 'relative',
                 // border: "1px solid blue",
                 display: "flex",
-                justifyContent: "center"
+                justifyContent: "center",
+                maxHeight: maxMediaHeight,
+                minHeight: minMediaHeight,
             }}
         >
             {children ? (
-                // If children exist, render them.
-                // They will now be inside the consistently styled div.
                 children 
             ) : (
-                // Otherwise, render the MediaBlock with the calculated props.
                 <MediaBlock {...props} />
             )}
         </div>

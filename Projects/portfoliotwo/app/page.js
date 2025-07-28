@@ -20,6 +20,7 @@ import LayoutSix from '@/components/templates/Layout-6/layoutSix';
 import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
 import LayoutEight from '@/components/templates/Layout-8/layoutEight';
 import LayoutNine from '@/components/templates/Layout-9/layoutNine';
+import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
 
 
 export default function Home() {
@@ -64,11 +65,11 @@ export default function Home() {
             </GridLayoutItem >
             <GridLayoutItem 
               colStart={3} 
-              colEnd={4} 
+              colEnd={5} 
               rowStart={1} 
               rowEnd={4}
             >
-              <MediaBlock imageSrc="/images/knivesout.jpg"/>
+              <MediaBlockOrChild imageSrc="/images/knivesout.jpg" maxMediaHeight="80vh"/>
             </GridLayoutItem >
             <GridLayoutItem 
               colStart={2} 
@@ -117,6 +118,7 @@ export default function Home() {
                 movementFactor={0}
                 link="/works/deckedBeer"
                 header="Decked Beer"
+                height="40vw"
               >
                 <InteractiveCanScene/>
               </ProjectCard>

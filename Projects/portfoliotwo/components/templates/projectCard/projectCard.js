@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
+import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
 import DynamicHover from '@/components/molecules/DynamicHover/DynamicHover';
 import TextContainer from '@/components/atoms/textContainer/page';
 import ArrowRight from '@/components/atoms/arrowRight';
@@ -107,13 +107,9 @@ export default function ProjectCard({
             link={link}
             className={styles.mediaWrapper} 
         >
-            {children ? (
-                children 
-            ) : (
-                <MediaBlock
-                    {...props}
-                />
-            )}
+            <MediaBlockOrChild {...props}>
+                {children}
+            </MediaBlockOrChild>
         </DynamicHover>
         {categories && categories.length > 0 && (
                 <p className={styles.paragraph} ref={paragraphRef}>
