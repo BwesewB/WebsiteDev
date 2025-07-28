@@ -203,15 +203,10 @@ p {
     --masterSpacingDouble: 10px;
   }
 
-  body {
+  /* .page-container {
     padding-left: var(--masterSpacing);
     padding-right: var(--masterSpacing);
-  }
-
-  .page-container {
-    padding-left: var(--masterSpacing);
-    padding-right: var(--masterSpacing);
-  }
+  } */
 
   h1 {
     font-size: 96px;
