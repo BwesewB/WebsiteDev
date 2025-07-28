@@ -181,7 +181,7 @@ export default function Home() {
             children={<InteractiveCanScene/>}
           />
           <LayoutFive
-            header="Lorem Ipsum Dolor Siet Ameit"
+            header="Lorem Ipsum Dolor Siet Ameit Five"
             paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id. Nibh et ultricies faucibus gravida. Non ullamcorper diam dictumst blandit condimentum eu orci. Felis nec massa ac malesuada condimentum blandit tristique gravida. Morbi est nulla leo convallis habitasse adipiscing integer."
             imageSrc="/images/kissyfish.jpg"
             children={<InteractiveCanScene/>}

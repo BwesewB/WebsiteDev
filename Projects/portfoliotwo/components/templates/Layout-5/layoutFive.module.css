@@ -1,9 +1,9 @@
 .textContainer {
     padding-left: var(--imageTextSpacing);
 }
-
+/* 
 @media (max-width: 768px) {
     .textContainer {
         padding-left: 0;
     }
-}
+} */

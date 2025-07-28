@@ -26,10 +26,16 @@ export default function LayoutFour({
         // --- MOBILE RENDER ---
         const mobileItems = [];
 
+        const firstTextWrapperStyle = !paragraph2
+            ? { marginBottom: 'var(--imageTextSpacing)' }
+            : {};
+
         // 1. Always add the first text block (header + p1).
         mobileItems.push(
             <GridLayoutItem key="mobile-text1" colStart={1} colEnd={2} rowStart={1} rowEnd={2}>
-                <TextContainer header={header} paragraph={paragraph1} />
+                <div style={firstTextWrapperStyle}>
+                    <TextContainer header={header} paragraph={paragraph1} />
+                </div>
             </GridLayoutItem>
         );
 
@@ -89,7 +95,7 @@ export default function LayoutFour({
         if (paragraph2) {
             desktopItems.push(
                 <GridLayoutItem key="desktop-text2" colStart={3} colEnd={5} rowStart={4} rowEnd={5}>
-                    <div style={{ marginTop: 'var(--imageTextSpacing)' }}>
+                    <div style={{ marginBottom: 'var(--imageTextSpacing)'}}>
                         <div style={{
                             columnCount: 2,
                             columnGap: 'var(--masterSpacing)',
