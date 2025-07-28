@@ -20,7 +20,7 @@
         grid-template-columns: repeat(1, minmax(0, 1fr));
         grid-template-rows: auto !important;
         height: 100%;
-        gap: var(--relatedComponentGap)
+        /* gap: var(--relatedComponentGap) */
         /* border: 1px solid red; */
         /* max-height: 100vh; */
     }

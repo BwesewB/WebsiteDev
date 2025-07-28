@@ -125,7 +125,7 @@ export default function Home() {
             </GridLayoutItem >
           </GridLayout>
           
-          {/* <LayoutHero 
+          <LayoutHero 
             children={<InteractiveCanScene/>}
             imageSrc="/images/kissyfish.jpg"
             height='75vh'
@@ -159,8 +159,7 @@ export default function Home() {
           />
           <LayoutTwo
             header="Lorem Ipsum Dolor Siet Ameit"
-            paragraph1="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a."
-            paragraph2="Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id."
+            paragraph="Lorem ipsum dolor sit amet consectetur. Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus. Imperdiet imperdiet nulla mattis pellentesque imperdiet id."
             imageSrc="/images/kissyfish.jpg"
             children={<InteractiveCanScene/>}
           />
@@ -217,7 +216,7 @@ export default function Home() {
             imageSrc2="/images/kissyfish.jpg"
             childrenSlotOne={<InteractiveCanScene/>}
             childrenSlotTwo={<InteractiveCanScene/>}
-          /> */}
+          />
 
           {/* <div style={{height: "100vh", border: "1px solid red"}}></div> */}
         </div>

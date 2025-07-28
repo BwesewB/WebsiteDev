@@ -201,12 +201,8 @@ p {
   :root {
     /* --itemSpacing: 90px; */
     --masterSpacingDouble: 10px;
+    --textGap: 10px
   }
-
-  /* .page-container {
-    padding-left: var(--masterSpacing);
-    padding-right: var(--masterSpacing);
-  } */
 
   h1 {
     font-size: 96px;

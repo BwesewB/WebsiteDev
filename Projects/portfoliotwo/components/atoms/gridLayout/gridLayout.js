@@ -23,12 +23,17 @@ export const Item = ({ children, className = '', style }) => {
     );
 };
 
-export default function GridLayout({ children, viewHeight=false, rowLayout = 'repeat(4, 1fr)'}) {
+export default function GridLayout({ children, viewHeight = false, rowLayout = 'repeat(4, 1fr)'}) {
     const isMobile = useMediaQuery('(max-width: 768px)');
-    const dynamicStyles = {
-        height: viewHeight ? 'min(70vw, 100vh)' : 'auto',
-        gridTemplateRows: viewHeight ? rowLayout : 'none',
-    };
+    const dynamicStyles = isMobile
+        ? {
+            height: 'auto',
+            gridTemplateRows: 'auto', 
+        }
+        : {
+            height: viewHeight ? 'min(70vw, 100vh)' : 'auto',
+            gridTemplateRows: viewHeight ? rowLayout : 'none',
+        };
 
     return (
         <section className={styles.gridContainer} style={dynamicStyles}>
