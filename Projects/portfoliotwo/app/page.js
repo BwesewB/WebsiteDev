@@ -174,10 +174,9 @@ export default function Home() {
             <InteractiveCanScene/>
           </LayoutThree>
           <LayoutFour
-            header="Lorem Ipsum Dolor Siet Ameit"
+            header="Lorem Ipsum Dolor Siet Ameit Four"
             paragraph1="Lorem ipsum dolor sit amet consectetur."
-            paragraph2="Elementum varius tristique aliquet at sed vestibulum adipiscing a."
-            paragraph3=" Cursus nunc tempus dictum tempus nisl varius cursus."
+            paragraph2="Elementum varius tristique aliquet at sed vestibulum adipiscing a. Cursus nunc tempus dictum tempus nisl varius cursus."
             imageSrc="/images/kissyfish.jpg"
             children={<InteractiveCanScene/>}
           />
