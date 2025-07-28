@@ -15,6 +15,7 @@ const UnmuteIcon = () => <svg>...</svg>;
 const MediaBlock = ({
   imageSrc,
   videoSrc,
+  borderRadiusChild,
   videoPosterSrc,
   mediaHeight = "100%",
   initialMute = true,
@@ -128,7 +129,7 @@ const MediaBlock = ({
     <div
       ref={containerRef}
       className={styles.container}
-      style={{ height: mediaHeight, width: `${scale * 100}%`}}
+      style={{ height: mediaHeight, width: `${scale * 100}%`, borderRadius: borderRadiusChild}}
     >
       <div ref={mediaWrapperRef} style={{ width: '100%', height: mediaHeight, position: 'relative' }} >
         {isVideo ? (

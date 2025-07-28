@@ -19,7 +19,7 @@ export default function ProjectCard({
     scale,
     startingScale,
     movementFactor,
-    startTrigger,
+    startTrigger = "top 90%",
     textColour = "var(--white)",
     ...props
 }) {
@@ -46,13 +46,33 @@ export default function ProjectCard({
             ease: "power2.out",
             scrollTrigger: {
                 trigger: paragraphContainer,
-                start: "top 90%",
+                start: startTrigger,
                 toggleActions: "play none none none",
                 // markers: true,
             },
         });
 
     }, { scope: projectCardRef, dependencies: [categories] });
+
+    useGSAP(() => {
+        const projectContainer = projectCardRef.current;
+        if (!projectContainer) return;
+
+        gsap.to(projectContainer, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scale: 1,
+            scrollTrigger: {
+                trigger: projectContainer,
+                start: startTrigger,
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+        });
+
+    }, { scope: projectCardRef});
 
 
     useGSAP(() => {

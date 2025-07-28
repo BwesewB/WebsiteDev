@@ -32,6 +32,7 @@ export default function LayoutHero({
                         initialMute={initialMute}
                         height={height}
                         fullWidth={fullWidth}
+                        borderRadius = "0"
                     />
                 </div>
                 <div className={styles.bottomSection}>

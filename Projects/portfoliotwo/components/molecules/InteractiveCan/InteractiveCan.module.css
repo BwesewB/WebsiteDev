@@ -4,6 +4,7 @@
     background-image: url('/images/sunsetBeach.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
 }
 
 @media (max-width: 1350px) {

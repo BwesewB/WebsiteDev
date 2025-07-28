@@ -10,6 +10,7 @@ export default function MediaBlockOrChild({
     height = "100%",
     maxMediaHeight,
     minMediaHeight,
+    borderRadius: borderRadiusChild = 'var(--borderRadiusInner)',
     ...props 
 }){
     // const isMobile = useMediaQuery('(max-width: 768px)');
@@ -34,14 +35,14 @@ export default function MediaBlockOrChild({
                 justifyContent: "center",
                 maxHeight: maxMediaHeight,
                 minHeight: minMediaHeight,
-                borderRadius: 'var(--borderRadiusInner)',
+                borderRadius: borderRadiusChild,
                 overflow: "hidden"
             }}
         >
             {children ? (
                 children 
             ) : (
-                <MediaBlock {...props} />
+                <MediaBlock {...props} borderRadiusChild={borderRadiusChild}/>
             )}
         </div>
     );

@@ -18,7 +18,7 @@
   --borderRadiusOuter:30px;
   --borderRadiusInner:15px;
   --relatedComponentGap:40px;
-  --textGap:20px;
+  --textGap:0.75rem;
   --heroHeight: 90vh;
 }
 
@@ -204,7 +204,7 @@ p {
   :root {
     /* --itemSpacing: 90px; */
     --masterSpacingDouble: 10px;
-    --textGap: 10px
+    --textGap: 0.5rem
   }
 
   h1 {
@@ -235,7 +235,6 @@ p {
   :root {
     --imageTextSpacing: 10px;
     --relatedComponentGap:40px;
-    --textGap: 5px;
   }
 
   h1 {

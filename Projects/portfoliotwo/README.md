@@ -16,3 +16,6 @@ runtime --> compatibility flags, nodejs_compat
 
 ## loading.js 
 adds loader automatically 
+
+## dependencies
+npm install next-view-transitions --legacy-peer-deps

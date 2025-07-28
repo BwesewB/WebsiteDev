@@ -7,7 +7,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis"
 import { setupGsap } from "./utils/gsap-setup";
-// import Footer from "./components/uiComponents/footer/page";
 
 setupGsap();
 
