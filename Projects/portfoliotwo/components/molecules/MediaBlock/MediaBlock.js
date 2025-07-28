@@ -15,6 +15,7 @@ const UnmuteIcon = () => <svg>...</svg>;
 const MediaBlock = ({
   imageSrc,
   videoSrc,
+  videoPosterSrc,
   mediaHeight = "100%",
   initialMute = true,
   sectionHeading,
@@ -59,59 +60,26 @@ const MediaBlock = ({
 
       // --- PARALLAX ANIMATION (NEW) ---
       if (enableParallax) {
-      const setupParallax = () => {
-        const containerWidth = container.offsetWidth;
-        const containerHeight = container.offsetHeight;
-
-        // --- THIS IS THE NEW LOGIC ---
-        let mediaHeight;
-
-        if (media.tagName === 'IMG') {
-          // For images, calculate the aspect-ratio-correct height
-          const { naturalWidth, naturalHeight } = media;
-          const aspectRatio = naturalHeight / naturalWidth;
-          mediaHeight = containerWidth * aspectRatio;
-        } else {
-          // For videos, offsetHeight is usually reliable once metadata loads
-          mediaHeight = media.offsetHeight;
-        }
-
-        // Now we compare the calculated/measured height with the container
-        if (mediaHeight <= containerHeight) {
-          console.log('Parallax skipped: Media is not taller than the container.');
-          return;
-        }
-        
-        console.log('Setting up parallax...');
-
-        const distanceToMove = mediaHeight - containerHeight;
-        
-        gsap.set(mediaWrapper, { height: mediaHeight });
-
-        gsap.fromTo(mediaWrapper, 
-          { y: 0 }, 
-          {
-            y: -distanceToMove,
-            ease: "none",
-            scrollTrigger: {
-              trigger: container,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-              // markers: true,
-            }
+      gsap.fromTo(media,
+        {
+          // Make the media 20% taller than its container
+          scale: 1.2,
+          // Start it centered vertically
+          yPercent: -10,
+        },
+        {
+          // End with it still centered vertically after moving
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            // markers: true,
           }
-        );
-      };
-
-      // The rest of the logic to wait for load is correct
-      if (media.tagName === 'IMG') {
-        if (media.complete) setupParallax();
-        else media.addEventListener('load', setupParallax, { once: true });
-      } else if (media.tagName === 'VIDEO') {
-        if (media.readyState > 0) setupParallax();
-        else media.addEventListener('loadedmetadata', setupParallax, { once: true });
-      }
+        }
+      );
     }
   }, { scope: containerRef, dependencies: [enableRevealAnimation, enableParallax, imageSrc, videoSrc] });
 
@@ -168,6 +136,7 @@ const MediaBlock = ({
             ref={mediaRef}
             src={videoSrc}
             className={styles.media}
+            poster={videoPosterSrc}
             style={mediaStyle}
             loop
             muted={isMuted}

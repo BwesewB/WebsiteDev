@@ -36,7 +36,7 @@ export default function Name({ isHomePage, nameOuterRef }) {
     // Split text into letters. This only needs to happen once.
     const text = h1.textContent;
     h1.innerHTML = text.split("").map((char) => {
-      const safeChar = char === " " ? " " : char;
+      const safeChar = char === " " ? "&nbsp;" : char;
       return `<span class='letter'>${safeChar}</span>`;
     }).join("");
 

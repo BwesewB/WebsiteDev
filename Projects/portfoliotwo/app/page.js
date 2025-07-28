@@ -64,14 +64,6 @@ export default function Home() {
               </TitleLetterUp>
             </GridLayoutItem >
             <GridLayoutItem 
-              colStart={3} 
-              colEnd={5} 
-              rowStart={1} 
-              rowEnd={4}
-            >
-              <MediaBlockOrChild imageSrc="/images/knivesout.jpg" maxMediaHeight="80vh"/>
-            </GridLayoutItem >
-            <GridLayoutItem 
               colStart={2} 
               colEnd={3} 
               rowStart={1} 
@@ -81,6 +73,14 @@ export default function Home() {
                 paragraph="I’m a 19-year-old multidisciplinary designer from Vancouver. I do marketing, websites, 3D, and everything else in digital design. On the side as a hobby, I cut lots of fish."
                 width="100%"
               />
+            </GridLayoutItem >
+            <GridLayoutItem 
+              colStart={3} 
+              colEnd={5} 
+              rowStart={1} 
+              rowEnd={4}
+            >
+              <MediaBlockOrChild imageSrc="/images/knivesout.jpg" maxMediaHeight="80vh"/>
             </GridLayoutItem >
           </GridLayout>
           <GridLayout>
