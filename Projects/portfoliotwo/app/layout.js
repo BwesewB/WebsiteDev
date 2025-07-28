@@ -1,6 +1,6 @@
 import "./styles/globals.css"; 
 import ClientWrap from "./clientWrap";
-// import { ViewTransitions } from "next-view-transitions";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata = {
   title: "Portfolio - Sebastian Fok",
@@ -10,13 +10,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    // <ViewTransitions>
+    <ViewTransitions>
       <html lang="en" style={{ padding:"0", margin:"0" }}>
         <body suppressHydrationWarning={true}>
           <ClientWrap>{children}</ClientWrap>
         </body>
       </html>
-    {/* </ViewTransitions> */}
+    </ViewTransitions>
 
   );
 }
