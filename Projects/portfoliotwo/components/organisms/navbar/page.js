@@ -18,14 +18,17 @@ export default function Navbar({}) {
             [
                 {
                     opacity: 1,
-                    transform: "translateY(0)"
+                    // transform: "translateY(0)",
+                    filter: "brightness(1)",
                 },
                 {
                     opacity: 0.2,
-                    transform: "translateY(-35%)"
+                    // transform: "translateY(-35%)",
+                    filter: "brightness(0.2)",
+                    offset: 1,
                 }
             ], {
-                duration: 1500,
+                duration: 2000,
                 easing: "cubic-bezier(0.8, 0, 0.2, 1)",
                 fill: "forwards",
                 pseudoElement: "::view-transition-old(root)",
@@ -34,13 +37,20 @@ export default function Navbar({}) {
         document.documentElement.animate(
             [
                 {
-                    clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%",
+                    clipPath: "inset(100% 0% 0% 0% round 30px)",
+                    transform: "translateY(35%)",
                 },
                 {
-                    clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%",
+                    clipPath: "inset(0% 0% 0% 0% round 30px)",
+                    transform: "translateY(0)",
+                    offset: 0.99,
                 },
+                {
+                    clipPath: "inset(0% 0% 0% 0% round 0px)",
+                    offset: 1,
+                }
             ], {
-                duration: 1500,
+                duration: 2000,
                 easing: "cubic-bezier(0.87,0,0.13,1)",
                 fill: "forwards",
                 pseudoElement: "::view-transition-new(root)",
