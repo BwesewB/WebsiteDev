@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis"
 import { setupGsap } from "./utils/gsap-setup";
+import { useAppTransition } from "./utils/TransitionContext";
 
 setupGsap();
 
@@ -17,6 +18,9 @@ export default function ClientWrap({ children }) {
   const isHomePage = pathname === "/";
   const contentWrapperRef = useRef(null);
   const lenisRef = useRef(null);
+
+  const { pageKey, isTransitioning } = useAppTransition();
+  const combinedKey = `${pathname}-${pageKey}`;
 
   useLayoutEffect(() => {
     // Create the Lenis instance
@@ -45,30 +49,47 @@ export default function ClientWrap({ children }) {
   useLayoutEffect(() => {
     const wrapper = contentWrapperRef.current;
     if (!wrapper || !lenisRef.current) return;
-    
+
+    // 1. If a transition is happening, we do NOTHING.
+    // The component is mounted but remains hidden due to its inline style.
+    // This runs on the *new* page's first render, preventing the flash.
+    // Crucially, it also runs on the *old* page when `isTransitioning` becomes true,
+    // but since it just returns, the old page content remains visible for the snapshot.
+    if (isTransitioning) {
+      console.log(`[ClientWrap] Transition in progress. Awaiting signal to animate in.`);
+      return;
+    }
+
+    // 2. This code now ONLY runs when we are NOT in a transition.
+    // (e.g., initial page load, or after the remount when isTransitioning is set to false).
+    console.log(`[ClientWrap] Finalizing setup for key: ${combinedKey}. Making content visible.`);
+
+    // Animate the content in, now that we are ready.
+    gsap.set(wrapper, { autoAlpha: 1 });
+
     lenisRef.current.scrollTo(0, { immediate: true });
-    gsap.to(wrapper, {
-      autoAlpha: 1, // Fades from `visibility: 'hidden'` to `visibility: 'visible'`
-      duration: 0.5,
-      delay: 0.1, // A small delay before starting the fade
-      
-      // C. THE CRITICAL FIX: Refresh ScrollTrigger AFTER the animation is complete.
-      onComplete: () => {
-        // By now, the page is fully visible and the browser has calculated its true height.
-        ScrollTrigger.refresh();
-        console.log("Page transition complete. ScrollTrigger refreshed with correct height.");
-      }
-    });
-    
-  }, [pathname]);
+
+    const refreshTimeout = setTimeout(() => {
+      console.log(`[ClientWrap] Refreshing ScrollTrigger for key: ${combinedKey}`);
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      clearTimeout(refreshTimeout);
+      console.log(`[ClientWrap] Killing triggers for key: ${combinedKey}`);
+      ScrollTrigger.killAll();
+    };
+
+    // The effect depends on the remount key and the transition flag.
+  }, [combinedKey, isTransitioning]);
+
 
   return (
     <>
       <Navbar />
-      <div className="page-container" key={pathname} ref={contentWrapperRef} style={{ visibility: 'hidden' }}>
-        {/* <Name isHomePage={isHomePage} key={pathname} /> */}
+      <div className="page-container" key={combinedKey} ref={contentWrapperRef} style={{ opacity: 0, visibility: 'hidden' }}>
         <main>
-          {children}  
+          {children}
         </main>
       </div>
     </>

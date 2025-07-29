@@ -1,6 +1,7 @@
 import "./styles/globals.css"; 
 import ClientWrap from "./clientWrap";
 import { ViewTransitions } from "next-view-transitions";
+import { TransitionProvider } from "./utils/TransitionContext";
 
 export const metadata = {
   title: "Portfolio - Sebastian Fok",
@@ -13,7 +14,9 @@ export default function RootLayout({ children }) {
     <ViewTransitions>
       <html lang="en" style={{ padding:"0", margin:"0" }}>
         <body suppressHydrationWarning={true}>
-          <ClientWrap>{children}</ClientWrap>
+          <TransitionProvider>
+            <ClientWrap>{children}</ClientWrap>
+          </TransitionProvider>
         </body>
       </html>
     </ViewTransitions>

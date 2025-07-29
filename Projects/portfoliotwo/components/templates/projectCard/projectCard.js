@@ -17,6 +17,7 @@ export default function ProjectCard({
     categories,
     children,
     scale,
+    delay,
     startingScale,
     movementFactor,
     startTrigger = "top 90%",
@@ -28,9 +29,10 @@ export default function ProjectCard({
     const arrowContainerRef = useRef(null); 
     const projectCardRef = useRef(null);
     const textContainerRef = useRef(null);
-    const paragraphRef = useRef(null)
+    const paragraphRef = useRef(null);
 
     useGSAP(() => {
+        const projectContainer = projectCardRef.current;
         const paragraphContainer = paragraphRef.current;
         if (!paragraphContainer) return;
 
@@ -52,18 +54,13 @@ export default function ProjectCard({
             },
         });
 
-    }, { scope: projectCardRef, dependencies: [categories] });
-
-    useGSAP(() => {
-        const projectContainer = projectCardRef.current;
-        if (!projectContainer) return;
-
         gsap.to(projectContainer, {
             opacity: 1,
             y: 0,
-            duration: 0.4,
-            ease: "power2.out",
+            duration: 1,
+            ease: "custom.default",
             scale: 1,
+            delay: delay,
             scrollTrigger: {
                 trigger: projectContainer,
                 start: startTrigger,
@@ -72,7 +69,7 @@ export default function ProjectCard({
             },
         });
 
-    }, { scope: projectCardRef});
+    }, { scope: projectCardRef, dependencies: [categories] });
 
 
     useGSAP(() => {

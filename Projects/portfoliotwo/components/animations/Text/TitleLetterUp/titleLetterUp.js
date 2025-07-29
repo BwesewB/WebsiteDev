@@ -13,6 +13,7 @@ export default function TitleLetterUp({
     children,
     className,
     useScrollTrigger = true,
+    titleLetterUpDelay,
 }) {
     const titleRef = useRef(null);
     const containerRef = useRef(null);
@@ -32,6 +33,7 @@ export default function TitleLetterUp({
 
         // --- 3. Create a configuration object for the animation ---
         const animationConfig = {
+            delay: titleLetterUpDelay,
             yPercent: 100,
             opacity: 0,
             stagger: 0.05,
