@@ -59,6 +59,7 @@ export default function ThreeD() {
             <div className={styles.PageHero}>
                 <MediaBlockOrChild
                     videoSrc="/media/3dWorks/MovingMechanicalSphere.mp4"
+                    borderRadius="0"
                 />
             </div>
             
@@ -89,6 +90,7 @@ export default function ThreeD() {
                                     useObjectFitCover={false}
                                     // For videos in a gallery, it's good practice to have them muted by default.
                                     initialMute={true}
+                                    borderRadius="0"
                                 />
                             </div>
                         );
