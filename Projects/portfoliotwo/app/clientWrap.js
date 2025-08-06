@@ -5,7 +5,7 @@ import Navbar from "@/components/organisms/navbar/page";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis"
+import Lenis from "lenis"
 import { setupGsap } from "./utils/gsap-setup";
 import { useAppTransition } from "./utils/TransitionContext";
 
@@ -46,42 +46,47 @@ export default function ClientWrap({ children }) {
     };
   }, []);
 
-  useLayoutEffect(() => {
+useLayoutEffect(() => {
     const wrapper = contentWrapperRef.current;
     if (!wrapper || !lenisRef.current) return;
 
-    // 1. If a transition is happening, we do NOTHING.
-    // The component is mounted but remains hidden due to its inline style.
-    // This runs on the *new* page's first render, preventing the flash.
-    // Crucially, it also runs on the *old* page when `isTransitioning` becomes true,
-    // but since it just returns, the old page content remains visible for the snapshot.
     if (isTransitioning) {
-      console.log(`[ClientWrap] Transition in progress. Awaiting signal to animate in.`);
-      return;
+        return; // Correct: Do nothing, content remains hidden.
     }
 
-    // 2. This code now ONLY runs when we are NOT in a transition.
-    // (e.g., initial page load, or after the remount when isTransitioning is set to false).
-    console.log(`[ClientWrap] Finalizing setup for key: ${combinedKey}. Making content visible.`);
+    // This logic runs only after the remount and when isTransitioning is false.
+    let animationFrameId;
+    let timeoutId;
 
-    // Animate the content in, now that we are ready.
-    gsap.set(wrapper, { autoAlpha: 1 });
-
-    lenisRef.current.scrollTo(0, { immediate: true });
-
-    const refreshTimeout = setTimeout(() => {
-      console.log(`[ClientWrap] Refreshing ScrollTrigger for key: ${combinedKey}`);
-      ScrollTrigger.refresh();
-    }, 100);
+    // We defer all GSAP work until the next available paint cycle.
+    // This gives React's remount time to fully complete.
+    animationFrameId = requestAnimationFrame(() => {
+        // Now animate the wrapper in.
+        gsap.to(wrapper, {
+            autoAlpha: 1,
+            duration: 0.4, // A quick fade-in for the container
+            onStart: () => {
+                // As soon as the container starts to become visible,
+                // set up the scroller and refresh ScrollTrigger.
+                lenisRef.current.scrollTo(0, { immediate: true });
+                
+                timeoutId = setTimeout(() => {
+                    console.log(`[ClientWrap] Refreshing ScrollTrigger for key: ${combinedKey}`);
+                    ScrollTrigger.refresh();
+                }, 50); 
+            }
+        });
+    });
 
     return () => {
-      clearTimeout(refreshTimeout);
-      console.log(`[ClientWrap] Killing triggers for key: ${combinedKey}`);
-      ScrollTrigger.killAll();
+        // Correctly clean up everything.
+        cancelAnimationFrame(animationFrameId);
+        clearTimeout(timeoutId);
+        gsap.killTweensOf(wrapper);
+        ScrollTrigger.killAll();
     };
 
-    // The effect depends on the remount key and the transition flag.
-  }, [combinedKey, isTransitioning]);
+}, [combinedKey, isTransitioning]);
 
 
   return (

@@ -76,7 +76,7 @@ export default function Navbar({}) {
     const handleNavClick = (e, href) => {
         e.preventDefault();
         console.log("A. [Navbar] Link clicked, calling startTransition for:", href);
-        startTransition(href, slideInOut); // 4. Call startTransition
+        startTransition(href, slideInOut, 1400);
     };
 
     return (
