@@ -19,7 +19,7 @@ const MediaBlock = ({
   videoPosterSrc,
   mediaHeight = "100%",
   initialMute = true,
-  sectionHeading,
+  priority = false,
   scale = 1,
   enableRevealAnimation = true,
   enableParallax = false, 
@@ -34,30 +34,28 @@ const MediaBlock = ({
   const objectFitValue = useObjectFitCover ? 'cover' : 'initial';
 
   useGSAP(() => {
-      const container = containerRef.current;
-      const mediaWrapper = mediaWrapperRef.current;
-      const media = mediaRef.current;
-
-      if (!container || !mediaWrapper || !media) return;
+    const container = containerRef.current;
+    const mediaWrapper = mediaWrapperRef.current;
+    const media = mediaRef.current;
 
       // --- REVEAL ANIMATION (UNCHANGED) ---
-      if (enableRevealAnimation) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          }
-        });
-        tl.fromTo(container,
-          { clipPath: "inset(0% 0% 100% 0%)" },
-          { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.out", duration: 2 }
-        ).fromTo(media, // Note: this still targets the media element itself for the scale effect
-          { scale: 1.5 },
-          { scale: 1, ease: "power3.out", duration: 1.4 },
-          "<"
-        );
-      }
+    if (enableRevealAnimation) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        }
+      });
+      tl.fromTo(container,
+        { clipPath: "inset(0% 0% 100% 0%)" },
+        { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.out", duration: 2 }
+      ).fromTo(media, // Note: this still targets the media element itself for the scale effect
+        { scale: 1.5 },
+        { scale: 1, ease: "power3.out", duration: 1.4 },
+        "<"
+      );
+    }
 
       // --- PARALLAX ANIMATION (NEW) ---
       if (enableParallax) {
@@ -148,7 +146,7 @@ const MediaBlock = ({
             <Image
               ref={mediaRef}
               src={imageSrc}
-              alt={sectionHeading || 'Portfolio media showcase'}
+              alt={'Portfolio media showcase'}
               // layout="fill"
               // style={mediaStyle}
               style={{
@@ -156,21 +154,9 @@ const MediaBlock = ({
                 height: 'auto',
               }}
               className={styles.media}
-              // priority
+              priority={priority}
             />
         )}
-      </div>
-      {/* Overlays */}
-      <div className={styles.overlay}>
-        {sectionHeading && (
-          <h3 className={styles.heading}>{sectionHeading}</h3>
-        )}
-
-        {/* {isVideo && (
-          <button onClick={toggleMute} className={styles.muteButton} aria-label={isMuted ? "Unmute video" : "Mute video"}>
-            {isMuted ? 'UNMUTE' : 'MUTE'}
-          </button>
-        )} */}
       </div>
     </div>
   );

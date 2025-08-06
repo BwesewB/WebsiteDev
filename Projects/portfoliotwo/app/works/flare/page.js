@@ -15,6 +15,19 @@ import LayoutOne from "@/components/templates/Layout-1/layoutOne";
 import LayoutNine from "@/components/templates/Layout-9/layoutNine";
 import LayoutSeven from "@/components/templates/Layout-7/layoutSeven";
 
+import mockupPhoneFlareCropped from "/public/media/flare/MockupPhoneFlareCropped.webp";
+import flarePersona1 from "/public/media/flare/flarePersona1.webp";
+import flarePersona2 from "/public/media/flare/flarePersona2.webp";
+import userStoryMap from "/public/media/flare/userStoryMap.png";
+import flareSitemap from "/public/media/flare/flareSitemap.png";
+import flareStyleguide from "/public/media/flare/FlareStyleguide.png";
+import mockupPhoneMap from "/public/media/flare/MockupPhoneMap.png";
+import mockupPhoneNews from "/public/media/flare/MockupPhoneNews.png";
+import mockupPhoneSafety from "/public/media/flare/MockupPhoneSafety.png";
+import flareTriFold from "/public/media/flare/FlareTriFold.png";
+import flareTriFold2 from "/public/media/flare/FlareTriFold2.png";
+import mockupBusinessCard from "/public/media/flare/MockupBusinessCardCropped.png";
+import flareTeam from "/public/media/flare/FlareTeam.png";
 
 gsap.registerPlugin(ScrollTrigger);
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -74,7 +87,7 @@ export default function Flare({}) {
                 title="Flare"
                 subHeader="Marketing & Animation"
                 paragraph="Flare provides users with a quick and accessible answer to address concerns about wildfires. Wildfires can have devastating impacts on remote areas, cutting off access to critical information and emergency services. Flare bridges this gap by providing real-time, reliable wildfire alerts, even for those living in isolated regions with limited access to traditional media or wildfire updates."
-                imageSrc="/media/flare/MockupPhoneFlareCropped.webp"
+                imageSrc={mockupPhoneFlareCropped}
                 buttons={[
                         { 
                             text: "Launch Website", 
@@ -113,27 +126,27 @@ export default function Flare({}) {
             <LayoutNine
                 header="Our Users"
                 paragraph="User research for Flare revealed the difficulties residents, travelers, and rural communities face during wildfires, including unclear evacuation notices, misinformation, and limited access to resources. Studies on wildfire evacuation and human behavior during crises highlighted the need for real-time alerts, guided safety tips, and offline functionality to support users in high-stress situations. Insights from past wildfire events reinforced the importance of clear, accessible information to help individuals make informed decisions quickly and stay safe."
-                imageSrc1="/media/flare/flarePersona1.webp"
-                imageSrc2="/media/flare/flarePersona2.webp"
+                imageSrc1={flarePersona1}
+                imageSrc2={flarePersona2}
                 mediaHeight="auto"
                 viewHeight={false}
             />
             
             <LayoutOne 
-                imageSrc="/media/flare/userStoryMap.png"
+                imageSrc={userStoryMap}
                 header="User Flow"
                 viewHeight={false}
             />
 
             <LayoutOne 
-                imageSrc="/media/flare/flareSitemap.png"
+                imageSrc={flareSitemap}
                 header="Flare Sitemap"
                 paragraph="The Flare app sitemap organizes essential wildfire safety features into a clear, structured layout. The homepage provides quick access to the apps most important features such as wildfire levels, weather updates, safety and news. The news section aggregates wildfire reports, while the map section includes fire bans, weather forecasts, and fire risk data. The safety section offers preparation and emergency guides alongside an AI chatbot for wildfire-related inquiries. These features provide critical information and guidance, ensuring users can quickly access essential wildfire data and safety resources in an emergency."
                 viewHeight={false}
             />
 
             <LayoutOne 
-                imageSrc="/media/flare/FlareStyleguide.png"
+                imageSrc={flareStyleguide}
                 header="Styleguide"
                 height="auto"
                 viewHeight={false}
@@ -144,9 +157,9 @@ export default function Flare({}) {
                 header= "Design Process"
                 paragraph= "A team of four designers was responsible for creating high-fidelity Figma mockups for each page, along with the logos, branding, and style guide. A dynamic, component-based design system was chosen, utilizing the shadcn/ui component library to serve as a UI library for the three developers. By considering this component library during the design process, the transition from design to code was streamlined, ensuring efficient implementation and consistency across the app."
                 mediaItems={[
-                    { imageSrc: "/media/flare/MockupPhoneMap.png" },
-                    { imageSrc: "/media/flare/MockupPhoneNews.png" },
-                    { imageSrc: "/media/flare/MockupPhoneSafety.png" }
+                    { imageSrc: mockupPhoneMap },
+                    { imageSrc: mockupPhoneNews },
+                    { imageSrc: mockupPhoneSafety }
                 ]}
                 mediaCarouselWidth="120vw"
                 mediaCarouselHeight="50vh"
@@ -189,9 +202,9 @@ export default function Flare({}) {
                 header= "Brochure & Business Card"
                 paragraph= "The business cards and brochures were designed as part of the marketing collateral for a wildfire disaster response app. They featured a clean, informative layout that communicated the app’s purpose and key functions at a glance, making them effective tools for outreach and stakeholder presentations. Both materials were designed to maintain brand consistency and enhance professional credibility."
                 mediaItems={[
-                    { imageSrc: "/media/flare/FlareTriFold.png" },
-                    { imageSrc: "/media/flare/FlareTriFold2.png" },
-                    { imageSrc: "/media/flare/MockupBusinessCardCropped.png" }
+                    { imageSrc: flareTriFold },
+                    { imageSrc: flareTriFold2 },
+                    { imageSrc: mockupBusinessCard }
                 ]}
                 mediaCarouselWidth="120vw"
                 mediaCarouselHeight="50vh"
@@ -200,7 +213,7 @@ export default function Flare({}) {
             <LayoutNine
                 header="Team"
                 videoSrc1="/media/flare/FlareTechDemo.mp4"
-                imageSrc2="/media/flare/FlareTeam.png"
+                imageSrc2={flareTeam}
                 mediaHeight="auto"
                 viewHeight={false}
             />

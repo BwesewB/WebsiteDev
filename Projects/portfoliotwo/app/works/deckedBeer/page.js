@@ -3,6 +3,12 @@ import LayoutHero from "@/components/templates/LayoutHero/layoutHero"
 import LayoutNine from "@/components/templates/Layout-9/layoutNine"
 import LayoutSeven from "@/components/templates/Layout-7/layoutSeven"
 
+import noFeedFishImage from "/public/media/cans/noFeedFish.svg";
+import hookInstructionsImage from "/public/media/cans/hookInstructions.svg";
+import fishLabelImage from "/public/media/cans/labels/Fish@2x.png";
+import crabLabelImage from "/public/media/cans/labels/Crab@2x.png";
+import seaweedLabelImage from "/public/media/cans/labels/Seaweed@2x.png";
+
 export default function DeckedBeer({}) {
     return (
         <div className="container">
@@ -17,8 +23,8 @@ export default function DeckedBeer({}) {
             <LayoutNine 
                 header="Graphics"
                 paragraph='The labels were thoughtfully crafted for fishermen, incorporating subtle yet meaningful design elements reinforcing the theme. Each label includes step-by-step instructions for crafting a hook from the cans pin and features a fishy "DO NOT FEED THE FISH" graphic. To accommodate distribution in Canada, both French and English were integrated for accessibility.'
-                imageSrc1="/media/cans/noFeedFish.svg"
-                imageSrc2="/media/cans/hookInstructions.svg"
+                imageSrc1={noFeedFishImage}
+                imageSrc2={hookInstructionsImage}
                 mediaHeight="auto"
                 viewHeight={false}
                 scale={0.7}
@@ -28,9 +34,9 @@ export default function DeckedBeer({}) {
                 header= "Labels"
                 paragraph= "Decked Lager is a premium brew designed with fishermen in mind, featuring three distinct label variations—Seaweed, Crab, and Fish. Each design draws from maritime elements, reinforcing the brand’s connection to the fishing community. With a focus on quality and craftsmanship, Decked delivers a refined lager experience while embracing the culture of those who spend their days on the water."
                 mediaItems={[
-                    { imageSrc: "/media/cans/labels/Fish@2x.png" },
-                    { imageSrc: "/media/cans/labels/Crab@2x.png" },
-                    { imageSrc: "/media/cans/labels/Seaweed@2x.png" }
+                    { imageSrc: fishLabelImage },
+                    { imageSrc: crabLabelImage },
+                    { imageSrc: seaweedLabelImage }
                 ]}
                 mediaCarouselWidth="120vw"
                 mediaCarouselHeight="50vh"

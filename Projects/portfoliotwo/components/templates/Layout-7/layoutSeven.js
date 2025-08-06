@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import styles from "./layoutSeven.module.css";
-import MediaBlock from '@/components/molecules/MediaBlock/MediaBlock';
 import StickyContainer from "@/components/atoms/stickyContainer/page";
 import TextContainer from "@/components/atoms/textContainer/page";
 import MediaCarousel from "@/components/organisms/MediaCarousel/page";
+import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
 
 const useMediaQuery = (query) => {
     const [matches, setMatches] = useState(false);
@@ -45,10 +45,9 @@ export default function LayoutSeven({
         <div className={styles.mediaColumn}>
             {mediaItems.map((item, index) => (
                 <div key={index} className={styles.mediaItemWrapper}>
-                    <MediaBlock
+                    <MediaBlockOrChild
                         imageSrc={item.imageSrc}
                         videoSrc={item.videoSrc}
-                        useObjectFitCover={false}
                     />
                 </div>
             ))}

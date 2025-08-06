@@ -7,6 +7,7 @@
   align-items: center; */
   /* border: 1px solid green; */
   will-change: transform;
+  /* border: 4px solid red; */
 }
 
 .media {
@@ -16,15 +17,8 @@
   display: block;
   position: relative;
   /* border: 1px solid red; */
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  pointer-events: none; /* Allows clicks to pass through if needed */
+  display: flex;
+  /* align-items: center; */
 }
 
 .heading {
