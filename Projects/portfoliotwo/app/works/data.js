@@ -1,4 +1,6 @@
 import InteractiveCanScene from "@/components/molecules/InteractiveCan/InteractiveCan";
+import CitadelImage from '/public/media/citadel/gate.webp';
+import MagazineImage from '/public/media/magazine/Toilet1.webp';
 
 export const cardData = [
     {
@@ -24,13 +26,13 @@ export const cardData = [
     },
     {
         title: "Citadel",
-        src: "/media/citadel/gate.webp",
+        src: CitadelImage,
         categories: ["After Effects", "Shapr 3D", "Blender", "Photoshop"],
         projectLink: "/works/citadel/"
     },
     {
         title: "Reimagining Spaces",
-        src: "/media/magazine/Toilet1.webp",
+        src: MagazineImage ,
         categories: ["InDesign", "Photoshop"],
         projectLink: "/works/magazine/"
     },

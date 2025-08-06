@@ -10,6 +10,8 @@ import ProjectCard from '@/components/templates/projectCard/projectCard';
 import TitleLetterUp from '@/components/animations/Text/TitleLetterUp/titleLetterUp';
 import Name from '@/components/atoms/name/Name';
 
+import knivesout from '/public/images/knivesout.jpg';
+
 import LayoutHero from '@/components/templates/LayoutHero/layoutHero';
 import LayoutOne from '@/components/templates/Layout-1/layoutOne';
 import LayoutTwo from '@/components/templates/Layout-2/layoutTwo';
@@ -80,7 +82,7 @@ export default function Home() {
               rowStart={1} 
               rowEnd={4}
             >
-              <MediaBlockOrChild imageSrc="/images/knivesout.jpg" maxMediaHeight="80vh"/>
+              <MediaBlockOrChild imageSrc={knivesout} maxMediaHeight="80vh"/>
             </GridLayoutItem >
           </GridLayout>
           <GridLayout>

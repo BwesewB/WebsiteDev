@@ -20,7 +20,8 @@ export default function WorksPage() {
       </div>
       <div className={styles.gridContainer}>
         {cardData.map((project) => {
-          const isVideo = project.src && project.src.endsWith('.mp4');
+          const isVideo = typeof project.src === 'string';
+          const isImage = typeof project.src === 'object' && project.src !== null;
 
           return (
               <ProjectCard
@@ -32,7 +33,7 @@ export default function WorksPage() {
                 startingScale={project.startingScale} 
                 movementFactor={project.movementFactor}
                 videoSrc={isVideo ? project.src : null}
-                imageSrc={!isVideo ? project.src : null}
+                imageSrc={isImage ? project.src : null}
               >
                 {project.customComponent}
               </ProjectCard>

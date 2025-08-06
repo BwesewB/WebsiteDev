@@ -22,6 +22,8 @@ export default function ProjectCard({
     movementFactor,
     startTrigger = "top 90%",
     textColour = "var(--white)",
+    imageSrc,
+    videoSrc,
     ...props
 }) {
 
@@ -125,7 +127,11 @@ export default function ProjectCard({
             link={link}
             className={styles.mediaWrapper} 
         >
-            <MediaBlockOrChild {...props}>
+            <MediaBlockOrChild 
+                imageSrc={imageSrc} 
+                videoSrc={videoSrc}
+                {...props}
+            >
                 {children}
             </MediaBlockOrChild>
         </DynamicHover>

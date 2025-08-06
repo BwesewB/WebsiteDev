@@ -119,7 +119,7 @@ const MediaBlock = ({
   // --- Error Handling ---
   if (!videoSrc && !imageSrc) {
     return (
-      <div className={styles.errorContainer} style={{ width: mediaWidth }}>
+      <div className={styles.errorContainer} style={{ width: "100%" }}>
         <p>Error: No image or video source provided.</p>
       </div>
     );
@@ -145,12 +145,16 @@ const MediaBlock = ({
             autoPlay // Hint for browsers, but Intersection Observer is the real controller
           />
         ) : (
-            <img
+            <Image
               ref={mediaRef}
               src={imageSrc}
               alt={sectionHeading || 'Portfolio media showcase'}
               // layout="fill"
-              style={mediaStyle}
+              // style={mediaStyle}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
               className={styles.media}
               // priority
             />
