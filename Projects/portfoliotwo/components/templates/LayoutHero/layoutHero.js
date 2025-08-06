@@ -33,6 +33,7 @@ export default function LayoutHero({
                         height={height}
                         fullWidth={fullWidth}
                         borderRadius = "0"
+                        priority={true}
                     />
                 </div>
                 <div className={styles.bottomSection}>

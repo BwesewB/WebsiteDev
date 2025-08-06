@@ -35,11 +35,38 @@ export default function ProjectCard({
 
     useGSAP(() => {
         const projectContainer = projectCardRef.current;
+        if (!projectContainer) return;
+
+        gsap.fromTo(projectContainer,
+            { // FROM state
+                autoAlpha: 0, // Use autoAlpha for opacity and visibility
+                scale: 0.7,
+                y: "20%",
+            },
+            { // TO state
+                autoAlpha: 1,
+                scale: 1,
+                y: "0%",
+                duration: 1,
+                ease: "custom.default",
+                delay: delay,
+                scrollTrigger: {
+                    trigger: projectContainer,
+                    start: startTrigger,
+                    toggleActions: "play none none none",
+                    // markers: true,
+                },
+            }
+        );
+    }, { scope: projectCardRef, dependencies: [delay] }); // Depends only on props it uses
+
+    // --- FIX 2: Animation for the categories ---
+    // This effect runs only if categories exist and has its own logic.
+    useGSAP(() => {
         const paragraphContainer = paragraphRef.current;
         if (!paragraphContainer) return;
 
         const tagsToAnimate = gsap.utils.toArray(paragraphContainer.querySelectorAll('span'));
-
         if (tagsToAnimate.length === 0) return;
 
         gsap.from(tagsToAnimate, {
@@ -52,25 +79,8 @@ export default function ProjectCard({
                 trigger: paragraphContainer,
                 start: startTrigger,
                 toggleActions: "play none none none",
-                // markers: true,
             },
         });
-
-        gsap.to(projectContainer, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "custom.default",
-            scale: 1,
-            delay: delay,
-            scrollTrigger: {
-                trigger: projectContainer,
-                start: startTrigger,
-                toggleActions: "play none none none",
-                // markers: true,
-            },
-        });
-
     }, { scope: projectCardRef, dependencies: [categories] });
 
 

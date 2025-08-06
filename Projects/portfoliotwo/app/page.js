@@ -1,4 +1,4 @@
-"use client";
+"use client"; //you gotta remove this line if you want to use server components
 
 import styles from './styles/page.module.css';
 import { useRef, useLayoutEffect } from 'react';
