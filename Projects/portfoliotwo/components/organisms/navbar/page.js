@@ -15,6 +15,9 @@ export default function Navbar({}) {
     const router = useTransitionRouter();
     const { startTransition } = useAppTransition();
 
+    const isProjectPage = pathname.startsWith('/works/') && pathname.length > '/works/'.length;
+    const showLogo = pathname !== "/";
+
     function slideInOut() {
         document.documentElement.animate(
             [
@@ -79,11 +82,46 @@ export default function Navbar({}) {
         startTransition(href, slideInOut, 1400);
     };
 
+    const renderNavContent = () => {
+        // If we are on a specific project page...
+        if (isProjectPage) {
+            return (
+                <h5 className={styles.desktopNav}>
+                    {/* Render a single "Back" link that goes to /works */}
+                    <Link href="/works" onClick={(e) => handleNavClick(e, "/works")}>
+                        Back
+                    </Link>
+                </h5>
+            );
+        }
+
+        // Otherwise, render the standard navigation.
+        if (isMobile) {
+            return <MobileNavbar />;
+        }
+
+        return (
+            <h5 className={styles.desktopNav}>
+                <Link href="/" onClick={(e) => handleNavClick(e, "/")}>
+                    Home
+                </Link>
+                <Link href="/works" onClick={(e) => handleNavClick(e, "/works")}>
+                    Works
+                </Link>
+                <Link href="/gallery" onClick={(e) => handleNavClick(e, "/gallery")}>
+                    Gallery
+                </Link>
+            </h5>
+        );
+    };
+
     return (
         <>
             <nav className={styles.navbar}>
+                {/* --- LOGO LOGIC --- */}
+                {/* The logo should be visible on all pages except the home page */}
                 <div>
-                    { !isHomePage && (
+                    {showLogo && (
                         <Link href="/" onClick={(e) => handleNavClick(e, "/")}>
                             <h5 className={styles.desktopNav} style={{fontSize:"1.2rem", textTransform: "lowercase" }}>
                                 sebfok
@@ -92,24 +130,10 @@ export default function Navbar({}) {
                     )}
                 </div>
 
-                {isMobile ? (
-                    <MobileNavbar />
-                ) : (
-                    <h5 className={styles.desktopNav}>
-                        <Link href="/" onClick={(e) => handleNavClick(e, "/")}>
-                            Home
-                        </Link>
-                        {/* <Link href="/about">About</Link> */}
-                        <Link href="/works" onClick={(e) => handleNavClick(e, "/works")}>
-                            Works
-                        </Link>
-                        <Link href="/gallery" onClick={(e) => handleNavClick(e, "/gallery")}>
-                            Gallery
-                        </Link>
-                    </h5>
-                )}
+                {/* --- DYNAMIC CONTENT --- */}
+                {/* Render the appropriate navigation links */}
+                {renderNavContent()}
             </nav>
         </>
-
     );
 }
