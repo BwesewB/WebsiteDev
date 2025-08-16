@@ -5,15 +5,15 @@
     /* gap: var(--relatedComponentGap); */
     /* width: calc(100vw - calc(var(--masterSpacing) * 4)); */
     height: 100vh;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: calc(-2 * var(--masterSpacing));
     margin-right: calc(-2 * var(--masterSpacing));
 }
 
 .topContainerImage{
-    height: 80vh;
+    height: 100vh;
     width: 100%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .imageHeaderContainer {

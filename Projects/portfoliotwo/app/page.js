@@ -23,6 +23,7 @@ import LayoutSeven from '@/components/templates/Layout-7/layoutSeven';
 import LayoutEight from '@/components/templates/Layout-8/layoutEight';
 import LayoutNine from '@/components/templates/Layout-9/layoutNine';
 import MediaBlockOrChild from '@/components/molecules/MediaBlockOrChild/mediaBlockOrChild';
+import GlassScene from '@/components/molecules/3dPlanes/GlassScene';
 
 
 export default function Home() {
@@ -49,7 +50,7 @@ export default function Home() {
     <>
         <div className={styles.topContainer}>
           <div className={styles.topContainerImage}>
-
+            <GlassScene />
           </div>
         </div>
         <Name isHomePage={true} nameOuterRef={nameOuterRef} />
