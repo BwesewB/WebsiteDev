@@ -3,13 +3,14 @@
 
 import React, { Suspense, useEffect } from "react"
 import { Canvas, useThree } from "@react-three/fiber"
-import { Environment, OrbitControls } from "@react-three/drei"
+import { Environment } from "@react-three/drei"
+import { EffectComposer, Bloom } from "@react-three/postprocessing"
 import Planes from "./Planes"
+
 
 function CameraRig() {
   const { camera } = useThree()
   useEffect(() => {
-    // camera.position.set(-1, 5, 3)
     camera.position.set(0, 0, 3)
     camera.lookAt(0, 0, 0)
     camera.near = 0.1
@@ -21,24 +22,34 @@ function CameraRig() {
 
 export default function GlassScene() {
   return (
-    <Canvas dpr={[1, 1.5]} gl={{ antialias: true }} camera={{ fov: 40 }}>
-      <color attach="background" args={["#edf2f5"]} />
+    <Canvas dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }} camera={{ fov: 40 }} style={{ background: "transparent" }}>
+        <color attach="background" args={["#edf2f5"]} />
 
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[5, 6, 3]} intensity={1.1} castShadow />
-      <Environment preset="studio" blur={1} background={false} />
+        <ambientLight intensity={0.35} />
+        <directionalLight position={[-2, -2, 5]} intensity={1.1} /> {/* bottom */}
+        <directionalLight position={[2.5, 2.5, 2]} intensity={2} /> {/* top */}
+        {/* <directionalLight position={[3, 3, 2]} intensity={1.1} /> */}
+        <Environment 
+            files="/hdr/NormalMap.jpg"
+            blur={1} 
+            background={false} 
+            backgroundIntensity={0.5}
+        />
       <Suspense fallback={null}>
         <Planes
-            rotationDeg={[0, 0, 0]}
+            rotationDeg={[-10, 10, 0]}
             position={[0.5, 1, 0]}
             scale={1}
-        //   rotationDeg={[20, -10, 85]}
-        //   position={[10, 7, 0]}
-        //   scale={15}
-          mouseFollow 
+            mouseFollow 
         />
       </Suspense>
-
+    <EffectComposer>
+        <Bloom
+          luminanceThreshold={0.1}
+          luminanceSmoothing={0.9}
+          intensity={0.5}
+        />
+      </EffectComposer>
       <CameraRig />
     </Canvas>
   )
