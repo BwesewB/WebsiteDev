@@ -3,11 +3,13 @@
 This is version 18 of React.
 
 ## Deploy to Cloudflare
-change node version to fit cloudflare
+change node version to fit Cloudflare
 
-npm install wrangler@latest 
+```
+npm install wrangler@latest
 npx wrangler pages download config portfolio
-create a .nvmrc folder with either "18.18" or "20"
+```
+create a `.nvmrc` file with contents `18.18` or `20`
 
 ## loading.js 
 adds loader automatically
