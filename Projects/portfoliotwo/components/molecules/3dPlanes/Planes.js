@@ -30,21 +30,29 @@ const rotation = useMemo(
 //     backside: { value: true },
 //   })
 
-  const materialProps = {
-    thickness: 1.05,
-    roughness: 0.25,
-    transmission: 1,
+  const glassMaterial = new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color("#ffffff"),
+    metalness: 1,
+    roughness: 0.05,
+    // transparent: true,
+    opacity: 0.9,
+    // transmission: 0.9,
     ior: 2,
-    chromaticAberration: 3,
-    backside: true,
-  }
+    thickness: 0.5,
+    clearcoat: 1,
+    roughness: 0.05,
+    clearcoatRoughness: 0.05,
+    envMapIntensity: 1,
+    chromaticAberration: 5,
+  })
 
   useFrame((state) => {
     if (!mouseFollow || !groupRef.current) return
     const { x, y } = state.pointer 
+
     gsap.to(groupRef.current.rotation, {
-      x: rotation[0] - y * 0.1,
-      y: rotation[1] + x * 0.2,
+      x: rotation[0] - y * 0.2,
+      y: rotation[1] + x * 0.1,
       z: rotation[2],
       duration: 1,
       ease: "power2.out",
@@ -52,8 +60,8 @@ const rotation = useMemo(
     })
 
     gsap.to(groupRef.current.position, {
-      x: position[0] + x * 0.2,
-      y: position[1] + y * 0.2,
+      x: position[0] + x * 0.1,
+      y: position[1] + y * 0.1,
       z: position[2],
       duration: 1,
       ease: "power2.out",
@@ -83,22 +91,8 @@ const rotation = useMemo(
             position={obj.position}
             rotation={obj.rotation}
             scale={obj.scale}
-            castShadow
-            receiveShadow
-          >
-            <MeshTransmissionMaterial
-                {...materialProps}
-                envMapIntensity={0.05}
-                // background={new THREE.Color("#edf2f5")}
-                clearcoat={1}
-                clearcoatRoughness={0.05}
-                iridescence={1}
-                iridescenceIOR={5}
-                iridescenceThicknessRange={[100, 800]}
-                emissive={"#88ccff"}
-                emissiveIntensity={0.1}
-            />
-          </mesh>
+            material={glassMaterial}
+          />
         ))}
     </group>
   )

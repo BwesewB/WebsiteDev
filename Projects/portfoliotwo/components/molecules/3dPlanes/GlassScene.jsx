@@ -14,7 +14,7 @@ function CameraRig() {
     camera.position.set(0, 0, 3)
     camera.lookAt(0, 0, 0)
     camera.near = 0.1
-    camera.far = 5000
+    camera.far = 100
     camera.updateProjectionMatrix()
   }, [camera])
   return null
@@ -22,19 +22,14 @@ function CameraRig() {
 
 export default function GlassScene() {
   return (
-    <Canvas dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }} camera={{ fov: 40 }} style={{ background: "transparent" }}>
+    <Canvas dpr={[1, 1.25]} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }} camera={{ fov: 40 }} style={{ background: "transparent" }}>
         <color attach="background" args={["#edf2f5"]} />
 
         <ambientLight intensity={0.35} />
-        <directionalLight position={[-2, -2, 5]} intensity={1.1} /> {/* bottom */}
-        <directionalLight position={[2.5, 2.5, 2]} intensity={2} /> {/* top */}
+        <directionalLight position={[-2, -2, 5]} intensity={5} /> {/* bottom */}
+        {/* <directionalLight position={[2.5, 2.5, 2]} intensity={2} /> top */}
         {/* <directionalLight position={[3, 3, 2]} intensity={1.1} /> */}
-        <Environment 
-            files="/hdr/NormalMap.jpg"
-            blur={1} 
-            background={false} 
-            backgroundIntensity={0.5}
-        />
+        <Environment files="/hdr/NormalMap.jpg" background={false} />
       <Suspense fallback={null}>
         <Planes
             rotationDeg={[-10, 10, 0]}
@@ -43,7 +38,7 @@ export default function GlassScene() {
             mouseFollow 
         />
       </Suspense>
-    <EffectComposer>
+    <EffectComposer multisampling={0}>
         <Bloom
           luminanceThreshold={0.1}
           luminanceSmoothing={0.9}
