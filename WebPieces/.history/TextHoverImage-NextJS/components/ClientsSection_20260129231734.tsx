@@ -90,7 +90,7 @@ export default function ClientsSection() {
         gsap.killTweensOf(oldMedia);
         gsap.to(oldMedia, {
           opacity: 0,
-          duration: 0.1,
+          duration: 0.2,
           delay: 0.5,
           onComplete: () => {
             oldWrapper.remove();

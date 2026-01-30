@@ -12,7 +12,6 @@ export default function ClientsSection() {
   const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
   const activeWrapperRef = useRef<HTMLDivElement | null>(null);
   const activeMediaRef = useRef<HTMLImageElement | HTMLVideoElement | null>(null);
-  const previousWrappersRef = useRef<Array<{ wrapper: HTMLDivElement; media: HTMLImageElement | HTMLVideoElement }>>([]);
 
   const assets = [
     'Clip1.mp4',
@@ -74,35 +73,26 @@ export default function ClientsSection() {
   useEffect(() => {
     if (!previewRef.current) return;
 
+    // Kill any running tweens
+    if (activeMediaRef.current) gsap.killTweensOf(activeMediaRef.current);
+    if (activeWrapperRef.current) gsap.killTweensOf(activeWrapperRef.current);
+
+    // Fade out and remove old media
+    if (activeMediaRef.current && activeWrapperRef.current) {
+      const oldWrapper = activeWrapperRef.current;
+      const oldMedia = activeMediaRef.current;
+
+      gsap.to(oldMedia, {
+        opacity: 0,
+        duration: 0.1,
+        onComplete: () => {
+          oldWrapper.remove();
+        },
+      });
+    }
+
     // Add new media if hovering
     if (activeIndex !== null) {
-      // Store current active as previous for fade-out
-      if (activeWrapperRef.current && activeMediaRef.current) {
-        previousWrappersRef.current.push({
-          wrapper: activeWrapperRef.current,
-          media: activeMediaRef.current,
-        });
-
-        // Start fading out the old media with a delay
-        const oldMedia = activeMediaRef.current;
-        const oldWrapper = activeWrapperRef.current;
-
-        gsap.killTweensOf(oldMedia);
-        gsap.to(oldMedia, {
-          opacity: 0,
-          duration: 0.1,
-          delay: 0.5,
-          onComplete: () => {
-            oldWrapper.remove();
-            // Remove from previous wrappers array
-            previousWrappersRef.current = previousWrappersRef.current.filter(
-              (item) => item.wrapper !== oldWrapper
-            );
-          },
-        });
-      }
-
-      // Create new media
       const newWrapper = document.createElement('div');
       newWrapper.className = styles.clientImgWrapper;
 
@@ -126,45 +116,10 @@ export default function ClientsSection() {
 
       gsap.to(newMedia, {
         scale: 1,
+        opacity: 1,
         duration: 1.25,
         ease: 'power2.out',
       });
-
-      gsap.to(newMedia, {
-        opacity: 1,
-        duration: 0.2,
-      }, 0);
-    } else {
-      // No hover: fade out current media immediately
-      if (activeMediaRef.current && activeWrapperRef.current) {
-        const media = activeMediaRef.current;
-        const wrapper = activeWrapperRef.current;
-
-        gsap.killTweensOf(media);
-        gsap.to(media, {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            wrapper.remove();
-          },
-        });
-      }
-
-      // Also fade out all previous wrappers immediately
-      previousWrappersRef.current.forEach((item) => {
-        gsap.killTweensOf(item.media);
-        gsap.to(item.media, {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () => {
-            item.wrapper.remove();
-          },
-        });
-      });
-      previousWrappersRef.current = [];
-
-      activeWrapperRef.current = null;
-      activeMediaRef.current = null;
     }
   }, [activeIndex, createMediaElement]);
 

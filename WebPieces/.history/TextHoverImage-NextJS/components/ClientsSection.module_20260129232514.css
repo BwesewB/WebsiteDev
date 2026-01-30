@@ -53,6 +53,8 @@
 
 .clientName h3 {
   line-height: 0.85;
+  position: relative;
+  display: inline-block;
 }
 
 .clientName::after {
@@ -64,13 +66,12 @@
   height: 0.2rem;
   background-color: #FFF;
   transform: scaleX(0);
-  transform-origin: right;
+  transform-origin: left;
   transition: transform 0.3s ease-out;
 }
 
 .clientName:hover::after {
   transform: scaleX(1);
-  transform-origin: left;
 }
 
 .clientImgWrapper {
@@ -127,8 +128,8 @@
   }
 
   .clientName::after {
-    height: 0.2rem;
-    /* bottom: -0.1rem; */
+    height: 0.1rem;
+    bottom: -0.1rem;
   }
 
   .media {

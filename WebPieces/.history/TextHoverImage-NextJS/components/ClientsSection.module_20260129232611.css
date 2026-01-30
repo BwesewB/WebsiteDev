@@ -127,8 +127,8 @@
   }
 
   .clientName::after {
-    height: 0.2rem;
-    /* bottom: -0.1rem; */
+    height: 0.1rem;
+    bottom: -0.1rem;
   }
 
   .media {
