@@ -1,0 +1,22 @@
+"use client";
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import Model from "./Model";
+import { Environment } from "@react-three/drei";
+
+export default function Scene() {
+    return (
+        <Canvas                
+            shadows
+            dpr={[1, 1.5]}
+            gl={{ antialias: true }}
+            style={{ width: '100vw', height: '100vh', background: 'black' }}
+        >
+            <directionalLight intensity={6} position={[0, 3, 2]} />
+            {/* <Environment preset="dawn" /> */}
+            <Suspense fallback={null}>
+                <Model />
+            </Suspense>
+        </Canvas>
+    );
+}
